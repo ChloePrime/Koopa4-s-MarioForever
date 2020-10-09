@@ -1,27 +1,34 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Player
 {
     /// <summary>
-    /// 
+    /// 马里奥主物体
     /// </summary>
     public class Mario : MonoBehaviour
     {
         #region 子对象引用
         private Transform Hitboxes { get; set; }
+        public MarioMove Mover { get; private set; }
+        public MarioJump Jumper { get; private set; }
         private SizeProfile Profile { get => transform.GetChild((int)size).GetComponent<SizeProfile>(); }
-        public Collider2D PhysicHitbox { get => Profile.PhysicHitbox.GetComponent<Collider2D>(); }
         public Transform Center { get => Profile.Center; }
-        public Collider2D DamageHitbox { get => Profile.DamageHitbox.GetComponent<Collider2D>(); }
+        public readonly Dictionary<MarioSize, Collider2D> sizes = new Dictionary<MarioSize, Collider2D>();
 
-        public Transform Anims { get; set; }
+        public Animator Anims { get; private set; }
         #endregion
 
+        public static float DeltaSizeSmallToBig { get; private set; }
+
         #region 字段，部分摘自HelloMarioEngine
+        [SerializeField, RenameInInspector("马里奥状态")]
+        private MarioPowerup powerup;
+        public MarioPowerup Powerup { get => powerup; set => powerup = value; }
         public MarioState State { get; set; }
-        public int Dir { get; set; };
+        public int Dir { get; set; }
 
         public bool IsSkidding { get; set; }
         public bool SwimmingNow { get; set; }
@@ -49,6 +56,10 @@ namespace SweetMoleHouse.MarioForever.Player
                 SetSize(size);
             }
         }
+        public void RefreshSize()
+        {
+            Size = GetRealSize();
+        }
         private void SetSize(MarioSize size)
         {
             int i = 0;
@@ -58,15 +69,28 @@ namespace SweetMoleHouse.MarioForever.Player
                 i++;
             }
         }
+        public MarioSize GetRealSize()
+        {
+            return (Powerup == MarioPowerup.SMALL) ? MarioSize.SMALL : MarioSize.BIG;
+        }
+
+        [SerializeField]
+        private AudioClip testSound;
+        private AudioSource sfxPlayer;
         private void Start()
         {
             Hitboxes = transform.GetChild(0);
-            Anims = transform.GetChild(1);
-            Size = MarioSize.BIG;
+            Mover = GetComponent<MarioMove>();
+            Jumper = GetComponent<MarioJump>();
+            Anims = transform.GetChild(1).GetComponent<Animator>();
+            foreach (MarioSize item in Enum.GetValues(typeof(MarioSize)))
+            {
+                sizes.Add(item, Hitboxes.GetChild((int)item).GetChild(0).GetComponent<Collider2D>());
+            }
+            DeltaSizeSmallToBig = sizes[MarioSize.BIG].bounds.size.y - sizes[MarioSize.SMALL].bounds.size.y;
 
             InitDiffBetweenEditAndRun();
-
-            Anims.GetChild(0).gameObject.SetActive(true);
+            Size = MarioSize.BIG;
         }
 
         /// <summary>
@@ -79,7 +103,6 @@ namespace SweetMoleHouse.MarioForever.Player
         private void InitDiffBetweenEditAndRun()
         {
             transform.Translate(0, -0.5f + Consts.ONE_PIXEL, 0);
-            Destroy(GetComponent<SpriteRenderer>());
         }
     }
 }

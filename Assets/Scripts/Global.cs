@@ -1,9 +1,4 @@
-﻿using Cinemachine;
-using SweetMoleHouse.MarioForever.Debug;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace SweetMoleHouse.MarioForever
@@ -12,8 +7,10 @@ namespace SweetMoleHouse.MarioForever
     /// 全局对象，单例运作
     /// 基本不作为Unity脚本使用
     /// </summary>
-    public class Global:MonoBehaviour
+    public class Global : MonoBehaviour
     {
+        public static RaycastHit2D[] RCAST_TEMP_ARRAY = new RaycastHit2D[64];
+
         private bool debugMode;
         private InputControl inputs;
         [SerializeField]
@@ -26,7 +23,26 @@ namespace SweetMoleHouse.MarioForever
         /// <summary>
         /// 单例实例
         /// </summary>
-        public static Global Instance { get; private set; }
+        private static Global instance;
+        public static Global Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = FindObjectOfType<Global>();
+                }
+                if (instance == null)
+                {
+                    GameObject obj = new GameObject();
+                    obj.AddComponent<Global>();
+                    obj.hideFlags = HideFlags.HideAndDontSave;
+                    instance = obj.GetComponent<Global>();
+                }
+                return instance;
+            }
+            set => instance = value;
+        }
 
         public static string DebugText
         {
@@ -77,9 +93,8 @@ namespace SweetMoleHouse.MarioForever
 
         private bool HandleSingleton()
         {
-            if (Instance == null)
+            if (Instance == this)
             {
-                Instance = this;
                 DontDestroyOnLoad(this);
                 return true;
             }

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using SweetMoleHouse.MarioForever.Base;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Reflection;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
@@ -8,19 +10,22 @@ using static UnityEngine.InputSystem.InputAction;
 namespace SweetMoleHouse.MarioForever
 {
     /// <summary>
-    /// 
+    /// 马里奥跳跃
     /// </summary>
-    public class MarioJump : MonoBehaviour 
+    public class MarioJump : MonoBehaviour
     {
+        [RenameInInspector("跳跃高度")]
         public float jumpHeight;
-        [SerializeField]
+        [Header("重力加速度倍率")]
+        [SerializeField, RenameInInspector("走")]
         private float gravityScaleNonRunning = 0.6f;
-        [SerializeField]
+        [SerializeField, RenameInInspector("跑")]
         private float gravityScaleRunning = 0.5f;
         /// <summary>
         /// X速度大于这个值才算跑起来
         /// </summary>
-        [SerializeField]
+        [Space]
+        [SerializeField, RenameInInspector("跑动高跳的最小x速度")]
         private float runSpeedThreshold = 5f / 8f;
 
         private Player.MarioMove mover;

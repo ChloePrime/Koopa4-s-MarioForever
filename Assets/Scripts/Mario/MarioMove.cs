@@ -2,28 +2,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SweetMoleHouse.MarioForever.Base;
 using static UnityEngine.InputSystem.InputAction;
+
 
 namespace SweetMoleHouse.MarioForever.Player
 {
     /// <summary>
     /// 马里奥横向移动
     /// </summary>
-    public class MarioMove : MovingThing
+    public class MarioMove : BasePhysics
     {
         #region 可配置属性
         [SerializeField]
         private AccProfile walking = new AccProfile(35f / 8f, 0.125f, 0.5f);
+        public AccProfile WalkProfile { get => walking; }
         [SerializeField]
         private AccProfile running = new AccProfile(8f, 0.125f, 0.5f);
-        [SerializeField]
+        public AccProfile RunProfile { get => running; }
+        [SerializeField, RenameInInspector("初速度")]
         private float minSpeed = 1f;
         [Serializable]
-        private class AccProfile
+        public class AccProfile
         {
-            public readonly float maxSpeed;
-            public readonly float runAcc;
-            public readonly float turnAcc;
+            [RenameInInspector("最大速度")] public float maxSpeed;
+            [RenameInInspector("加速度（正向）")]  public float runAcc;
+            [RenameInInspector("加速度（转向）")]  public float turnAcc;
 
             public AccProfile(float maxSpeed, float runAcc, float turnAcc)
             {
@@ -37,14 +41,16 @@ namespace SweetMoleHouse.MarioForever.Player
         /// <summary>
         /// 加速度方向，-1，0或1
         /// </summary>
-        private int accDirection;
+        public int AccDirection { get; private set; }
         private bool IsHoldingRunKey { get; set; }
         private bool IsTowardsWall { get; set; }
         public bool IsRunning { get => IsHoldingRunKey && !IsTowardsWall; }
-        private AccProfile CurProfile { get => IsRunning ? running : walking; }
-        private bool IsTurning { get => (Math.Sign(XSpeed) != accDirection); }
+        public AccProfile CurProfile { get => IsRunning ? running : walking; }
+        private bool IsTurning { get => (Math.Sign(XSpeed) != AccDirection); }
         private Mario mario;
         private MarioJump jumper;
+
+        public bool ControlEnabled { get; set; } = true;
         protected override void Start()
         {
             base.Start();
@@ -62,15 +68,16 @@ namespace SweetMoleHouse.MarioForever.Player
             input.FireOrRun.performed -= OnRunPressed;
             input.FireOrRun.canceled -= OnRunReleased;
         }
-        private void OnMoveX(CallbackContext ctx) => accDirection = Math.Sign(ctx.ReadValue<float>());
+        private void OnMoveX(CallbackContext ctx) => AccDirection = Math.Sign(ctx.ReadValue<float>());
         private void OnRunPressed(CallbackContext ctx) => IsHoldingRunKey = true;
         private void OnRunReleased(CallbackContext ctx) => IsHoldingRunKey = false;
 
         public override float Gravity { get => base.Gravity * jumper.GetGravityScale(); }
 
-        protected override void FixedUpdate()
+        protected void FixedUpdate()
         {
-            if (accDirection != 0)
+            var accDir = ControlEnabled ? AccDirection : 0;
+            if (accDir != 0)
             {
                 AddSpeed();
             }
@@ -78,7 +85,6 @@ namespace SweetMoleHouse.MarioForever.Player
             {
                 DecrSpeed();
             }
-            base.FixedUpdate();
         }
 
         private void AddSpeed()
@@ -86,16 +92,16 @@ namespace SweetMoleHouse.MarioForever.Player
             //区分当前是否属于转向阶段
             if (IsTurning)
             {
-                XSpeed += CurProfile.turnAcc * accDirection;
+                XSpeed += CurProfile.turnAcc * AccDirection * Time.fixedDeltaTime;
             }
             else
             {
                 //初速度
                 if (Math.Abs(XSpeed) < minSpeed)
                 {
-                    XSpeed += minSpeed * accDirection;
+                    XSpeed += minSpeed * AccDirection;
                 }
-                XSpeed += CurProfile.runAcc * accDirection;
+                XSpeed += CurProfile.runAcc * AccDirection * Time.fixedDeltaTime;
             }
             XSpeed = Mathf.Clamp(XSpeed, -CurProfile.maxSpeed, CurProfile.maxSpeed);
         }
@@ -103,7 +109,7 @@ namespace SweetMoleHouse.MarioForever.Player
         private void DecrSpeed()
         {
             int signBefore = Math.Sign(XSpeed);
-            XSpeed -= CurProfile.runAcc * signBefore;
+            XSpeed -= CurProfile.runAcc * signBefore * Time.fixedDeltaTime;
             //如果减速后变号，说明已减速至0
             if (signBefore != Math.Sign(XSpeed))
             {
@@ -111,12 +117,5 @@ namespace SweetMoleHouse.MarioForever.Player
             }
         }
 
-        private void OnGUI()
-        {
-            if (GUILayout.Button("变小"))
-            {
-                transform.localScale *= new Vector2(1, 0.5f);
-            }
-        }
     }
 }

@@ -6,6 +6,7 @@ namespace SweetMoleHouse
 {
     /// <summary>
     /// 马里奥个子
+    /// 决定碰撞箱大小
     /// </summary>
     public enum MarioSize
     {
