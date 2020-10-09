@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using SweetMoleHouse.MarioForever.Base;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
@@ -70,7 +71,7 @@ namespace SweetMoleHouse.MarioForever.Player
 
         private void TryCancelCrouch()
         {
-            bool touchedTop = mario.Mover.R2d.Cast(Vector2.up, Global.RCAST_TEMP_ARRAY, Mario.DeltaSizeSmallToBig) > 0;
+            bool touchedTop = mario.Mover.R2d.Cast(Vector2.up, BasePhysics.GlobalFilter, Global.RCAST_TEMP_ARRAY, Mario.DeltaSizeSmallToBig) > 0;
             if (!touchedTop)
             {
                 Crouching = false;

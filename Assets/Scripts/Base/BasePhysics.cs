@@ -15,6 +15,7 @@ namespace SweetMoleHouse.MarioForever.Base
     {
         protected static readonly float ANTI_TRAP_EPSILON = Consts.ONE_PIXEL / 8;
         protected static ContactFilter2D FILTER = new ContactFilter2D().NoFilter();
+        public static ContactFilter2D GlobalFilter { get => FILTER; }
         /// <summary>
         /// 射线追踪的结果缓存
         /// 请不要保留对这个对象的引用
