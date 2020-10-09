@@ -15,6 +15,11 @@ namespace SweetMoleHouse.MarioForever.Base
     {
         protected static readonly float ANTI_TRAP_EPSILON = Consts.ONE_PIXEL / 8;
         protected static ContactFilter2D FILTER = new ContactFilter2D().NoFilter();
+        /// <summary>
+        /// 射线追踪的结果缓存
+        /// 请不要保留对这个对象的引用
+        /// 因为内部数据随时会被覆写
+        /// </summary>
         protected static RaycastHit2D[] RCAST_TEMP_ARRAY = new RaycastHit2D[64];
         protected static bool inited = false;
 
@@ -29,7 +34,7 @@ namespace SweetMoleHouse.MarioForever.Base
         private float minYSpeed = float.PositiveInfinity;
 
         /// <summary>
-        /// 速度矢量（px/frame）
+        /// 速度矢量（block/s）
         /// </summary>
         [SerializeField, RenameInInspector("初速度")]
         protected Vector2 vel = Vector2.zero;
@@ -39,13 +44,11 @@ namespace SweetMoleHouse.MarioForever.Base
         public float YSpeed { get => vel.y; set => vel.y = value; }
         public virtual float Gravity { get => gravity; set => gravity = value; }
 
-        protected int antiStuckCd;
         public Rigidbody2D R2d { get; protected set; }
         protected virtual void Start()
         {
             InitClass();
             R2d = GetComponent<Rigidbody2D>();
-            antiStuckCd = gameObject.GetInstanceID() % 8;
         }
 
         public enum SlopeState
@@ -59,6 +62,8 @@ namespace SweetMoleHouse.MarioForever.Base
         /// <summary>
         /// 斜坡坡度对速度的衰减
         /// 真实x速度 = x速度 * 这个值
+        /// (真实y速度 = x速度 * <see cref="BaseSlope.Degree"/>)
+        /// 只对上坡有效
         /// </summary>
         private float slopeFactor;
 
@@ -100,12 +105,20 @@ namespace SweetMoleHouse.MarioForever.Base
             }
             fieldToSet = 0;
         }
+        /// <summary>
+        /// 应用速度上下限
+        /// </summary>
         private void ClampSpeed()
         {
             XSpeed = Mathf.Clamp(XSpeed, -maxXSpeed, maxXSpeed);
             YSpeed = Mathf.Clamp(YSpeed, -minYSpeed, maxYSpeed);
         }
 
+        /// <summary>
+        /// 检测斜坡状态
+        /// </summary>
+        /// <param name="dir">检测的方向矢量</param>
+        /// <param name="isUp">这次检测是上坡(true)还是下坡(false)</param>
         private void CheckSlope(in Vector2 dir, in bool isUp)
         {
             int results = R2d.Cast(dir, FILTER, RCAST_TEMP_ARRAY, 0.125f);
@@ -133,6 +146,10 @@ namespace SweetMoleHouse.MarioForever.Base
                 }
             }
         }
+        /// <summary>
+        /// 设置马里奥当前踩的是哪个斜坡
+        /// 同时计算坡度
+        /// </summary>
         private void SetSlope(in BaseSlope slope)
         {
             if (slope == curSlopeObj)
@@ -143,6 +160,10 @@ namespace SweetMoleHouse.MarioForever.Base
             slopeFactor = 1 / Mathf.Sqrt(1 + slope.Degree * slope.Degree);
         }
 
+        /// <summary>
+        /// 横向移动一段距离
+        /// 会计算上下坡
+        /// </summary>
         public void MoveX(float distance)
         {
             float actualDist;
@@ -180,6 +201,9 @@ namespace SweetMoleHouse.MarioForever.Base
         /// </summary>
         /// <param name="colliders">碰撞结果</param>
         protected virtual void OnHitWallX(in Collider2D[] colliders) { }
+        /// <summary>
+        /// 纵向移动一段距离
+        /// </summary>
         public void MoveY(float distance)
         {
             int amount = R2d.Cast(GetDirY(), FILTER, RCAST_TEMP_ARRAY, Math.Abs(distance) + ANTI_TRAP_EPSILON);
@@ -206,6 +230,11 @@ namespace SweetMoleHouse.MarioForever.Base
                 YSpeed = 0;
             }
         }
+        /// <summary>
+        /// 当物体纵向撞墙时出发
+        /// 此时速度尚未归0
+        /// </summary>
+        /// <param name="colliders">碰撞结果</param>
         protected virtual void OnHitWallY(in Collider2D[] colliders) 
         { 
             if (YSpeed > 0)
@@ -231,6 +260,14 @@ namespace SweetMoleHouse.MarioForever.Base
             return RCAST_TEMP_ARRAY.Take(amount).Select(rr => rr.collider).ToArray();
         }
 
+        /// <summary>
+        /// 移动一段距离
+        /// </summary>
+        /// <param name="vel">要移动的位移矢量</param>
+        /// <returns>
+        /// 撞到的实心对象个数
+        /// 实心对象存放在<see cref="RCAST_TEMP_ARRAY"/>内
+        /// </returns>
         protected int Move(in Vector2 vel)
         {
             float length = vel.magnitude;
@@ -260,6 +297,10 @@ namespace SweetMoleHouse.MarioForever.Base
             inited = true;
         }
 
+        /// <summary>
+        /// 获取X方向的方向矢量
+        /// </summary>
+        /// <returns>X方向的方向矢量</returns>
         protected Vector2 GetDirX()
         {
             if (XSpeed == 0)
@@ -272,6 +313,11 @@ namespace SweetMoleHouse.MarioForever.Base
             }
         }
 
+        /// <summary>
+        /// 获取X方向的方向矢量
+        /// 受上坡影响，不受下坡影响
+        /// </summary>
+        /// <returns>X方向的方向矢量</returns>
         protected Vector2 GetDirXWithSlope()
         {
             if (XSpeed == 0)
@@ -290,6 +336,11 @@ namespace SweetMoleHouse.MarioForever.Base
                 return new Vector2(x, y);
             }
         }
+
+        /// <summary>
+        /// 获取Y方向的方向矢量
+        /// </summary>
+        /// <returns>Y方向的方向矢量</returns>
         protected Vector2 GetDirY()
         {
             if (YSpeed == 0)
