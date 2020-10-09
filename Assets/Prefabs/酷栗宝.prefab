@@ -103,6 +103,7 @@ MonoBehaviour:
   minYSpeed: Infinity
   vel: {x: 0, y: 0}
   walkSpeed: 1.5
+  collideWithOthers: 1
 --- !u!50 &2642266663093281770
 Rigidbody2D:
   serializedVersion: 4
@@ -113,7 +114,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 2642266663093281783}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
