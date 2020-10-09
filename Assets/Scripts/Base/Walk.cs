@@ -29,7 +29,6 @@ namespace SweetMoleHouse.MarioForever.Base
         {
             base.OnHitWallX(colliders);
             realWalkSpeed *= -1;
-            Global.DebugText = XSpeed.ToString();
         }
     }
 }
