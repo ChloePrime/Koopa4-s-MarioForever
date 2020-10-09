@@ -50,6 +50,9 @@ TagManager:
   - name: "\u6D3B\u52A8\u5BF9\u8C61"
     uniqueID: 3281077463
     locked: 0
+  - name: "\u9A6C\u91CC\u5965"
+    uniqueID: 1194293973
+    locked: 0
   - name: "\u7F6E\u9876"
     uniqueID: 3223732339
     locked: 0
