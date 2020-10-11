@@ -14,6 +14,8 @@ namespace SweetMoleHouse.MarioForever.Player
     public class MarioMove : BasePhysics
     {
         #region 可配置属性
+
+        [Header("马里奥物理属性")]
         [SerializeField]
         private AccProfile walking = new AccProfile(35f / 8f, 0.125f, 0.5f);
         public AccProfile WalkProfile { get => walking; }

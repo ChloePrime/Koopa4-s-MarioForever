@@ -452,6 +452,7 @@ MonoBehaviour:
   gravityScaleNonRunning: 0.6
   gravityScaleRunning: 0.5
   runSpeedThreshold: 0.625
+  jumpSound: {fileID: 8300000, guid: a825a1fcf3a3ade42b495ea1f0eae237, type: 3}
 --- !u!114 &7331806584872905358
 MonoBehaviour:
   m_ObjectHideFlags: 0

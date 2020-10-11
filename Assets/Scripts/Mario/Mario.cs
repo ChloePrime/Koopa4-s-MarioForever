@@ -79,10 +79,6 @@ namespace SweetMoleHouse.MarioForever.Player
         {
             SoundPlayer.PlayOneShot(sample);
         }
-
-        [SerializeField]
-        private AudioClip testSound;
-        private AudioSource sfxPlayer;
         private void Start()
         {
             Hitboxes = transform.GetChild(0);

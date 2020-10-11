@@ -1,4 +1,5 @@
 ﻿using SweetMoleHouse.MarioForever.Base;
+using SweetMoleHouse.MarioForever.Player;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,7 +29,12 @@ namespace SweetMoleHouse.MarioForever
         [SerializeField, RenameInInspector("跑动高跳的最小x速度")]
         private float runSpeedThreshold = 5f / 8f;
 
-        private Player.MarioMove mover;
+        [Header("音效设置")]
+        [SerializeField, RenameInInspector("跳跃音效")]
+        private AudioClip jumpSound;
+
+        private Mario mario;
+        private MarioMove mover;
         private bool isReadyToJump;
         public bool IsHoldingJumpKey { get; private set; }
         public float GetGravityScale()
@@ -43,6 +49,7 @@ namespace SweetMoleHouse.MarioForever
 
         private void Start()
         {
+            mario = GetComponent<Mario>();
             mover = GetComponent<Player.MarioMove>();
             Global.Inputs.Mario.Jump.performed += OnJumpInput;
             Global.Inputs.Mario.Jump.canceled += OnJumpRelease;
@@ -77,6 +84,7 @@ namespace SweetMoleHouse.MarioForever
         {
             mover.YSpeed = jumpHeight;
             isReadyToJump = false;
+            mario.PlaySound(jumpSound);
         }
     }
 }
