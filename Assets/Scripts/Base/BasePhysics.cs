@@ -11,7 +11,7 @@ namespace SweetMoleHouse.MarioForever.Base
     /// 移动的东西
     /// 需要自身有<see cref="Rigidbody2D"/>方可生效
     /// </summary>
-    public class BasePhysics : MonoBehaviour
+    public class BasePhysics : MonoBehaviour, IAppearable
     {
         protected static readonly float ANTI_TRAP_EPSILON = Consts.ONE_PIXEL / 8;
         protected static ContactFilter2D FILTER = new ContactFilter2D().NoFilter();
@@ -45,6 +45,25 @@ namespace SweetMoleHouse.MarioForever.Base
         public float YSpeed { get => vel.y; set => vel.y = value; }
         public virtual float Gravity { get => gravity; set => gravity = value; }
 
+        #region 从水管出现
+
+        private bool appearing = false;
+        private bool appeared = true;
+        public virtual void Appear(in Vector2 direction)
+        {
+            appearing = true;
+            appeared = false;
+
+        }
+
+        private float appearProgress = 0;
+        private void AppearUpdate()
+        {
+
+        }
+
+        #endregion
+
         public Rigidbody2D R2d { get; protected set; }
         protected virtual void Start()
         {
@@ -70,6 +89,12 @@ namespace SweetMoleHouse.MarioForever.Base
 
         protected virtual void Update()
         {
+            if (!appeared)
+            {
+                AppearUpdate();
+                return;
+            }
+
             ClampSpeed();
 
             slopeState = SlopeState.FLAT;

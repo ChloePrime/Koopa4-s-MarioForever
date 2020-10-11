@@ -9,7 +9,7 @@ namespace SweetMoleHouse.MarioForever
     /// <summary>
     /// 一个可以顶的东西
     /// </summary>
-    public class BaseHitable : MonoBehaviour, IHitable
+    public class QuestionBlock : MonoBehaviour, IHitable
     {
         protected new Animator animation;
         protected new SpriteRenderer renderer;
@@ -51,8 +51,7 @@ namespace SweetMoleHouse.MarioForever
             if (outputIndex < outputs.Length)
             {
                 animation.SetTrigger("顶起");
-                print("顶起");
-                outputs[outputIndex].SetActive(true);
+                ProcessAppearing(outputs[outputIndex]);
                 ++outputIndex;
             }
             if ((outputIndex >= outputs.Length) && (afterHit != null))
@@ -62,5 +61,15 @@ namespace SweetMoleHouse.MarioForever
             }
             return true;
         }
+
+        private static void ProcessAppearing(in GameObject bonus)
+        {
+            bonus.SetActive(true);
+            var apperable = bonus.GetComponent<IAppearable>();
+            if (apperable != null)
+            {
+                apperable.Appear(Vector2.up);
+            }
+        }
     }
-}
+} 

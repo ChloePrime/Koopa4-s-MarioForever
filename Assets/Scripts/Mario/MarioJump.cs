@@ -33,7 +33,7 @@ namespace SweetMoleHouse.MarioForever
         public bool IsHoldingJumpKey { get; private set; }
         public float GetGravityScale()
         {
-            if (!IsHoldingJumpKey)
+            if (!IsHoldingJumpKey || mover.YSpeed <= 0)
             {
                 return 1f;
             }
