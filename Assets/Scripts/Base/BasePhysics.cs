@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -47,24 +48,54 @@ namespace SweetMoleHouse.MarioForever.Base
 
         #region 从水管出现
 
-        private bool appearing = false;
+        [Header("出水管设置")]
+        [SerializeField, RenameInInspector("出现速度")]
+        private float appearSpeed = 1.5f;
+
         private bool appeared = true;
+        private Vector2 appearDir;
+        private float appearProgress = 0;
         public virtual void Appear(in Vector2 direction)
         {
-            appearing = true;
             appeared = false;
-
+            appearDir = MathHelper.GetAxis(direction);
+            if ((appearDir == Vector2.left) || (appearDir == Vector2.right))
+            {
+                appearProgress = MFUtil.Width(R2d);
+            }
+            else
+            {
+                appearProgress = MFUtil.Height(R2d);
+            }
+            appearProgress += Consts.ONE_PIXEL;
         }
 
-        private float appearProgress = 0;
         private void AppearUpdate()
         {
-
+            float distance = appearSpeed * Time.deltaTime;
+            appearProgress -= distance;
+            transform.Translate(appearDir * distance);
+            if (appearProgress <= 0)
+            {
+                appeared = true;
+            }
         }
 
         #endregion
 
-        public Rigidbody2D R2d { get; protected set; }
+        private Rigidbody2D r2d;
+        public Rigidbody2D R2d 
+        { 
+            get
+            {
+                if (r2d == null)
+                {
+                    r2d = GetComponent<Rigidbody2D>();
+                }
+                return r2d;
+            }
+            protected set => r2d = value;
+        }
         protected virtual void Start()
         {
             InitClass();
@@ -95,6 +126,13 @@ namespace SweetMoleHouse.MarioForever.Base
                 return;
             }
 
+            YSpeed -= Gravity * Time.deltaTime;
+            //如果物体的速度接近静止则停止计算运动
+            if (vel.sqrMagnitude <= 1e-8f)
+            {
+                return;
+            }
+
             ClampSpeed();
 
             slopeState = SlopeState.FLAT;
@@ -103,7 +141,6 @@ namespace SweetMoleHouse.MarioForever.Base
             StopTowardsWall(GetDirXWithSlope(), ref vel.x);
             StopTowardsWall(GetDirY(), ref vel.y);
 
-            YSpeed -= Gravity * Time.deltaTime;
             MoveX(XSpeed * Time.deltaTime);
             MoveY(YSpeed * Time.deltaTime);
         }
