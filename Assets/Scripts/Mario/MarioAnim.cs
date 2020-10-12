@@ -12,6 +12,7 @@ namespace SweetMoleHouse.MarioForever.Player
     {
         private Mario mario;
         private Animator anim;
+        private MarioPowerup recordedSize = (MarioPowerup)(-1);
         private void Start()
         {
             mario = transform.parent.GetComponent<Mario>();
@@ -27,6 +28,11 @@ namespace SweetMoleHouse.MarioForever.Player
             if ((mario.Mover.AccDirection + curAnimDir) == 0)
             {
                 mario.transform.localScale *= VEC_M1_1;
+            }
+            if (recordedSize != mario.Powerup)
+            {
+                anim.SetInteger("马里奥状态", (int)mario.Powerup);
+                recordedSize = mario.Powerup;
             }
         }
     }

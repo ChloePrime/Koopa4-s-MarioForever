@@ -361,7 +361,7 @@ namespace SweetMoleHouse.MarioForever.Base
         private void InitClass()
         {
             if (inited) return;
-            FILTER.SetLayerMask(~LayerMask.GetMask(Consts.LAYER_ALL_MOVEABLE));
+            FILTER.SetLayerMask(~LayerMask.GetMask(Consts.LAYER_ALL_MOVEABLE, Consts.LAYER_DMG_DETECTOR));
             FILTER.useTriggers = false;
             inited = true;
         }

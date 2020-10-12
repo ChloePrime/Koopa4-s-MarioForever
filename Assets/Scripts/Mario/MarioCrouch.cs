@@ -21,7 +21,7 @@ namespace SweetMoleHouse.MarioForever.Player
             set
             {
                 crouching = value;
-                mario.Mover.ControlEnabled = !value;
+                mario.ControlDisabled= value;
                 mario.Anims.SetBool("下蹲", value);
                 if (value)
                 {
@@ -66,7 +66,7 @@ namespace SweetMoleHouse.MarioForever.Player
             }
 
             bool shouldDisableXMove = Crouching && mario.Mover.IsOnGround;
-            mario.Mover.ControlEnabled = !shouldDisableXMove;
+            mario.ControlDisabled = shouldDisableXMove;
         }
 
         private void TryCancelCrouch()

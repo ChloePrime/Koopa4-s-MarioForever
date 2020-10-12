@@ -53,7 +53,6 @@ namespace SweetMoleHouse.MarioForever.Player
         private Mario mario;
         private MarioJump jumper;
 
-        public bool ControlEnabled { get; set; } = true;
         protected override void Start()
         {
             base.Start();
@@ -79,7 +78,7 @@ namespace SweetMoleHouse.MarioForever.Player
 
         protected void FixedUpdate()
         {
-            var accDir = ControlEnabled ? AccDirection : 0;
+            var accDir = mario.ControlDisabled ? 0 : AccDirection;
             if (accDir != 0)
             {
                 AddSpeed();

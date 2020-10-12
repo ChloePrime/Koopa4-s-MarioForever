@@ -11,22 +11,23 @@ namespace SweetMoleHouse
     public class MarioDamager : MonoBehaviour
     {
         [SerializeField, RenameInInspector("是否可以踩")]
-        private bool stompable;
+        private bool stompable = true;
         [SerializeField, RenameInInspector("踩踏判定分界线")]
-        private Transform stompPos;
+        private Transform stompPos = null;
 
         private void OnCollisionStay2D(Collision2D collision)
         {
-            var hitbox = collision.collider.GetComponent<MarioRpgHitbox>();
+            var hitbox = collision.rigidbody.GetComponent<Mario>();
             if (hitbox == null)
             {
                 return;
             }
             //可以踩
-            if (stompable && hitbox.Mario.transform.position.y >= stompPos.position.y)
+            if (stompable && hitbox.transform.position.y >= stompPos.position.y)
             {
                 return;
             }
+            hitbox.Damage();
         }
     }
 }

@@ -15,5 +15,10 @@ namespace SweetMoleHouse.MarioForever.Player
         {
             Mario = transform.parent.parent.parent.GetComponent<Mario>();
         }
+
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            
+        }
     }
 }

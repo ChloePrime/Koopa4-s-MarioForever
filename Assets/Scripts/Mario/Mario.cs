@@ -19,14 +19,23 @@ namespace SweetMoleHouse.MarioForever.Player
         public readonly Dictionary<MarioSize, Collider2D> sizes = new Dictionary<MarioSize, Collider2D>();
 
         public Animator Anims { get; private set; }
+        public SpriteRenderer Renderer { get; private set; }
         #endregion
 
         public static float DeltaSizeSmallToBig { get; private set; }
 
         #region 字段，部分摘自HelloMarioEngine
+
         [SerializeField, RenameInInspector("马里奥状态")]
         private MarioPowerup powerup;
-        public MarioPowerup Powerup { get => powerup; set => powerup = value; }
+        public MarioPowerup Powerup
+        {
+            get => powerup; set
+            {
+                powerup = value;
+                Size = (value == MarioPowerup.SMALL) ? MarioSize.SMALL : MarioSize.BIG;
+            }
+        }
         public MarioState State { get; set; }
         public int Dir { get; set; }
 
@@ -39,9 +48,10 @@ namespace SweetMoleHouse.MarioForever.Player
         /// 摩擦系数，越小越滑
         /// </summary>
         public float Friction { get; set; }
-        public bool ControlDisabled { get; set; }
+        public bool ControlDisabled { get; set; } = false;
         public bool IsWallJumping { get; set; }
-        public bool IsFlashing { get; set; }
+        public bool IsFlashing { get => FlashTime > 0; }
+        public float FlashTime { get; private set; }
         /// <summary>
         /// 连踩计数
         /// </summary>
@@ -50,28 +60,74 @@ namespace SweetMoleHouse.MarioForever.Player
         private MarioSize size;
         public MarioSize Size
         {
-            get => size; set
+            get => size; 
+            set
             {
                 size = value;
-                SetSize(size);
+                int i = 0;
+                foreach (Transform obj in Hitboxes)
+                {
+                    obj.gameObject.SetActive(i == (int)value);
+                    i++;
+                }
             }
         }
         public void RefreshSize()
         {
             Size = GetRealSize();
         }
-        private void SetSize(MarioSize size)
-        {
-            int i = 0;
-            foreach (Transform obj in Hitboxes)
-            {
-                obj.gameObject.SetActive(i == (int)size);
-                i++;
-            }
-        }
+        /// <summary>
+        /// 获取非下蹲时的马里奥个子
+        /// </summary>
+        /// <returns>非下蹲时的马里奥个子</returns>
         public MarioSize GetRealSize()
         {
             return (Powerup == MarioPowerup.SMALL) ? MarioSize.SMALL : MarioSize.BIG;
+        }
+
+        public void Damage(in float flashTime = 2)
+        {
+            if (FlashTime > 0)
+            {
+                return;
+            }
+            if (Powerup == MarioPowerup.SMALL)
+            {
+                Kill();
+            }
+            else
+            {
+                Powerup = (Powerup == MarioPowerup.BIG) ? MarioPowerup.SMALL : MarioPowerup.BIG;
+                FlashTime = flashTime;
+            }
+        }
+
+        protected static float INVUL_CYCLE = 0.2f;
+        private void Update()
+        {
+            if (IsFlashing)
+            {
+                var color = Renderer.material.color;
+                // 0 ~ INVUL_CYCLE
+                var alpha = Time.time % INVUL_CYCLE;
+                if (alpha > INVUL_CYCLE / 2)
+                {
+                    alpha = INVUL_CYCLE - alpha;
+                }
+                alpha *= 2 / INVUL_CYCLE;
+                color.a = alpha;
+                FlashTime -= Time.deltaTime;
+                if (FlashTime < 0)
+                {
+                    color.a = 1;
+                }
+                Renderer.material.color = color;
+            }
+        }
+
+        public void Kill()
+        {
+
         }
 
         private void Start()
@@ -80,6 +136,7 @@ namespace SweetMoleHouse.MarioForever.Player
             Mover = GetComponent<MarioMove>();
             Jumper = GetComponent<MarioJump>();
             Anims = transform.GetChild(1).GetComponent<Animator>();
+            Renderer = Anims.GetComponent<SpriteRenderer>();
             foreach (MarioSize item in Enum.GetValues(typeof(MarioSize)))
             {
                 sizes.Add(item, Hitboxes.GetChild((int)item).GetChild(0).GetComponent<Collider2D>());
@@ -87,7 +144,7 @@ namespace SweetMoleHouse.MarioForever.Player
             DeltaSizeSmallToBig = sizes[MarioSize.BIG].bounds.size.y - sizes[MarioSize.SMALL].bounds.size.y;
 
             InitDiffBetweenEditAndRun();
-            Size = MarioSize.BIG;
+            RefreshSize();
         }
 
         /// <summary>
