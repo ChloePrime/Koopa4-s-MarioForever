@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   afterHit: {fileID: 1948239407494939225, guid: 87120df37c9750041869e17e3a91c88d, type: 3}
   outputs: []
+  sfx: {fileID: 8300000, guid: 430561b14bc417a46a58d61d1f95bfc0, type: 3}
 --- !u!61 &2232048350775857967
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -17,7 +17,12 @@ namespace SweetMoleHouse.MarioForever
         protected GameObject afterHit;
         [SerializeField, RenameInInspector("顶出的物品")]
         protected GameObject[] outputs;
+        [SerializeField, RenameInInspector("音效")]
+        protected AudioClip sfx = null;
+
         protected int outputIndex = 0;
+        protected static float ANIM_LEN = 0.3f;
+        private float cd;
 
         protected virtual void Start()
         {
@@ -25,14 +30,14 @@ namespace SweetMoleHouse.MarioForever
             renderer = GetComponentInChildren<SpriteRenderer>();
             if (afterHit != null)
             {
-                CreateChild(ref afterHit);
+                CreateChild(ref afterHit, 1);
             }
             for (int i = 0; i < outputs.Length; i++)
             {
-                CreateChild(ref outputs[i]);
+                CreateChild(ref outputs[i], i + 2);
             }
         }
-        private void CreateChild(ref GameObject input)
+        private void CreateChild(ref GameObject input, int delta)
         {
             var cloned = Instantiate(input, transform.parent);
             cloned.transform.position = transform.position;
@@ -42,28 +47,46 @@ namespace SweetMoleHouse.MarioForever
             if (thatSr != null)
             {
                 thatSr.sortingLayerID = renderer.sortingLayerID;
-                thatSr.sortingOrder = renderer.sortingOrder - 1;
+                thatSr.sortingOrder = renderer.sortingOrder - delta;
             }
             input = cloned;
         }
         public virtual bool OnHit(Transform hitter)
         {
+            if (cd > 0)
+            {
+                return true;
+            }
             if (outputIndex < outputs.Length)
             {
+                StartCoroutine(ProcessAppearing(outputs[outputIndex]));
                 animation.SetTrigger("顶起");
-                ProcessAppearing(outputs[outputIndex]);
+                cd = ANIM_LEN;
                 ++outputIndex;
             }
             if ((outputIndex >= outputs.Length) && (afterHit != null))
             {
                 afterHit.SetActive(true);
-                Destroy(gameObject);
+                renderer.enabled = false;
             }
-            return true;
+            return false;
         }
 
-        private static void ProcessAppearing(in GameObject bonus)
+        private void FixedUpdate()
         {
+            if (cd >= 0)
+            {
+                cd -= Time.fixedDeltaTime;
+            }
+        }
+
+        private IEnumerator ProcessAppearing(GameObject bonus)
+        {
+            yield return new WaitForSeconds(ANIM_LEN);
+            if (sfx != null)
+            {
+                Global.PlaySound(sfx);
+            }
             bonus.SetActive(true);
             var apperable = bonus.GetComponent<IAppearable>();
             if (apperable != null)

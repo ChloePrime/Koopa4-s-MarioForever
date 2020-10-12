@@ -40,6 +40,12 @@ namespace SweetMoleHouse.MarioForever.Base
         /// </summary>
         [SerializeField, RenameInInspector("初速度")]
         protected Vector2 vel = Vector2.zero;
+        [Header("音效设置")]
+        [SerializeField, RenameInInspector("顶头音效")]
+        private AudioClip hitHeadSfx = null;
+
+
+
         public bool IsOnGround { get; private set; }
 
         public float XSpeed { get => vel.x; set => vel.x = value; }
@@ -308,12 +314,12 @@ namespace SweetMoleHouse.MarioForever.Base
                     IHitable hitable;
                     if ((hitable = col.GetComponent<IHitable>()) != null)
                     {
-                        defaultSound = hitable.OnHit(transform) && defaultSound;
+                        defaultSound = !hitable.OnHit(transform) && defaultSound;
                     }
                 }
-                if (defaultSound)
+                if (defaultSound && hitHeadSfx != null)
                 {
-
+                    Global.PlaySound(hitHeadSfx);
                 }
             }
             YSpeed = 0;

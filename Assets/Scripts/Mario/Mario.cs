@@ -19,7 +19,6 @@ namespace SweetMoleHouse.MarioForever.Player
         public readonly Dictionary<MarioSize, Collider2D> sizes = new Dictionary<MarioSize, Collider2D>();
 
         public Animator Anims { get; private set; }
-        public AudioSource SoundPlayer { get; private set; }
         #endregion
 
         public static float DeltaSizeSmallToBig { get; private set; }
@@ -75,17 +74,12 @@ namespace SweetMoleHouse.MarioForever.Player
             return (Powerup == MarioPowerup.SMALL) ? MarioSize.SMALL : MarioSize.BIG;
         }
 
-        public void PlaySound(AudioClip sample)
-        {
-            SoundPlayer.PlayOneShot(sample);
-        }
         private void Start()
         {
             Hitboxes = transform.GetChild(0);
             Mover = GetComponent<MarioMove>();
             Jumper = GetComponent<MarioJump>();
             Anims = transform.GetChild(1).GetComponent<Animator>();
-            SoundPlayer = GetComponent<AudioSource>();
             foreach (MarioSize item in Enum.GetValues(typeof(MarioSize)))
             {
                 sizes.Add(item, Hitboxes.GetChild((int)item).GetChild(0).GetComponent<Collider2D>());

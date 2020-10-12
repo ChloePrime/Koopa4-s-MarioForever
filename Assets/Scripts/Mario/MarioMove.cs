@@ -38,6 +38,7 @@ namespace SweetMoleHouse.MarioForever.Player
                 this.turnAcc = turnAcc;
             }
         }
+
         #endregion
 
         /// <summary>
@@ -118,6 +119,5 @@ namespace SweetMoleHouse.MarioForever.Player
                 XSpeed = 0f;
             }
         }
-
     }
 }

@@ -31,7 +31,7 @@ namespace SweetMoleHouse.MarioForever
 
         [Header("音效设置")]
         [SerializeField, RenameInInspector("跳跃音效")]
-        private AudioClip jumpSound;
+        private AudioClip jumpSound = null;
 
         private Mario mario;
         private MarioMove mover;
@@ -84,7 +84,7 @@ namespace SweetMoleHouse.MarioForever
         {
             mover.YSpeed = jumpHeight;
             isReadyToJump = false;
-            mario.PlaySound(jumpSound);
+            Global.PlaySound(jumpSound);
         }
     }
 }

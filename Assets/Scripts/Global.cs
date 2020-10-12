@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace SweetMoleHouse.MarioForever
@@ -13,6 +14,7 @@ namespace SweetMoleHouse.MarioForever
 
         private bool debugMode;
         private InputControl inputs;
+        private new AudioSource audio;
         [SerializeField]
         private Text debugText = null;
         [SerializeField]
@@ -41,8 +43,9 @@ namespace SweetMoleHouse.MarioForever
                 }
                 return instance;
             }
-            set => instance = value;
+            private set => instance = value;
         }
+        public static AudioSource SoundPlayer { get => Instance.audio; }
 
         public static string DebugText
         {
@@ -75,6 +78,10 @@ namespace SweetMoleHouse.MarioForever
         public static Transform DebugStrip { get => Instance.debugStrip; }
 
         #endregion
+        public static void PlaySound(in AudioClip sample)
+        {
+            SoundPlayer.PlayOneShot(sample);
+        }
 
         private void Awake()
         {
@@ -84,6 +91,7 @@ namespace SweetMoleHouse.MarioForever
                 return;
             }
             InitInput();
+            audio = GetComponent<AudioSource>();
 
             DebugMode = false;
 #if UNITY_EDITOR
