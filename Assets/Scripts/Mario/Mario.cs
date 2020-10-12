@@ -14,6 +14,7 @@ namespace SweetMoleHouse.MarioForever.Player
         private Transform Hitboxes { get; set; }
         public MarioMove Mover { get; private set; }
         public MarioJump Jumper { get; private set; }
+        public MarioCrouch Croucher { get; private set; }
         private SizeProfile Profile { get => transform.GetChild((int)size).GetComponent<SizeProfile>(); }
         public Transform Center { get => Profile.Center; }
         public readonly Dictionary<MarioSize, Collider2D> sizes = new Dictionary<MarioSize, Collider2D>();
@@ -41,7 +42,7 @@ namespace SweetMoleHouse.MarioForever.Player
 
         public bool IsSkidding { get; set; }
         public bool SwimmingNow { get; set; }
-        public bool DuckingNow { get; set; }
+        public bool Crouching { get => Croucher.Crouching; }
         public MarioHoldingState Holding { get; set; }
         public MarioStompStyle StompStyle { get; set; }
         /// <summary>
@@ -133,8 +134,12 @@ namespace SweetMoleHouse.MarioForever.Player
         private void Start()
         {
             Hitboxes = transform.GetChild(0);
+            //子脚本的引用
             Mover = GetComponent<MarioMove>();
             Jumper = GetComponent<MarioJump>();
+            Croucher = transform.GetComponent<MarioCrouch>();
+
+            //附属组件
             Anims = transform.GetChild(1).GetComponent<Animator>();
             Renderer = Anims.GetComponent<SpriteRenderer>();
             foreach (MarioSize item in Enum.GetValues(typeof(MarioSize)))

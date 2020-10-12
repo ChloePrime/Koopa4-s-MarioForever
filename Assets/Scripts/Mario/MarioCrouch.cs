@@ -21,8 +21,7 @@ namespace SweetMoleHouse.MarioForever.Player
             set
             {
                 crouching = value;
-                mario.ControlDisabled= value;
-                mario.Anims.SetBool("下蹲", value);
+                mario.ControlDisabled = value;
                 if (value)
                 {
                     mario.Size = MarioSize.SMALL;
