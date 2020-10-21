@@ -58,6 +58,11 @@ namespace SweetMoleHouse.MarioForever.Player
         /// </summary>
         public int ConsecutiveJumpCount { get; set; }
         #endregion
+
+        [Header("音效设置")]
+        [SerializeField, RenameInInspector("受伤音效")]
+        private AudioClip hurtSound = null;
+
         private MarioSize size;
         public MarioSize Size
         {
@@ -98,9 +103,15 @@ namespace SweetMoleHouse.MarioForever.Player
             }
             else
             {
+                Global.PlaySound(hurtSound);
                 Powerup = (Powerup == MarioPowerup.BIG) ? MarioPowerup.SMALL : MarioPowerup.BIG;
                 FlashTime = flashTime;
             }
+        }
+
+        public void OnStomp(in float power, bool shouldCalcCombo)
+        {
+            Jumper.Jump(power);
         }
 
         protected static float INVUL_CYCLE = 0.2f;

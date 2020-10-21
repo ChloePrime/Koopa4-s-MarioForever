@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844752442685900737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6204453993478765736}
@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 6204453993478765738}
   - component: {fileID: 6204453993478765739}
   - component: {fileID: 39651349804207022}
+  - component: {fileID: 1401320377671495052}
   m_Layer: 9
   m_Name: "\u4F24\u5BB3\u5224\u5B9A"
   m_TagString: Untagged
@@ -83,7 +84,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &6204453993478765739
 BoxCollider2D:
@@ -123,5 +124,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 324184ca90fbd214d9fd0f7d23e4069f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stompable: 0
+  stompable: 1
   stompPos: {fileID: 7825864765679995048}
+--- !u!114 &1401320377671495052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6204453993478765751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a725d2710a8414c8596dcacd9198cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stompable: 1
+  stompPos: {fileID: 7825864765679995048}
+  acceptedDamageTypes: -1
+  self: {fileID: 0}
+  corpse: {fileID: 1471511630189498975, guid: 0dc4ff96a341d5846be0cb5c0cb2b99f, type: 3}
+  stompSound: {fileID: 8300000, guid: f3e73bb22ebefc54d8f09930bc579bc6, type: 3}

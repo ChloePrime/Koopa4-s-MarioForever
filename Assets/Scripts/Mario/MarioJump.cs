@@ -82,9 +82,13 @@ namespace SweetMoleHouse.MarioForever
 
         public void Jump()
         {
-            mover.YSpeed = jumpHeight;
-            isReadyToJump = false;
             Global.PlaySound(jumpSound);
+            Jump(jumpHeight);
+        }
+        public void Jump(in float height)
+        {
+            mover.YSpeed = height;
+            isReadyToJump = false;
         }
     }
 }

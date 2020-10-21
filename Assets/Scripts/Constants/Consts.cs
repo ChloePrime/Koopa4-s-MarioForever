@@ -23,5 +23,6 @@ namespace SweetMoleHouse.MarioForever
         }
         public static string LAYER_ALL_MOVEABLE { get; } = "所有移动物品";
         public static string LAYER_DMG_DETECTOR { get; } = "伤害判定";
+        public static string TAG_PLAYER { get; } = "Player";
     }
 }

@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 7331806584872905358}
   m_Layer: 8
   m_Name: "\u9A6C\u91CC\u5965\u4F4D\u7F6E"
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -462,7 +462,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!114 &5640287140928022888
 MonoBehaviour:
@@ -477,6 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerup: 1
+  hurtSound: {fileID: 8300000, guid: 396ff8b635f06d142a1557fa1fa15f42, type: 3}
 --- !u!114 &8356330844048281424
 MonoBehaviour:
   m_ObjectHideFlags: 0
