@@ -23,11 +23,14 @@ namespace SweetMoleHouse.MarioForever
         protected int outputIndex = 0;
         protected static float ANIM_LEN = 0.3f;
         private float cd;
+        private Vector2 size;
 
         protected virtual void Start()
         {
             animation = GetComponentInChildren<Animator>();
             renderer = GetComponentInChildren<SpriteRenderer>();
+            var c2d = GetComponent<Collider2D>();
+            size = c2d.bounds.max - c2d.bounds.min;
             if (afterHit != null)
             {
                 CreateChild(ref afterHit, 1);
@@ -91,7 +94,7 @@ namespace SweetMoleHouse.MarioForever
             var apperable = bonus.GetComponent<IAppearable>();
             if (apperable != null)
             {
-                apperable.Appear(Vector2.up);
+                apperable.Appear(Vector2.up, size);
             }
         }
     }

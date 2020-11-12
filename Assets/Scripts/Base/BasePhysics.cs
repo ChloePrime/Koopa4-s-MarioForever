@@ -2,7 +2,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Linq;
 using UnityEngine;
 
@@ -61,18 +60,19 @@ namespace SweetMoleHouse.MarioForever.Base
         private bool appeared = true;
         private Vector2 appearDir;
         private float appearProgress = 0;
-        public virtual void Appear(in Vector2 direction)
+        public virtual void Appear(in Vector2 direction, in Vector2 size)
         {
             appeared = false;
             appearDir = MathHelper.GetAxis(direction);
             if ((appearDir == Vector2.left) || (appearDir == Vector2.right))
             {
-                appearProgress = MFUtil.Width(R2d);
+                appearProgress = size.x;
             }
             else
             {
-                appearProgress = MFUtil.Height(R2d);
+                appearProgress = size.y;
             }
+            Global.DebugText = appearProgress.ToString();
             appearProgress += Consts.ONE_PIXEL;
         }
 

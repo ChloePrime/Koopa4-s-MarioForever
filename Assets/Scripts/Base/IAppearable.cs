@@ -9,6 +9,6 @@ namespace SweetMoleHouse
     /// </summary>
     public interface IAppearable 
     {
-        void Appear(in Vector2 direction);
+        void Appear(in Vector2 direction, in Vector2 size);
     }
 }
