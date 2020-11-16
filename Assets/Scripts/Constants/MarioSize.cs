@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SweetMoleHouse
+namespace SweetMoleHouse.MarioForever.Constants
 {
     /// <summary>
     /// 马里奥个子

@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using SweetMoleHouse.MarioForever.Constants;
+using SweetMoleHouse.MarioForever.Util;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -78,7 +79,7 @@ namespace SweetMoleHouse.MarioForever.Base
 
         private void AppearUpdate()
         {
-            float distance = appearSpeed * Time.deltaTime;
+            float distance = appearSpeed * Time.fixedDeltaTime;
             appearProgress -= distance;
             transform.Translate(appearDir * distance);
             if (appearProgress <= 0)
@@ -123,8 +124,11 @@ namespace SweetMoleHouse.MarioForever.Base
         /// 只对上坡有效
         /// </summary>
         private float slopeFactor;
+        private float lastFUpdateTime = 0;
+        private Vector2 tickStartPos;
+        private Vector2 tickEndPos;
 
-        protected virtual void Update()
+        protected virtual void FixedUpdate()
         {
             if (!appeared)
             {
@@ -132,23 +136,57 @@ namespace SweetMoleHouse.MarioForever.Base
                 return;
             }
 
-            YSpeed -= Gravity * Time.deltaTime;
+            YSpeed -= Gravity * Time.fixedDeltaTime;
             //如果物体的速度接近静止则停止计算运动
             if (vel.sqrMagnitude <= 1e-8f)
             {
                 return;
             }
 
-            ClampSpeed();
+            if (lastFUpdateTime >= 0.0001)
+            {
+                transform.position = tickEndPos;
+            }
 
+            ClampSpeed();
+            CheckSurroundings();
+            MoveAndRecordPos();
+        }
+
+        private void CheckSurroundings()
+        {
             slopeState = SlopeState.FLAT;
             CheckSlope(GetDirX(), true);
             CheckSlope(Vector2.down, false);
             StopTowardsWall(GetDirXWithSlope(), ref vel.x);
             StopTowardsWall(GetDirY(), ref vel.y);
+        }
 
-            MoveX(XSpeed * Time.deltaTime);
-            MoveY(YSpeed * Time.deltaTime);
+        /// <summary>
+        /// 运动并记录坐标运动前后的坐标
+        /// 这两个坐标会在Update时用于坐标插值
+        /// </summary>
+        private void MoveAndRecordPos()
+        {
+            tickStartPos = transform.position;
+            MoveX(XSpeed * Time.fixedDeltaTime);
+            MoveY(YSpeed * Time.fixedDeltaTime);
+            tickEndPos = transform.position;
+            lastFUpdateTime = Time.time;
+        }
+
+        /// <summary>
+        /// 对马里奥的位置进行平滑插值
+        /// </summary>
+        protected virtual void Update()
+        {
+            if (lastFUpdateTime >= 0.0001)
+            {
+#pragma warning disable UNT0004 // Time.fixedDeltaTime used with Update
+                float prog = (Time.time - lastFUpdateTime) / Time.fixedDeltaTime;
+#pragma warning restore UNT0004 // Time.fixedDeltaTime used with Update
+                transform.position = Vector2.Lerp(tickStartPos, tickEndPos, prog);
+            }
         }
 
         /// <summary>

@@ -2,10 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Security.AccessControl;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace SweetMoleHouse.MarioForever.Enemy
 {
@@ -67,6 +64,11 @@ namespace SweetMoleHouse.MarioForever.Enemy
                 damager.enabled = false;
             }
             Destroy(self.gameObject);
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            OnCollisionStay2D(collision);
         }
 
         private void OnCollisionStay2D(Collision2D collision)

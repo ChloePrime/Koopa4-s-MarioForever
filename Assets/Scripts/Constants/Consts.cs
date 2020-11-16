@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever
+namespace SweetMoleHouse.MarioForever.Constants
 {
     /// <summary>
     /// 全局常量

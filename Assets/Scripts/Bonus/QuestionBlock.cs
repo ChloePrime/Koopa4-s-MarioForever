@@ -1,10 +1,11 @@
 ﻿using JetBrains.Annotations;
+using SweetMoleHouse.MarioForever.Base;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever
+namespace SweetMoleHouse.MarioForever.Bonus
 {
     /// <summary>
     /// 一个可以顶的东西
@@ -45,7 +46,7 @@ namespace SweetMoleHouse.MarioForever
             var cloned = Instantiate(input, transform.parent);
             cloned.transform.position = transform.position;
             cloned.SetActive(false);
-            var thatSr = cloned.TryGetComponent(out SpriteRenderer sr) 
+            var thatSr = cloned.TryGetComponent(out SpriteRenderer sr)
                 ? sr : cloned.GetComponentInChildren<SpriteRenderer>();
             if (thatSr != null)
             {
@@ -67,7 +68,7 @@ namespace SweetMoleHouse.MarioForever
                 cd = ANIM_LEN;
                 ++outputIndex;
             }
-            if ((outputIndex >= outputs.Length) && (afterHit != null))
+            if (outputIndex >= outputs.Length && afterHit != null)
             {
                 afterHit.SetActive(true);
                 renderer.enabled = false;
@@ -98,4 +99,4 @@ namespace SweetMoleHouse.MarioForever
             }
         }
     }
-} 
+}

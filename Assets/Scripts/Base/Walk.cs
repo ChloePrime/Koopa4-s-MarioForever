@@ -27,10 +27,10 @@ namespace SweetMoleHouse.MarioForever.Base
             realWalkSpeed = walkSpeed;
         }
 
-        protected override void Update()
+        protected override void FixedUpdate()
         {
             XSpeed = realWalkSpeed;
-            base.Update();
+            base.FixedUpdate();
         }
         protected override void OnHitWallX(in Collider2D[] colliders)
         {

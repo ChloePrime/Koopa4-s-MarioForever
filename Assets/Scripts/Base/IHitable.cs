@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SweetMoleHouse
+namespace SweetMoleHouse.MarioForever.Base
 {
     /// <summary>
     /// 可以顶的东西
     /// </summary>
-    public interface IHitable 
+    public interface IHitable
     {
         /// <summary>
         /// 被马里奥顶起时执行的动作

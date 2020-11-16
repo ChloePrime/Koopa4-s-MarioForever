@@ -76,7 +76,7 @@ namespace SweetMoleHouse.MarioForever.Player
 
         public override float Gravity { get => base.Gravity * jumper.GetGravityScale(); }
 
-        protected void FixedUpdate()
+        protected override void FixedUpdate()
         {
             var accDir = mario.ControlDisabled ? 0 : AccDirection;
             if (accDir != 0)
@@ -87,6 +87,7 @@ namespace SweetMoleHouse.MarioForever.Player
             {
                 DecrSpeed();
             }
+            base.FixedUpdate();
         }
 
         private void AddSpeed()

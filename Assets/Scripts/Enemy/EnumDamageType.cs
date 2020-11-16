@@ -1,16 +1,16 @@
 ﻿using System;
 
-namespace SweetMoleHouse
+namespace SweetMoleHouse.MarioForever.Enemy
 {
     /// <summary>
     /// 攻击方式
     /// </summary>
     [Flags]
-    public enum EnumDamageType 
+    public enum EnumDamageType
     {
-        STOMP       = 1 << 0,
-        FIREBALL    = 1 << 1,
-        BEETROOT    = 1 << 2,
-        OTHER       = 1 << 3
+        STOMP = 1 << 0,
+        FIREBALL = 1 << 1,
+        BEETROOT = 1 << 2,
+        OTHER = 1 << 3
     }
 }

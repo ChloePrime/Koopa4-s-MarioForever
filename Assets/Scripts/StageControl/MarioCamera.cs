@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever
+namespace SweetMoleHouse.MarioForever.StageControl
 {
     /// <summary>
     /// 需要GameObject上附带Camera组件
     /// </summary>
-    public class MarioCamera : MonoBehaviour 
+    public class MarioCamera : MonoBehaviour
     {
         [SerializeField, RenameInInspector("滚屏界限")]
         private ScrollBorder activeBorder = null;
