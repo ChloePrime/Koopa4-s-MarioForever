@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/按键控制.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/InputControl.inputactions'
 
 using System;
 using System.Collections;
@@ -14,7 +14,7 @@ namespace SweetMoleHouse
         public @InputControl()
         {
             asset = InputActionAsset.FromJson(@"{
-    ""name"": ""按键控制"",
+    ""name"": ""InputControl"",
     ""maps"": [
         {
             ""name"": ""Debug"",

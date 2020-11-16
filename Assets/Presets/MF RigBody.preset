@@ -6,7 +6,7 @@ Preset:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "MF\u8FD0\u52A8\u5B66\u521A\u4F53"
+  m_Name: MF RigBody
   m_TargetType:
     m_NativeTypeID: 50
     m_ManagedTypePPtr: {fileID: 0}

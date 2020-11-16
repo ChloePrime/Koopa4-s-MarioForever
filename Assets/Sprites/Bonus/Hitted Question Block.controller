@@ -76,7 +76,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\u95EE\u53F7\u5757\u9876\u540E"
+  m_Name: Hitted Question Block
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:

@@ -882,7 +882,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "\u9A6C\u91CC\u5965\uFF08\u65E7\u7248\uFF09"
+  m_Name: Deprecated Mario
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: "\u9A6C\u91CC\u5965\u72B6\u6001"
@@ -1069,9 +1069,6 @@ AnimatorStateMachine:
   m_EntryTransitions:
   - {fileID: -5441062298165533959}
   m_StateMachineTransitions:
-  - first: {fileID: -4045316864993620162}
-    second:
-    - {fileID: -6312256643785737608}
   - first: {fileID: -1079399501019504766}
     second:
     - {fileID: -8340561769964501771}
@@ -1081,6 +1078,9 @@ AnimatorStateMachine:
   - first: {fileID: 7811265918709768382}
     second:
     - {fileID: 5530680072825608081}
+  - first: {fileID: -4045316864993620162}
+    second:
+    - {fileID: -6312256643785737608}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -80, y: -30, z: 0}
   m_EntryPosition: {x: 360, y: 140, z: 0}

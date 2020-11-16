@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7825864765679995048}
   m_Layer: 9
-  m_Name: "\u8E29\u8E0F\u5224\u5B9A\u4F4D\u7F6E"
+  m_Name: Stomp Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 39651349804207022}
   - component: {fileID: 1401320377671495052}
   m_Layer: 9
-  m_Name: "\u4F24\u5BB3\u5224\u5B9A"
+  m_Name: Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

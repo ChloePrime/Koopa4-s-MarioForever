@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: "\u9A6C\u91CC\u5965\u4F4D\u7F6E"
+  m_Name: Slope
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 0}
-  m_DefaultGameObject: {fileID: 5965326171828831628, guid: 2187c8e85c4ae434f819938e124abee1, type: 3}
-  m_DefaultColliderType: 0
+  m_DefaultSprite: {fileID: 21300000, guid: d946c41e359e6e742a08eab9c3189a1e, type: 3}
+  m_DefaultGameObject: {fileID: 1125024987439908937, guid: 2599bf42a8f0d6044ba2961b11f7599b, type: 3}
+  m_DefaultColliderType: 1
   m_TilingRules: []
