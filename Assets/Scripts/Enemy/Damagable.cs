@@ -36,7 +36,7 @@ namespace SweetMoleHouse.MarioForever.Enemy
             corpse.SetActive(false);
         }
 
-        public virtual void Attack(EnumDamageType type)
+        public virtual void Attack(in EnumDamageType type)
         {
             if ((acceptedDamageTypes & type) > 0)
             {
@@ -44,7 +44,7 @@ namespace SweetMoleHouse.MarioForever.Enemy
             }
         }
 
-        public virtual void SetDead(EnumDamageType type)
+        public virtual void SetDead(in EnumDamageType type)
         {
             if (isDead)
             {

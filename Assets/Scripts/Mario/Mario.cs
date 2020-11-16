@@ -16,8 +16,6 @@ namespace SweetMoleHouse.MarioForever.Player
         public MarioMove Mover { get; private set; }
         public MarioJump Jumper { get; private set; }
         public MarioCrouch Croucher { get; private set; }
-        private SizeProfile Profile { get => transform.GetChild((int)size).GetComponent<SizeProfile>(); }
-        public Transform Center { get => Profile.Center; }
         public readonly Dictionary<MarioSize, Collider2D> sizes = new Dictionary<MarioSize, Collider2D>();
 
         public Animator Anims { get; private set; }

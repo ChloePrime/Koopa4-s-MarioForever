@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - "\u6240\u6709\u79FB\u52A8\u7269\u54C1"
-  - "\u4F24\u5BB3\u5224\u5B9A"
+  - Physics
+  - Damagers
   - 
   - 
   - 
@@ -38,21 +38,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: "\u6D3B\u52A8\u5BF9\u8C61\uFF08\u5730\u9762\u540E\uFF09"
+  - name: Background
+    uniqueID: 698111385
+    locked: 0
+  - name: ObjectsBehind
     uniqueID: 4090037597
     locked: 0
-  - name: "\u5730\u9762"
+  - name: Tile
     uniqueID: 2799784213
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: "\u6D3B\u52A8\u5BF9\u8C61"
+  - name: Objects
     uniqueID: 3281077463
     locked: 0
-  - name: "\u9A6C\u91CC\u5965"
+  - name: Mario
     uniqueID: 1194293973
     locked: 0
-  - name: "\u7F6E\u9876"
+  - name: FrontLayer
     uniqueID: 3223732339
     locked: 0
