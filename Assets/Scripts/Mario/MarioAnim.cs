@@ -81,12 +81,12 @@ namespace SweetMoleHouse.MarioForever.Player
         }
 
         private string lastStateName = STATE_STATIC;
-        private void ChangeAnimation(string name)
+        private void ChangeAnimation(string animName)
         {
-            var targetName = STATE_NAME_CACHE[(name, mario.Powerup)];
+            var targetName = STATE_NAME_CACHE[(animName, mario.Powerup)];
             if (!anim.GetCurrentAnimatorStateInfo(0).IsName(targetName))
             {
-                lastStateName = name;
+                lastStateName = animName;
                 anim.Play(targetName);
             }
         }

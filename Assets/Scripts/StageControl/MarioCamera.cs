@@ -1,6 +1,4 @@
 ﻿using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.StageControl
@@ -11,7 +9,7 @@ namespace SweetMoleHouse.MarioForever.StageControl
     public class MarioCamera : MonoBehaviour
     {
         [SerializeField, RenameInInspector("滚屏界限")]
-        private ScrollBorder activeBorder = null;
+        private ScrollBorder activeBorder;
 
         private Camera cam;
         private CinemachineBrain actualCam;

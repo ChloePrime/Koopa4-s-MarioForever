@@ -41,7 +41,7 @@ namespace SweetMoleHouse.MarioForever.Player
 
         public bool IsSkidding { get; set; }
         public bool SwimmingNow { get; set; }
-        public bool Crouching { get => Croucher.Crouching; }
+        public bool Crouching => Croucher.Crouching;
         public MarioHoldingState Holding { get; set; }
         public MarioStompStyle StompStyle { get; set; }
         /// <summary>
@@ -87,7 +87,7 @@ namespace SweetMoleHouse.MarioForever.Player
         /// <returns>非下蹲时的马里奥个子</returns>
         public MarioSize GetRealSize()
         {
-            return (Powerup == MarioPowerup.SMALL) ? MarioSize.SMALL : MarioSize.BIG;
+            return Powerup == MarioPowerup.SMALL ? MarioSize.SMALL : MarioSize.BIG;
         }
 
         public void Damage(in float flashTime = 2)

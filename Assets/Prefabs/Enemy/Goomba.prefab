@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6204453993478765751, guid: 515f4bff2840dd94ca976df68eca1784, type: 3}
       propertyPath: m_Name
-      value: "\u4F24\u5BB3\u5224\u5B9A"
+      value: Damage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 515f4bff2840dd94ca976df68eca1784, type: 3}
@@ -118,7 +118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2642266663093281783, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_Name
-      value: "\u677F\u6817\u4ED4"
+      value: Goomba
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
