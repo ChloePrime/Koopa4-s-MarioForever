@@ -1,8 +1,5 @@
 ﻿using SweetMoleHouse.MarioForever.Base;
 using SweetMoleHouse.MarioForever.Constants;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
@@ -18,8 +15,17 @@ namespace SweetMoleHouse.MarioForever.Player
         private bool crouching;
         public bool Crouching
         {
-            get => crouching;
-            set
+            get
+            {
+                // 杜绝任何时候发生小个子下蹲的情况
+                // 解决了下蹲时受伤卡住的bug
+                if (mario.GetRealSize() == MarioSize.SMALL)
+                {
+                    Crouching = false;
+                }
+                return crouching;
+            }
+            private set
             {
                 crouching = value;
                 mario.ControlDisabled = value;
@@ -33,6 +39,7 @@ namespace SweetMoleHouse.MarioForever.Player
                 }
             }
         }
+
         private void Start()
         {
             mario = GetComponent<Mario>();
@@ -53,6 +60,10 @@ namespace SweetMoleHouse.MarioForever.Player
             //小个子没有下蹲操作
             if (mario.GetRealSize() == MarioSize.SMALL)
             {
+                if (Crouching)
+                {
+                    Crouching = false;
+                }
                 return;
             }
 
@@ -71,7 +82,7 @@ namespace SweetMoleHouse.MarioForever.Player
 
         private void TryCancelCrouch()
         {
-            bool touchedTop = mario.Mover.R2d.Cast(Vector2.up, BasePhysics.GlobalFilter, Global.RCAST_TEMP_ARRAY, Mario.DeltaSizeSmallToBig) > 0;
+            bool touchedTop = mario.Mover.R2d.Cast(Vector2.up, BasePhysics.GlobalFilter, Global.RcastTempArray, Mario.DeltaSizeSmallToBig) > 0;
             if (!touchedTop)
             {
                 Crouching = false;
