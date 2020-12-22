@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Administrator\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Administrator\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_MarioForever.-1045429432.00" t="ExcludeRecursive" />
+    <e p="E:\Unity\MarioForever" t="IncludeRecursive">
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="AspectLock.cs" t="Include" />
+          <e p="Base" t="Include">
+            <e p="BasePhysics.cs" t="Include" />
+            <e p="BaseSlope.cs" t="Include" />
+            <e p="IAppearable.cs" t="Include" />
+            <e p="IHitable.cs" t="Include" />
+            <e p="Singleton.cs" t="Include" />
+            <e p="SlopeLeftDown.cs" t="Include" />
+            <e p="SlopeRightDown.cs" t="Include" />
+            <e p="Walk.cs" t="Include" />
+          </e>
+          <e p="BlackBar.cs" t="Include" />
+          <e p="Bonus" t="Include">
+            <e p="QuestionBlock.cs" t="Include" />
+          </e>
+          <e p="Constants" t="Include">
+            <e p="Consts.cs" t="Include" />
+            <e p="MarioPowerup.cs" t="Include" />
+            <e p="MarioSize.cs" t="Include" />
+          </e>
+          <e p="Enemy" t="Include">
+            <e p="Corpse.cs" t="Include" />
+            <e p="Damagable.cs" t="Include" />
+            <e p="EnumDamageType.cs" t="Include" />
+            <e p="MarioDamager.cs" t="Include" />
+            <e p="Stompable.cs" t="Include" />
+          </e>
+          <e p="FlagsTest.cs" t="Include" />
+          <e p="FreeCamera.cs" t="Include" />
+          <e p="Generated" t="Include">
+            <e p="InputControl.cs" t="Include" />
+          </e>
+          <e p="Global.cs" t="Include" />
+          <e p="Mario" t="Include">
+            <e p="Mario.cs" t="Include" />
+            <e p="MarioAnim.cs" t="Include" />
+            <e p="MarioConstants.cs" t="Include" />
+            <e p="MarioCrouch.cs" t="Include" />
+            <e p="MarioJump.cs" t="Include" />
+            <e p="MarioMove.cs" t="Include" />
+            <e p="MarioRpgHitbox.cs" t="Include" />
+          </e>
+          <e p="MarioForever.asmdef" t="Include" />
+          <e p="Persistent" t="Include">
+            <e p="MarioProperty.cs" t="Include" />
+          </e>
+          <e p="StageControl" t="Include">
+            <e p="MarioCamera.cs" t="Include" />
+            <e p="ScrollBorder.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="MarioLives.cs" t="Include" />
+            <e p="TMPCounter.cs" t="Include" />
+          </e>
+          <e p="Util" t="Include">
+            <e p="MathHelper.cs" t="Include" />
+            <e p="MFUtil.cs" t="Include" />
+            <e p="RenameInInspectorAttribute.cs" t="Include" />
+            <e p="RenameInInspectorAttributeDrawer.cs" t="Include" />
+            <e p="Widget" t="Include">
+              <e p="Counter.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="MarioForever.csproj" t="IncludeRecursive" />
+      <e p="MarioForever.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\Bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
