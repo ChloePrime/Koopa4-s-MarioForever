@@ -1,7 +1,4 @@
 ﻿using SweetMoleHouse.MarioForever.Player;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Enemy
@@ -29,7 +26,7 @@ namespace SweetMoleHouse.MarioForever.Enemy
             base.Start();
             if (self == null)
             {
-                self = transform.parent;
+                self = GetComponent<Collider2D>().attachedRigidbody.transform;
             }
 
             corpse = Instantiate(corpse, self.parent);

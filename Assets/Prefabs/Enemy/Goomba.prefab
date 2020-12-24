@@ -56,13 +56,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6204453993478765739, guid: 515f4bff2840dd94ca976df68eca1784, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204453993478765739, guid: 515f4bff2840dd94ca976df68eca1784, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6204453993478765739, guid: 515f4bff2840dd94ca976df68eca1784, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6204453993478765751, guid: 515f4bff2840dd94ca976df68eca1784, type: 3}
       propertyPath: m_Name
       value: Damage
       objectReference: {fileID: 0}
+    - target: {fileID: 6605357505143643918, guid: 515f4bff2840dd94ca976df68eca1784, type: 3}
+      propertyPath: self
+      value: 
+      objectReference: {fileID: 6419509510554172581}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 515f4bff2840dd94ca976df68eca1784, type: 3}
 --- !u!1001 &9060567782166011725

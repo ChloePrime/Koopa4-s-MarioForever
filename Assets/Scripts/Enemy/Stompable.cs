@@ -1,8 +1,4 @@
-﻿using System;
-using SweetMoleHouse.MarioForever.Base;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Enemy
 {
@@ -16,7 +12,7 @@ namespace SweetMoleHouse.MarioForever.Enemy
 
         protected virtual void Start()
         {
-            hasStompHandler = TryGetComponent(out stompHandler);
+            hasStompHandler = transform.parent.TryGetComponent(out stompHandler);
         }
 
         protected bool IsStomp(in Transform mario)
