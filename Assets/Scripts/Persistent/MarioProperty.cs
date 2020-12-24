@@ -1,5 +1,3 @@
-using SweetMoleHouse.MarioForever.Base;
-
 namespace SweetMoleHouse.MarioForever.Persistent
 {
     public static class MarioProperty
