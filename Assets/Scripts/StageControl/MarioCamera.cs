@@ -22,7 +22,7 @@ namespace SweetMoleHouse.MarioForever.StageControl
 
         private void LateUpdate()
         {
-            if (actualCam != null)
+            if (actualCam.isActiveAndEnabled)
             {
                 actualCam.ManualUpdate();
             }
@@ -30,6 +30,11 @@ namespace SweetMoleHouse.MarioForever.StageControl
             {
                 activeBorder.Tick(cam);
             }
+        }
+
+        public void Stop()
+        {
+            actualCam.enabled = false;
         }
     }
 }

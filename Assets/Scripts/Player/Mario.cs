@@ -2,6 +2,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using SweetMoleHouse.MarioForever.Persistent;
+using SweetMoleHouse.MarioForever.StageControl;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Player
@@ -60,7 +62,13 @@ namespace SweetMoleHouse.MarioForever.Player
 
         [Header("音效设置")]
         [SerializeField, RenameInInspector("受伤音效")]
-        private AudioClip hurtSound = null;
+        private AudioClip hurtSound;
+
+        [SerializeField, RenameInInspector("死亡音效")]
+        private AudioClip deathSound;
+
+        [SerializeField]
+        private GameObject corpse;
 
         private MarioSize size;
         public MarioSize Size
@@ -138,7 +146,11 @@ namespace SweetMoleHouse.MarioForever.Player
 
         public void Kill()
         {
-
+            corpse = Instantiate(corpse);
+            corpse.transform.position = transform.position;
+            Global.PlaySound(deathSound);
+            FindObjectOfType<MarioCamera>().Stop();
+            Destroy(gameObject);
         }
 
         private void Start()

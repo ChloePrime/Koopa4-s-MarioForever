@@ -40,6 +40,9 @@
             <e p="InputControl.cs" t="Include" />
           </e>
           <e p="Global.cs" t="Include" />
+          <e p="Level" t="Include">
+            <e p="Timer.cs" t="Include" />
+          </e>
           <e p="MarioForever.asmdef" t="Include" />
           <e p="Persistent" t="Include">
             <e p="MarioProperty.cs" t="Include" />
@@ -48,6 +51,7 @@
             <e p="Mario.cs" t="Include" />
             <e p="MarioAnim.cs" t="Include" />
             <e p="MarioConstants.cs" t="Include" />
+            <e p="MarioCorpse.cs" t="Include" />
             <e p="MarioCrouch.cs" t="Include" />
             <e p="MarioJump.cs" t="Include" />
             <e p="MarioMove.cs" t="Include" />
@@ -60,7 +64,9 @@
           <e p="UI" t="Include">
             <e p="Counter.cs" t="Include" />
             <e p="MarioLifeUI.cs" t="Include" />
+            <e p="MarioScoreUI.cs" t="Include" />
             <e p="ScoreUI.cs" t="Include" />
+            <e p="TimerUI.cs" t="Include" />
           </e>
           <e p="Util" t="Include">
             <e p="MathHelper.cs" t="Include" />

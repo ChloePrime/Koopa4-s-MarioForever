@@ -434,6 +434,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerup: 1
   hurtSound: {fileID: 8300000, guid: 396ff8b635f06d142a1557fa1fa15f42, type: 3}
+  deathSound: {fileID: 8300000, guid: 2adb7bd1cce58e54da6f613584123a81, type: 3}
+  corpse: {fileID: 7027781350797471445, guid: 14418255d692ac94188ca363146173cb, type: 3}
 --- !u!114 &8356330844048281424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,7 +451,7 @@ MonoBehaviour:
   gravity: 78
   maxXSpeed: Infinity
   maxYSpeed: Infinity
-  minYSpeed: 16
+  minYSpeed: 32
   vel: {x: 0, y: 0}
   hitHeadSfx: {fileID: 8300000, guid: a71e2f3cc9493704aa0e5d2b9db275b3, type: 3}
   appearSpeed: 1.5
