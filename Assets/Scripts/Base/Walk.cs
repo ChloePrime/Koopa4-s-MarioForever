@@ -19,23 +19,23 @@ namespace SweetMoleHouse.MarioForever.Base
         /// <summary>
         /// 带符号的行走速度
         /// </summary>
-        protected float realWalkSpeed;
+        protected float RealWalkSpeed;
 
         protected override void Start()
         {
             base.Start();
-            realWalkSpeed = walkSpeed;
+            RealWalkSpeed = walkSpeed;
         }
 
         protected override void FixedUpdate()
         {
-            XSpeed = realWalkSpeed;
+            XSpeed = RealWalkSpeed;
             base.FixedUpdate();
         }
         protected override void OnHitWallX(in Collider2D[] colliders)
         {
             base.OnHitWallX(colliders);
-            realWalkSpeed *= -1;
+            RealWalkSpeed *= -1;
         }
 
         protected virtual void OnCollisionEnter2D(Collision2D collision)
@@ -52,11 +52,11 @@ namespace SweetMoleHouse.MarioForever.Base
             }
             if (transform.position.x < that.transform.position.x)
             {
-                realWalkSpeed = -walkSpeed;
+                RealWalkSpeed = -walkSpeed;
             }
             else
             {
-                realWalkSpeed = walkSpeed;
+                RealWalkSpeed = walkSpeed;
             }
         }
     }

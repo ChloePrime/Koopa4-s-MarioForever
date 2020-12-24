@@ -1,6 +1,4 @@
 ﻿using SweetMoleHouse.MarioForever.Player;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Enemy
@@ -10,6 +8,11 @@ namespace SweetMoleHouse.MarioForever.Enemy
     /// </summary>
     public class MarioDamager : Stompable
     {
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            OnCollisionStay2D(other);
+        }
+
         private void OnCollisionStay2D(Collision2D collision)
         {
             var isMario = collision.transform.TryGetComponent(out Mario mario);

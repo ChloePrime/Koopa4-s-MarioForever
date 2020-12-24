@@ -449,7 +449,7 @@ MonoBehaviour:
   gravity: 78
   maxXSpeed: Infinity
   maxYSpeed: Infinity
-  minYSpeed: 32
+  minYSpeed: 16
   vel: {x: 0, y: 0}
   hitHeadSfx: {fileID: 8300000, guid: a71e2f3cc9493704aa0e5d2b9db275b3, type: 3}
   appearSpeed: 1.5

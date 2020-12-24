@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2642266663093281771}
   - component: {fileID: 2642266663093281782}
   m_Layer: 8
-  m_Name: "\u6807\u51C6\u521A\u4F53"
+  m_Name: Standard Rigidbody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -32,6 +32,7 @@
             <e p="EnumDamageType.cs" t="Include" />
             <e p="MarioDamager.cs" t="Include" />
             <e p="Stompable.cs" t="Include" />
+            <e p="StompHandler.cs" t="Include" />
           </e>
           <e p="FlagsTest.cs" t="Include" />
           <e p="FreeCamera.cs" t="Include" />
@@ -39,7 +40,11 @@
             <e p="InputControl.cs" t="Include" />
           </e>
           <e p="Global.cs" t="Include" />
-          <e p="Mario" t="Include">
+          <e p="MarioForever.asmdef" t="Include" />
+          <e p="Persistent" t="Include">
+            <e p="MarioProperty.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
             <e p="Mario.cs" t="Include" />
             <e p="MarioAnim.cs" t="Include" />
             <e p="MarioConstants.cs" t="Include" />
@@ -48,17 +53,14 @@
             <e p="MarioMove.cs" t="Include" />
             <e p="MarioRpgHitbox.cs" t="Include" />
           </e>
-          <e p="MarioForever.asmdef" t="Include" />
-          <e p="Persistent" t="Include">
-            <e p="MarioProperty.cs" t="Include" />
-          </e>
           <e p="StageControl" t="Include">
             <e p="MarioCamera.cs" t="Include" />
             <e p="ScrollBorder.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
-            <e p="MarioLives.cs" t="Include" />
-            <e p="TMPCounter.cs" t="Include" />
+            <e p="Counter.cs" t="Include" />
+            <e p="MarioLifeUI.cs" t="Include" />
+            <e p="ScoreUI.cs" t="Include" />
           </e>
           <e p="Util" t="Include">
             <e p="MathHelper.cs" t="Include" />

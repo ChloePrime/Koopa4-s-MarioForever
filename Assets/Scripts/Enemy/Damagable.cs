@@ -19,13 +19,14 @@ namespace SweetMoleHouse.MarioForever.Enemy
         [SerializeField, RenameInInspector("尸体")]
         private GameObject corpse;
         [SerializeField, RenameInInspector("踩踏音效")]
-        private AudioClip stompSound = null;
+        private AudioClip stompSound;
 
         private bool isDead;
         private Corpse runtimeCorpse;
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             if (self == null)
             {
                 self = transform.parent;
@@ -81,7 +82,7 @@ namespace SweetMoleHouse.MarioForever.Enemy
             }
         }
 
-        private float GetStompPower(in Mario mario)
+        private static float GetStompPower(in Mario mario)
         {
             return mario.Jumper.IsHoldingJumpKey ? 20 : 13;
         }
