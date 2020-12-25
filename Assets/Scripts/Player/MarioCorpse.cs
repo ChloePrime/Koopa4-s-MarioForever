@@ -1,6 +1,9 @@
-using SweetMoleHouse.MarioForever.Level;
+using System.Collections;
+using SweetMoleHouse.MarioForever.Persistent;
+using SweetMoleHouse.MarioForever.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.VFX;
 
 namespace SweetMoleHouse.MarioForever.Player
 {
@@ -9,42 +12,47 @@ namespace SweetMoleHouse.MarioForever.Player
     /// </summary>
     public class MarioCorpse : MonoBehaviour
     {
-        private float countdown = 0.5F;
         [SerializeField]
         private float ySpeed = 16F;
         [SerializeField]
         private float gravity = 48;
 
-        private float restartCd = 4;
-        private bool restartStarted;
+        private float countdownBeforeMove = 0.5F;
+        private const float RestartCd = 4;
+
+        private void Start()
+        {
+            StartCoroutine(Restart());
+        }
+
         private void FixedUpdate()
         {
-            TryRestart();
-            if (countdown > 0)
+            if (countdownBeforeMove > 0)
             {
-                countdown -= Time.fixedDeltaTime;
+                countdownBeforeMove -= Time.fixedDeltaTime;
                 return;
             }
 
             ySpeed -= gravity * Time.fixedDeltaTime;
         }
 
-        private void TryRestart()
+        private static IEnumerator Restart()
         {
-            if (restartCd <= 0)
+            yield return new WaitForSeconds(RestartCd);
+            if (MarioProperty.Lives > 0)
             {
-                if (!restartStarted)
-                {
-                    SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
-                }
-                restartStarted = true;
+                MarioProperty.Lives -= 1;
+                SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
             }
-            restartCd -= Time.fixedDeltaTime;
+            else
+            {
+                FindObjectOfType<GameOverUI>().Active();
+            }
         }
 
         private void Update()
         {
-            if (countdown > 0) return;
+            if (countdownBeforeMove > 0) return;
             transform.Translate(0, ySpeed * Time.deltaTime, 0);
         }
     }
