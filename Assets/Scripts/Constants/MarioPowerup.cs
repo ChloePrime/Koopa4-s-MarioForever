@@ -9,6 +9,7 @@ namespace SweetMoleHouse.MarioForever.Constants
     /// </summary>
     public enum MarioPowerup
     {
+        UNDEFINED = -1,
         SMALL,
         BIG,
         FIRE_FLOWER,

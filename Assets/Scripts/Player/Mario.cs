@@ -28,14 +28,13 @@ namespace SweetMoleHouse.MarioForever.Player
 
         #region 字段，部分摘自HelloMarioEngine
 
-        [SerializeField, RenameInInspector("马里奥状态")]
-        private MarioPowerup powerup;
         public MarioPowerup Powerup
         {
-            get => powerup; set
+            get => MarioProperty.CurPowerup;
+            set
             {
-                powerup = value;
-                Size = (value == MarioPowerup.SMALL) ? MarioSize.SMALL : MarioSize.BIG;
+                MarioProperty.CurPowerup = value;
+                Size = value == MarioPowerup.SMALL ? MarioSize.SMALL : MarioSize.BIG;
             }
         }
         public MarioState State { get; set; }
@@ -111,7 +110,7 @@ namespace SweetMoleHouse.MarioForever.Player
             else
             {
                 Global.PlaySound(hurtSound);
-                Powerup = (Powerup == MarioPowerup.BIG) ? MarioPowerup.SMALL : MarioPowerup.BIG;
+                Powerup = Powerup == MarioPowerup.BIG ? MarioPowerup.SMALL : MarioPowerup.BIG;
                 FlashTime = flashTime;
             }
         }
@@ -155,6 +154,13 @@ namespace SweetMoleHouse.MarioForever.Player
 
         private void Start()
         {
+            InitChildren();
+            InitDiffBetweenEditAndRun();
+            RefreshSize();
+        }
+
+        private void InitChildren()
+        {
             Hitboxes = transform.GetChild(0);
             //子脚本的引用
             Mover = GetComponent<MarioMove>();
@@ -169,9 +175,6 @@ namespace SweetMoleHouse.MarioForever.Player
                 sizes.Add(item, Hitboxes.GetChild((int)item).GetChild(0).GetComponent<Collider2D>());
             }
             DeltaSizeSmallToBig = sizes[MarioSize.BIG].bounds.size.y - sizes[MarioSize.SMALL].bounds.size.y;
-
-            InitDiffBetweenEditAndRun();
-            RefreshSize();
         }
 
         /// <summary>

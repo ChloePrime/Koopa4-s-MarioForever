@@ -728,7 +728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 368433900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01999998, y: -0.6899996, z: 0}
+  m_LocalPosition: {x: -0.01999998, y: -1.1899996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 842427419}
@@ -1086,7 +1086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 5
-  infinity: 0
+  infinity: 1
   unitPerSecond: 2
 --- !u!4 &1006733883 stripped
 Transform:
@@ -4565,10 +4565,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4588706707996450174, guid: c7bfb10d46fde0449a5ead789dd4ba91, type: 3}
-      propertyPath: jingle
-      value: 
-      objectReference: {fileID: 8300000, guid: 859ec424e90ca7046b6eed34d6450b4d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7bfb10d46fde0449a5ead789dd4ba91, type: 3}
 --- !u!1001 &5937846419529361440

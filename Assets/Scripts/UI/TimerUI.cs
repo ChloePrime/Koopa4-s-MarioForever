@@ -26,6 +26,7 @@ namespace SweetMoleHouse.MarioForever.UI
             levelTimer = FindObjectOfType<Timer>();
             if (levelTimer.Infinity)
             {
+                numberDisplay.Start();
                 numberDisplay.DisplayText = "∞";
             }
         }

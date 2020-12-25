@@ -70,7 +70,6 @@ namespace SweetMoleHouse.MarioForever.Base
             {
                 appearProgress = size.y;
             }
-            Global.DebugText = appearProgress.ToString();
             appearProgress += Consts.ONE_PIXEL;
         }
 
