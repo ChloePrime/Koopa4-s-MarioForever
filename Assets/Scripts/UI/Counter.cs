@@ -1,10 +1,15 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.UI
 {
-    public class TMPCounter : MonoBehaviour
+    /// <summary>
+    /// 使用 TextMeshPro 显示数字的计数器
+    /// </summary>
+    public class Counter : MonoBehaviour
     {
+        [SerializeField]
         private long value;
         public long Value
         {
@@ -21,13 +26,14 @@ namespace SweetMoleHouse.MarioForever.UI
 
         private TMP_Text tmp;
         
-        protected virtual void Start()
+        public virtual void Start()
         {
             tmp = GetComponent<TMP_Text>();
-            foreach (var obj in GetComponents<MonoBehaviour>())
-            {
-                print(obj.GetType().ToString());
-            }
+        }
+        
+        public string DisplayText
+        {
+            set => tmp.text = value;
         }
     }
 }
