@@ -41,6 +41,8 @@
           </e>
           <e p="Global.cs" t="Include" />
           <e p="Level" t="Include">
+            <e p="Background.cs" t="Include" />
+            <e p="ScrollInfo.cs" t="Include" />
             <e p="Timer.cs" t="Include" />
           </e>
           <e p="MarioForever.asmdef" t="Include" />
