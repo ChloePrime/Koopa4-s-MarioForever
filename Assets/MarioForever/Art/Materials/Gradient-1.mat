@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gradient
+  m_Name: Gradient-1
   m_Shader: {fileID: 4800000, guid: f89b214f3eac7cd43a2ac93b7eed0b12, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _OUTLINEENABLED_ON _OUTLINEMODE_SOLID _OUTLINEPOSITION_INSIDE_UNDER_SPRITE
     _OUTLINESHAPE_CONTOUR _TILEMODE_STRETCH
@@ -125,6 +125,6 @@ Material:
     - _ImageOutline: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SolidOutline: {r: 1, g: 1, b: 1, a: 1}
-    - _Top: {r: 0, g: 0, b: 0, a: 1}
+    - _Top: {r: 0.25119257, g: 0.53779876, b: 0.9056604, a: 1}
     - _Value: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
