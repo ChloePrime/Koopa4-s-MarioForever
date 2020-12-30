@@ -1,6 +1,5 @@
 ﻿using SweetMoleHouse.MarioForever.Constants;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using SweetMoleHouse.MarioForever.Persistent;
 using SweetMoleHouse.MarioForever.StageControl;
@@ -120,7 +119,7 @@ namespace SweetMoleHouse.MarioForever.Player
             Jumper.Jump(power);
         }
 
-        protected static float INVUL_CYCLE = 0.2f;
+        private static float INVUL_CYCLE = 0.2f;
         private void Update()
         {
             if (IsFlashing)
@@ -155,7 +154,6 @@ namespace SweetMoleHouse.MarioForever.Player
         private void Start()
         {
             InitChildren();
-            InitDiffBetweenEditAndRun();
             RefreshSize();
         }
 
@@ -175,18 +173,6 @@ namespace SweetMoleHouse.MarioForever.Player
                 sizes.Add(item, Hitboxes.GetChild((int)item).GetChild(0).GetComponent<Collider2D>());
             }
             DeltaSizeSmallToBig = sizes[MarioSize.BIG].bounds.size.y - sizes[MarioSize.SMALL].bounds.size.y;
-        }
-
-        /// <summary>
-        /// 处理编辑器和运行时的差异
-        /// 包括坐标偏差：
-        ///     如果不包括此项，马里奥的出生点会高半格
-        /// 动画切换：
-        ///     运行时删掉在编辑器模式下显示的尸体贴图（挂在root上的 <see cref="SpriteRenderer"/>），
-        /// </summary>
-        private void InitDiffBetweenEditAndRun()
-        {
-            transform.Translate(0, -0.5f + Consts.ONE_PIXEL, 0);
         }
     }
 }
