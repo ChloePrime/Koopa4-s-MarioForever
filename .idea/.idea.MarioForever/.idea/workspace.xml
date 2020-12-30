@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="升级到Unity2020.2并整理代码">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/DamageHandler.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/DamageHandler.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Damagable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Damagable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Mario.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Mario.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioJump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioJump.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/RenameInInspectorAttribute.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/RenameInInspectorAttribute.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +32,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/85/b2eb4c46/CustomYieldInstruction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351E49E2-A5BF-4FD6-BEAB-B458CE2255F3/3d/24c944f9/HashSet`1.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Enemy/Damagable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/UI/ScoreMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/ComboCalculator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.6.3/Runtime/Behaviours/CinemachineBrain.cs" root0="SKIP_HIGHLIGHTING" />
@@ -78,6 +71,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/17/01bfd63a/Guid.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A70CACC3-8B57-40B0-82A0-E3AB93BE903D/2d/75b3b4ca/VideoAspectRatio.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Constants/ScoreTypeData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/33/4647722e/MustExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -212,7 +206,7 @@
       <workItem from="1609238847690" duration="1425000" />
       <workItem from="1609240572313" duration="1850000" />
       <workItem from="1609299660618" duration="12697000" />
-      <workItem from="1609319477889" duration="6324000" />
+      <workItem from="1609319477889" duration="8242000" />
     </task>
     <task id="LOCAL-00001" summary="马里奥生命数UI">
       <created>1608602252775</created>
@@ -361,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609315992341</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="踩踏怪物计分，连踩计分">
+      <created>1609330438605</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1609330438605</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +404,8 @@
     <MESSAGE value="清理Import" />
     <MESSAGE value="整理文件夹" />
     <MESSAGE value="得分，1UP" />
-    <option name="LAST_COMMIT_MESSAGE" value="得分，1UP" />
+    <MESSAGE value="踩踏怪物计分，连踩计分" />
+    <option name="LAST_COMMIT_MESSAGE" value="踩踏怪物计分，连踩计分" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
