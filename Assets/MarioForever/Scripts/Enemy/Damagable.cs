@@ -1,4 +1,5 @@
-﻿using SweetMoleHouse.MarioForever.Player;
+﻿using SweetMoleHouse.MarioForever.Constants;
+using SweetMoleHouse.MarioForever.Player;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Enemy
@@ -17,6 +18,8 @@ namespace SweetMoleHouse.MarioForever.Enemy
         private GameObject corpse;
         [SerializeField, RenameInInspector("踩踏音效")]
         private AudioClip stompSound;
+        [SerializeField, RenameInInspector("奖分")]
+        private ScoreType score;
 
         private bool isDead;
         private Corpse runtimeCorpse;
@@ -53,6 +56,10 @@ namespace SweetMoleHouse.MarioForever.Enemy
             if (type == EnumDamageType.STOMP)
             {
                 Global.PlaySound(stompSound);
+            }
+            else
+            {
+                score.Summon(self.transform);
             }
 
             corpse.SetActive(true);

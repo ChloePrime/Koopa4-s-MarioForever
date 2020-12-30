@@ -117,5 +117,14 @@ namespace SweetMoleHouse.MarioForever.Player
                 XSpeed = 0f;
             }
         }
+
+        protected override void OnHitWallY(in Collider2D[] colliders)
+        {
+            if (YSpeed <= 0)
+            {
+                mario.ComboInfo.ResetCombo();
+            }
+            base.OnHitWallY(in colliders);
+        }
     }
 }

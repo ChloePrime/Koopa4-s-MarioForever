@@ -244,3 +244,4 @@ MonoBehaviour:
   self: {fileID: 0}
   corpse: {fileID: 1471511630189498975, guid: 0dc4ff96a341d5846be0cb5c0cb2b99f, type: 3}
   stompSound: {fileID: 8300000, guid: f3e73bb22ebefc54d8f09930bc579bc6, type: 3}
+  score: 1

@@ -44,7 +44,7 @@ namespace SweetMoleHouse.MarioForever.Player
         private void Start()
         {
             mario = GetComponent<Mario>();
-            mover = GetComponent<Player.MarioMove>();
+            mover = GetComponent<MarioMove>();
             Global.Inputs.Mario.Jump.performed += OnJumpInput;
             Global.Inputs.Mario.Jump.canceled += OnJumpRelease;
         }

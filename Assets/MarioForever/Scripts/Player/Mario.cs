@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using SweetMoleHouse.MarioForever.Level;
 using SweetMoleHouse.MarioForever.Persistent;
+using SweetMoleHouse.MarioForever.Util;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Player
@@ -17,6 +18,7 @@ namespace SweetMoleHouse.MarioForever.Player
         public MarioMove Mover { get; private set; }
         public MarioJump Jumper { get; private set; }
         public MarioCrouch Croucher { get; private set; }
+        public ComboCalculator ComboInfo { get; private set; }
         public readonly Dictionary<MarioSize, Collider2D> sizes = new Dictionary<MarioSize, Collider2D>();
 
         public Animator Anims { get; private set; }
@@ -117,6 +119,7 @@ namespace SweetMoleHouse.MarioForever.Player
         public void OnStomp(in float power, bool shouldCalcCombo)
         {
             Jumper.Jump(power);
+            ComboInfo.Hit(transform);
         }
 
         private static float INVUL_CYCLE = 0.2f;
@@ -164,6 +167,7 @@ namespace SweetMoleHouse.MarioForever.Player
             Mover = GetComponent<MarioMove>();
             Jumper = GetComponent<MarioJump>();
             Croucher = transform.GetComponent<MarioCrouch>();
+            ComboInfo = GetComponent<ComboCalculator>();
 
             //附属组件
             Anims = transform.GetChild(1).GetComponent<Animator>();
