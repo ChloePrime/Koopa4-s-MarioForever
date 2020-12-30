@@ -1,15 +1,12 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.UI;
-using UnityEngine.Rendering;
 
 namespace SweetMoleHouse.MarioForever.Level
 {
     public class Background : MonoBehaviour
     {
-        [SerializeField] private bool loopX = true;
-        [SerializeField] private bool loopY;
+        [SerializeField] private BackgroundAxisMethod loopX = BackgroundAxisMethod.LOOP;
+        [SerializeField] private BackgroundAxisMethod loopY = BackgroundAxisMethod.NO_ACTION;
         
         private Vector2 size;
         private ScrollInfo scrollInfo;
@@ -36,8 +33,12 @@ namespace SweetMoleHouse.MarioForever.Level
             {
                 for (var yCursor = 0F; yCursor <= screenSize.y; yCursor += size.y)
                 {
-                    if (xCursor < size.x && yCursor < size.y) continue;
-                    
+                    bool x0 = xCursor < size.x;
+                    bool y0 = yCursor < size.y;
+                    if (x0 && y0) continue;
+                    if (!x0 && !loopX.ShouldFill()) continue;
+                    if (!y0 && !loopY.ShouldFill()) continue;
+
                     var go = CreateParallelGO();
                     go.transform.position = rootPos + new Vector3(xCursor, yCursor, 0);
                     parts.Add(go);
@@ -59,15 +60,15 @@ namespace SweetMoleHouse.MarioForever.Level
 
         private void GenerateChildren()
         {
-            var partCount = (loopX ? 3 : 1) * (loopY ? 3 : 1) - 1;
+            var partCount = (loopX.ShouldLoop() ? 3 : 1) * (loopY.ShouldLoop() ? 3 : 1) - 1;
             var children = new List<GameObject>(partCount);
             for (var x = -1; x <= 1; x++)
             {
                 for (var y = -1; y <= 1; y++)
                 {
                     if (x == 0 && y == 0) continue;
-                    if (x != 0 && !loopX) continue;
-                    if (y != 0 && !loopY) continue;
+                    if (x != 0 && !loopX.ShouldLoop()) continue;
+                    if (y != 0 && !loopY.ShouldLoop()) continue;
                     
                     var go = CreateParallelGO();
                     go.transform.position = transform.position + new Vector3(size.x * x, size.y * y, 0);
@@ -93,7 +94,7 @@ namespace SweetMoleHouse.MarioForever.Level
         private void Update()
         {
             if (stopped) return;
-            if (loopX)
+            if (loopX.ShouldLoop())
             {
                 if (scrollInfo.Left < transform.position.x)
                 {
@@ -104,7 +105,7 @@ namespace SweetMoleHouse.MarioForever.Level
                     transform.Translate(size.x, 0, 0);
                 }
             }
-            if (loopY)
+            if (loopY.ShouldLoop())
             {
                 if (scrollInfo.Bottom < transform.position.y)
                 {
@@ -115,6 +116,25 @@ namespace SweetMoleHouse.MarioForever.Level
                     transform.Translate(0, size.y, 0);
                 }
             }
+        }
+    }
+    
+    public enum BackgroundAxisMethod
+    {
+        NO_ACTION,
+        FILL,
+        LOOP
+    }
+
+    public static class EnumMethods
+    {
+        public static bool ShouldFill(this BackgroundAxisMethod method)
+        {
+            return method != BackgroundAxisMethod.NO_ACTION;
+        }
+        public static bool ShouldLoop(this BackgroundAxisMethod method)
+        {
+            return method == BackgroundAxisMethod.LOOP;
         }
     }
 }
