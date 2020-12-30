@@ -48,31 +48,13 @@ namespace SweetMoleHouse.MarioForever.Level
                 part.transform.parent = transform;
             }
 
-            //ClearChildren(transform, screenSize);
             size.x = GetMinIntTimes(size.x, screenSize.x);
             size.y = GetMinIntTimes(size.y, screenSize.y);
         }
 
         private static float GetMinIntTimes(float baseNum, float lowBound)
         {
-            return Mathf.Max(1, Mathf.FloorToInt(lowBound / baseNum)) * baseNum;
-        }
-
-        private void ClearChildren(in Transform input, in Vector2 screenSize)
-        {
-            foreach (Transform child in input)
-            {
-                ClearChildren(child, screenSize);
-            }
-
-            var rootPos = transform.position;
-            var partPos = input.position;
-            var isOutBound = partPos.x >= rootPos.x + screenSize.x || partPos.y >= rootPos.y + screenSize.y;
-            if (isOutBound)
-            {
-                input.parent = transform.root;
-                Destroy(input.gameObject);
-            }
+            return Mathf.Max(1, Mathf.CeilToInt(lowBound / baseNum)) * baseNum;
         }
 
         private void GenerateChildren()
@@ -96,14 +78,6 @@ namespace SweetMoleHouse.MarioForever.Level
             children.ForEach(o => o.transform.parent = transform);
         }
 
-        private GameObject CreateSubGO()
-        {
-            var go = CreateParallelGO();
-            go.transform.parent = transform;
-            go.transform.localPosition = Vector3.zero;
-            return go;
-        }
-
         private GameObject CreateParallelGO()
         {
             var go = Instantiate(gameObject, transform.parent);
@@ -124,7 +98,7 @@ namespace SweetMoleHouse.MarioForever.Level
                 if (scrollInfo.Left < transform.position.x)
                 {
                     transform.Translate(-size.x, 0, 0);
-                } 
+                }
                 else if (scrollInfo.Right > transform.position.x + size.x)
                 {
                     transform.Translate(size.x, 0, 0);
