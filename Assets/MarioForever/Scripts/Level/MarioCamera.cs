@@ -1,7 +1,7 @@
 ﻿using Cinemachine;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.StageControl
+namespace SweetMoleHouse.MarioForever.Level
 {
     /// <summary>
     /// 需要GameObject上附带Camera组件
