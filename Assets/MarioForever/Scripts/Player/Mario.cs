@@ -1,8 +1,8 @@
 ﻿using SweetMoleHouse.MarioForever.Constants;
 using System;
 using System.Collections.Generic;
+using SweetMoleHouse.MarioForever.Level;
 using SweetMoleHouse.MarioForever.Persistent;
-using SweetMoleHouse.MarioForever.StageControl;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Player
