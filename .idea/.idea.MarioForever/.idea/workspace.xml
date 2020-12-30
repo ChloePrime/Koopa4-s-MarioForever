@@ -2,8 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="升级到Unity2020.2并整理代码">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Background/GreatWall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Background/GreatWall.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Level/Background/GradientBG1.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Level/Background/GradientBG1.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Level/Background/GradientBG2.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Level/Background/GradientBG2.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Level/Background/GradientBG3.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Level/Background/GradientBG3.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Level/Background/GradientBG4.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Level/Background/GradientBG4.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Level/Background/GradientBG5.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Level/Background/GradientBG5.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Level/Background/GreatWall.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Level/Background/GreatWall.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Mario.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Mario.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +31,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/c5/7619ea6e/SuppressMessageAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Runtime/TMP_Text.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scenes/SampleScene.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/a9/6976ab95/Scene.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/36/bceef55a/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/2f/2e3abdbb/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
@@ -23,15 +39,17 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/77/527c4d0c/SceneUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/8a/057b9d87/WaitForSecondsRealtime.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/0e/de43a0cc/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Prefabs/Level/Background/GreatWall.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/85/b2eb4c46/CustomYieldInstruction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.1/InputSystem/Plugins/UI/InputSystemUIInputModule.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351E49E2-A5BF-4FD6-BEAB-B458CE2255F3/3d/24c944f9/HashSet`1.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://E:/Unity/MarioForever/Assets/Scripts/Util/Widget/Counter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Graphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.6.3/Runtime/Behaviours/CinemachineBrain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Player/Mario.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Runtime/TextMeshPro.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Level/Background.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/2a/86949d40/Array.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/26BACF2A-B3E7-4E5B-9AB6-134973DBE886/c1/6075ee3f/MethodImplOptions.cs" root0="SKIP_HIGHLIGHTING" />
@@ -39,12 +57,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/fb/9ae55d48/NotImplementedException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/17/01bfd63a/Guid.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A70CACC3-8B57-40B0-82A0-E3AB93BE903D/2d/75b3b4ca/VideoAspectRatio.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Unity/MarioForever/Assets/Scripts/Util/Widget/Counter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/fe/16149525/02000055.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A70CACC3-8B57-40B0-82A0-E3AB93BE903D/d4/4fa766fa/VideoPlayer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Runtime/TextMeshProUGUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/33/4647722e/MustExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Unity/MarioForever/Assets/Scripts/BlackBar.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Level/Background.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/UIBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9D69AD7C-AC3F-49D6-AE0F-B5718C3A7703/03/1240f1d3/PackageManagerWindowRoot.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -94,6 +111,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/BlackBar.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Level/ScrollInfo.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Level/Background.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Mario.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/Background.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ls7lgvWXmMeW299Wi6jlQ2E32w" />
@@ -169,6 +188,9 @@
       <workItem from="1608968892869" duration="6570000" />
       <workItem from="1608981302719" duration="2839000" />
       <workItem from="1609160368616" duration="3476000" />
+      <workItem from="1609238847690" duration="1425000" />
+      <workItem from="1609240572313" duration="1850000" />
+      <workItem from="1609299660618" duration="4205000" />
     </task>
     <task id="LOCAL-00001" summary="马里奥生命数UI">
       <created>1608602252775</created>
@@ -268,7 +290,28 @@
       <option name="project" value="LOCAL" />
       <updated>1609166299646</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="渐变色背景">
+      <created>1609239801889</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1609239801889</updated>
+    </task>
+    <task id="LOCAL-00016" summary="修复背景脚本大小计算错误的小bug">
+      <created>1609300336347</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1609300336347</updated>
+    </task>
+    <task id="LOCAL-00017" summary="优化背景的平铺逻辑">
+      <created>1609302985580</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1609302985580</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +346,10 @@
     <MESSAGE value="背景图脚本，和几个shader" />
     <MESSAGE value="一个忘了提交的Counter脚本" />
     <MESSAGE value="把项目文件挪到单独的文件夹里" />
-    <option name="LAST_COMMIT_MESSAGE" value="把项目文件挪到单独的文件夹里" />
+    <MESSAGE value="渐变色背景" />
+    <MESSAGE value="修复背景脚本大小计算错误的小bug" />
+    <MESSAGE value="优化背景的平铺逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化背景的平铺逻辑" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -311,14 +357,7 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Level/Background.cs</url>
           <line>121</line>
-          <properties documentPath="E:\Unity\MarioForever\Assets\Scripts\Level\Background.cs" initialLine="92" containingFunctionPresentation="method 'Update'">
-            <startOffsets>
-              <option value="3936" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3946" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="E:\Unity\MarioForever\Assets\Scripts\Level\Background.cs" initialLine="92" containingFunctionPresentation="method 'Update'" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
