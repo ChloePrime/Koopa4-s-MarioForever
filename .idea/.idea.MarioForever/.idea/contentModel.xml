@@ -11,6 +11,7 @@
             <e p="Base" t="Include">
               <e p="BasePhysics.cs" t="Include" />
               <e p="BaseSlope.cs" t="Include" />
+              <e p="GlobalSingleton.cs" t="Include" />
               <e p="IAppearable.cs" t="Include" />
               <e p="IHitable.cs" t="Include" />
               <e p="Singleton.cs" t="Include" />
@@ -44,8 +45,9 @@
             <e p="Global.cs" t="Include" />
             <e p="Level" t="Include">
               <e p="Background.cs" t="Include" />
+              <e p="ChangeMusic.cs" t="Include" />
               <e p="MarioCamera.cs" t="Include" />
-              <e p="MusicChanger.cs" t="Include" />
+              <e p="MusicHolder.cs" t="Include" />
               <e p="ScrollBorder.cs" t="Include" />
               <e p="ScrollInfo.cs" t="Include" />
               <e p="Timer.cs" t="Include" />
