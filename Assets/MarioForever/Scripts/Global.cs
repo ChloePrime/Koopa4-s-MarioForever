@@ -9,7 +9,7 @@ namespace SweetMoleHouse.MarioForever
     /// 全局对象，单例运作
     /// 基本不作为Unity脚本使用
     /// </summary>
-    public class Global : Singleton<Global>
+    public class Global : GlobalSingleton<Global>
     {
         public static readonly RaycastHit2D[] RcastTempArray = new RaycastHit2D[64];
 

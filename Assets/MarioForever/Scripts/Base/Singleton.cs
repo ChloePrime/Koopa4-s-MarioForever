@@ -2,6 +2,10 @@ using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Base
 {
+    /// <summary>
+    /// 单例类，
+    /// 默认的实现会在切换场景时消失
+    /// </summary>
     public class Singleton<T>: MonoBehaviour where T: Singleton<T>
     {
         /// <summary>
@@ -26,22 +30,5 @@ namespace SweetMoleHouse.MarioForever.Base
                 return instance;
             }
         }
-
-        /// <summary>
-        /// 请勿覆盖此方法
-        /// Don't override this
-        /// </summary>
-        protected void Awake()
-        {
-            if (Instance == this)
-            {
-                DontDestroyOnLoad(this);
-                OnSingletonAwake();
-                return;
-            }
-            Destroy(gameObject);
-        }
-        
-        protected virtual void OnSingletonAwake() {}
     }
 }

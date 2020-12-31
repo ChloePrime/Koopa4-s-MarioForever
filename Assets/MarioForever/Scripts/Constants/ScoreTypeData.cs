@@ -30,7 +30,7 @@ namespace SweetMoleHouse.MarioForever.Constants
         }
     }
 
-    public class ScoreTypeData : Singleton<ScoreTypeData>
+    public class ScoreTypeData : GlobalSingleton<ScoreTypeData>
     {
         private const int TypeNum = 8;
         [SerializeField] private GameObject[] objectByType = new GameObject[TypeNum];
