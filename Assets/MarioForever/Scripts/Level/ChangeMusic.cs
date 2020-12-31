@@ -1,5 +1,3 @@
-using System;
-using UnityEditor;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Level
@@ -8,32 +6,17 @@ namespace SweetMoleHouse.MarioForever.Level
     {
         [SerializeField] private AudioClip music;
 
+        private void Start()
+        {
+            if (TryGetComponent(out SpriteRenderer sr))
+            {
+                Destroy(sr);
+            }
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             MusicHolder.Instance.SetMusic(music);
-        }
-    }
-
-    [CustomEditor(typeof(ChangeMusic))]
-    public class ChangeMusicEditor : Editor
-    {
-        private new ChangeMusic target;
-
-        private void OnEnable()
-        {
-            target = base.target as ChangeMusic;
-        }
-
-        private void OnSceneGUI()
-        {
-            Handles.BeginGUI();
-            /*
-            Gizmos.DrawIcon(
-                target.transform.position,
-                "Assets/MarioForever/Art/Sprites/Enemies/Mole2.png"
-            );
-            */
-            Handles.EndGUI();
         }
     }
 }
