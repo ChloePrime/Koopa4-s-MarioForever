@@ -63,7 +63,7 @@ namespace SweetMoleHouse.MarioForever.Enemy
             }
 
             corpse.SetActive(true);
-            runtimeCorpse.AcceptBody(self.GetComponent<SpriteRenderer>());
+            runtimeCorpse.AcceptBody(self.GetComponentInChildren<SpriteRenderer>());
             if (TryGetComponent(out MarioDamager damager))
             {
                 damager.enabled = false;

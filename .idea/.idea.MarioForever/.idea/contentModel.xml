@@ -45,6 +45,7 @@
             <e p="Level" t="Include">
               <e p="Background.cs" t="Include" />
               <e p="MarioCamera.cs" t="Include" />
+              <e p="MusicChanger.cs" t="Include" />
               <e p="ScrollBorder.cs" t="Include" />
               <e p="ScrollInfo.cs" t="Include" />
               <e p="Timer.cs" t="Include" />
