@@ -15,8 +15,9 @@ namespace SweetMoleHouse.MarioForever.Level
         public void Start()
         {
             var box = GetComponent<Collider2D>();
-            min = box.bounds.min;
-            max = box.bounds.max;
+            var bounds = box.bounds;
+            min = bounds.min;
+            max = bounds.max;
         }
 
         /// <summary>

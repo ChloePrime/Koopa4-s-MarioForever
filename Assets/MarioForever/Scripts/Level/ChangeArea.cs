@@ -1,19 +1,16 @@
-using JetBrains.Annotations;
 using SweetMoleHouse.MarioForever.Constants;
-using SweetMoleHouse.MarioForever.Util;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Level
 {
-    public class ChangeMusic : HideInPlayMode
+    public class ChangeArea : MonoBehaviour
     {
-        [SerializeField, CanBeNull] private AudioClip music;
-
+        [SerializeField] private Area target;
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag(Consts.TAG_PLAYER))
             {
-                AreaManager.SetMusic(music);
+                AreaManager.SetCurrentArea(target);
             }
         }
     }
