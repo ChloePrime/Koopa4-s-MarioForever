@@ -1,5 +1,4 @@
 using JetBrains.Annotations;
-using SweetMoleHouse.MarioForever.Util;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Level
@@ -8,14 +7,13 @@ namespace SweetMoleHouse.MarioForever.Level
     /// 表示一个区域
     /// 控制背景，BGM，滚屏边界。
     /// </summary>
-    public class Area : HideInPlayMode
+    public class Area : MonoBehaviour
     {
         [SerializeField, CanBeNull] private AudioClip music;
         [SerializeField] private ScrollBorder border;
 
-        protected override void Start()
+        private void Start()
         {
-            base.Start();
             if (border == null)
             {
                 border = GetComponentInChildren<ScrollBorder>();

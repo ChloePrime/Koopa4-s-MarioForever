@@ -1,9 +1,10 @@
 using SweetMoleHouse.MarioForever.Constants;
+using SweetMoleHouse.MarioForever.Util;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Level
 {
-    public class ChangeArea : MonoBehaviour
+    public class ChangeArea : HideInPlayMode
     {
         [SerializeField] private Area target;
         private void OnTriggerEnter2D(Collider2D other)
