@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Base
 {
@@ -32,9 +29,9 @@ namespace SweetMoleHouse.MarioForever.Base
             XSpeed = RealWalkSpeed;
             base.FixedUpdate();
         }
-        protected override void OnHitWallX(in Collider2D[] colliders)
+        protected override void HitWallX(in Collider2D[] colliders)
         {
-            base.OnHitWallX(colliders);
+            base.HitWallX(colliders);
             RealWalkSpeed *= -1;
         }
 

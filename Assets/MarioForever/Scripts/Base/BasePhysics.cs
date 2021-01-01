@@ -277,14 +277,14 @@ namespace SweetMoleHouse.MarioForever.Base
                 int hitAmount = Move(new Vector2(distance, actualDist * curSlopeObj.Degree));
                 if (hitAmount > 0)
                 {
-                    OnHitWallX(TakeColliders(hitAmount));
+                    HitWallX(TakeColliders(hitAmount));
                 }
             }
             else
             {
                 actualDist = RCAST_TEMP_ARRAY[0].distance - AntiTrapEpsilon;
                 transform.Translate(Math.Sign(distance) * actualDist, 0, 0);
-                OnHitWallX(TakeColliders(amount));
+                HitWallX(TakeColliders(amount));
             }
             if (slopeState == SlopeState.DOWN)
             {
@@ -297,7 +297,13 @@ namespace SweetMoleHouse.MarioForever.Base
         /// 此时速度尚未归0
         /// </summary>
         /// <param name="colliders">碰撞结果</param>
-        protected virtual void OnHitWallX(in Collider2D[] colliders) { }
+        protected virtual void HitWallX(in Collider2D[] colliders)
+        {
+            OnHitWallX?.Invoke(colliders);
+        }
+
+        public event Action<Collider2D[]> OnHitWallX;
+        public event Action<Collider2D[]> OnHitWallY;
         /// <summary>
         /// 纵向移动一段距离
         /// </summary>
@@ -318,7 +324,7 @@ namespace SweetMoleHouse.MarioForever.Base
                 transform.Translate(0, Math.Sign(distance) * actualDist, 0);
 
                 Collider2D[] colliders = RCAST_TEMP_ARRAY.Take(amount).Select(rr => rr.collider).ToArray();
-                OnHitWallY(colliders);
+                HitWallY(colliders);
 
                 if (distance <= 0)
                 {
@@ -332,8 +338,10 @@ namespace SweetMoleHouse.MarioForever.Base
         /// 此时速度尚未归0
         /// </summary>
         /// <param name="colliders">碰撞结果</param>
-        protected virtual void OnHitWallY(in Collider2D[] colliders) 
+        protected virtual void HitWallY(in Collider2D[] colliders) 
         { 
+            OnHitWallY?.Invoke(colliders);
+            
             if (YSpeed > 0)
             {
                 bool defaultSound = true;

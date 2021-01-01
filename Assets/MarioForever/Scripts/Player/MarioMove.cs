@@ -147,13 +147,13 @@ namespace SweetMoleHouse.MarioForever.Player
             }
         }
 
-        protected override void OnHitWallY(in Collider2D[] colliders)
+        protected override void HitWallY(in Collider2D[] colliders)
         {
             if (YSpeed <= 0)
             {
                 mario.ComboInfo.ResetCombo();
             }
-            base.OnHitWallY(in colliders);
+            base.HitWallY(in colliders);
         }
     }
 }
