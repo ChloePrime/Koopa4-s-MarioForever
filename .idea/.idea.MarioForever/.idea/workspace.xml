@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="升级到Unity2020.2并整理代码">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Standard Rigidbody.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Standard Rigidbody.prefab.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +230,7 @@
       <workItem from="1609319477889" duration="8871000" />
       <workItem from="1609385557066" duration="1771000" />
       <workItem from="1609400624687" duration="18431000" />
-      <workItem from="1609477486417" duration="12202000" />
+      <workItem from="1609477486417" duration="12837000" />
     </task>
     <task id="LOCAL-00001" summary="马里奥生命数UI">
       <created>1608602252775</created>
@@ -454,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609490273479</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="整理动画文件">
+      <created>1609493882505</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1609493882505</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -476,7 +485,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="优化踩栗子手感" />
     <MESSAGE value="你看那马里奥在终末之时笑得多开心啊&#10;- 完成关卡倒计时功能&#10;- 完成马里奥死亡功能" />
     <MESSAGE value="GameOver" />
     <MESSAGE value="把马里奥个子的存储位置挪到全局变量内" />
@@ -501,7 +509,8 @@
     <MESSAGE value="区域切换" />
     <MESSAGE value="马里奥在滚屏边界停止" />
     <MESSAGE value="修复区域切换标记在Play模式下显示贴图的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复区域切换标记在Play模式下显示贴图的bug" />
+    <MESSAGE value="整理动画文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="整理动画文件" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
