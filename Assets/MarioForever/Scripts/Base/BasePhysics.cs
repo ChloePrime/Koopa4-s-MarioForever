@@ -184,7 +184,7 @@ namespace SweetMoleHouse.MarioForever.Base
         /// </summary>
         /// <param name="dir"></param>
         /// <param name="fieldToSet"></param>
-        private void StopTowardsWall(in Vector2 dir, ref float fieldToSet)
+        protected virtual void StopTowardsWall(in Vector2 dir, ref float fieldToSet)
         {
             int hits = R2d.Cast(dir, Filter, RCAST_TEMP_ARRAY, AntiTrapEpsilon);
             //不撞到东西或者撞到任意斜坡时不停止速度

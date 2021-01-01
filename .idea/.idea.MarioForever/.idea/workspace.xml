@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="升级到Unity2020.2并整理代码">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/ChangeMusic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/ChangeMusic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/MarioCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/MarioCamera.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/MusicHolder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/MusicHolder.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/ScrollBorder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/ScrollBorder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/BasePhysics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/BasePhysics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/Background.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/Background.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/ScrollInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/ScrollInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +87,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/e2/6574fa24/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/17/01bfd63a/Guid.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A70CACC3-8B57-40B0-82A0-E3AB93BE903D/2d/75b3b4ca/VideoAspectRatio.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Level/ChangeMusic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Constants/ScoreTypeData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/1e/32f87506/Component.cs" root0="SKIP_HIGHLIGHTING" />
@@ -99,8 +96,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Stompable.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Damagable.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/StageControl/MarioCamera.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Level/Timer.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Util/Editor/SceneReference.cs" />
@@ -119,7 +114,6 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/BlackBar.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Level/ScrollInfo.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Level/Background.cs" />
-      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/Background.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/UI/ScoreGiver.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/UI/Score.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/UI/ScoreObject.cs" />
@@ -133,7 +127,6 @@
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioJump.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Mario.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/ComboCalculator.cs" />
-      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/StompHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Damagable.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Global.cs" />
@@ -150,6 +143,10 @@
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/HideInPlayMode.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/ChangeMusic.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/Area.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/BasePhysics.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/ScrollInfo.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/Background.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ls7lgvWXmMeW299Wi6jlQ2E32w" />
@@ -231,7 +228,7 @@
       <workItem from="1609319477889" duration="8871000" />
       <workItem from="1609385557066" duration="1771000" />
       <workItem from="1609400624687" duration="18431000" />
-      <workItem from="1609477486417" duration="8872000" />
+      <workItem from="1609477486417" duration="9662000" />
     </task>
     <task id="LOCAL-00001" summary="马里奥生命数UI">
       <created>1608602252775</created>
@@ -436,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609418803012</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="区域切换">
+      <created>1609489169580</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1609489169580</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,7 +462,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="UI初步完成" />
     <MESSAGE value="UI初步完成2" />
     <MESSAGE value="整理代码" />
     <MESSAGE value="优化踩栗子手感" />
@@ -483,7 +486,8 @@
     <MESSAGE value="将动画放到Art文件夹下" />
     <MESSAGE value="重构单例，BGM/BGM切换" />
     <MESSAGE value="删除没用的Editor脚本" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除没用的Editor脚本" />
+    <MESSAGE value="区域切换" />
+    <option name="LAST_COMMIT_MESSAGE" value="区域切换" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

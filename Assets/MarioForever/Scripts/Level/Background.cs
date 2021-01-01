@@ -9,14 +9,12 @@ namespace SweetMoleHouse.MarioForever.Level
         [SerializeField] private BackgroundAxisMethod loopY = BackgroundAxisMethod.NO_ACTION;
         
         private Vector2 size;
-        private ScrollInfo scrollInfo;
         private bool stopped;
         
         private void Start()
         {
             if (stopped) return;
             
-            scrollInfo = FindObjectOfType<ScrollInfo>();
             var sr = GetComponent<SpriteRenderer>();
             size = sr.bounds.size;
 
@@ -26,7 +24,7 @@ namespace SweetMoleHouse.MarioForever.Level
 
         private void EnsureSize()
         {
-            var screenSize = new Vector2(scrollInfo.Width, scrollInfo.Height);
+            var screenSize = new Vector2(ScrollInfo.Width, ScrollInfo.Height);
             var rootPos = transform.position;
             var parts = new HashSet<GameObject>();
             for (var xCursor = 0F; xCursor <= screenSize.x; xCursor += size.x)
@@ -96,22 +94,22 @@ namespace SweetMoleHouse.MarioForever.Level
             if (stopped) return;
             if (loopX.ShouldLoop())
             {
-                if (scrollInfo.Left < transform.position.x)
+                if (ScrollInfo.Left < transform.position.x)
                 {
                     transform.Translate(-size.x, 0, 0);
                 }
-                else if (scrollInfo.Right > transform.position.x + size.x)
+                else if (ScrollInfo.Right > transform.position.x + size.x)
                 {
                     transform.Translate(size.x, 0, 0);
                 }
             }
             if (loopY.ShouldLoop())
             {
-                if (scrollInfo.Bottom < transform.position.y)
+                if (ScrollInfo.Bottom < transform.position.y)
                 {
                     transform.Translate(0, -size.y, 0);
                 } 
-                else if (scrollInfo.Top > transform.position.y + size.y)
+                else if (ScrollInfo.Top > transform.position.y + size.y)
                 {
                     transform.Translate(0, size.y, 0);
                 }

@@ -1,7 +1,10 @@
 ﻿using System;
 using UnityEngine;
 using SweetMoleHouse.MarioForever.Base;
+using SweetMoleHouse.MarioForever.Level;
+using SweetMoleHouse.MarioForever.Util;
 using static UnityEngine.InputSystem.InputAction;
+using static UnityEngine.Mathf;
 
 
 namespace SweetMoleHouse.MarioForever.Player
@@ -88,6 +91,32 @@ namespace SweetMoleHouse.MarioForever.Player
             base.FixedUpdate();
         }
 
+        protected override void StopTowardsWall(in Vector2 dir, ref float fieldToSet)
+        {
+            base.StopTowardsWall(in dir, ref fieldToSet);
+            
+            var isAxisX = Abs(dir.x) > Abs(dir.y);
+            if (!isAxisX) return;
+            if (dir.x > 0)
+            {
+                var xRight = MFUtil.XRight(R2d);
+                if (xRight >= ScrollInfo.Right)
+                {
+                    fieldToSet = 0;
+                    transform.Translate(ScrollInfo.Right - xRight, 0, 0);
+                }
+            }
+            else
+            {
+                var xLeft = MFUtil.XLeft(R2d);
+                if (xLeft <= ScrollInfo.Left)
+                {
+                    fieldToSet = 0;
+                    transform.Translate(ScrollInfo.Left - xLeft, 0, 0);
+                }
+            }
+        }
+
         private void AddSpeed()
         {
             //区分当前是否属于转向阶段
@@ -104,7 +133,7 @@ namespace SweetMoleHouse.MarioForever.Player
                 }
                 XSpeed += CurProfile.runAcc * AccDirection * Time.fixedDeltaTime;
             }
-            XSpeed = Mathf.Clamp(XSpeed, -CurProfile.maxSpeed, CurProfile.maxSpeed);
+            XSpeed = Clamp(XSpeed, -CurProfile.maxSpeed, CurProfile.maxSpeed);
         }
 
         private void DecrSpeed()

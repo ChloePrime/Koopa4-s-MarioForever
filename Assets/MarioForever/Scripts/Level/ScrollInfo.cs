@@ -1,16 +1,17 @@
+using SweetMoleHouse.MarioForever.Base;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Level
 {
-    public class ScrollInfo : MonoBehaviour
+    public class ScrollInfo : Singleton<ScrollInfo>
     {
-        public Vector2 Center { get; private set; }
-        public float Width { get; private set; }
-        public float Height { get; private set; }
-        public float Left => Center.x - Width / 2;
-        public float Right => Center.x + Width / 2;
-        public float Top => Center.y + Height / 2;
-        public float Bottom => Center.y - Height / 2;
+        public static Vector2 Center { get; private set; }
+        public static float Width { get; private set; }
+        public static float Height { get; private set; }
+        public static float Left => Center.x - Width / 2;
+        public static float Right => Center.x + Width / 2;
+        public static float Top => Center.y + Height / 2;
+        public static float Bottom => Center.y - Height / 2;
         
         private Camera main;
         private void Awake()
