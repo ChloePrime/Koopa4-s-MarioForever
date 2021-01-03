@@ -71,16 +71,20 @@ namespace SweetMoleHouse.MarioForever.Base
             {
                 appearProgress = size.y;
             }
-            appearProgress += Consts.ONE_PIXEL;
+            appearProgress += 2 * AntiTrapEpsilon;
         }
 
         private void AppearUpdate()
         {
             float distance = appearSpeed * Time.fixedDeltaTime;
+            if (distance > appearProgress)
+            {
+                distance = appearProgress;
+            }
             appearProgress -= distance;
             transform.Translate(appearDir * distance);
 
-            //TryEndAppearInAdvance();
+            TryEndAppearInAdvance();
             if (appearProgress <= 0)
             {
                 appeared = true;

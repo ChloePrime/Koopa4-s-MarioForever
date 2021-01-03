@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2232048350775857966}
   - component: {fileID: 2232048350775857967}
   m_Layer: 0
-  m_Name: "\u95EE\u53F7\u5757"
+  m_Name: Qustion Block Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -146,7 +146,7 @@ SpriteRenderer:
   m_SortingLayerID: -1013889833
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 957710692334347938, guid: 7971ab39d97d8a648ba01b80ac5c5d69, type: 3}
+  m_Sprite: {fileID: 805417461074702246, guid: 7971ab39d97d8a648ba01b80ac5c5d69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

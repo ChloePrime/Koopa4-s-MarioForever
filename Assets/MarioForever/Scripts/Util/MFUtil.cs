@@ -100,10 +100,10 @@ namespace SweetMoleHouse.MarioForever.Util
             float result = float.MaxValue;
             foreach (var collider in GetColliders(r2d))
             {
-                var YBottom = collider.bounds.min.y;
-                if (YBottom < result)
+                var yBottom = collider.bounds.min.y;
+                if (yBottom < result)
                 {
-                    result = YBottom;
+                    result = yBottom;
                 }
             }
             return result;

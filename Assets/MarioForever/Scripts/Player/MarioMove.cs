@@ -19,10 +19,11 @@ namespace SweetMoleHouse.MarioForever.Player
         [Header("马里奥物理属性")]
         [SerializeField]
         private AccProfile walking = new AccProfile(35f / 8f, 0.125f, 0.5f);
-        public AccProfile WalkProfile { get => walking; }
+
         [SerializeField]
         private AccProfile running = new AccProfile(8f, 0.125f, 0.5f);
-        public AccProfile RunProfile { get => running; }
+        public AccProfile RunProfile => running;
+
         [SerializeField, RenameInInspector("初速度")]
         private float minSpeed = 1f;
         [Serializable]
@@ -93,7 +94,7 @@ namespace SweetMoleHouse.MarioForever.Player
 
         protected override void StopTowardsWall(in Vector2 dir, ref float fieldToSet)
         {
-            base.StopTowardsWall(in dir, ref fieldToSet);
+            base.StopTowardsWall(dir, ref fieldToSet);
             
             var isAxisX = Abs(dir.x) > Abs(dir.y);
             if (!isAxisX) return;

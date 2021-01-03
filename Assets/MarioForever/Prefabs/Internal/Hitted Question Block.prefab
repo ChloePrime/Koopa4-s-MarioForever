@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 1828807110160772276}
   - component: {fileID: 4552548853049786502}
   m_Layer: 0
-  m_Name: "\u95EE\u53F7\u5757\u9876\u540E"
+  m_Name: Hitted Question Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
