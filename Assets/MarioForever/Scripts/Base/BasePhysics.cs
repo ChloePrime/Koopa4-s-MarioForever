@@ -21,7 +21,8 @@ namespace SweetMoleHouse.MarioForever.Base
         /// 请不要保留对这个对象的引用
         /// 因为内部数据随时会被覆写
         /// </summary>
-        protected static RaycastHit2D[] RCAST_TEMP_ARRAY = new RaycastHit2D[64];
+        protected static readonly RaycastHit2D[] RCastTempArray = new RaycastHit2D[64];
+        protected static readonly Collider2D[] OverlapTempArray = new Collider2D[64];
         protected static bool Inited;
 
         [Header("基础物理设置")]
@@ -78,9 +79,26 @@ namespace SweetMoleHouse.MarioForever.Base
             float distance = appearSpeed * Time.fixedDeltaTime;
             appearProgress -= distance;
             transform.Translate(appearDir * distance);
+
+            //TryEndAppearInAdvance();
             if (appearProgress <= 0)
             {
                 appeared = true;
+            }
+        }
+
+        private bool appearingInSolidBefore;
+        private void TryEndAppearInAdvance()
+        {
+            bool inSolid = R2d.GetContacts(Filter, OverlapTempArray) != 0;
+            if (inSolid && !appearingInSolidBefore)
+            {
+                appearingInSolidBefore = true;
+            }
+            if (appearingInSolidBefore && !inSolid)
+            {
+                appearProgress = 0;
+                print("Appearing Stopped!");
             }
         }
 
@@ -93,7 +111,7 @@ namespace SweetMoleHouse.MarioForever.Base
             InitClass();
             R2d = GetComponent<Rigidbody2D>();
             // 防止卡在墙里
-            if (appeared && R2d.Cast(Vector2.zero, RCAST_TEMP_ARRAY) > 0)
+            if (appeared && R2d.Cast(Vector2.zero, RCastTempArray) > 0)
             {
                 transform.Translate(0, 0.01F, 0);
             }
@@ -186,7 +204,7 @@ namespace SweetMoleHouse.MarioForever.Base
         /// <param name="fieldToSet"></param>
         protected virtual void StopTowardsWall(in Vector2 dir, ref float fieldToSet)
         {
-            int hits = R2d.Cast(dir, Filter, RCAST_TEMP_ARRAY, AntiTrapEpsilon);
+            int hits = R2d.Cast(dir, Filter, RCastTempArray, AntiTrapEpsilon);
             //不撞到东西或者撞到任意斜坡时不停止速度
             if (hits == 0)
             {
@@ -194,7 +212,7 @@ namespace SweetMoleHouse.MarioForever.Base
             }
             for (int i = 0; i < hits; i++)
             {
-                var result = RCAST_TEMP_ARRAY[i];
+                var result = RCastTempArray[i];
                 if (result.collider.GetComponent<BaseSlope>() != null)
                 {
                     return;
@@ -218,28 +236,29 @@ namespace SweetMoleHouse.MarioForever.Base
         /// <param name="isUp">这次检测是上坡(true)还是下坡(false)</param>
         private void CheckSlope(in Vector2 dir, in bool isUp)
         {
-            int results = R2d.Cast(dir, Filter, RCAST_TEMP_ARRAY, 0.125f);
+            int results = R2d.Cast(dir, Filter, RCastTempArray, 0.125f);
             for (int i = 0; i < results; i++)
             {
-                var result = RCAST_TEMP_ARRAY[i];
+                var result = RCastTempArray[i];
                 if (result.collider == null) continue;
-                var slope = result.collider.GetComponent<BaseSlope>();
-                if (slope != null)
+                if (!result.collider.TryGetComponent(out BaseSlope slope))
                 {
-                    int xDir = Math.Sign(XSpeed);
-                    if (isUp && (xDir == slope.Dir))
-                    {
-                        slopeState = SlopeState.UP;
-                        SetSlope(slope);
-                        return;
-                    }
-                    //判断是不是朝着斜坡上坡的反方向走
-                    else if (!isUp && (xDir + slope.Dir == 0))
-                    {
-                        slopeState = SlopeState.DOWN;
-                        SetSlope(slope);
-                        return;
-                    }
+                    continue;
+                }
+                
+                int xDir = Math.Sign(XSpeed);
+                if (isUp && (xDir == slope.Dir))
+                {
+                    slopeState = SlopeState.UP;
+                    SetSlope(slope);
+                    return;
+                }
+                //判断是不是朝着斜坡上坡的反方向走
+                else if (!isUp && (xDir + slope.Dir == 0))
+                {
+                    slopeState = SlopeState.DOWN;
+                    SetSlope(slope);
+                    return;
                 }
             }
         }
@@ -264,7 +283,7 @@ namespace SweetMoleHouse.MarioForever.Base
         public void MoveX(float distance)
         {
             float actualDist;
-            int amount = R2d.Cast(GetDirX(), Filter, RCAST_TEMP_ARRAY, Math.Abs(distance) + AntiTrapEpsilon);
+            int amount = R2d.Cast(GetDirX(), Filter, RCastTempArray, Math.Abs(distance) + AntiTrapEpsilon);
             if (amount == 0)
             {
                 actualDist = Math.Abs(distance);
@@ -282,7 +301,7 @@ namespace SweetMoleHouse.MarioForever.Base
             }
             else
             {
-                actualDist = RCAST_TEMP_ARRAY[0].distance - AntiTrapEpsilon;
+                actualDist = RCastTempArray[0].distance - AntiTrapEpsilon;
                 transform.Translate(Math.Sign(distance) * actualDist, 0, 0);
                 HitWallX(TakeColliders(amount));
             }
@@ -309,21 +328,21 @@ namespace SweetMoleHouse.MarioForever.Base
         /// </summary>
         public void MoveY(float distance)
         {
-            int amount = R2d.Cast(GetDirY(), Filter, RCAST_TEMP_ARRAY, Math.Abs(distance) + AntiTrapEpsilon);
+            int amount = R2d.Cast(GetDirY(), Filter, RCastTempArray, Math.Abs(distance) + AntiTrapEpsilon);
             if (amount == 0)
             {
                 transform.Translate(0, distance, 0);
-                if (R2d.Cast(Vector2.down, Filter, RCAST_TEMP_ARRAY, 2 * AntiTrapEpsilon) == 0)
+                if (R2d.Cast(Vector2.down, Filter, RCastTempArray, 2 * AntiTrapEpsilon) == 0)
                 {
                     IsOnGround = false;
                 }
             }
             else
             {
-                float actualDist = RCAST_TEMP_ARRAY[0].distance - AntiTrapEpsilon;
+                float actualDist = RCastTempArray[0].distance - AntiTrapEpsilon;
                 transform.Translate(0, Math.Sign(distance) * actualDist, 0);
 
-                Collider2D[] colliders = RCAST_TEMP_ARRAY.Take(amount).Select(rr => rr.collider).ToArray();
+                Collider2D[] colliders = RCastTempArray.Take(amount).Select(rr => rr.collider).ToArray();
                 HitWallY(colliders);
 
                 if (distance <= 0)
@@ -362,7 +381,7 @@ namespace SweetMoleHouse.MarioForever.Base
         }
         private static Collider2D[] TakeColliders(int amount)
         {
-            return RCAST_TEMP_ARRAY.Take(amount).Select(rr => rr.collider).ToArray();
+            return RCastTempArray.Take(amount).Select(rr => rr.collider).ToArray();
         }
 
         /// <summary>
@@ -371,12 +390,12 @@ namespace SweetMoleHouse.MarioForever.Base
         /// <param name="offset">要移动的位移矢量</param>
         /// <returns>
         /// 撞到的实心对象个数
-        /// 实心对象存放在<see cref="RCAST_TEMP_ARRAY"/>内
+        /// 实心对象存放在<see cref="RCastTempArray"/>内
         /// </returns>
         protected int Move(in Vector2 offset)
         {
             float length = offset.magnitude;
-            int amount = R2d.Cast(offset.normalized, Filter, RCAST_TEMP_ARRAY, length + AntiTrapEpsilon);
+            int amount = R2d.Cast(offset.normalized, Filter, RCastTempArray, length + AntiTrapEpsilon);
             if (amount == 0)
             {
                 transform.Translate(offset);
@@ -387,7 +406,7 @@ namespace SweetMoleHouse.MarioForever.Base
                 {
                     return amount;
                 }
-                float actualDist = RCAST_TEMP_ARRAY[0].distance - AntiTrapEpsilon;
+                float actualDist = RCastTempArray[0].distance - AntiTrapEpsilon;
                 float actualScale = actualDist / length;
                 transform.Translate(offset * actualScale);
             }
