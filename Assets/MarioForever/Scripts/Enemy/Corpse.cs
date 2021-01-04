@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using SweetMoleHouse.MarioForever.Level;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Enemy
@@ -19,7 +18,7 @@ namespace SweetMoleHouse.MarioForever.Enemy
         {
             YSpeed -= gravity * Time.deltaTime;
             transform.Translate(0, YSpeed * Time.deltaTime, 0);
-            if (Camera.main.WorldToScreenPoint(transform.position).y <= -1)
+            if (transform.position.y <= ScrollInfo.Bottom - 8)
             {
                 Destroy(gameObject);
             }
