@@ -1,6 +1,7 @@
 ﻿using SweetMoleHouse.MarioForever.Constants;
 using System;
 using System.Collections.Generic;
+using SweetMoleHouse.MarioForever.Effect;
 using SweetMoleHouse.MarioForever.Level;
 using SweetMoleHouse.MarioForever.Persistent;
 using SweetMoleHouse.MarioForever.Util;
@@ -19,10 +20,11 @@ namespace SweetMoleHouse.MarioForever.Player
         public MarioJump Jumper { get; private set; }
         public MarioCrouch Croucher { get; private set; }
         public ComboCalculator ComboInfo { get; private set; }
-        public readonly Dictionary<MarioSize, Collider2D> sizes = new Dictionary<MarioSize, Collider2D>();
+        public readonly Dictionary<MarioSize, Collider2D> Sizes = new Dictionary<MarioSize, Collider2D>();
 
         public Animator Anims { get; private set; }
         public SpriteRenderer Renderer { get; private set; }
+        public Flashing FlashCtrl { get; private set; }
         #endregion
 
         public static float DeltaSizeSmallToBig { get; private set; }
@@ -32,14 +34,13 @@ namespace SweetMoleHouse.MarioForever.Player
         public MarioPowerup Powerup
         {
             get => MarioProperty.CurPowerup;
-            set
+            private set
             {
                 MarioProperty.CurPowerup = value;
                 Size = value == MarioPowerup.SMALL ? MarioSize.SMALL : MarioSize.BIG;
             }
         }
         public MarioState State { get; set; }
-        public int Dir { get; set; }
 
         public bool IsSkidding { get; set; }
         public bool SwimmingNow { get; set; }
@@ -50,14 +51,11 @@ namespace SweetMoleHouse.MarioForever.Player
         /// 摩擦系数，越小越滑
         /// </summary>
         public float Friction { get; set; }
-        public bool ControlDisabled { get; set; } = false;
+        public bool ControlDisabled { get; set; }
         public bool IsWallJumping { get; set; }
-        public bool IsFlashing { get => FlashTime > 0; }
-        public float FlashTime { get; private set; }
-        /// <summary>
-        /// 连踩计数
-        /// </summary>
-        public int ConsecutiveJumpCount { get; set; }
+        public bool Invulnerable => FlashCtrl.FlashTime > 0 && FlashIsInvul;
+        private bool FlashIsInvul { get; set; }
+
         #endregion
 
         [Header("音效设置")]
@@ -85,6 +83,8 @@ namespace SweetMoleHouse.MarioForever.Player
                 }
             }
         }
+
+
         public void RefreshSize()
         {
             Size = GetRealSize();
@@ -100,7 +100,7 @@ namespace SweetMoleHouse.MarioForever.Player
 
         public void Damage(in float flashTime = 2)
         {
-            if (FlashTime > 0)
+            if (Invulnerable)
             {
                 return;
             }
@@ -112,39 +112,35 @@ namespace SweetMoleHouse.MarioForever.Player
             {
                 Global.PlaySound(hurtSound);
                 Powerup = Powerup == MarioPowerup.BIG ? MarioPowerup.SMALL : MarioPowerup.BIG;
-                FlashTime = flashTime;
+                
+                FlashCtrl.FlashTime = flashTime;
+                FlashIsInvul = true;
+            }
+        }
+
+        public void SetPowerup(MarioPowerup target, float rainbowTime = 0)
+        {
+            Powerup = target;
+            if (rainbowTime > 0)
+            {
+                FlashCtrl.RainbowFlashTime = rainbowTime;
+            }
+
+            if (Mover.OverlappingAnything())
+            {
+                Croucher.Crouching = true;
             }
         }
 
         public void OnStomp(in float power, bool shouldCalcCombo)
         {
             Jumper.Jump(power);
-            ComboInfo.Hit(transform);
-        }
-
-        private static float INVUL_CYCLE = 0.2f;
-        private void Update()
-        {
-            if (IsFlashing)
+            if (shouldCalcCombo)
             {
-                var color = Renderer.material.color;
-                // 0 ~ INVUL_CYCLE
-                var alpha = Time.time % INVUL_CYCLE;
-                if (alpha > INVUL_CYCLE / 2)
-                {
-                    alpha = INVUL_CYCLE - alpha;
-                }
-                alpha *= 2 / INVUL_CYCLE;
-                color.a = alpha;
-                FlashTime -= Time.deltaTime;
-                if (FlashTime < 0)
-                {
-                    color.a = 1;
-                }
-                Renderer.material.color = color;
+                ComboInfo.Hit(transform);
             }
         }
-
+        
         public void Kill()
         {
             corpse = Instantiate(corpse);
@@ -172,11 +168,12 @@ namespace SweetMoleHouse.MarioForever.Player
             //附属组件
             Anims = transform.GetChild(1).GetComponent<Animator>();
             Renderer = Anims.GetComponent<SpriteRenderer>();
+            FlashCtrl = Anims.GetComponent<Flashing>();
             foreach (MarioSize item in Enum.GetValues(typeof(MarioSize)))
             {
-                sizes.Add(item, Hitboxes.GetChild((int)item).GetChild(0).GetComponent<Collider2D>());
+                Sizes.Add(item, Hitboxes.GetChild((int)item).GetChild(0).GetComponent<Collider2D>());
             }
-            DeltaSizeSmallToBig = sizes[MarioSize.BIG].bounds.size.y - sizes[MarioSize.SMALL].bounds.size.y;
+            DeltaSizeSmallToBig = Sizes[MarioSize.BIG].bounds.size.y - Sizes[MarioSize.SMALL].bounds.size.y;
         }
     }
 }

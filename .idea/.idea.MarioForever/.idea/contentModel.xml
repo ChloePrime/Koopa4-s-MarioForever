@@ -22,6 +22,7 @@
             <e p="BlackBar.cs" t="Include" />
             <e p="Bonus" t="Include">
               <e p="MushroomAnimation.cs" t="Include" />
+              <e p="Powerup.cs" t="Include" />
               <e p="QuestionBlock.cs" t="Include" />
             </e>
             <e p="Constants" t="Include">
@@ -29,6 +30,9 @@
               <e p="MarioPowerup.cs" t="Include" />
               <e p="MarioSize.cs" t="Include" />
               <e p="ScoreTypeData.cs" t="Include" />
+            </e>
+            <e p="Effect" t="Include">
+              <e p="Flashing.cs" t="Include" />
             </e>
             <e p="Enemy" t="Include">
               <e p="Corpse.cs" t="Include" />

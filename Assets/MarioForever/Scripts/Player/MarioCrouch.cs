@@ -25,7 +25,7 @@ namespace SweetMoleHouse.MarioForever.Player
                 }
                 return crouching;
             }
-            private set
+            set
             {
                 crouching = value;
                 mario.ControlDisabled = value;

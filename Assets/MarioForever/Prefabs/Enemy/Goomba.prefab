@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 856092416745131882, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 856092416745131882, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f58702bdb41f407449be022e92ac3965, type: 3}
@@ -62,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 6419509510554172602, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
       propertyPath: m_Name
       value: Goomba
+      objectReference: {fileID: 0}
+    - target: {fileID: 8562631935746578399, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8689941048683261038, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
       propertyPath: m_Controller

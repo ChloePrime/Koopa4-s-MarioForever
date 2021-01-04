@@ -3,6 +3,7 @@ Shader "MarioForever/Effects/HSV"
     Properties
     {
         [PerRendererData] _MainTex ("Sprite Texture", 2D) = "" {}
+		_Color ("Color", Color) = (1, 1, 1, 1)
 		_Hue ("色相", Range(-3, 3)) = 0
 		[PowerSlider(3)] _Saturation ("饱和度", Range(0, 8)) = 1
 		[PowerSlider(3)] _Brightness ("亮度", Range(0, 8)) = 1
@@ -45,6 +46,7 @@ Shader "MarioForever/Effects/HSV"
 			};
 
             sampler2D _MainTex;
+            half4 _Color;
             half _Hue;
             half _Saturation;
             half _Brightness;
@@ -163,6 +165,7 @@ Shader "MarioForever/Effects/HSV"
                 hsv.y = clamp(hsv.y * _Saturation, 0, 1);
                 hsv.z = clamp(hsv.z * _Brightness, 0, 1);
                 px.rgb = hsv2rgb(hsv);
+                px *= _Color;
                 return px;
             }
             ENDCG

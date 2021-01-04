@@ -22,11 +22,15 @@ namespace SweetMoleHouse.MarioForever.Constants
     public static class ScoreObjOperations
     {
         private static readonly ScoreTypeData ByType = ScoreTypeData.Instance;
-        public static void Summon(this ScoreType type, Transform pos)
+        public static void Summon(this ScoreType type, Transform pos, float dx = 0, float dy = 0, float dz = 0)
         {
             var obj = ByType[(int) type];
             obj = Object.Instantiate(obj, pos.parent);
-            obj.transform.position = pos.transform.position;
+            var actualPos = pos.transform.position;
+            actualPos.x += dx;
+            actualPos.y += dy;
+            actualPos.z += dz;
+            obj.transform.position = actualPos;
         }
     }
 

@@ -550,6 +550,7 @@ GameObject:
   - component: {fileID: 3761890377450000545}
   - component: {fileID: 2418940683901059062}
   - component: {fileID: 2775823648377719346}
+  - component: {fileID: 7936346434235353459}
   m_Layer: 8
   m_Name: Animation
   m_TagString: Player
@@ -590,7 +591,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 99054bddf9a774e4ab3f2d72ef59b34b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -653,3 +654,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c2751c45b9cac41b1bc8cc3b72d174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7936346434235353459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8295660262212143363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a0226a02e0382499a5475432afa128, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashCycle: 0.2
+  rainbowCycle: 0.2

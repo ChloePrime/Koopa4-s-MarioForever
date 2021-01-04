@@ -71,7 +71,7 @@ namespace SweetMoleHouse.MarioForever.Base
             {
                 appearProgress = size.y;
             }
-            appearProgress += 2 * AntiTrapEpsilon;
+            appearProgress += AntiTrapEpsilon;
         }
 
         private void AppearUpdate()
@@ -279,6 +279,8 @@ namespace SweetMoleHouse.MarioForever.Base
             curSlopeObj = slope;
             slopeFactor = 1 / Mathf.Sqrt(1 + slope.Degree * slope.Degree);
         }
+
+        public bool OverlappingAnything() => R2d.OverlapCollider(Filter, OverlapTempArray) > 0;
 
         /// <summary>
         /// 横向移动一段距离
