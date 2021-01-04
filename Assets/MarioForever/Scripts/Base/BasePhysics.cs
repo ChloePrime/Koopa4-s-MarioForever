@@ -12,7 +12,7 @@ namespace SweetMoleHouse.MarioForever.Base
     /// </summary>
     public class BasePhysics : MonoBehaviour, IAppearable
     {
-        protected static readonly float AntiTrapEpsilon = Consts.ONE_PIXEL / 8;
+        protected static readonly float AntiTrapEpsilon = Consts.ONE_PIXEL / 4;
         protected static ContactFilter2D Filter = new ContactFilter2D().NoFilter();
         public static ContactFilter2D GlobalFilter => Filter;
 
@@ -381,7 +381,6 @@ namespace SweetMoleHouse.MarioForever.Base
                     Global.PlaySound(hitHeadSfx);
                 }
             }
-            YSpeed = 0;
         }
         private static Collider2D[] TakeColliders(int amount)
         {
@@ -471,10 +470,8 @@ namespace SweetMoleHouse.MarioForever.Base
             {
                 return Vector2.zero;
             }
-            else
-            {
-                return Math.Sign(YSpeed) > 0 ? Vector2.up: Vector2.down;
-            }
+
+            return Math.Sign(YSpeed) > 0 ? Vector2.up: Vector2.down;
         }
     }
 }
