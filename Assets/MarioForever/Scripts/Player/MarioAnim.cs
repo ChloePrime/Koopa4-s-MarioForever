@@ -12,7 +12,7 @@ namespace SweetMoleHouse.MarioForever.Player
     {
         private Mario mario;
         private Animator anim;
-        private MarioPowerup recordedSize = (MarioPowerup)(-1);
+        private float shootAnimTime;
 
         private const string 
             StateStatic = "Static",
@@ -39,6 +39,11 @@ namespace SweetMoleHouse.MarioForever.Player
                 }
             }
         }
+
+        public void StartShooting(float time)
+        {
+            shootAnimTime = time;
+        }
         private void Start()
         {
             mario = transform.parent.GetComponent<Mario>();
@@ -54,6 +59,11 @@ namespace SweetMoleHouse.MarioForever.Player
             if (mario.Crouching)
             {
                 ChangeAnimation(StateCrouch);
+            }
+            else if (shootAnimTime > 0)
+            {
+                ChangeAnimation(StateShoot);
+                shootAnimTime -= Time.time;
             }
             else if (!mario.Mover.IsOnGround)
             {
@@ -72,32 +82,19 @@ namespace SweetMoleHouse.MarioForever.Player
             }
             //马里奥动画左右方向
             int curAnimDir = Math.Sign(mario.transform.localScale.x);
-            if ((mario.Mover.AccDirection + curAnimDir) == 0)
+            if (mario.Mover.AccDirection + curAnimDir == 0)
             {
                 mario.transform.localScale *= VEC_M1_1;
             }
-            //状态刷新
-            if (recordedSize != mario.Powerup)
-            {
-                Refresh();
-                recordedSize = mario.Powerup;
-            }
         }
 
-        private string lastStateName = StateStatic;
         private static readonly int PROP_X_SPEED = Animator.StringToHash("X Speed");
 
         private void ChangeAnimation(string animName)
         {
             var targetHash = STATE_IDX_CACHE[(animName, mario.Powerup)];
             if (anim.GetCurrentAnimatorStateInfo(0).shortNameHash == targetHash) return;
-            lastStateName = animName;
             anim.Play(targetHash);
-        }
-
-        private void Refresh()
-        {
-            ChangeAnimation(lastStateName);
         }
     }
 }
