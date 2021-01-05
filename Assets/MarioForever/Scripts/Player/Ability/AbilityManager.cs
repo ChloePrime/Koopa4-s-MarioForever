@@ -14,6 +14,7 @@ namespace SweetMoleHouse.MarioForever.Player.Ability
         [CanBeNull] private BaseAbility active;
 
         public AudioClip ShootSound => shootSound;
+        public bool CanShoot => active != null;
 
         private void Start()
         {

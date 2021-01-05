@@ -114,7 +114,7 @@ namespace SweetMoleHouse.MarioForever.Player
             else
             {
                 Global.PlaySound(hurtSound);
-                Powerup = Powerup == MarioPowerup.BIG ? MarioPowerup.SMALL : MarioPowerup.BIG;
+                SetPowerup(Powerup == MarioPowerup.BIG ? MarioPowerup.SMALL : MarioPowerup.BIG);
                 
                 FlashCtrl.FlashTime = flashTime;
                 FlashIsInvul = true;

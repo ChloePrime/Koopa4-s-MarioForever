@@ -64,8 +64,16 @@ namespace SweetMoleHouse.MarioForever.Player
             }
             else if (shootAnimTime > 0)
             {
-                ChangeAnimation(StateShoot);
-                shootAnimTime -= Time.deltaTime;
+                // 修复: 必须在马里奥可以射击的状态才会切换射击动画
+                if (mario.PowerupManager.CanShoot)
+                {
+                    ChangeAnimation(StateShoot);
+                    shootAnimTime -= Time.deltaTime;
+                }
+                else
+                {
+                    shootAnimTime = 0;
+                }
             }
             else if (!mario.Mover.IsOnGround)
             {
