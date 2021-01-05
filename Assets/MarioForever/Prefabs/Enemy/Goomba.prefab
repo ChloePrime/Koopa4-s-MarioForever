@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: f58702bdb41f407449be022e92ac3965, type: 3}
+    - target: {fileID: 1543709169721903528, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 9657d3873ed928040804f5270e178172, type: 2}
     - target: {fileID: 3906141762753879474, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
       propertyPath: m_Controller
       value: 
@@ -67,6 +71,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goomba
       objectReference: {fileID: 0}
+    - target: {fileID: 8061836590662854153, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f58702bdb41f407449be022e92ac3965, type: 3}
     - target: {fileID: 8562631935746578399, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
