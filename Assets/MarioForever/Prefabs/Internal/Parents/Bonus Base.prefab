@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7318383856432823278}
   - component: {fileID: 8735995483012725973}
   - component: {fileID: 1097807231103217243}
+  - component: {fileID: 4364023935869269072}
   m_Layer: 8
   m_Name: Powerup
   m_TagString: Untagged
@@ -73,6 +74,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.9}
   m_EdgeRadius: 0
+--- !u!50 &4364023935869269072
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7181279714863085105}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &9222088401412406219
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,8 +164,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -204929699
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 81f18567ae217b74db42ddcf136197a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -228,6 +250,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2642266663093281782, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: walkSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2642266663093281782, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
+      propertyPath: collideWithOthers
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2642266663093281783, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
