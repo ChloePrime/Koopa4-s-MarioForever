@@ -14,6 +14,8 @@ namespace SweetMoleHouse.MarioForever.Player
         private Animator anim;
         private float shootAnimTime;
 
+        private const float ShootAnimLength = 0.1F;
+
         private const string 
             StateStatic = "Static",
             StateWalk   = "Walk",
@@ -40,9 +42,9 @@ namespace SweetMoleHouse.MarioForever.Player
             }
         }
 
-        public void StartShooting(float time)
+        public void StartShooting()
         {
-            shootAnimTime = time;
+            shootAnimTime = ShootAnimLength;
         }
         private void Start()
         {
@@ -63,7 +65,7 @@ namespace SweetMoleHouse.MarioForever.Player
             else if (shootAnimTime > 0)
             {
                 ChangeAnimation(StateShoot);
-                shootAnimTime -= Time.time;
+                shootAnimTime -= Time.deltaTime;
             }
             else if (!mario.Mover.IsOnGround)
             {

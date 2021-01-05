@@ -64,6 +64,12 @@
               <e p="MarioProperty.cs" t="Include" />
             </e>
             <e p="Player" t="Include">
+              <e p="Ability" t="Include">
+                <e p="AbilityManager.cs" t="Include" />
+                <e p="BaseAbility.cs" t="Include" />
+                <e p="BaseAnimatedAbility.cs" t="Include" />
+                <e p="FireFlowerAbi.cs" t="Include" />
+              </e>
               <e p="LifeGranter.cs" t="Include" />
               <e p="Mario.cs" t="Include" />
               <e p="MarioAnim.cs" t="Include" />

@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="升级到Unity2020.2并整理代码">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Mario/Mario.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Mario/Mario.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Mario.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Mario.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioAnim.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioAnim.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,11 +39,13 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/1a/1a0c04dd/Single.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/8a/057b9d87/WaitForSecondsRealtime.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/RenameInInspectorAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Player/MarioAnim.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/85/b2eb4c46/CustomYieldInstruction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351E49E2-A5BF-4FD6-BEAB-B458CE2255F3/3d/24c944f9/HashSet`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/EventSystem/InputModules/BaseInput.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C89001DF-7C70-4A63-A3E3-492A8549C9C3/07/78cae274/GUIStyle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/32/49af8a5e/Shader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Player/MarioAnim.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/UI/ScoreMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/ComboCalculator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/HideInPlayMode.cs" root0="FORCE_HIGHLIGHTING" />
@@ -58,6 +64,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/b5/2a89e9da/GuidAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/fe/16149525/02000055.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/5a/2e8b3d17/_Exception.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/AbilityManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A70CACC3-8B57-40B0-82A0-E3AB93BE903D/d4/4fa766fa/VideoPlayer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Runtime/TextMeshProUGUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/AreaManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -76,13 +83,16 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/43/e9b8f25e/Exception.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/0e/de43a0cc/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/9a/e76d3896/VideoCapture.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/FireFlowerAbi.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.1/InputSystem/Plugins/UI/InputSystemUIInputModule.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Player/MarioAnim.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40688824-5465-403C-962D-1CE18CA533E0/66/c9c2e865/Editor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Graphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40688824-5465-403C-962D-1CE18CA533E0/3e/22c2b45f/AudioSourceInspector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Effect/Flashing.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0B76D74C-9007-4047-ADC3-E5DBD5D3F1DE/2c/b36ad854/HashSet`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/BaseAnimatedAbility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/d4/edaba5e9/Void.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Prefabs/Internal/Parents/Bonus Base.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/IncompleteSetupException.cs" root0="FORCE_HIGHLIGHTING" />
@@ -91,6 +101,7 @@
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/MarioCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Prefabs/Level/Area.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/9d/ce28a9e5/SpriteRenderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/66/9b4847eb/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/ScoreGranter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/84/4a5551e5/Object.cs" root0="SKIP_HIGHLIGHTING" />
@@ -106,13 +117,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Scripts/UI/TimerUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Base/BasePhysics.cs" />
-      <option value="$PROJECT_DIR$/Assets/SpriteOutline/Shaders/SpriteOutline.shader" />
-      <option value="$PROJECT_DIR$/Assets/Art/Shaders/HSV.shader" />
-      <option value="$PROJECT_DIR$/Assets/Art/Shaders/Crop.shader" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Level/ScrollManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/BlackBar.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Level/ScrollInfo.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Level/Background.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/UI/ScoreGiver.cs" />
@@ -149,14 +153,21 @@
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Walk.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Bonus/QuestionBlock.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Corpse.cs" />
-      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Constants/ScoreTypeData.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioCrouch.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/BasePhysics.cs" />
-      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Mario.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Effect/Flashing.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Bonus/Powerup.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Abilities/IAbility.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/IAbility.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/Ability.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/FireFlowerAbi.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Mario.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioAnim.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/BaseAbility.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/BaseAnimatedAbility.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/AbilityManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ls7lgvWXmMeW299Wi6jlQ2E32w" />
@@ -244,7 +255,7 @@
       <workItem from="1609733595690" duration="6682000" />
       <workItem from="1609750086807" duration="5402000" />
       <workItem from="1609755638973" duration="4799000" />
-      <workItem from="1609815925419" duration="4638000" />
+      <workItem from="1609815925419" duration="10244000" />
     </task>
     <task id="LOCAL-00001" summary="马里奥生命数UI">
       <created>1608602252775</created>
@@ -561,7 +572,21 @@
       <option name="project" value="LOCAL" />
       <updated>1609817026405</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="重构马里奥动画代码，添加火焰花状态动画">
+      <created>1609822494567</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1609822494567</updated>
+    </task>
+    <task id="LOCAL-00047" summary="整理马里奥动画代码">
+      <created>1609827292299</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1609827292299</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,8 +608,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="整理文件夹" />
-    <MESSAGE value="得分，1UP" />
     <MESSAGE value="踩踏怪物计分，连踩计分" />
     <MESSAGE value="将动画Asset移动到单独的文件夹" />
     <MESSAGE value="把原来的栗子制作为敌人的基础Prefab" />
@@ -608,7 +631,9 @@
     <MESSAGE value="为区域切换标记绘制专用帖图" />
     <MESSAGE value="重命名马里奥动画文件夹" />
     <MESSAGE value="重命名Area.prefab的名称" />
-    <option name="LAST_COMMIT_MESSAGE" value="重命名Area.prefab的名称" />
+    <MESSAGE value="重构马里奥动画代码，添加火焰花状态动画" />
+    <MESSAGE value="整理马里奥动画代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="整理马里奥动画代码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -618,19 +643,6 @@
           <line>121</line>
           <properties documentPath="E:\Unity\MarioForever\Assets\Scripts\Level\Background.cs" initialLine="92" containingFunctionPresentation="method 'Update'" />
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs</url>
-          <line>91</line>
-          <properties documentPath="E:\Unity\MarioForever\Assets\MarioForever\Scripts\Player\MarioMove.cs" initialLine="91" containingFunctionPresentation="method 'FixedUpdate'">
-            <startOffsets>
-              <option value="3132" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3151" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

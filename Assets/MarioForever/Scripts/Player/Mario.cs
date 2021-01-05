@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using SweetMoleHouse.MarioForever.Effect;
 using SweetMoleHouse.MarioForever.Level;
 using SweetMoleHouse.MarioForever.Persistent;
+using SweetMoleHouse.MarioForever.Player.Ability;
 using SweetMoleHouse.MarioForever.Util;
 using UnityEngine;
 
@@ -22,9 +23,11 @@ namespace SweetMoleHouse.MarioForever.Player
         public ComboCalculator ComboInfo { get; private set; }
         public readonly Dictionary<MarioSize, Collider2D> Sizes = new Dictionary<MarioSize, Collider2D>();
 
-        public Animator Anims { get; private set; }
+        public MarioAnim Anims { get; private set; }
         public SpriteRenderer Renderer { get; private set; }
         public Flashing FlashCtrl { get; private set; }
+        
+        public AbilityManager PowerupManager { get; private set; }
         #endregion
 
         public static float DeltaSizeSmallToBig { get; private set; }
@@ -125,7 +128,10 @@ namespace SweetMoleHouse.MarioForever.Player
             {
                 FlashCtrl.RainbowFlashTime = rainbowTime;
             }
+            PowerupManager.SetPowerup(target);
 
+            // 检测马里奥大小，
+            // 以防止小个子变大个子时卡在墙里
             if (Mover.OverlappingAnything())
             {
                 Croucher.Crouching = true;
@@ -166,9 +172,10 @@ namespace SweetMoleHouse.MarioForever.Player
             ComboInfo = GetComponent<ComboCalculator>();
 
             //附属组件
-            Anims = transform.GetChild(1).GetComponent<Animator>();
+            Anims = transform.GetChild(1).GetComponent<MarioAnim>();
             Renderer = Anims.GetComponent<SpriteRenderer>();
             FlashCtrl = Anims.GetComponent<Flashing>();
+            PowerupManager = GetComponentInChildren<AbilityManager>();
             foreach (MarioSize item in Enum.GetValues(typeof(MarioSize)))
             {
                 Sizes.Add(item, Hitboxes.GetChild((int)item).GetChild(0).GetComponent<Collider2D>());

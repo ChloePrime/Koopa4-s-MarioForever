@@ -51,7 +51,7 @@ namespace SweetMoleHouse.MarioForever.Player
         private bool IsTowardsWall { get; set; }
         public bool IsRunning { get => IsHoldingRunKey && !IsTowardsWall; }
         public AccProfile CurProfile { get => IsRunning ? running : walking; }
-        private bool IsTurning { get => (Math.Sign(XSpeed) != AccDirection); }
+        private bool IsTurning => Math.Sign(XSpeed) != AccDirection;
         private Mario mario;
         private MarioJump jumper;
 
