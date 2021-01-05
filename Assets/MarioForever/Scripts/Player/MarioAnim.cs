@@ -1,6 +1,5 @@
 ﻿using SweetMoleHouse.MarioForever.Constants;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,14 +14,18 @@ namespace SweetMoleHouse.MarioForever.Player
         private Animator anim;
         private MarioPowerup recordedSize = (MarioPowerup)(-1);
 
-        private static readonly string 
-            STATE_STATIC = "Static",
-            STATE_WALK   = "Walk",
-            STATE_JUMP   = "Jump",
-            STATE_CROUCH = "Crouch";
-        private static readonly string[] POSSIBLE_STATES = { STATE_STATIC, STATE_WALK, STATE_JUMP, STATE_CROUCH };
-        private static readonly Dictionary<(string, MarioPowerup), string> STATE_NAME_CACHE
-            = new Dictionary<(string, MarioPowerup), string>(
+        private const string 
+            StateStatic = "Static",
+            StateWalk   = "Walk",
+            StateJump   = "Jump",
+            StateShoot  = "Shoot",
+            StateCrouch = "Crouch";
+        private static readonly string[] POSSIBLE_STATES =
+        {
+            StateStatic, StateWalk, StateJump, StateShoot, StateCrouch
+        };
+        private static readonly Dictionary<(string, MarioPowerup), int> STATE_IDX_CACHE 
+            = new Dictionary<(string, MarioPowerup), int>(
                 POSSIBLE_STATES.Length * Enum.GetValues(typeof(MarioPowerup)).Length);
 
         static MarioAnim()
@@ -31,7 +34,8 @@ namespace SweetMoleHouse.MarioForever.Player
             {
                 foreach (MarioPowerup powerup in Enum.GetValues(typeof(MarioPowerup)))
                 {
-                    STATE_NAME_CACHE[(state, powerup)] = $"{state}-{(int)powerup}";
+                    STATE_IDX_CACHE[(state, powerup)] = Animator.StringToHash(
+                        $"{state}-{(int)powerup}");
                 }
             }
         }
@@ -42,29 +46,29 @@ namespace SweetMoleHouse.MarioForever.Player
         }
 
         private static readonly Vector2 VEC_M1_1 = new Vector2(-1, 1);
-        private static readonly float
-            MIN_WALK_SPEED = 0.36f,
-            MAX_WALK_SPEED = 1.25f;
+        private const float
+            MinWalkSpeed = 0.36f,
+            MaxWalkSpeed = 1.25f;
         private void LateUpdate()
         {
             if (mario.Crouching)
             {
-                ChangeAnimation(STATE_CROUCH);
+                ChangeAnimation(StateCrouch);
             }
             else if (!mario.Mover.IsOnGround)
             {
-                ChangeAnimation(STATE_JUMP);
+                ChangeAnimation(StateJump);
             }
             else if (Mathf.Abs(mario.Mover.XSpeed) > 1e-4)
             {
-                ChangeAnimation(STATE_WALK);
+                ChangeAnimation(StateWalk);
                 float xSpeed = Mathf.Abs(mario.Mover.XSpeed) / mario.Mover.RunProfile.maxSpeed;
-                xSpeed = Mathf.Clamp(xSpeed, MIN_WALK_SPEED, MAX_WALK_SPEED);
-                anim.SetFloat("X Speed", xSpeed);
+                xSpeed = Mathf.Clamp(xSpeed, MinWalkSpeed, MaxWalkSpeed);
+                anim.SetFloat(PROP_X_SPEED, xSpeed);
             }
             else
             {
-                ChangeAnimation(STATE_STATIC);
+                ChangeAnimation(StateStatic);
             }
             //马里奥动画左右方向
             int curAnimDir = Math.Sign(mario.transform.localScale.x);
@@ -80,15 +84,15 @@ namespace SweetMoleHouse.MarioForever.Player
             }
         }
 
-        private string lastStateName = STATE_STATIC;
+        private string lastStateName = StateStatic;
+        private static readonly int PROP_X_SPEED = Animator.StringToHash("X Speed");
+
         private void ChangeAnimation(string animName)
         {
-            var targetName = STATE_NAME_CACHE[(animName, mario.Powerup)];
-            if (!anim.GetCurrentAnimatorStateInfo(0).IsName(targetName))
-            {
-                lastStateName = animName;
-                anim.Play(targetName);
-            }
+            var targetHash = STATE_IDX_CACHE[(animName, mario.Powerup)];
+            if (anim.GetCurrentAnimatorStateInfo(0).shortNameHash == targetHash) return;
+            lastStateName = animName;
+            anim.Play(targetHash);
         }
 
         private void Refresh()
