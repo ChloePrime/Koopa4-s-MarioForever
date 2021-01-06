@@ -1,5 +1,6 @@
 using SweetMoleHouse.MarioForever.Base;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace SweetMoleHouse.MarioForever.Level
 {
@@ -37,6 +38,28 @@ namespace SweetMoleHouse.MarioForever.Level
         {
             var rect = main.rect;
             return rect.width / rect.height;
+        }
+    }
+
+    public static class ScrollHelper
+    {
+        public static Vector2 OffsetOutOfScreen(this Transform transform)
+        {
+            Vector2 pos = transform.position;
+            var screenCenter = ScrollInfo.Center;
+            var halfWidth = new Vector2(ScrollInfo.Width / 2F, ScrollInfo.Height / 2F);
+            
+            var result = pos - screenCenter;
+            result.x = Mathf.Abs(result.x);
+            result.y = Mathf.Abs(result.y);
+            result -= halfWidth;
+            return result;
+        }
+
+        public static float DistanceOutOfScreen(this Transform transform)
+        {
+            var pos = transform.OffsetOutOfScreen();
+            return Mathf.Max(pos.x, pos.y);
         }
     }
 }

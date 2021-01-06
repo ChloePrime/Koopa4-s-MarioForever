@@ -15,6 +15,16 @@ namespace SweetMoleHouse.MarioForever.Player
     /// </summary>
     public class Mario : MonoBehaviour
     {
+        [Header("音效设置")]
+        [SerializeField, RenameInInspector("受伤音效")]
+        private AudioClip hurtSound;
+
+        [SerializeField, RenameInInspector("死亡音效")]
+        private AudioClip deathSound;
+
+        [SerializeField]
+        private GameObject corpse;
+        
         #region 子对象引用
         private Transform Hitboxes { get; set; }
         public MarioMove Mover { get; private set; }
@@ -43,6 +53,8 @@ namespace SweetMoleHouse.MarioForever.Player
                 Size = value == MarioPowerup.SMALL ? MarioSize.SMALL : MarioSize.BIG;
             }
         }
+
+        public int Direction { get; set; }
         public MarioState State { get; set; }
 
         public bool IsSkidding { get; set; }
@@ -61,15 +73,6 @@ namespace SweetMoleHouse.MarioForever.Player
 
         #endregion
 
-        [Header("音效设置")]
-        [SerializeField, RenameInInspector("受伤音效")]
-        private AudioClip hurtSound;
-
-        [SerializeField, RenameInInspector("死亡音效")]
-        private AudioClip deathSound;
-
-        [SerializeField]
-        private GameObject corpse;
 
         private MarioSize size;
         public MarioSize Size

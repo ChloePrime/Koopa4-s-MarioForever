@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Base
 {
@@ -13,6 +14,16 @@ namespace SweetMoleHouse.MarioForever.Base
         protected float walkSpeed = 1.5f;
         [SerializeField, RenameInInspector("与其他行走物品相撞")]
         private bool collideWithOthers = true;
+
+        public override void SetDirection(float dir)
+        {
+            base.SetDirection(dir);
+            
+            var axis = Math.Sign(dir);
+            walkSpeed = Mathf.Abs(walkSpeed) * axis;
+            RealWalkSpeed = Mathf.Abs(RealWalkSpeed) * Mathf.Sign(axis);
+        }
+
         /// <summary>
         /// 带符号的行走速度
         /// </summary>

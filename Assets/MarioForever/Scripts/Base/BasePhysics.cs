@@ -3,6 +3,7 @@ using SweetMoleHouse.MarioForever.Util;
 using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SweetMoleHouse.MarioForever.Base
 {
@@ -44,21 +45,46 @@ namespace SweetMoleHouse.MarioForever.Base
         [SerializeField, RenameInInspector("顶头音效")]
         private AudioClip hitHeadSfx;
         
+        [Header("出水管设置")]
+        [SerializeField, RenameInInspector("出现速度")]
+        private float appearSpeed = 1.5f;
+        
+        // 运行时字段
+
+        private enum SlopeState
+        {
+            FLAT = 0,
+            UP = 1,
+            DOWN = -1
+        }
+        private SlopeState slopeState = SlopeState.FLAT;
+        private BaseSlope curSlopeObj;
+        /// <summary>
+        /// 斜坡坡度对速度的衰减
+        /// 真实x速度 = x速度 * 这个值
+        /// (真实y速度 = x速度 * <see cref="BaseSlope.Degree"/>)
+        /// 只对上坡有效
+        /// </summary>
+        private float slopeFactor;
+        private float lastFUpdateTime;
+        private Vector2 tickStartPos;
+        private Vector2 tickEndPos;
+        
+        // 属性
+        
         public bool IsOnGround { get; private set; }
 
         public float XSpeed { get => vel.x; set => vel.x = value; }
         public float YSpeed { get => vel.y; set => vel.y = value; }
         public virtual float Gravity { get => gravity; set => gravity = value; }
+        public Rigidbody2D R2d { get; private set; }
 
         #region 从水管出现
-
-        [Header("出水管设置")]
-        [SerializeField, RenameInInspector("出现速度")]
-        private float appearSpeed = 1.5f;
-
+        
         private bool appeared = true;
         private Vector2 appearDir;
         private float appearProgress;
+        private bool appearingInSolidBefore;
         public virtual void Appear(in Vector2 direction, in Vector2 size)
         {
             appeared = false;
@@ -91,7 +117,6 @@ namespace SweetMoleHouse.MarioForever.Base
             }
         }
 
-        private bool appearingInSolidBefore;
         private void TryEndAppearInAdvance()
         {
             bool inSolid = R2d.GetContacts(Filter, OverlapTempArray) != 0;
@@ -108,7 +133,10 @@ namespace SweetMoleHouse.MarioForever.Base
 
         #endregion
 
-        public Rigidbody2D R2d { get; private set; }
+        public virtual void SetDirection(float dir)
+        {
+            XSpeed = Mathf.Abs(XSpeed) * Mathf.Sign(dir);
+        }
 
         protected virtual void Start()
         {
@@ -120,25 +148,6 @@ namespace SweetMoleHouse.MarioForever.Base
                 transform.Translate(0, 0.01F, 0);
             }
         }
-
-        public enum SlopeState
-        {
-            FLAT = 0,
-            UP = 1,
-            DOWN = -1
-        }
-        private SlopeState slopeState = SlopeState.FLAT;
-        private BaseSlope curSlopeObj;
-        /// <summary>
-        /// 斜坡坡度对速度的衰减
-        /// 真实x速度 = x速度 * 这个值
-        /// (真实y速度 = x速度 * <see cref="BaseSlope.Degree"/>)
-        /// 只对上坡有效
-        /// </summary>
-        private float slopeFactor;
-        private float lastFUpdateTime;
-        private Vector2 tickStartPos;
-        private Vector2 tickEndPos;
 
         protected virtual void FixedUpdate()
         {
@@ -364,7 +373,7 @@ namespace SweetMoleHouse.MarioForever.Base
         /// </summary>
         /// <param name="colliders">碰撞结果</param>
         protected virtual void HitWallY(in Collider2D[] colliders) 
-        { 
+        {
             OnHitWallY?.Invoke(colliders);
             
             if (YSpeed > 0)

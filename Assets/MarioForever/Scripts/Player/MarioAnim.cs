@@ -94,6 +94,7 @@ namespace SweetMoleHouse.MarioForever.Player
             int curAnimDir = Math.Sign(mario.transform.localScale.x);
             if (mario.Mover.AccDirection + curAnimDir == 0)
             {
+                mario.Direction = mario.Mover.AccDirection;
                 mario.transform.localScale *= VEC_M1_1;
             }
         }

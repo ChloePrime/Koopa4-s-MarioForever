@@ -25,6 +25,10 @@
               <e p="Powerup.cs" t="Include" />
               <e p="QuestionBlock.cs" t="Include" />
             </e>
+            <e p="Common" t="Include">
+              <e p="Bounce.cs" t="Include" />
+              <e p="Fireball.cs" t="Include" />
+            </e>
             <e p="Constants" t="Include">
               <e p="Consts.cs" t="Include" />
               <e p="MarioPowerup.cs" t="Include" />
@@ -33,6 +37,7 @@
             </e>
             <e p="Effect" t="Include">
               <e p="Flashing.cs" t="Include" />
+              <e p="SelfRotation.cs" t="Include" />
             </e>
             <e p="Enemy" t="Include">
               <e p="Corpse.cs" t="Include" />
@@ -69,6 +74,7 @@
                 <e p="BaseAbility.cs" t="Include" />
                 <e p="BaseAnimatedAbility.cs" t="Include" />
                 <e p="FireFlowerAbi.cs" t="Include" />
+                <e p="MarioFireball.cs" t="Include" />
               </e>
               <e p="LifeGranter.cs" t="Include" />
               <e p="Mario.cs" t="Include" />
@@ -91,6 +97,7 @@
             </e>
             <e p="Util" t="Include">
               <e p="ComboCalculator.cs" t="Include" />
+              <e p="ComTreeUtil.cs" t="Include" />
               <e p="Editor" t="Include">
                 <e p="SceneReference.cs" t="Include" />
               </e>
