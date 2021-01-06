@@ -23,6 +23,42 @@ PrefabInstance:
       propertyPath: m_Autodestruct
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3610592923349355671, guid: c7d9921adc59a11478a0bb009fbc48f2, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610592923349355671, guid: c7d9921adc59a11478a0bb009fbc48f2, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610592923349355671, guid: c7d9921adc59a11478a0bb009fbc48f2, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610592923349355671, guid: c7d9921adc59a11478a0bb009fbc48f2, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610592923349355671, guid: c7d9921adc59a11478a0bb009fbc48f2, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inSlope
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610592923349355671, guid: c7d9921adc59a11478a0bb009fbc48f2, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610592923349355671, guid: c7d9921adc59a11478a0bb009fbc48f2, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outSlope
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610592923349355671, guid: c7d9921adc59a11478a0bb009fbc48f2, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outWeight
+      value: 0.33333334
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610592923349355671, guid: c7d9921adc59a11478a0bb009fbc48f2, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
     - target: {fileID: 4085723854135149131, guid: c7d9921adc59a11478a0bb009fbc48f2, type: 3}
       propertyPath: m_Name
       value: Mario Fireball
