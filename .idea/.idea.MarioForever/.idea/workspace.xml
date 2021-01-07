@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="升级到Unity2020.2并整理代码">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Fireball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Fireball.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Player/Mario Fireball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Player/Mario Fireball.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Damagable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageReceiver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Damagable.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageReceiver.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/MarioDamager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageDealer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/MarioDamager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageDealer.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +50,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C89001DF-7C70-4A63-A3E3-492A8549C9C3/07/78cae274/GUIStyle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/de/3dab2142/Stack.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/32/49af8a5e/Shader.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Player/Ability/AbilityManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/UI/ScoreMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/ComboCalculator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/HideInPlayMode.cs" root0="FORCE_HIGHLIGHTING" />
@@ -92,7 +94,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Effect/Flashing.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40688824-5465-403C-962D-1CE18CA533E0/3e/22c2b45f/AudioSourceInspector.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Player/Ability/AbilityManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0B76D74C-9007-4047-ADC3-E5DBD5D3F1DE/2c/b36ad854/HashSet`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/BaseAnimatedAbility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/d4/edaba5e9/Void.cs" root0="SKIP_HIGHLIGHTING" />
@@ -120,8 +121,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/LifeGranter.cs" />
-      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Constants/ScoreType.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/IncompleteSetupException.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/FormalNameAttribute.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/RenameInInspectorAttribute.cs" />
@@ -171,6 +170,8 @@
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/MarioFireball.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/FireFlowerAbi.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Common/Fireball.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageReceiver.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageDealer.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ls7lgvWXmMeW299Wi6jlQ2E32w" />
@@ -260,14 +261,8 @@
       <workItem from="1609755638973" duration="4799000" />
       <workItem from="1609815925419" duration="19423000" />
       <workItem from="1609914964086" duration="10357000" />
-      <workItem from="1609939229230" duration="4016000" />
-    </task>
-    <task id="LOCAL-00003" summary="升级到Unity2020.2并整理代码">
-      <created>1608602469293</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1608602469293</updated>
+      <workItem from="1609939229230" duration="4650000" />
+      <workItem from="1610001781213" duration="723000" />
     </task>
     <task id="LOCAL-00004" summary="UI初步完成">
       <created>1608792693585</created>
@@ -605,7 +600,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609947243407</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="调整火球爆炸的烟雾粒子">
+      <created>1609949603993</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1609949603993</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +629,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="关卡BGM" />
     <MESSAGE value="将动画放到Art文件夹下" />
     <MESSAGE value="重构单例，BGM/BGM切换" />
     <MESSAGE value="删除没用的Editor脚本" />
@@ -652,7 +653,8 @@
     <MESSAGE value="修复马里奥打飞机时受伤会播放不存在的动画的bug" />
     <MESSAGE value="把走动物体的动画放到Walking Rigidbody里" />
     <MESSAGE value="完成马里奥发射火球功能，给火球添加特效" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成马里奥发射火球功能，给火球添加特效" />
+    <MESSAGE value="调整火球爆炸的烟雾粒子" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整火球爆炸的烟雾粒子" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

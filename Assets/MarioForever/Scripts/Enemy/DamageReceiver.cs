@@ -8,7 +8,7 @@ namespace SweetMoleHouse.MarioForever.Enemy
     /// 敌人的攻击判定
     /// 该脚本使用这个物品的父物体作为敌人本体
     /// </summary>
-    public class Damagable : Stompable
+    public class DamageReceiver : Stompable
     {
         [SerializeField, RenameInInspector("可被攻击的方式")]
         private EnumDamageType acceptedDamageTypes = 0;
@@ -64,7 +64,7 @@ namespace SweetMoleHouse.MarioForever.Enemy
 
             corpse.SetActive(true);
             runtimeCorpse.AcceptBody(self.GetComponentInChildren<SpriteRenderer>());
-            if (TryGetComponent(out MarioDamager damager))
+            if (TryGetComponent(out DamageDealer damager))
             {
                 damager.enabled = false;
             }

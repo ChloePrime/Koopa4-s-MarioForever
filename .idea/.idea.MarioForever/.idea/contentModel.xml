@@ -41,9 +41,9 @@
             </e>
             <e p="Enemy" t="Include">
               <e p="Corpse.cs" t="Include" />
-              <e p="Damagable.cs" t="Include" />
+              <e p="DamageDealer.cs" t="Include" />
+              <e p="DamageReceiver.cs" t="Include" />
               <e p="EnumDamageType.cs" t="Include" />
-              <e p="MarioDamager.cs" t="Include" />
               <e p="Stompable.cs" t="Include" />
               <e p="StompHandler.cs" t="Include" />
             </e>
