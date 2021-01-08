@@ -1,4 +1,5 @@
-﻿using SweetMoleHouse.MarioForever.Constants;
+﻿using System;
+using SweetMoleHouse.MarioForever.Constants;
 using SweetMoleHouse.MarioForever.Player;
 using UnityEngine;
 
@@ -23,10 +24,16 @@ namespace SweetMoleHouse.MarioForever.Enemy
 
         private bool isDead;
         private Corpse runtimeCorpse;
+        public Transform Self => self;
+        public SpriteRenderer Renderer { get; private set; }
+
+
+        public event Func<EnumDamageType, ActionResult> OnGenerateCorpse;
 
         protected override void Start()
         {
             base.Start();
+            Renderer = self.GetComponentInChildren<SpriteRenderer>();
             if (self == null)
             {
                 self = GetComponent<Collider2D>().attachedRigidbody.transform;
@@ -36,6 +43,7 @@ namespace SweetMoleHouse.MarioForever.Enemy
             runtimeCorpse = corpse.GetComponent<Corpse>();
             corpse.SetActive(false);
         }
+
 
         public virtual void Attack(in EnumDamageType type)
         {
@@ -47,10 +55,8 @@ namespace SweetMoleHouse.MarioForever.Enemy
 
         public virtual void SetDead(in EnumDamageType type)
         {
-            if (isDead)
-            {
-                return;
-            }
+            // 防止死亡代码重复执行
+            if (isDead) return;
             isDead = true;
 
             if (type == EnumDamageType.STOMP)
@@ -62,13 +68,26 @@ namespace SweetMoleHouse.MarioForever.Enemy
                 score.Summon(self.transform);
             }
 
-            corpse.SetActive(true);
-            runtimeCorpse.AcceptBody(self.GetComponentInChildren<SpriteRenderer>());
+            GenerateCorpse(type);
+
             if (TryGetComponent(out DamageDealer damager))
             {
                 damager.enabled = false;
             }
             Destroy(self.gameObject);
+        }
+
+        private void GenerateCorpse(in EnumDamageType type)
+        {
+            bool overriden = OnGenerateCorpse?.Invoke(type).IsCanceled() ?? false;
+            if (overriden)
+            {
+                Destroy(corpse);
+                return;
+            }
+            
+            corpse.SetActive(true);
+            runtimeCorpse.AcceptBody(Renderer);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

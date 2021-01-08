@@ -32,6 +32,10 @@ namespace SweetMoleHouse.MarioForever.Common
 
         private void FixedUpdate()
         {
+            if (Mathf.Abs(physics.XSpeed) <= 1e-2)
+            {
+                Explode();
+            }
             if (transform.DistanceOutOfScreen() > size)
             {
                 Explode(false);

@@ -27,9 +27,11 @@
             </e>
             <e p="Common" t="Include">
               <e p="Bounce.cs" t="Include" />
+              <e p="DelayedDisappear.cs" t="Include" />
               <e p="Fireball.cs" t="Include" />
             </e>
             <e p="Constants" t="Include">
+              <e p="ActionResult.cs" t="Include" />
               <e p="Consts.cs" t="Include" />
               <e p="MarioPowerup.cs" t="Include" />
               <e p="MarioSize.cs" t="Include" />
@@ -44,6 +46,9 @@
               <e p="DamageDealer.cs" t="Include" />
               <e p="DamageReceiver.cs" t="Include" />
               <e p="EnumDamageType.cs" t="Include" />
+              <e p="Goomba" t="Include">
+                <e p="GoombaDeathHandler.cs" t="Include" />
+              </e>
               <e p="Stompable.cs" t="Include" />
               <e p="StompHandler.cs" t="Include" />
             </e>

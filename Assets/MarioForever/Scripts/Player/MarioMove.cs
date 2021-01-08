@@ -49,8 +49,8 @@ namespace SweetMoleHouse.MarioForever.Player
         public int AccDirection { get; private set; }
         private bool IsHoldingRunKey { get; set; }
         private bool IsTowardsWall { get; set; }
-        public bool IsRunning { get => IsHoldingRunKey && !IsTowardsWall; }
-        public AccProfile CurProfile { get => IsRunning ? running : walking; }
+        public bool IsRunning => IsHoldingRunKey && !IsTowardsWall;
+        public AccProfile CurProfile => IsRunning ? running : walking;
         private bool IsTurning => Math.Sign(XSpeed) != AccDirection;
         private Mario mario;
         private MarioJump jumper;
@@ -76,7 +76,7 @@ namespace SweetMoleHouse.MarioForever.Player
         private void OnRunPressed(CallbackContext ctx) => IsHoldingRunKey = true;
         private void OnRunReleased(CallbackContext ctx) => IsHoldingRunKey = false;
 
-        public override float Gravity { get => base.Gravity * jumper.GetGravityScale(); }
+        public override float Gravity => base.Gravity * jumper.GetGravityScale();
 
         protected override void FixedUpdate()
         {

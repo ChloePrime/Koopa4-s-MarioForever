@@ -17,10 +17,8 @@ namespace SweetMoleHouse.MarioForever.Constants
         /// <summary>
         /// 像素/帧 -> 格/帧
         /// </summary>
-        public static float LENGTH_UNIT_SCALE
-        {
-            get => ONE_PIXEL * FPS * Time.deltaTime;
-        }
+        public static float LENGTH_UNIT_SCALE => ONE_PIXEL * FPS * Time.deltaTime;
+
         public static string TAG_PLAYER { get; } = "Player";
     }
     

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever
+namespace SweetMoleHouse.MarioForever.Player.Ability
 {
     public class MarioFireball : MonoBehaviour
     {

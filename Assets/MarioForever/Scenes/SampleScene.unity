@@ -2563,7 +2563,7 @@ Transform:
   - {fileID: 470856524}
   - {fileID: 1175923543}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &682756571
 AudioSource:
@@ -3705,7 +3705,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3767972340034019626, guid: 8a21981f1bd70854eb85eba095ed0d7a, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3767972340034019626, guid: 8a21981f1bd70854eb85eba095ed0d7a, type: 3}
       propertyPath: m_LocalPosition.x

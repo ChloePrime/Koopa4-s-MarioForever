@@ -1,4 +1,5 @@
-﻿using SweetMoleHouse.MarioForever.Level;
+﻿using SweetMoleHouse.MarioForever.Base;
+using SweetMoleHouse.MarioForever.Level;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Enemy
@@ -8,16 +9,23 @@ namespace SweetMoleHouse.MarioForever.Enemy
     /// </summary>
     public class Corpse : MonoBehaviour 
     {
-        [SerializeField]
-        private float gravity = 48;
-
-        public float YSpeed { get; set; }
         private new SpriteRenderer renderer;
+        private BasePhysics physics;
+        private bool inited;
+
+        private void Start()
+        {
+            if (inited) return;
+            
+            physics = GetComponent<BasePhysics>();
+            
+            renderer = GetComponentInChildren<SpriteRenderer>();
+            
+            inited = true;
+        }
 
         private void Update()
         {
-            YSpeed -= gravity * Time.deltaTime;
-            transform.Translate(0, YSpeed * Time.deltaTime, 0);
             if (transform.position.y <= ScrollInfo.Bottom - 8)
             {
                 Destroy(gameObject);
@@ -26,11 +34,10 @@ namespace SweetMoleHouse.MarioForever.Enemy
 
         public void AcceptBody(in SpriteRenderer sr)
         {
-            if (renderer == null)
-            {
-                renderer = GetComponent<SpriteRenderer>();
-            }
-            transform.position = sr.transform.position;
+            // 此函数调用时 Start 可能未执行
+            if (!inited) Start(); 
+            
+            physics.Teleport(sr.transform.position);
             renderer.sprite = sr.sprite;
         }
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7771896578995890573}
   - component: {fileID: 7771896578995890575}
   - component: {fileID: 3115459536062683082}
+  - component: {fileID: 1203845159692809071}
   m_Layer: 0
   m_Name: Score Base
   m_TagString: Untagged
@@ -98,7 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDistance: 2
   moveSpeed: 1.76
-  stayTime: 2.4
 --- !u!114 &3115459536062683082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,3 +112,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 0
+--- !u!114 &1203845159692809071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7771896578995890570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48666bc18af08424480c99f48b9708d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDisappearDelay: 2.4
+  gradientTime: 1

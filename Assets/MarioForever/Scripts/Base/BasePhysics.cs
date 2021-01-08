@@ -41,6 +41,11 @@ namespace SweetMoleHouse.MarioForever.Base
         /// </summary>
         [SerializeField, RenameInInspector("初速度")]
         protected Vector2 vel = Vector2.zero;
+
+        [Space, Space, Space]
+        [SerializeField, RenameInInspector("无碰撞")]
+        private bool ignoreCollision;
+        
         [Header("音效设置")]
         [SerializeField, RenameInInspector("顶头音效")]
         private AudioClip hitHeadSfx;
@@ -78,6 +83,8 @@ namespace SweetMoleHouse.MarioForever.Base
         public float YSpeed { get => vel.y; set => vel.y = value; }
         public virtual float Gravity { get => gravity; set => gravity = value; }
         public Rigidbody2D R2d { get; private set; }
+
+        public bool IgnoreCollision => ignoreCollision;
 
         #region 从水管出现
         
@@ -170,7 +177,10 @@ namespace SweetMoleHouse.MarioForever.Base
             }
 
             ClampSpeed();
-            CheckSurroundings();
+            if (!IgnoreCollision)
+            {
+                CheckSurroundings();
+            }
             MoveAndRecordPos();
         }
 
@@ -297,6 +307,11 @@ namespace SweetMoleHouse.MarioForever.Base
         /// </summary>
         public void MoveX(float distance)
         {
+            if (IgnoreCollision)
+            {
+                transform.Translate(distance, 0, 0);
+                return;
+            }
             float actualDist;
             int amount = R2d.Cast(GetDirX(), Filter, RCastTempArray, Math.Abs(distance) + AntiTrapEpsilon);
             if (amount == 0)
@@ -343,6 +358,11 @@ namespace SweetMoleHouse.MarioForever.Base
         /// </summary>
         public void MoveY(float distance)
         {
+            if (IgnoreCollision)
+            {
+                transform.Translate(0, distance, 0);
+                return;
+            }
             int amount = R2d.Cast(GetDirY(), Filter, RCastTempArray, Math.Abs(distance) + AntiTrapEpsilon);
             if (amount == 0)
             {
@@ -393,6 +413,13 @@ namespace SweetMoleHouse.MarioForever.Base
                 }
             }
         }
+
+        public void Teleport(Vector3 pos)
+        {
+            transform.position = pos;
+            tickStartPos = tickEndPos = pos;
+        }
+
         private static Collider2D[] TakeColliders(int amount)
         {
             return RCastTempArray.Take(amount).Select(rr => rr.collider).ToArray();

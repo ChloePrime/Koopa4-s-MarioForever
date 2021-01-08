@@ -18,7 +18,7 @@ namespace SweetMoleHouse.MarioForever.Debug
         private Vector2 moveTarget = Vector2.zero;
         private Vector2 moveCur = Vector2.zero;
 
-        private Vector2 MoveTargetScaled { get => moveTarget * freeCameraSpeed; }
+        private Vector2 MoveTargetScaled => moveTarget * freeCameraSpeed;
 
         private void Start()
         {
