@@ -1,54 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="升级到Unity2020.2并整理代码">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Green Grass.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Green Grass.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Tilemap.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Tilemap.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/Grassland.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Tiles/Grassland.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_0.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_0.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_1.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_10.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_10.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_11.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_11.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_12.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_12.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_13.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_13.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_14.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_14.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_15.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_15.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_16.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_16.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_17.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_17.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_2.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_2.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_3.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_3.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_4.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_4.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_5.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_5.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_6.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_6.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_7.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_7.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_8.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_8.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_9.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Tiles/InternalSingleTile/绿色草地/绿色草地_9.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="升级到Unity2020.2并整理代码" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,10 +31,12 @@
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Slider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/db/b01074a1/ICollection.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/de/3dab2142/Stack.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Art/Sprites/Tiles/Green Grass.png.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/UI/ScoreMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/HideInPlayMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/03D8F91A-1F2F-47A1-8C34-D619BAFE2609/c9/959bccbb/Rigidbody2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Effect/SelfRotation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/75/4e875a83/MethodImplOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/GlobalSingleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/26BACF2A-B3E7-4E5B-9AB6-134973DBE886/c1/6075ee3f/MethodImplOptions.cs" root0="SKIP_HIGHLIGHTING" />
@@ -101,6 +56,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/FireFlowerAbi.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.1/InputSystem/Plugins/UI/InputSystemUIInputModule.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40688824-5465-403C-962D-1CE18CA533E0/66/c9c2e865/Editor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/ProjectSettings/QualitySettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Graphic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Effect/Flashing.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/MaskableGraphic.cs" root0="SKIP_HIGHLIGHTING" />
@@ -129,6 +85,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/1a/1a0c04dd/Single.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/8a/057b9d87/WaitForSecondsRealtime.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/RenameInInspectorAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Tiles/Grassland.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/85/b2eb4c46/CustomYieldInstruction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351E49E2-A5BF-4FD6-BEAB-B458CE2255F3/3d/24c944f9/HashSet`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/ea/979085fa/Stack`1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -176,6 +133,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A70CACC3-8B57-40B0-82A0-E3AB93BE903D/2d/75b3b4ca/VideoAspectRatio.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Constants/ScoreTypeData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/77/f2697cb0/LinkedList`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/33/4647722e/MustExtensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -324,14 +282,7 @@
       <workItem from="1610001781213" duration="3019000" />
       <workItem from="1610080984210" duration="10586000" />
       <workItem from="1610103001103" duration="3915000" />
-      <workItem from="1610169508564" duration="12296000" />
-    </task>
-    <task id="LOCAL-00010" summary="把马里奥个子的存储位置挪到全局变量内">
-      <created>1608874527441</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1608874527441</updated>
+      <workItem from="1610169508564" duration="13188000" />
     </task>
     <task id="LOCAL-00011" summary="背景图脚本，和几个shader">
       <created>1609165980017</created>
@@ -669,7 +620,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610180365529</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Blocks">
+      <created>1610203185602</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1610203185602</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -691,7 +649,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="整理动画文件" />
     <MESSAGE value="重命名行走物件的prefab" />
     <MESSAGE value="将BasePhysic撞墙事件公开为event" />
     <MESSAGE value="修复斜坡不正常的bug" />
@@ -716,7 +673,8 @@
     <MESSAGE value="删除未使用的马里奥挨打碰撞箱脚本" />
     <MESSAGE value="移动命名空间至与idea的提示匹配" />
     <MESSAGE value="完成马里奥火球打死敌人功能，优化火球特效" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成马里奥火球打死敌人功能，优化火球特效" />
+    <MESSAGE value="Blocks" />
+    <option name="LAST_COMMIT_MESSAGE" value="Blocks" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
