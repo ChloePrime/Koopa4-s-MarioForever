@@ -25,6 +25,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d180dcbfa8e0b764c93b5eace372922d, type: 3}
+    - target: {fileID: 1323213654944790852, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
+      propertyPath: m_SortingLayer
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323213654944790852, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -204929699
+      objectReference: {fileID: 0}
     - target: {fileID: 2642266663093281768, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -81,11 +89,16 @@ PrefabInstance:
       propertyPath: walkSpeed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2642266663093281782, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
+      propertyPath: collideWithOthers
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2642266663093281783, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_Name
       value: Goomba Photo
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7553030440749307621, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
 --- !u!1 &6123855365092277619 stripped
 GameObject:

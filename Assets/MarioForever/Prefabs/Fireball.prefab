@@ -9727,6 +9727,10 @@ PrefabInstance:
       propertyPath: walkSpeed
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 2642266663093281782, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
+      propertyPath: collideWithOthers
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2642266663093281783, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_Name
       value: Fireball
