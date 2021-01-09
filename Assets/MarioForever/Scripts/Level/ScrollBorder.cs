@@ -23,8 +23,8 @@ namespace SweetMoleHouse.MarioForever.Scripts.Level
         public void Tick(Camera camera)
         {
             Vector3 pos = camera.transform.position;
-            float camHeight = camera.orthographicSize;
-            float camWidth = camHeight * camera.rect.width / camera.rect.height;
+            float camWidth = ScrollInfo.Width / 2;
+            float camHeight = ScrollInfo.Height / 2;
             pos.x = Mathf.Clamp(pos.x, min.x + camWidth, max.x - camWidth);
             pos.y = Mathf.Clamp(pos.y, min.y + camHeight, max.y - camHeight);
             camera.transform.position = pos;

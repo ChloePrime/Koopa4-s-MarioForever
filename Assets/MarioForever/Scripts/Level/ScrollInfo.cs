@@ -1,5 +1,7 @@
+using System;
 using SweetMoleHouse.MarioForever.Scripts.Base;
 using UnityEngine;
+using UnityEngine.U2D;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Level
 {
@@ -14,9 +16,15 @@ namespace SweetMoleHouse.MarioForever.Scripts.Level
         public static float Bottom => Center.y - Height / 2;
         
         private Camera main;
+        private PixelPerfectCamera ppc;
+        private bool hasPpc;
         private void Awake()
         {
             main = Camera.main;
+            if (main != null)
+            {
+                hasPpc = main.TryGetComponent(out ppc);
+            }
             ComputeScrollData();
         }
 
@@ -36,6 +44,11 @@ namespace SweetMoleHouse.MarioForever.Scripts.Level
         private float GetScreenRatio()
         {
             var rect = main.rect;
+            if (hasPpc)
+            {
+                return ppc.refResolutionX / (float) ppc.refResolutionY;
+            }
+            // 使用 PixelPerfectCamera 以后 Viewport 的矩形的长宽比会反过来
             return rect.width / rect.height;
         }
     }
