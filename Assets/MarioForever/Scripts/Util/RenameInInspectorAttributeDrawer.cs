@@ -1,19 +1,22 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿using UnityEditor;
+using UnityEngine;
 
 #if UNITY_EDITOR
-[CustomPropertyDrawer(typeof(RenameInInspectorAttribute))]
-public class RenameInInspectorAttributeDrawer : PropertyDrawer
+namespace SweetMoleHouse.MarioForever.Scripts.Util
 {
-    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    [CustomPropertyDrawer(typeof(RenameInInspectorAttribute))]
+    public class RenameInInspectorAttributeDrawer : PropertyDrawer
     {
-        RenameInInspectorAttribute attr = attribute as RenameInInspectorAttribute;
-        if (attr.Name.Length > 0)
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            label.text = attr.Name;
+            RenameInInspectorAttribute attr = attribute as RenameInInspectorAttribute;
+            if (attr.Name.Length > 0)
+            {
+                label.text = attr.Name;
+            }
+            EditorGUI.PropertyField(position, property, label);
+            //base.OnGUI(position, property, label);
         }
-        EditorGUI.PropertyField(position, property, label);
-        //base.OnGUI(position, property, label);
     }
 }
 #endif

@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Base
+namespace SweetMoleHouse.MarioForever.Scripts.Base
 {
     /// <summary>
     /// 斜坡接口

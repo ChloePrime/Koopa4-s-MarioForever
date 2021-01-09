@@ -14,6 +14,9 @@
               <e p="GlobalSingleton.cs" t="Include" />
               <e p="IAppearable.cs" t="Include" />
               <e p="IHitable.cs" t="Include" />
+              <e p="Rpg" t="Include">
+                <e p="IDamageDealer.cs" t="Include" />
+              </e>
               <e p="Singleton.cs" t="Include" />
               <e p="SlopeLeftDown.cs" t="Include" />
               <e p="SlopeRightDown.cs" t="Include" />

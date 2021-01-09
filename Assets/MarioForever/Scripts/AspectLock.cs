@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace SweetMoleHouse
+namespace SweetMoleHouse.MarioForever.Scripts
 {
     /// <summary>
     /// 锁定纵横比

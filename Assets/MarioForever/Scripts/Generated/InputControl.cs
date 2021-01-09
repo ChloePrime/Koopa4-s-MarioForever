@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-namespace SweetMoleHouse.MarioForever.Generated
+namespace SweetMoleHouse.MarioForever.Scripts.Generated
 {
     public class @InputControl : IInputActionCollection, IDisposable
     {

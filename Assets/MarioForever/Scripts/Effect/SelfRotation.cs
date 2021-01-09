@@ -1,8 +1,9 @@
 using System;
-using SweetMoleHouse.MarioForever.Base;
+using SweetMoleHouse.MarioForever.Scripts.Base;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Effect
+namespace SweetMoleHouse.MarioForever.Scripts.Effect
 {
     /// <summary>
     /// 物体自转

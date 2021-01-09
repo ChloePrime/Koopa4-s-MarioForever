@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using SweetMoleHouse.MarioForever.Base;
+using SweetMoleHouse.MarioForever.Scripts.Base;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Level
+namespace SweetMoleHouse.MarioForever.Scripts.Level
 {
     public class AreaManager : Singleton<AreaManager>
     {

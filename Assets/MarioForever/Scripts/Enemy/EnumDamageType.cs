@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SweetMoleHouse.MarioForever.Enemy
+namespace SweetMoleHouse.MarioForever.Scripts.Enemy
 {
     /// <summary>
     /// 攻击方式

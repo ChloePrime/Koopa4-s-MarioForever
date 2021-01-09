@@ -1,10 +1,10 @@
 using System;
-using SweetMoleHouse.MarioForever.Base;
-using SweetMoleHouse.MarioForever.Util;
+using SweetMoleHouse.MarioForever.Scripts.Base;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace SweetMoleHouse.MarioForever.Constants
+namespace SweetMoleHouse.MarioForever.Scripts.Constants
 {
     public enum ScoreType
     {

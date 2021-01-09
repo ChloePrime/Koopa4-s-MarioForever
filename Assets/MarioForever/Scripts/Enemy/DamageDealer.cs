@@ -1,25 +1,27 @@
-﻿using SweetMoleHouse.MarioForever.Player;
+﻿using SweetMoleHouse.MarioForever.Scripts.Player;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Enemy
+namespace SweetMoleHouse.MarioForever.Scripts.Enemy
 {
     /// <summary>
     /// 可以伤害到马里奥的东西
     /// </summary>
     public class DamageDealer : Stompable
     {
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            OnCollisionStay2D(other);
+            OnTriggerStay2D(other);
         }
 
-        private void OnCollisionStay2D(Collision2D collision)
+        private void OnTriggerStay2D(Collider2D other)
         {
-            var isMario = collision.transform.TryGetComponent(out Mario mario);
+            var isMario = other.transform.TryGetComponent(out MarioRpgHitbox hitbox);
             if (!isMario)
             {
                 return;
             }
+
+            var mario = hitbox.Mario;
             //可以踩
             if (IsStomp(mario.transform))
             {

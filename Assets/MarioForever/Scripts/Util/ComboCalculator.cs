@@ -1,8 +1,8 @@
 using System;
-using SweetMoleHouse.MarioForever.Constants;
+using SweetMoleHouse.MarioForever.Scripts.Constants;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Util
+namespace SweetMoleHouse.MarioForever.Scripts.Util
 {
     public class ComboCalculator : MonoBehaviour
     {

@@ -1,7 +1,7 @@
-using SweetMoleHouse.MarioForever.Constants;
+using SweetMoleHouse.MarioForever.Scripts.Constants;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Enemy.Goomba
+namespace SweetMoleHouse.MarioForever.Scripts.Enemy.Goomba
 {
     public class GoombaDeathHandler : MonoBehaviour
     {

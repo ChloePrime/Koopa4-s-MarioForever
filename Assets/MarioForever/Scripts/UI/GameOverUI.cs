@@ -1,12 +1,12 @@
 using System.Collections;
-using SweetMoleHouse.MarioForever.Util.Editor;
+using SweetMoleHouse.MarioForever.Scripts.Util;
+using SweetMoleHouse.MarioForever.Scripts.Util.Editor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace SweetMoleHouse.MarioForever.UI
+namespace SweetMoleHouse.MarioForever.Scripts.UI
 {
     public class GameOverUI : MonoBehaviour
     {

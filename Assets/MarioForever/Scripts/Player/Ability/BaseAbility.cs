@@ -1,8 +1,7 @@
-using System;
-using SweetMoleHouse.MarioForever.Constants;
+using SweetMoleHouse.MarioForever.Scripts.Constants;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Player.Ability
+namespace SweetMoleHouse.MarioForever.Scripts.Player.Ability
 {
     public abstract class BaseAbility : MonoBehaviour
     {

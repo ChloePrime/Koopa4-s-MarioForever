@@ -1,8 +1,7 @@
-using System;
 using TMPro;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.UI
+namespace SweetMoleHouse.MarioForever.Scripts.UI
 {
     /// <summary>
     /// 使用 TextMeshPro 显示数字的计数器

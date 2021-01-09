@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Effect
+namespace SweetMoleHouse.MarioForever.Scripts.Effect
 {
     public class Flashing : MonoBehaviour
     {

@@ -1,11 +1,10 @@
 using System.Collections;
-using SweetMoleHouse.MarioForever.Persistent;
-using SweetMoleHouse.MarioForever.UI;
+using SweetMoleHouse.MarioForever.Scripts.Persistent;
+using SweetMoleHouse.MarioForever.Scripts.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.VFX;
 
-namespace SweetMoleHouse.MarioForever.Player
+namespace SweetMoleHouse.MarioForever.Scripts.Player
 {
     /// <summary>
     /// 你看那马里奥笑得多开心啊

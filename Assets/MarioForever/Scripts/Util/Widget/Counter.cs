@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Util.Widget
+namespace SweetMoleHouse.MarioForever.Scripts.Util.Widget
 {
     /// <summary>
     /// 贴图计数器

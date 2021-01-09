@@ -1,9 +1,6 @@
-﻿using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Level
+namespace SweetMoleHouse.MarioForever.Scripts.Level
 {
     /// <summary>
     /// 

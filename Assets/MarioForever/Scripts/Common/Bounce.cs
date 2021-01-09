@@ -1,7 +1,7 @@
-using SweetMoleHouse.MarioForever.Base;
+using SweetMoleHouse.MarioForever.Scripts.Base;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Common
+namespace SweetMoleHouse.MarioForever.Scripts.Common
 {
     public class Bounce : MonoBehaviour
     {

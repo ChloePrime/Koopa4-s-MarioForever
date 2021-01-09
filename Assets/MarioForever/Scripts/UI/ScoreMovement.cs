@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.UI
+namespace SweetMoleHouse.MarioForever.Scripts.UI
 {
     public class ScoreMovement : MonoBehaviour
     {

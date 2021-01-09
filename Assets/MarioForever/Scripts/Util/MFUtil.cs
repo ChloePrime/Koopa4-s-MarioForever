@@ -1,9 +1,8 @@
-﻿using SweetMoleHouse.MarioForever.Constants;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using SweetMoleHouse.MarioForever.Scripts.Constants;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Util
+namespace SweetMoleHouse.MarioForever.Scripts.Util
 {
     /// <summary>
     /// 为unity带来一些MMF的功能

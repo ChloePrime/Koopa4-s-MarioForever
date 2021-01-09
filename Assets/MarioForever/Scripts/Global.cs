@@ -1,9 +1,9 @@
-﻿using SweetMoleHouse.MarioForever.Base;
-using SweetMoleHouse.MarioForever.Generated;
+﻿using SweetMoleHouse.MarioForever.Scripts.Base;
+using SweetMoleHouse.MarioForever.Scripts.Generated;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SweetMoleHouse.MarioForever
+namespace SweetMoleHouse.MarioForever.Scripts
 {
     /// <summary>
     /// 全局对象，单例运作

@@ -1,7 +1,7 @@
-using SweetMoleHouse.MarioForever.Constants;
-using SweetMoleHouse.MarioForever.Player;
+using SweetMoleHouse.MarioForever.Scripts.Constants;
+using SweetMoleHouse.MarioForever.Scripts.Player;
 
-namespace SweetMoleHouse.MarioForever.Persistent
+namespace SweetMoleHouse.MarioForever.Scripts.Persistent
 {
     public static class MarioProperty
     {

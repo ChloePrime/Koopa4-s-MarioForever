@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Util
+namespace SweetMoleHouse.MarioForever.Scripts.Util
 {
     public static class ComTreeUtil
     {

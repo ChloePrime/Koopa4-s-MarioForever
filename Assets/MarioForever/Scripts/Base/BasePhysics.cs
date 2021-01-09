@@ -1,11 +1,10 @@
-﻿using SweetMoleHouse.MarioForever.Constants;
-using SweetMoleHouse.MarioForever.Util;
-using System;
+﻿using System;
 using System.Linq;
+using SweetMoleHouse.MarioForever.Scripts.Constants;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
-using UnityEngine.UI;
 
-namespace SweetMoleHouse.MarioForever.Base
+namespace SweetMoleHouse.MarioForever.Scripts.Base
 {
     /// <summary>
     /// 移动的东西

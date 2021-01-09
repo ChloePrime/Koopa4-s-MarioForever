@@ -1,8 +1,7 @@
-using SweetMoleHouse.MarioForever.Base;
+using SweetMoleHouse.MarioForever.Scripts.Base;
 using UnityEngine;
-using UnityEngine.Rendering;
 
-namespace SweetMoleHouse.MarioForever.Level
+namespace SweetMoleHouse.MarioForever.Scripts.Level
 {
     public class ScrollInfo : Singleton<ScrollInfo>
     {

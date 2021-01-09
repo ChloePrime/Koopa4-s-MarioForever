@@ -1,8 +1,8 @@
-using SweetMoleHouse.MarioForever.Constants;
-using SweetMoleHouse.MarioForever.Player;
+using SweetMoleHouse.MarioForever.Scripts.Constants;
+using SweetMoleHouse.MarioForever.Scripts.Player;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Bonus
+namespace SweetMoleHouse.MarioForever.Scripts.Bonus
 {
     public class Powerup : MonoBehaviour
     {

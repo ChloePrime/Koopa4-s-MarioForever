@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace SweetMoleHouse.MarioForever.Debug
+namespace SweetMoleHouse.MarioForever.Scripts
 {
     /// <summary>
     /// 摄像机飞行

@@ -1,7 +1,7 @@
-using SweetMoleHouse.MarioForever.Base;
+using SweetMoleHouse.MarioForever.Scripts.Base;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Bonus
+namespace SweetMoleHouse.MarioForever.Scripts.Bonus
 {
     public class MushroomAnimation : MonoBehaviour
     {

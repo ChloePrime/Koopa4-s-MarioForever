@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace SweetMoleHouse.MarioForever.Constants
+namespace SweetMoleHouse.MarioForever.Scripts.Constants
 {
     public enum ActionResult
     {

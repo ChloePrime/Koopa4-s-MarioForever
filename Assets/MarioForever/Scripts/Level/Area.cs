@@ -1,7 +1,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Level
+namespace SweetMoleHouse.MarioForever.Scripts.Level
 {
     /// <summary>
     /// 表示一个区域

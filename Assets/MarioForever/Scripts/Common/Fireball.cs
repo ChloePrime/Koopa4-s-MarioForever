@@ -1,8 +1,9 @@
-using SweetMoleHouse.MarioForever.Base;
-using SweetMoleHouse.MarioForever.Level;
+using SweetMoleHouse.MarioForever.Scripts.Base;
+using SweetMoleHouse.MarioForever.Scripts.Level;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Common
+namespace SweetMoleHouse.MarioForever.Scripts.Common
 {
     public class Fireball : MonoBehaviour
     {

@@ -1,13 +1,13 @@
 ﻿using System;
+using SweetMoleHouse.MarioForever.Scripts.Base;
+using SweetMoleHouse.MarioForever.Scripts.Level;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
-using SweetMoleHouse.MarioForever.Base;
-using SweetMoleHouse.MarioForever.Level;
-using SweetMoleHouse.MarioForever.Util;
 using static UnityEngine.InputSystem.InputAction;
 using static UnityEngine.Mathf;
 
 
-namespace SweetMoleHouse.MarioForever.Player
+namespace SweetMoleHouse.MarioForever.Scripts.Player
 {
     /// <summary>
     /// 马里奥横向移动

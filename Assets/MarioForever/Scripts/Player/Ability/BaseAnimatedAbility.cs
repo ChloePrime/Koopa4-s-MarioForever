@@ -1,4 +1,4 @@
-namespace SweetMoleHouse.MarioForever.Player.Ability
+namespace SweetMoleHouse.MarioForever.Scripts.Player.Ability
 {
     public abstract class BaseAnimatedAbility : BaseAbility
     {

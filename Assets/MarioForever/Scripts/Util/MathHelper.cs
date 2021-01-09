@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Util
+namespace SweetMoleHouse.MarioForever.Scripts.Util
 {
     public static class MathHelper 
     {

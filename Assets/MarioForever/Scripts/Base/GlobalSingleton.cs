@@ -1,4 +1,4 @@
-namespace SweetMoleHouse.MarioForever.Base
+namespace SweetMoleHouse.MarioForever.Scripts.Base
 {
     /// <summary>
     /// 具有 DontDestroyOnLoad 属性的单例脚本

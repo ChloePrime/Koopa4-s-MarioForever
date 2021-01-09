@@ -1,7 +1,8 @@
 ﻿using System;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Base
+namespace SweetMoleHouse.MarioForever.Scripts.Base
 {
     /// <summary>
     /// 行走的东西

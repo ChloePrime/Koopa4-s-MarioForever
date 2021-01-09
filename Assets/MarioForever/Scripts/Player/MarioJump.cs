@@ -1,8 +1,9 @@
 ﻿using System;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
-namespace SweetMoleHouse.MarioForever.Player
+namespace SweetMoleHouse.MarioForever.Scripts.Player
 {
     /// <summary>
     /// 马里奥跳跃

@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
-
-#if UNITY_EDITOR
 using UnityEditor;
+using UnityEngine;
+#if UNITY_EDITOR
+
 #endif
 
 // Author: JohannesMP (2018-08-12)
@@ -24,7 +24,7 @@ using UnityEditor;
 //         as modified despite having just reverted. This only happens the fist time, and reverting again 
 //         fixes it. Under the hood the state is still always valid, and serialized correctly regardless.
 
-namespace SweetMoleHouse.MarioForever.Util.Editor
+namespace SweetMoleHouse.MarioForever.Scripts.Util.Editor
 {
     /// <summary>
     /// A wrapper that provides the means to safely serialize Scene Asset References.

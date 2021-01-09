@@ -1,8 +1,8 @@
-﻿using SweetMoleHouse.MarioForever.Base;
-using SweetMoleHouse.MarioForever.Level;
+﻿using SweetMoleHouse.MarioForever.Scripts.Base;
+using SweetMoleHouse.MarioForever.Scripts.Level;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Enemy
+namespace SweetMoleHouse.MarioForever.Scripts.Enemy
 {
     /// <summary>
     /// 怪物尸体

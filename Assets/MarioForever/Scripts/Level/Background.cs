@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Level
+namespace SweetMoleHouse.MarioForever.Scripts.Level
 {
     public class Background : MonoBehaviour
     {

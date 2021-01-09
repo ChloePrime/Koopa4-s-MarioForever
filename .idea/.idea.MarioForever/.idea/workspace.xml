@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="升级到Unity2020.2并整理代码">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Fireball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Fireball.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Goomba Photo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Goomba Photo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/DamageHandler.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/DamageHandler.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageDealer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageDealer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioRpgHitbox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioRpgHitbox.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarioForever.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/MarioForever.sln.DotSettings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +16,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -98,11 +101,16 @@
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Goomba/GoombaDeathHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/2a/86949d40/Array.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/fb/9ae55d48/NotImplementedException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Prefabs/Player/Player.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Enemy/DamageDealer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/8e/1daf2b7f/Material.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Enemy/DamageDealer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/fe/16149525/02000055.il" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.1/Scripts/Runtime/TextMeshProUGUI.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/AreaManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Prefabs/Internal/Parents/DamageHandler.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/ac/148e6335/Func`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Player/MarioRpgHitbox.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9D69AD7C-AC3F-49D6-AE0F-B5718C3A7703/03/1240f1d3/PackageManagerWindowRoot.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/91/676446e3/Exception.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B8EE7494-4007-4F27-9F13-A58F9C2CED22/b0/ea7d696a/AudioBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
@@ -114,6 +122,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/36/a3f34ce9/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/9a/e76d3896/VideoCapture.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40688824-5465-403C-962D-1CE18CA533E0/3e/22c2b45f/AudioSourceInspector.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Prefabs/Enemy/Goomba.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/02/22233060/SerializableAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/1e/018f8dee/Type.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../2020.2.0f1c1/Editor/Data/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
@@ -125,8 +134,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/StompHandler.cs" />
-      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Damagable.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Global.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/GlobalSingleton.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Singleton.cs" />
@@ -163,7 +170,6 @@
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioAnim.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Mario.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/ScrollInfo.cs" />
-      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageDealer.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Constants/ActionResult.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Common/Fireball.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/MarioFireball.cs" />
@@ -172,10 +178,13 @@
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Corpse.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/BasePhysics.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Common/NaturalDisappear.cs" />
-      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/ComTreeUtil.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Common/DelayedDisappear.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Goomba/GoombaDeathHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/UI/ScoreMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/ComTreeUtil.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioRpgHitbox.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageDealer.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Rpg/IDamageDealer.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ls7lgvWXmMeW299Wi6jlQ2E32w" />
@@ -269,21 +278,7 @@
       <workItem from="1610001781213" duration="3019000" />
       <workItem from="1610080984210" duration="10586000" />
       <workItem from="1610103001103" duration="3915000" />
-      <workItem from="1610169508564" duration="24000" />
-    </task>
-    <task id="LOCAL-00006" summary="整理代码">
-      <created>1608792858041</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1608792858041</updated>
-    </task>
-    <task id="LOCAL-00007" summary="优化踩栗子手感">
-      <created>1608817300692</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1608817300692</updated>
+      <workItem from="1610169508564" duration="1673000" />
     </task>
     <task id="LOCAL-00008" summary="你看那马里奥在终末之时笑得多开心啊&#10;- 完成关卡倒计时功能&#10;- 完成马里奥死亡功能">
       <created>1608817363019</created>
@@ -614,7 +609,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610119805904</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="取消火球，板栗仔相片和其他行走物品的碰撞">
+      <created>1610169538495</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1610169538496</updated>
+    </task>
+    <task id="LOCAL-00056" summary="删除未使用的马里奥挨打碰撞箱脚本">
+      <created>1610169819704</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1610169819704</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -636,8 +645,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="删除没用的Editor脚本" />
-    <MESSAGE value="区域切换" />
     <MESSAGE value="马里奥在滚屏边界停止" />
     <MESSAGE value="修复区域切换标记在Play模式下显示贴图的bug" />
     <MESSAGE value="整理动画文件" />
@@ -661,7 +668,9 @@
     <MESSAGE value="调整火球爆炸的烟雾粒子" />
     <MESSAGE value="重命名怪物伤害判定相关的两个脚本" />
     <MESSAGE value="板栗仔相片" />
-    <option name="LAST_COMMIT_MESSAGE" value="板栗仔相片" />
+    <MESSAGE value="取消火球，板栗仔相片和其他行走物品的碰撞" />
+    <MESSAGE value="删除未使用的马里奥挨打碰撞箱脚本" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除未使用的马里奥挨打碰撞箱脚本" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,9 +1,9 @@
-﻿using SweetMoleHouse.MarioForever.Base;
-using SweetMoleHouse.MarioForever.Constants;
+﻿using SweetMoleHouse.MarioForever.Scripts.Base;
+using SweetMoleHouse.MarioForever.Scripts.Constants;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
-namespace SweetMoleHouse.MarioForever.Player
+namespace SweetMoleHouse.MarioForever.Scripts.Player
 {
     /// <summary>
     /// 马里奥下蹲

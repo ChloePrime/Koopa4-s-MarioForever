@@ -1,8 +1,8 @@
-using SweetMoleHouse.MarioForever.Constants;
-using SweetMoleHouse.MarioForever.Util;
+using SweetMoleHouse.MarioForever.Scripts.Constants;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Level
+namespace SweetMoleHouse.MarioForever.Scripts.Level
 {
     public class ChangeArea : HideInPlayMode
     {

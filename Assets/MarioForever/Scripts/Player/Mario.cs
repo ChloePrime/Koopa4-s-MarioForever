@@ -1,14 +1,14 @@
-﻿using SweetMoleHouse.MarioForever.Constants;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using SweetMoleHouse.MarioForever.Effect;
-using SweetMoleHouse.MarioForever.Level;
-using SweetMoleHouse.MarioForever.Persistent;
-using SweetMoleHouse.MarioForever.Player.Ability;
-using SweetMoleHouse.MarioForever.Util;
+using SweetMoleHouse.MarioForever.Scripts.Constants;
+using SweetMoleHouse.MarioForever.Scripts.Effect;
+using SweetMoleHouse.MarioForever.Scripts.Level;
+using SweetMoleHouse.MarioForever.Scripts.Persistent;
+using SweetMoleHouse.MarioForever.Scripts.Player.Ability;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Player
+namespace SweetMoleHouse.MarioForever.Scripts.Player
 {
     /// <summary>
     /// 马里奥主物体

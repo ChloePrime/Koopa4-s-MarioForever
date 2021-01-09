@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever
+namespace SweetMoleHouse.MarioForever.Scripts
 {
     /// <summary>
     /// 屏幕两边的黑边

@@ -1,9 +1,9 @@
-using System;
-using SweetMoleHouse.MarioForever.Level;
+using SweetMoleHouse.MarioForever.Scripts.Level;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 using static UnityEngine.Mathf;
 
-namespace SweetMoleHouse.MarioForever.UI
+namespace SweetMoleHouse.MarioForever.Scripts.UI
 {
     /// <summary>
     /// 关卡倒计时的显示

@@ -1,9 +1,9 @@
-﻿using SweetMoleHouse.MarioForever.Constants;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using SweetMoleHouse.MarioForever.Scripts.Constants;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Player
+namespace SweetMoleHouse.MarioForever.Scripts.Player
 {
     /// <summary>
     /// 马里奥动画

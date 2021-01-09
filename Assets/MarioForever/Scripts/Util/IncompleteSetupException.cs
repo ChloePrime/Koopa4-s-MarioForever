@@ -1,6 +1,6 @@
 using System;
 
-namespace SweetMoleHouse.MarioForever.Util
+namespace SweetMoleHouse.MarioForever.Scripts.Util
 {
     public class IncompleteSetupException : Exception
     {

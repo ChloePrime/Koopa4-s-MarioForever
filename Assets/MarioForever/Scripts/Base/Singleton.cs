@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Base
+namespace SweetMoleHouse.MarioForever.Scripts.Base
 {
     /// <summary>
     /// 单例类，

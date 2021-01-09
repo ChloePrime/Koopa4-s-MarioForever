@@ -1,9 +1,10 @@
 ﻿using System;
-using SweetMoleHouse.MarioForever.Constants;
-using SweetMoleHouse.MarioForever.Player;
+using SweetMoleHouse.MarioForever.Scripts.Constants;
+using SweetMoleHouse.MarioForever.Scripts.Player;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Enemy
+namespace SweetMoleHouse.MarioForever.Scripts.Enemy
 {
     /// <summary>
     /// 敌人的攻击判定

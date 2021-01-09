@@ -1,8 +1,9 @@
-using SweetMoleHouse.MarioForever.Persistent;
-using SweetMoleHouse.MarioForever.Player;
+using SweetMoleHouse.MarioForever.Scripts.Persistent;
+using SweetMoleHouse.MarioForever.Scripts.Player;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Level
+namespace SweetMoleHouse.MarioForever.Scripts.Level
 {
     /// <summary>
     /// 存放关卡时间的地方

@@ -1,9 +1,9 @@
-using SweetMoleHouse.MarioForever.Base;
-using SweetMoleHouse.MarioForever.Constants;
-using SweetMoleHouse.MarioForever.Util;
+using SweetMoleHouse.MarioForever.Scripts.Base;
+using SweetMoleHouse.MarioForever.Scripts.Constants;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Player.Ability
+namespace SweetMoleHouse.MarioForever.Scripts.Player.Ability
 {
     public class FireFlowerAbi : BaseAnimatedAbility
     {

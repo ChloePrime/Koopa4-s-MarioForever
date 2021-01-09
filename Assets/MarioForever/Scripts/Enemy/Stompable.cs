@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Enemy
+namespace SweetMoleHouse.MarioForever.Scripts.Enemy
 {
     /// <summary>
     /// 用于区分碰撞为踩踏还是

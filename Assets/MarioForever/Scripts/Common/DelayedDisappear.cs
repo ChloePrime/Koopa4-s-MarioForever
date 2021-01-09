@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
-using SweetMoleHouse.MarioForever.Util;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Common
+namespace SweetMoleHouse.MarioForever.Scripts.Common
 {
     public class DelayedDisappear : MonoBehaviour
     {

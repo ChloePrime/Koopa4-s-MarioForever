@@ -1,10 +1,10 @@
-﻿using JetBrains.Annotations;
-using SweetMoleHouse.MarioForever.Base;
-using System.Collections;
-using SweetMoleHouse.MarioForever.Util;
+﻿using System.Collections;
+using JetBrains.Annotations;
+using SweetMoleHouse.MarioForever.Scripts.Base;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Bonus
+namespace SweetMoleHouse.MarioForever.Scripts.Bonus
 {
     /// <summary>
     /// 一个可以顶的东西

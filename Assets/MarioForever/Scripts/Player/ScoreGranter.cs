@@ -1,7 +1,7 @@
-using SweetMoleHouse.MarioForever.Persistent;
+using SweetMoleHouse.MarioForever.Scripts.Persistent;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Player
+namespace SweetMoleHouse.MarioForever.Scripts.Player
 {
     public class ScoreGranter : MonoBehaviour
     {

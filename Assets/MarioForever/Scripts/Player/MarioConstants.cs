@@ -1,4 +1,4 @@
-﻿namespace SweetMoleHouse.MarioForever.Player
+﻿namespace SweetMoleHouse.MarioForever.Scripts.Player
 {
     public enum MarioState
     {

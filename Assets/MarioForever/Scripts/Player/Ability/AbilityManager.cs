@@ -1,9 +1,10 @@
 using JetBrains.Annotations;
-using SweetMoleHouse.MarioForever.Constants;
+using SweetMoleHouse.MarioForever.Scripts.Constants;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 using static UnityEngine.InputSystem.InputAction;
 
-namespace SweetMoleHouse.MarioForever.Player.Ability
+namespace SweetMoleHouse.MarioForever.Scripts.Player.Ability
 {
     public class AbilityManager : MonoBehaviour
     {
