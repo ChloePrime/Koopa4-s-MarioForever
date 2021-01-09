@@ -24,6 +24,11 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
 
         [SerializeField]
         private GameObject corpse;
+
+        /// <summary>
+        /// 掉悬崖死亡判定线和屏幕底部的距离差
+        /// </summary>
+        private const float CliffKillBias = 2F;
         
         #region 子对象引用
         private Transform Hitboxes { get; set; }
@@ -184,6 +189,14 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
                 Sizes.Add(item, Hitboxes.GetChild((int)item).GetChild(0).GetComponent<Collider2D>());
             }
             DeltaSizeSmallToBig = Sizes[MarioSize.BIG].bounds.size.y - Sizes[MarioSize.SMALL].bounds.size.y;
+        }
+
+        private void FixedUpdate()
+        {
+            if (transform.position.y <= ScrollInfo.Bottom - CliffKillBias)
+            {
+                Kill();
+            }
         }
     }
 }

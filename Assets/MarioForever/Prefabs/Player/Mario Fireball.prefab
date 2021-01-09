@@ -19,6 +19,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 836534807922061052, guid: c7d9921adc59a11478a0bb009fbc48f2, type: 3}
+      propertyPath: faction
+      value: 
+      objectReference: {fileID: 11400000, guid: 550328b2a26dffc4987ac793b0ec6f01, type: 2}
     - target: {fileID: 3610592923349355671, guid: c7d9921adc59a11478a0bb009fbc48f2, type: 3}
       propertyPath: m_Autodestruct
       value: 1

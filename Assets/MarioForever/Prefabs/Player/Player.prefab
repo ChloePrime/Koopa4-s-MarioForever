@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377de21d58e92d04680fd7aca8f0154a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faction: {fileID: 11400000, guid: 550328b2a26dffc4987ac793b0ec6f01, type: 2}
 --- !u!1 &1733563635890764789
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 377de21d58e92d04680fd7aca8f0154a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faction: {fileID: 11400000, guid: 550328b2a26dffc4987ac793b0ec6f01, type: 2}
 --- !u!1 &4022877300453224064
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +549,7 @@ MonoBehaviour:
   maxYSpeed: Infinity
   minYSpeed: 32
   vel: {x: 0, y: 0}
+  ignoreCollision: 0
   hitHeadSfx: {fileID: 8300000, guid: a71e2f3cc9493704aa0e5d2b9db275b3, type: 3}
   appearSpeed: 1.5
   walking:

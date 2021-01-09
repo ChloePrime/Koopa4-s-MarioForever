@@ -13,7 +13,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy.Goomba
             dr = GetComponent<DamageReceiver>();
             dr.OnGenerateCorpse += OnDeath;
             
-            goombaPhoto = Instantiate(goombaPhoto, dr.Self.parent);
+            goombaPhoto = Instantiate(goombaPhoto, dr.Host.parent);
             goombaPhoto.SetActive(false);
         }
 
@@ -22,7 +22,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy.Goomba
             if (type != EnumDamageType.STOMP) return ActionResult.PASS;
             
             goombaPhoto.SetActive(true);
-            goombaPhoto.transform.position = dr.Self.position;
+            goombaPhoto.transform.position = dr.Host.position;
             if (goombaPhoto.TryGetComponent(out Corpse corpse))
             {
                 corpse.AcceptBody(dr.Renderer);

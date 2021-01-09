@@ -1,4 +1,5 @@
 using SweetMoleHouse.MarioForever.Scripts.Base;
+using SweetMoleHouse.MarioForever.Scripts.Enemy;
 using SweetMoleHouse.MarioForever.Scripts.Level;
 using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
@@ -20,8 +21,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Common
             size = Mathf.Max(bound.x, bound.y);
             
             physics = GetComponent<BasePhysics>();
-            physics.OnHitWallX += _ => Explode();
-            physics.OnHitWallY += OnHitWallY;
+            InstallExplodeConditions();
 
             var particleCom = GetComponentInChildren<ParticleSystem>();
             if (particleCom != null)
@@ -29,6 +29,14 @@ namespace SweetMoleHouse.MarioForever.Scripts.Common
                 particle = particleCom.gameObject;
                 particle.SetActive(false);
             }
+        }
+
+        private void InstallExplodeConditions()
+        {
+            physics.OnHitWallX += _ => Explode();
+            physics.OnHitWallY += OnHitWallY;
+
+            GetComponentInChildren<DamageSource>().OnDamaging += _ => Explode();
         }
 
         private void FixedUpdate()

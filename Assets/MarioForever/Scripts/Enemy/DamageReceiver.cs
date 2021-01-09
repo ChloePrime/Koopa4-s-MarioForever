@@ -1,8 +1,10 @@
 ﻿using System;
+using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
 using SweetMoleHouse.MarioForever.Scripts.Player;
 using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Enemy
 {
@@ -10,23 +12,29 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
     /// 敌人的攻击判定
     /// 该脚本使用这个物品的父物体作为敌人本体
     /// </summary>
-    public class DamageReceiver : Stompable
+    public class DamageReceiver : Stompable, IDamageReceiver
     {
         [SerializeField, RenameInInspector("可被攻击的方式")]
         private EnumDamageType acceptedDamageTypes = 0;
-        [SerializeField, RenameInInspector("本体")]
-        private Transform self;
+        [FormerlySerializedAs("self")] [SerializeField, RenameInInspector("本体")]
+        private Transform host;
         [SerializeField, RenameInInspector("尸体")]
         private GameObject corpse;
         [SerializeField, RenameInInspector("踩踏音效")]
         private AudioClip stompSound;
+        [SerializeField, RenameInInspector("死亡音效")]
+        private AudioClip defeatSound;
         [SerializeField, RenameInInspector("奖分")]
         private ScoreType score;
 
+        [SerializeField] private Faction faction;
+
         private bool isDead;
         private Corpse runtimeCorpse;
-        public Transform Self => self;
+        public Transform Host => host;
         public SpriteRenderer Renderer { get; private set; }
+
+        public Faction Faction => faction;
 
 
         public event Func<EnumDamageType, ActionResult> OnGenerateCorpse;
@@ -34,19 +42,19 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
         protected override void Start()
         {
             base.Start();
-            Renderer = self.GetComponentInChildren<SpriteRenderer>();
-            if (self == null)
+            Renderer = host.GetComponentInChildren<SpriteRenderer>();
+            if (host == null)
             {
-                self = GetComponent<Collider2D>().attachedRigidbody.transform;
+                host = GetComponent<Collider2D>().attachedRigidbody.transform;
             }
 
-            corpse = Instantiate(corpse, self.parent);
+            corpse = Instantiate(corpse, host.parent);
             runtimeCorpse = corpse.GetComponent<Corpse>();
             corpse.SetActive(false);
         }
 
 
-        public virtual void Attack(in EnumDamageType type)
+        public virtual void Damage(in EnumDamageType type)
         {
             if ((acceptedDamageTypes & type) > 0)
             {
@@ -66,16 +74,17 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
             }
             else
             {
-                score.Summon(self.transform);
+                Global.PlaySound(defeatSound);
+                score.Summon(host.transform);
             }
 
             GenerateCorpse(type);
 
-            if (TryGetComponent(out DamageDealer damager))
+            if (TryGetComponent(out DamageSource damager))
             {
                 damager.enabled = false;
             }
-            Destroy(self.gameObject);
+            Destroy(host.gameObject);
         }
 
         private void GenerateCorpse(in EnumDamageType type)
@@ -101,7 +110,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
             bool isMario = collision.transform.TryGetComponent(out Mario mario);
             if (isMario && IsStomp(collision.transform))
             {
-                Attack(EnumDamageType.STOMP);
+                Damage(EnumDamageType.STOMP);
                 mario.OnStomp(GetStompPower(mario), true);
             }
         }
