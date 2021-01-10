@@ -9,7 +9,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Level
         [SerializeField] private Area target;
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag(Consts.TAG_PLAYER))
+            if (other.CompareTag(Tags.Player))
             {
                 AreaManager.SetCurrentArea(target);
             }

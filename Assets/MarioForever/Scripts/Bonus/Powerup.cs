@@ -14,7 +14,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Bonus
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!other.CompareTag(Consts.TAG_PLAYER)) return;
+            if (!other.CompareTag(Tags.Player)) return;
             if (!other.attachedRigidbody.TryGetComponent(out Mario mario)) return;
 
             // 大于蘑菇的补给总是会把马里奥拉到自己的目标补给级别

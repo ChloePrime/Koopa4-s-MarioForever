@@ -143,6 +143,14 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         {
             XSpeed = Mathf.Abs(XSpeed) * Mathf.Sign(dir);
         }
+        
+        private static void InitClass()
+        {
+            if (Inited) return;
+            Filter.SetLayerMask(~LayerMask.GetMask(LayerNames.AllMovable, LayerNames.DmgDetector));
+            Filter.useTriggers = false;
+            Inited = true;
+        }
 
         protected virtual void Start()
         {
@@ -226,7 +234,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         /// <param name="fieldToSet"></param>
         protected virtual void StopTowardsWall(in Vector2 dir, ref float fieldToSet)
         {
-            int hits = R2d.Cast(dir, Filter, RCastTempArray, AntiTrapEpsilon);
+            int hits = Cast(dir, Filter, RCastTempArray, AntiTrapEpsilon);
             //不撞到东西或者撞到任意斜坡时不停止速度
             if (hits == 0)
             {
@@ -258,7 +266,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         /// <param name="isUp">这次检测是上坡(true)还是下坡(false)</param>
         private void CheckSlope(in Vector2 dir, in bool isUp)
         {
-            int results = R2d.Cast(dir, Filter, RCastTempArray, 0.125f);
+            int results = Cast(dir, Filter, RCastTempArray, 0.125f);
             for (int i = 0; i < results; i++)
             {
                 var result = RCastTempArray[i];
@@ -312,7 +320,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 return;
             }
             float actualDist;
-            int amount = R2d.Cast(GetDirX(), Filter, RCastTempArray, Math.Abs(distance) + AntiTrapEpsilon);
+            int amount = Cast(GetDirX(), Filter, RCastTempArray, Math.Abs(distance) + AntiTrapEpsilon);
             if (amount == 0)
             {
                 actualDist = Math.Abs(distance);
@@ -362,11 +370,11 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 transform.Translate(0, distance, 0);
                 return;
             }
-            int amount = R2d.Cast(GetDirY(), Filter, RCastTempArray, Math.Abs(distance) + AntiTrapEpsilon);
+            int amount = Cast(GetDirY(), Filter, RCastTempArray, Math.Abs(distance) + AntiTrapEpsilon);
             if (amount == 0)
             {
                 transform.Translate(0, distance, 0);
-                if (R2d.Cast(Vector2.down, Filter, RCastTempArray, 2 * AntiTrapEpsilon) == 0)
+                if (Cast(Vector2.down, Filter, RCastTempArray, 2 * AntiTrapEpsilon) == 0)
                 {
                     IsOnGround = false;
                 }
@@ -435,7 +443,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         protected int Move(in Vector2 offset)
         {
             float length = offset.magnitude;
-            int amount = R2d.Cast(offset.normalized, Filter, RCastTempArray, length + AntiTrapEpsilon);
+            int amount = Cast(offset.normalized, Filter, RCastTempArray, length + AntiTrapEpsilon);
             if (amount == 0)
             {
                 transform.Translate(offset);
@@ -451,14 +459,6 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 transform.Translate(offset * actualScale);
             }
             return amount;
-        }
-
-        private void InitClass()
-        {
-            if (Inited) return;
-            Filter.SetLayerMask(~LayerMask.GetMask(LayerNames.ALL_MOVEABLE, LayerNames.DMG_DETECTOR));
-            Filter.useTriggers = false;
-            Inited = true;
         }
 
         /// <summary>
@@ -509,6 +509,39 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             }
 
             return Math.Sign(YSpeed) > 0 ? Vector2.up: Vector2.down;
+        }
+        
+        private int Cast(Vector2 direction,
+            ContactFilter2D contactFilter,
+            RaycastHit2D[] results,
+            float distance = Mathf.Infinity)
+        {
+            int count = R2d.Cast(direction, contactFilter, results, distance);
+            bool considerPlatform = direction.y < 0 && -direction.y > Mathf.Abs(direction.x);
+
+            int bias = 0;
+            for (var i = 0; i < count; i++)
+            {
+                var result = results[i];
+                if (bias > 0)
+                {
+                    results[i - bias] = result;
+                }
+                // 如果不是平台，不做处理
+                var rig = result.rigidbody != null ? (Component) result.rigidbody : result.collider;
+                if (!rig.CompareTag(Tags.Platform)) continue;
+                // normal.y >= 0 && normal.y > abs(normal.x)
+                // 不考虑平台，或者法线不超上的情况，此时把平台视作空心的
+                if (!considerPlatform 
+                    || transform.position.y < result.point.y
+                    || result.normal.y < Mathf.Abs(result.normal.x))
+                {
+                    // 说明这个实心是平台且需要剔除，那么把它从 Cast 结果中剔除
+                    bias++;
+                }
+            }
+
+            return count - bias;
         }
     }
 }

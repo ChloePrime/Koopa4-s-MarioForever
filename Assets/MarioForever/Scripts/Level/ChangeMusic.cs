@@ -11,7 +11,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Level
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.CompareTag(Consts.TAG_PLAYER))
+            if (other.CompareTag(Tags.Player))
             {
                 AreaManager.SetMusic(music);
             }

@@ -23,7 +23,6 @@
               <e p="SlopeRightDown.cs" t="Include" />
               <e p="Walk.cs" t="Include" />
             </e>
-            <e p="BlackBar.cs" t="Include" />
             <e p="Bonus" t="Include">
               <e p="MushroomAnimation.cs" t="Include" />
               <e p="Powerup.cs" t="Include" />

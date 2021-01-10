@@ -16,8 +16,6 @@ namespace SweetMoleHouse.MarioForever.Scripts.Constants
         /// 像素/帧 -> 格/帧
         /// </summary>
         public static float LENGTH_UNIT_SCALE => ONE_PIXEL * FPS * Time.deltaTime;
-
-        public static string TAG_PLAYER { get; } = "Player";
     }
     
     /// <summary>
@@ -25,7 +23,13 @@ namespace SweetMoleHouse.MarioForever.Scripts.Constants
     /// </summary>
     public static class LayerNames
     {
-        public static string ALL_MOVEABLE { get; } = "Physics";
-        public static string DMG_DETECTOR { get; } = "Damagers";
+        public static string AllMovable { get; } = "Physics";
+        public static string DmgDetector { get; } = "Murderers";
+    }
+
+    public static class Tags
+    {
+        public static string Player { get; } = "Player";
+        public static string Platform { get; } = "Platform";
     }
 }
