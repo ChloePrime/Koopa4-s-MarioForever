@@ -51,7 +51,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
         private bool IsTowardsWall { get; set; }
         public bool IsRunning => IsHoldingRunKey && !IsTowardsWall;
         public AccProfile CurProfile => IsRunning ? running : walking;
-        private bool IsTurning => Math.Sign(XSpeed) != AccDirection;
+        private bool IsTurning => Math.Sign(XSpeed) + AccDirection == 0;
         private Mario mario;
         private MarioJump jumper;
 
@@ -118,6 +118,18 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
             }
         }
 
+        protected override void ClampSpeed()
+        {
+            maxXSpeed = running.maxSpeed;
+            base.ClampSpeed();
+            
+            // X方向从跑到走的减速
+            if (!IsHoldingRunKey && Abs(XSpeed) > walking.maxSpeed)
+            {
+                DecrSpeed();
+            }
+        }
+
         private void AddSpeed()
         {
             //区分当前是否属于转向阶段
@@ -125,16 +137,15 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
             {
                 XSpeed += CurProfile.turnAcc * AccDirection * Time.fixedDeltaTime;
             }
-            else
+            else if (Abs(XSpeed) < CurProfile.maxSpeed)
             {
-                //初速度
-                if (Math.Abs(XSpeed) < minSpeed)
+                // 初速度
+                if (Abs(XSpeed) < minSpeed)
                 {
                     XSpeed += minSpeed * AccDirection;
                 }
                 XSpeed += CurProfile.runAcc * AccDirection * Time.fixedDeltaTime;
             }
-            XSpeed = Clamp(XSpeed, -CurProfile.maxSpeed, CurProfile.maxSpeed);
         }
 
         private void DecrSpeed()

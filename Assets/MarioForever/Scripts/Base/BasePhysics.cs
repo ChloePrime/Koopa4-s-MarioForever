@@ -29,7 +29,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         [SerializeField, RenameInInspector("重力")]
         private float gravity;
         [SerializeField, RenameInInspector("最大X速度")]
-        private float maxXSpeed = float.PositiveInfinity;
+        protected float maxXSpeed = float.PositiveInfinity;
         [SerializeField, RenameInInspector("最大Y速度（向上）")]
         private float maxYSpeed = float.PositiveInfinity;
         [SerializeField, RenameInInspector("最小Y速度（向下）")]
@@ -173,7 +173,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
 
             YSpeed -= Gravity * Time.fixedDeltaTime;
             //如果物体的速度接近静止则停止计算运动
-            if (vel.sqrMagnitude <= 1e-8f)
+            if (vel.sqrMagnitude <= 1e-6f)
             {
                 return;
             }
@@ -253,9 +253,14 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         /// <summary>
         /// 应用速度上下限
         /// </summary>
-        private void ClampSpeed()
+        protected virtual void ClampSpeed()
         {
             XSpeed = Mathf.Clamp(XSpeed, -maxXSpeed, maxXSpeed);
+            ClampYSpeed();
+        }
+
+        protected void ClampYSpeed()
+        {
             YSpeed = Mathf.Clamp(YSpeed, -minYSpeed, maxYSpeed);
         }
 
