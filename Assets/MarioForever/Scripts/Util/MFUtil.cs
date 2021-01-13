@@ -35,7 +35,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Util
         public static bool XLeftCast(Component objectRef, out RaycastHit2D? result, bool aggresive = true, ContactFilter2D? filter = null)
         {
             var origin = new Vector2(XLeft(objectRef) - GetDelta(aggresive), YCenter(objectRef));
-            var size = new Vector2(Consts.ONE_PIXEL, Height(objectRef));
+            var size = new Vector2(Consts.OnePixel, Height(objectRef));
             return CastCulled(objectRef, origin, size, out result, filter);
         }
 
@@ -59,7 +59,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Util
         public static bool XRightCast(Component objectRef, out RaycastHit2D? result, bool aggresive = true, ContactFilter2D? filter = null)
         {
             var origin = new Vector2(XRight(objectRef) + GetDelta(aggresive), YCenter(objectRef));
-            var size = new Vector2(Consts.ONE_PIXEL, Height(objectRef));
+            var size = new Vector2(Consts.OnePixel, Height(objectRef));
             return CastCulled(objectRef, origin, size, out result, filter);
         }
         public static float XCenter(GameObject obj) => XCenter(obj.GetComponent<Rigidbody2D>());
@@ -89,7 +89,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Util
         public static bool YTopCast(Component objectRef, out RaycastHit2D? result, bool aggresive = true, ContactFilter2D? filter = null)
         {
             var origin = new Vector2(XCenter(objectRef), YTop(objectRef) + GetDelta(aggresive));
-            var size = new Vector2(Width(objectRef), Consts.ONE_PIXEL);
+            var size = new Vector2(Width(objectRef), Consts.OnePixel);
             return CastCulled(objectRef, origin, size, out result, filter);
         }
         public static float YBottom(GameObject obj) => YBottom(obj.GetComponent<Rigidbody2D>());
@@ -112,7 +112,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Util
         public static bool YBottomCast(Component objectRef, out RaycastHit2D? result, bool aggresive = true, ContactFilter2D? filter = null)
         {
             var origin = new Vector2(XCenter(objectRef), YBottom(objectRef) - GetDelta(aggresive));
-            var size = new Vector2(Width(objectRef), Consts.ONE_PIXEL);
+            var size = new Vector2(Width(objectRef), Consts.OnePixel);
             return CastCulled(objectRef, origin, size, out result, filter);
         }
         public static float YCenter(GameObject obj) => YCenter(obj.GetComponent<Rigidbody2D>());
@@ -131,7 +131,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Util
 
         private static readonly RaycastHit2D[] CAST_RESULT_STORAGE = new RaycastHit2D[64];
         private static float GetDelta(bool isAggresive)
-            => (isAggresive ? 1 : -1) * Consts.ONE_PIXEL / 2;
+            => (isAggresive ? 1 : -1) * Consts.OnePixel / 2;
         private static readonly ContactFilter2D NO_FLITER = new ContactFilter2D().NoFilter();
         private static bool CastCulled(Component obj, Vector2 origin, Vector2 size, out RaycastHit2D? outputInfo, ContactFilter2D? filter)
         {

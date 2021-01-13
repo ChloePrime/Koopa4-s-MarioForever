@@ -11,7 +11,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
         STOMP = 1 << 0,
         FIREBALL = 1 << 1,
         BEETROOT = 1 << 2,
-        OTHER = 1 << 4,
+        ENVIRONMENT = 1 << 4,
         ENEMY = 1 << 31
     }
 }

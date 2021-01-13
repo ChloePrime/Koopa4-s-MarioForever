@@ -2,6 +2,7 @@
 using System.Linq;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
 using SweetMoleHouse.MarioForever.Scripts.Util;
+using UnityEditor;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Base
@@ -12,7 +13,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
     /// </summary>
     public class BasePhysics : MonoBehaviour, IAppearable
     {
-        protected static readonly float AntiTrapEpsilon = Consts.ONE_PIXEL / 4;
+        protected const float AntiTrapEpsilon = Consts.OnePixel / 4;
         protected static ContactFilter2D Filter = new ContactFilter2D().NoFilter();
         public static ContactFilter2D GlobalFilter => Filter;
 
@@ -209,6 +210,11 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             tickStartPos = transform.position;
             MoveX(XSpeed * Time.fixedDeltaTime);
             MoveY(YSpeed * Time.fixedDeltaTime);
+            RecordPos();
+        }
+
+        private void RecordPos()
+        {
             tickEndPos = transform.position;
             lastFUpdateTime = Time.time;
         }
@@ -317,15 +323,17 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         /// 横向移动一段距离
         /// 会计算上下坡
         /// </summary>
-        public void MoveX(float distance)
+        public virtual void MoveX(float distance)
         {
             if (IgnoreCollision)
             {
                 transform.Translate(distance, 0, 0);
+                RecordPos();
                 return;
             }
             float actualDist;
-            int amount = Cast(GetDirX(), Filter, RCastTempArray, Math.Abs(distance) + AntiTrapEpsilon);
+            var dir = new Vector2(Mathf.Sign(distance), 0);
+            int amount = Cast(dir, Filter, RCastTempArray, Math.Abs(distance) + AntiTrapEpsilon);
             if (amount == 0)
             {
                 actualDist = Math.Abs(distance);
@@ -343,7 +351,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             }
             else
             {
-                actualDist = RCastTempArray[0].distance - AntiTrapEpsilon;
+                actualDist = MinHitDistance(amount) - AntiTrapEpsilon;
                 transform.Translate(Math.Sign(distance) * actualDist, 0, 0);
                 HitWallX(TakeColliders(amount));
             }
@@ -351,6 +359,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             {
                 Move(new Vector2(0, -actualDist * curSlopeObj.Degree));
             }
+            RecordPos();
         }
 
         /// <summary>
@@ -368,14 +377,17 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         /// <summary>
         /// 纵向移动一段距离
         /// </summary>
-        public void MoveY(float distance)
+        public virtual void MoveY(float distance)
         {
             if (IgnoreCollision)
             {
                 transform.Translate(0, distance, 0);
+                RecordPos();
                 return;
             }
-            int amount = Cast(GetDirY(), Filter, RCastTempArray, Math.Abs(distance) + AntiTrapEpsilon);
+
+            var dir = new Vector2(0, Mathf.Sign(distance));
+            int amount = Cast(dir, Filter, RCastTempArray, Math.Abs(distance) + AntiTrapEpsilon);
             if (amount == 0)
             {
                 transform.Translate(0, distance, 0);
@@ -386,7 +398,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             }
             else
             {
-                float actualDist = RCastTempArray[0].distance - AntiTrapEpsilon;
+                float actualDist = MinHitDistance(amount) - AntiTrapEpsilon;
                 transform.Translate(0, Math.Sign(distance) * actualDist, 0);
 
                 Collider2D[] colliders = RCastTempArray.Take(amount).Select(rr => rr.collider).ToArray();
@@ -398,6 +410,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 }
                 YSpeed = 0;
             }
+            RecordPos();
         }
         /// <summary>
         /// 当物体纵向撞墙时出发
@@ -432,6 +445,15 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             tickStartPos = tickEndPos = pos;
         }
 
+        private static float MinHitDistance(int amount)
+        {
+            return RCastTempArray
+                .Take(amount)
+                .Select(hit2D => hit2D.distance)
+                .Where(dist => dist > 0)
+                .DefaultIfEmpty(0F)
+                .Min();
+        }
         private static Collider2D[] TakeColliders(int amount)
         {
             return RCastTempArray.Take(amount).Select(rr => rr.collider).ToArray();
@@ -445,7 +467,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         /// 撞到的实心对象个数
         /// 实心对象存放在<see cref="RCastTempArray"/>内
         /// </returns>
-        protected int Move(in Vector2 offset)
+        public int Move(in Vector2 offset)
         {
             float length = offset.magnitude;
             int amount = Cast(offset.normalized, Filter, RCastTempArray, length + AntiTrapEpsilon);
@@ -459,7 +481,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 {
                     return amount;
                 }
-                float actualDist = RCastTempArray[0].distance - AntiTrapEpsilon;
+                float actualDist = MinHitDistance(amount) - AntiTrapEpsilon;
                 float actualScale = actualDist / length;
                 transform.Translate(offset * actualScale);
             }

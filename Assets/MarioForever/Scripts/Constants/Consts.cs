@@ -8,14 +8,14 @@ namespace SweetMoleHouse.MarioForever.Scripts.Constants
     /// </summary>
     public static class Consts
     {
-        public static int PIXEL_PER_UNIT { get; } = 32;
-        public static float ONE_PIXEL { get; } = 1f / PIXEL_PER_UNIT;
-        public static float PIXEL_EPSLION { get; } = ONE_PIXEL / 16;
-        public static float FPS = 50;
+        public const int PixelPerUnit = 32;
+        public const float OnePixel = 1f / PixelPerUnit;
+        public const float PixelEpsilon = OnePixel / 16;
+        public const float FPS = 50;
         /// <summary>
         /// 像素/帧 -> 格/帧
         /// </summary>
-        public static float LENGTH_UNIT_SCALE => ONE_PIXEL * FPS * Time.deltaTime;
+        public static float LENGTH_UNIT_SCALE => OnePixel * FPS * Time.deltaTime;
     }
     
     /// <summary>

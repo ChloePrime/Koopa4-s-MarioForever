@@ -14,6 +14,7 @@
               <e p="GlobalSingleton.cs" t="Include" />
               <e p="IAppearable.cs" t="Include" />
               <e p="IHitable.cs" t="Include" />
+              <e p="MovingObstacle.cs" t="Include" />
               <e p="Rpg" t="Include">
                 <e p="Faction.cs" t="Include" />
                 <e p="IDamageReceiver.cs" t="Include" />
