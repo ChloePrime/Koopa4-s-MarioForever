@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
+using SweetMoleHouse.MarioForever.Scripts.Facilities;
 using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
@@ -312,7 +313,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                     continue;
                 }
                 
-                int xDir = Math.Sign(dir.x);
+                int xDir = dir.x == 0 ? lastXDir : Math.Sign(dir.x);
                 if (isUp && xDir == slope.Dir)
                 {
                     slopeState = SlopeState.UP;
@@ -320,7 +321,8 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                     return;
                 }
                 //判断是不是朝着斜坡上坡的反方向走
-                else if (!isUp && xDir + slope.Dir == 0)
+
+                if (!isUp && xDir + slope.Dir == 0)
                 {
                     slopeState = SlopeState.DOWN;
                     SetSlope(slope);
@@ -617,15 +619,21 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 // normal.y >= 0 && normal.y > abs(normal.x)
                 // 不考虑平台，或者法线不超上的情况，此时把平台视作空心的
                 if (!considerPlatform 
-                    || transform.position.y < result.point.y - Consts.OnePixel
+                    || !this.IsStandingOnPlatform(result.point)
                     || result.normal.y < Mathf.Abs(result.normal.x))
                 {
                     // 说明这个实心是平台且需要剔除，那么把它从 Cast 结果中剔除
+                    CullPlatform();
+                }
+                
+                void CullPlatform()
+                {
                     bias++;
                 }
             }
 
             return count - bias;
+
         }
     }
 }
