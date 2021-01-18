@@ -7433,7 +7433,7 @@ MonoBehaviour:
   maxXSpeed: Infinity
   maxYSpeed: Infinity
   minYSpeed: Infinity
-  vel: {x: 0, y: -1}
+  vel: {x: -1, y: 1}
   ignoreCollision: 1
   hitHeadSfx: {fileID: 0}
   appearSpeed: 1.5

@@ -49,14 +49,14 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         private static bool classInited;
 
         private Collider2D[] colliders;
-        private bool isPlatform;
+        private bool isSolid;
         
         protected override void Start()
         {
             base.Start();
             InitClass();
             colliders = this.DfsComponentsInChildren<Collider2D>().ToArray();
-            isPlatform = CompareTag(Tags.Platform);
+            isSolid = !CompareTag(Tags.Platform);
         }
 
         private static void InitClass()
@@ -97,14 +97,17 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         private void CatchPushDrag(in Vector2 castDir, in float castDist, in float offset,
             in Action<BasePhysics, float> action, in bool isY)
         {
+            bool isMovingUp = isY && offset < 0;
             // 推动前方物体
-            if (!isPlatform)
+            if (isSolid)
             {
                 CatchAndMove(castDir, castDist, offset, action, true);
             }
 
             // 拖拽站在平台上的物体
-            var dragCastLength = (isY ? -offset : 0) + CatchEpsilon; 
+            var dragCastLength = (isY ? -offset : 0) + CatchEpsilon;
+            // 防止向上运动的实心多次推动上方物体
+            if (isSolid && isMovingUp) return;
             CatchAndMove(Vector2.up, dragCastLength, offset, action, false);
         }
 

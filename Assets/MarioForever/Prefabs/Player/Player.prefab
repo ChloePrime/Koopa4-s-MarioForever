@@ -550,6 +550,7 @@ MonoBehaviour:
   minYSpeed: 32
   vel: {x: 0, y: 0}
   ignoreCollision: 0
+  display: {fileID: 638294367935578336}
   hitHeadSfx: {fileID: 8300000, guid: a71e2f3cc9493704aa0e5d2b9db275b3, type: 3}
   appearSpeed: 1.5
   walking:

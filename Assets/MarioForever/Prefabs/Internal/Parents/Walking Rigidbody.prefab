@@ -99,6 +99,7 @@ MonoBehaviour:
   minYSpeed: Infinity
   vel: {x: 0, y: 0}
   ignoreCollision: 0
+  display: {fileID: 7236889029517880874}
   hitHeadSfx: {fileID: 0}
   appearSpeed: 1.5
   walkSpeed: 1.5

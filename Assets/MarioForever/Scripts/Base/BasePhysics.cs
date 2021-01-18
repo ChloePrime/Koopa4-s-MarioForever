@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
 using SweetMoleHouse.MarioForever.Scripts.Util;
@@ -24,7 +24,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         protected static readonly RaycastHit2D[] RCastTempArray = new RaycastHit2D[64];
         protected static readonly Collider2D[] OverlapTempArray = new Collider2D[64];
         protected static bool Inited;
-
+        
         [Header("基础物理设置")]
         [SerializeField, RenameInInspector("重力")]
         private float gravity;
@@ -44,6 +44,10 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         [Space, Space, Space]
         [SerializeField, RenameInInspector("无碰撞")]
         private bool ignoreCollision;
+
+        [Header("显示设置")] 
+        [SerializeField, RenameInInspector("渲染用物体")]
+        private Transform display;
         
         [Header("音效设置")]
         [SerializeField, RenameInInspector("顶头音效")]
@@ -65,6 +69,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         private BaseSlope curSlopeObj;
 
         protected XFacingWallStatus IsFacingWallX;
+        private int lastXDir;
         /// <summary>
         /// 斜坡坡度对速度的衰减
         /// 真实x速度 = x速度 * 这个值
@@ -76,7 +81,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         private float lastFUpdateTime;
         private Vector2 tickStartPos;
         private Vector2 tickEndPos;
-        protected int LastXDir;
+        private Vector2 displayLocalPos;
         
         // 属性
         
@@ -164,6 +169,15 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         protected virtual void Start()
         {
             InitClass();
+            if (display == null)
+            {
+                display = this.BfsComponentInChildren<SpriteRenderer>().transform;
+            }
+
+            if (display != transform)
+            {
+                displayLocalPos = display.localPosition;
+            }
             R2d = GetComponent<Rigidbody2D>();
             // 防止卡在墙里
             if (appeared && R2d.Cast(Vector2.zero, RCastTempArray) > 0)
@@ -220,7 +234,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             var dirX = Math.Sign(XSpeed);
             if (dirX != 0)
             {
-                LastXDir = dirX;
+                lastXDir = dirX;
             }
             MoveX(XSpeed * Time.fixedDeltaTime, true);
             MoveY(YSpeed * Time.fixedDeltaTime, true);
@@ -241,7 +255,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             if (lastFUpdateTime < 0.0001) return;
             
             float prog = (Time.time - lastFUpdateTime) / Time.fixedDeltaTime;
-            transform.position = Vector2.Lerp(tickStartPos, tickEndPos, prog);
+            display.position = displayLocalPos + Vector2.Lerp(tickStartPos, tickEndPos, prog);
         }
 
         /// <summary>
@@ -352,7 +366,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 transform.Translate(distance, 0, 0);
                 if (updateStatus)
                 {
-                    var dir2 = new Vector2(LastXDir, 0);
+                    var dir2 = new Vector2(lastXDir, 0);
                     if (Cast(dir2, Filter, RCastTempArray, 3 * AntiTrapEpsilon) == 0)
                     {
                         IsFacingWallX = XFacingWallStatus.NONE;
