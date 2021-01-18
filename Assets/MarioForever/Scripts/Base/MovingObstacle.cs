@@ -77,7 +77,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             CatchPushDrag(dir, 0, dx, ActionMoveX, false);
             
             static void ActionMoveX(BasePhysics physics, float dist)
-                => physics.MoveX(dist);
+                => physics.PushX(dist);
         }
 
         public override void MoveY(float distance, bool updateStatus)
@@ -142,7 +142,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 bool actionBlocked = actualOffset.sqrMagnitude <= distToMove * distToMove - 1e-4;
                 if (actionBlocked && caught.Physics.TryBfsComponentInChildren(out IDamageReceiver receiver))
                 {
-                    receiver.SetDead(EnumDamageType.ENVIRONMENT);
+                    //receiver.SetDead(EnumDamageType.ENVIRONMENT);
                 }
             }
             

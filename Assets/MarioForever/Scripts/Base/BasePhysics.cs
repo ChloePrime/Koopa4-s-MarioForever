@@ -312,15 +312,15 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                     continue;
                 }
                 
-                int xDir = Math.Sign(XSpeed);
-                if (isUp && (xDir == slope.Dir))
+                int xDir = Math.Sign(dir.x);
+                if (isUp && xDir == slope.Dir)
                 {
                     slopeState = SlopeState.UP;
                     SetSlope(slope);
                     return;
                 }
                 //判断是不是朝着斜坡上坡的反方向走
-                else if (!isUp && (xDir + slope.Dir == 0))
+                else if (!isUp && xDir + slope.Dir == 0)
                 {
                     slopeState = SlopeState.DOWN;
                     SetSlope(slope);
@@ -403,6 +403,16 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 if (!updateStatus || distance == 0F) return;
                 IsFacingWallX = XFacingWallStatusFactory.FromSpeed(distance);
             }
+        }
+
+        public void PushX(float distance)
+        {
+            CheckSlope(new Vector2(distance, 0), true);
+            if (slopeState == SlopeState.UP)
+            {
+                distance *= curSlopeObj.Degree;
+            }
+            MoveX(distance, false);
         }
 
         /// <summary>
