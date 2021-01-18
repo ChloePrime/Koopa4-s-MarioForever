@@ -90,6 +90,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
                 DecrSpeed();
             }
             base.FixedUpdate();
+            Global.DebugText = IsFacingWallX.ToString();
         }
 
         protected override void StopTowardsWall(in Vector2 dir, in Action whenHit)

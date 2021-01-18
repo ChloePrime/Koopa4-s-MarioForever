@@ -174,9 +174,9 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 display = this.BfsComponentInChildren<SpriteRenderer>().transform;
             }
 
-            if (display != transform)
+            if (display != null)
             {
-                displayLocalPos = display.localPosition;
+                displayLocalPos = display.position - transform.position;
             }
             R2d = GetComponent<Rigidbody2D>();
             // 防止卡在墙里
@@ -220,7 +220,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             CheckSlope(GetDirX(), true);
             CheckSlope(Vector2.down, false);
             
-            StopTowardsWall(GetDirXWithSlope(), () => vel.x = 0);
+            StopTowardsWall(GetDirXWithSlope(XSpeed), () => vel.x = 0);
             StopTowardsWall(GetDirY(), () => vel.y = 0);
         }
 
@@ -366,7 +366,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 transform.Translate(distance, 0, 0);
                 if (updateStatus)
                 {
-                    var dir2 = new Vector2(lastXDir, 0);
+                    Vector2 dir2 = GetDirXWithSlope(distance);
                     if (Cast(dir2, Filter, RCastTempArray, 3 * AntiTrapEpsilon) == 0)
                     {
                         IsFacingWallX = XFacingWallStatus.NONE;
@@ -391,13 +391,10 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 HitWallX(TakeColliders(amount));
                 UpdateStatusX();
             }
+            
             if (slopeState == SlopeState.DOWN)
             {
-                var hits = Move(new Vector2(0, -actualDist * curSlopeObj.Degree));
-                if (hits > 0)
-                {
-                    UpdateStatusX();
-                }
+                Move(new Vector2(0, -actualDist * curSlopeObj.Degree));
             }
             RecordPos();
 
@@ -562,14 +559,9 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         /// 受上坡影响，不受下坡影响
         /// </summary>
         /// <returns>X方向的方向矢量</returns>
-        protected Vector2 GetDirXWithSlope()
+        protected Vector2 GetDirXWithSlope(float xSpeed)
         {
-            if (XSpeed == 0)
-            {
-                return Vector2.zero;
-            }
-
-            float x = Math.Sign(XSpeed);
+            float x = xSpeed == 0 ? lastXDir : Math.Sign(XSpeed);
             if (slopeState != SlopeState.UP)
             {
                 return new Vector2(x, 0);
