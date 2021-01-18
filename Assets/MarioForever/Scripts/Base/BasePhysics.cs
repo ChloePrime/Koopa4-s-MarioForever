@@ -99,6 +99,12 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             set => ignoreCollision = value;
         }
 
+        public BaseSlope CurSlopeObj
+        {
+            set { curSlopeObj = value; }
+            get { return curSlopeObj; }
+        }
+
         #region 从水管出现
         
         private bool appeared = true;
@@ -213,6 +219,10 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 CheckSurroundings();
             }
             MoveAndRecordPos();
+            if (CompareTag(Tags.Player))
+            {
+                Global.DebugText = $"SlopeState:{slopeState},FacingWallX:{IsFacingWallX},LastXDir:{lastXDir}";
+            }
         }
 
         private void CheckSurroundings()
@@ -383,7 +393,11 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 if (hitAmount > 0)
                 {
                     HitWallX(TakeColliders(hitAmount));
-                    UpdateStatusX();
+                    UpdateWallStatusX();
+                }
+                else if (updateStatus)
+                {
+                    IsFacingWallX = XFacingWallStatus.NONE;
                 }
             }
             else
@@ -391,7 +405,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 actualDist = MinHitDistance(amount) - AntiTrapEpsilon;
                 transform.Translate(Math.Sign(distance) * actualDist, 0, 0);
                 HitWallX(TakeColliders(amount));
-                UpdateStatusX();
+                UpdateWallStatusX();
             }
             
             if (slopeState == SlopeState.DOWN)
@@ -400,7 +414,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             }
             RecordPos();
 
-            void UpdateStatusX()
+            void UpdateWallStatusX()
             {
                 if (!updateStatus || distance == 0F) return;
                 IsFacingWallX = XFacingWallStatusFactory.FromSpeed(distance);

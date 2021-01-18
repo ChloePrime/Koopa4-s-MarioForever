@@ -57,6 +57,9 @@ TagManager:
   - name: Mario
     uniqueID: 1194293973
     locked: 0
+  - name: ObjectsFront
+    uniqueID: 4121348961
+    locked: 0
   - name: FrontLayer
     uniqueID: 3223732339
     locked: 0

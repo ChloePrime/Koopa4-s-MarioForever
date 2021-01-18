@@ -1,10 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
 using SweetMoleHouse.MarioForever.Scripts.Enemy;
+using SweetMoleHouse.MarioForever.Scripts.Facilities;
 using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 using static UnityEngine.Mathf;
@@ -40,23 +41,32 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
 
             public override int GetHashCode()
             {
-                return Physics != null ? Physics.GetHashCode() : 0;
+                return (Physics != null ? Physics.GetHashCode() : 0);
+            }
+
+            public static bool operator ==(CaughtObjectInfo left, CaughtObjectInfo right)
+            {
+                return left.Equals(right);
+            }
+
+            public static bool operator !=(CaughtObjectInfo left, CaughtObjectInfo right)
+            {
+                return !left.Equals(right);
             }
         }
 
-        private static readonly List<CaughtObjectInfo> CAUGHT_OBJ_CACHE = new List<CaughtObjectInfo>();
         private static ContactFilter2D catcherFilter = new ContactFilter2D().NoFilter();
         private static bool classInited;
 
         private Collider2D[] colliders;
-        private bool isSolid;
+        private bool isPlatform;
         
         protected override void Start()
         {
             base.Start();
             InitClass();
             colliders = this.DfsComponentsInChildren<Collider2D>().ToArray();
-            isSolid = !CompareTag(Tags.Platform);
+            isPlatform = CompareTag(Tags.Platform);
         }
 
         private static void InitClass()
@@ -82,9 +92,9 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
 
         public override void MoveY(float distance, bool updateStatus)
         {
-            var dy = R2d.position.y;
+            var dy = transform.position.y;
             base.MoveY(distance, updateStatus);
-            dy = R2d.position.y - dy;
+            dy = transform.position.y - dy;
 
             var dir = new Vector2(0,Sign(distance));
             // 推动前方物体
@@ -97,17 +107,17 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         private void CatchPushDrag(in Vector2 castDir, in float castDist, in float offset,
             in Action<BasePhysics, float> action, in bool isY)
         {
-            bool isMovingUp = isY && offset < 0;
+            bool isMovingUp = isY && offset > 0;
+            bool isMovingDown = isY && offset < 0;
             // 推动前方物体
-            if (isSolid)
+            if (!isPlatform)
             {
                 CatchAndMove(castDir, castDist, offset, action, true);
+                if (isMovingUp) return;
             }
-
             // 拖拽站在平台上的物体
-            var dragCastLength = (isY ? -offset : 0) + CatchEpsilon;
+            var dragCastLength = (isMovingDown ? -offset : 0) + CatchEpsilon;
             // 防止向上运动的实心多次推动上方物体
-            if (isSolid && isMovingUp) return;
             CatchAndMove(Vector2.up, dragCastLength, offset, action, false);
         }
 
@@ -115,19 +125,22 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             in Action<BasePhysics, float> action, in bool isPush)
         {
             if (Abs(offset) < 1e-4) return;
-
+            
             var colDisabled = false;
             foreach (var caught in CatchObjs(castDir, castDist))
             {
+                if (isPlatform && !caught.Physics.IsStandingOnPlatform(caught.HitResult.point))
+                {
+                    continue;
+                }
                 if (!colDisabled)
                 {
                     SetCollisionAvailability(false);
                     colDisabled = true;
                 }
 
-                var hitDistance = caught.HitResult.distance;
-                var distToMove = isPush
-                    ? Sign(offset) * (Abs(offset) - hitDistance)
+                float distToMove = isPush
+                    ? Sign(offset) * (Abs(offset) - caught.HitResult.distance)
                     : offset;
 
                 // 如果实际位移小于被推动的位移，
@@ -142,7 +155,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 bool actionBlocked = actualOffset.sqrMagnitude <= distToMove * distToMove - 1e-4;
                 if (actionBlocked && caught.Physics.TryBfsComponentInChildren(out IDamageReceiver receiver))
                 {
-                    //receiver.SetDead(EnumDamageType.ENVIRONMENT);
+                    receiver.SetDead(EnumDamageType.ENVIRONMENT);
                 }
             }
             
@@ -152,13 +165,9 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             }
         }
 
-        /// <summary>
-        /// 此方法不会产生垃圾
-        /// </summary>
-        /// <returns></returns>
         private IEnumerable<CaughtObjectInfo> CatchObjs(in Vector2 dir, in float distance)
         {
-            CAUGHT_OBJ_CACHE.Clear();
+            var caughtObjCache = new List<CaughtObjectInfo>();
 
             var amount = R2d.Cast(dir, catcherFilter, RCastTempArray, distance);
             for (var i = 0; i < amount; i++)
@@ -174,12 +183,12 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                     continue;
                 }
 
-                CAUGHT_OBJ_CACHE.Add(new CaughtObjectInfo(
+                caughtObjCache.Add(new CaughtObjectInfo(
                     physics, RCastTempArray[i]
                 ));
             }
 
-            return CAUGHT_OBJ_CACHE.Distinct();
+            return caughtObjCache.Distinct();
         }
 
         private void SetCollisionAvailability(bool available)

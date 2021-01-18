@@ -56,6 +56,10 @@
               <e p="Stompable.cs" t="Include" />
               <e p="StompHandler.cs" t="Include" />
             </e>
+            <e p="Facilities" t="Include">
+              <e p="FallingPlatform.cs" t="Include" />
+              <e p="PlatformDefinitions.cs" t="Include" />
+            </e>
             <e p="FlagsTest.cs" t="Include" />
             <e p="FreeCamera.cs" t="Include" />
             <e p="Generated" t="Include">

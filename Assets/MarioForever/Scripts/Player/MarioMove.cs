@@ -48,8 +48,8 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
         /// </summary>
         public int AccDirection { get; private set; }
         private bool IsHoldingRunKey { get; set; }
-        private bool IsTowardsWall { get; set; }
-        public bool IsRunning => IsHoldingRunKey && !IsTowardsWall;
+
+        public bool IsRunning => IsHoldingRunKey;
         public AccProfile CurProfile => IsRunning ? running : walking;
         private bool IsTurning => Math.Sign(XSpeed) + AccDirection == 0;
         private Mario mario;
@@ -90,7 +90,6 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
                 DecrSpeed();
             }
             base.FixedUpdate();
-            Global.DebugText = IsFacingWallX.ToString();
         }
 
         protected override void StopTowardsWall(in Vector2 dir, in Action whenHit)
