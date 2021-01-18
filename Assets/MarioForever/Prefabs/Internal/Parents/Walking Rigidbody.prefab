@@ -53,7 +53,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!61 &2642266663093281771
 BoxCollider2D:
@@ -98,6 +98,7 @@ MonoBehaviour:
   maxYSpeed: Infinity
   minYSpeed: Infinity
   vel: {x: 0, y: 0}
+  ignoreCollision: 0
   hitHeadSfx: {fileID: 0}
   appearSpeed: 1.5
   walkSpeed: 1.5

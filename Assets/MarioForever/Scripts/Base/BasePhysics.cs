@@ -2,7 +2,6 @@
 using System.Linq;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
 using SweetMoleHouse.MarioForever.Scripts.Util;
-using UnityEditor;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Base
@@ -84,7 +83,11 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         public virtual float Gravity { get => gravity; set => gravity = value; }
         public Rigidbody2D R2d { get; private set; }
 
-        public bool IgnoreCollision => ignoreCollision;
+        public bool IgnoreCollision
+        {
+            get => ignoreCollision;
+            set => ignoreCollision = value;
+        }
 
         #region 从水管出现
         
@@ -185,7 +188,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             }
 
             ClampSpeed();
-            if (!IgnoreCollision)
+            if (!ignoreCollision)
             {
                 CheckSurroundings();
             }
@@ -194,6 +197,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
 
         private void CheckSurroundings()
         {
+            
             slopeState = SlopeState.FLAT;
             CheckSlope(GetDirX(), true);
             CheckSlope(Vector2.down, false);
@@ -209,14 +213,14 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         {
             tickStartPos = transform.position;
             MoveX(XSpeed * Time.fixedDeltaTime);
-            MoveY(YSpeed * Time.fixedDeltaTime);
+            MoveY(YSpeed * Time.fixedDeltaTime, true);
             RecordPos();
+            lastFUpdateTime = Time.time;
         }
 
         private void RecordPos()
         {
             tickEndPos = transform.position;
-            lastFUpdateTime = Time.time;
         }
 
         /// <summary>
@@ -224,13 +228,10 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         /// </summary>
         protected virtual void Update()
         {
-            if (lastFUpdateTime >= 0.0001)
-            {
-#pragma warning disable UNT0004 // Time.fixedDeltaTime used with Update
-                float prog = (Time.time - lastFUpdateTime) / Time.fixedDeltaTime;
-#pragma warning restore UNT0004 // Time.fixedDeltaTime used with Update
-                transform.position = Vector2.Lerp(tickStartPos, tickEndPos, prog);
-            }
+            if (lastFUpdateTime < 0.0001) return;
+            
+            float prog = (Time.time - lastFUpdateTime) / Time.fixedDeltaTime;
+            transform.position = Vector2.Lerp(tickStartPos, tickEndPos, prog);
         }
 
         /// <summary>
@@ -374,10 +375,11 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
 
         public event Action<Collider2D[]> OnHitWallX;
         public event Action<Collider2D[]> OnHitWallY;
+        public void MoveY(float distance) => MoveY(distance, false);
         /// <summary>
         /// 纵向移动一段距离
         /// </summary>
-        public virtual void MoveY(float distance)
+        public virtual void MoveY(float distance, bool updateOnGroundStatus)
         {
             if (IgnoreCollision)
             {
@@ -391,9 +393,12 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             if (amount == 0)
             {
                 transform.Translate(0, distance, 0);
-                if (Cast(Vector2.down, Filter, RCastTempArray, 2 * AntiTrapEpsilon) == 0)
+                if (updateOnGroundStatus)
                 {
-                    IsOnGround = false;
+                    if (Cast(Vector2.down, Filter, RCastTempArray, 2 * AntiTrapEpsilon) == 0)
+                    {
+                        IsOnGround = false;
+                    }
                 }
             }
             else
@@ -404,7 +409,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 Collider2D[] colliders = RCastTempArray.Take(amount).Select(rr => rr.collider).ToArray();
                 HitWallY(colliders);
 
-                if (distance <= 0)
+                if (updateOnGroundStatus && distance <= 0)
                 {
                     IsOnGround = true;
                 }
@@ -439,10 +444,15 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             }
         }
 
-        public void Teleport(Vector3 pos)
+        public void TeleportTo(Vector2 pos)
         {
-            transform.position = pos;
-            tickStartPos = tickEndPos = pos;
+            transform.position = tickStartPos = tickEndPos = pos;
+        }
+
+        public void TeleportBy(Vector2 offset)
+        {
+            var pos = (Vector2) transform.position + offset;
+            TeleportTo(pos);
         }
 
         private static float MinHitDistance(int amount)

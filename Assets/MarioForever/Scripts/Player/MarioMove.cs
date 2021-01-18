@@ -95,26 +95,26 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
         protected override void StopTowardsWall(in Vector2 dir, ref float fieldToSet)
         {
             base.StopTowardsWall(dir, ref fieldToSet);
-            
+            StopTowardsScrollBorder(dir, ref fieldToSet);
+        }
+
+        private void StopTowardsScrollBorder(in Vector2 dir, ref float fieldToSet)
+        {
             var isAxisX = Abs(dir.x) > Abs(dir.y);
             if (!isAxisX) return;
             if (dir.x > 0)
             {
                 var xRight = MFUtil.XRight(R2d);
-                if (xRight >= ScrollInfo.Right)
-                {
-                    fieldToSet = 0;
-                    transform.Translate(ScrollInfo.Right - xRight, 0, 0);
-                }
+                if (xRight < ScrollInfo.Right) return;
+                fieldToSet = 0;
+                R2d.position += new Vector2(ScrollInfo.Right - xRight, 0);
             }
             else
             {
                 var xLeft = MFUtil.XLeft(R2d);
-                if (xLeft <= ScrollInfo.Left)
-                {
-                    fieldToSet = 0;
-                    transform.Translate(ScrollInfo.Left - xLeft, 0, 0);
-                }
+                if (xLeft > ScrollInfo.Left) return;
+                fieldToSet = 0;
+                R2d.position += new Vector2(ScrollInfo.Left - xLeft, 0);
             }
         }
 

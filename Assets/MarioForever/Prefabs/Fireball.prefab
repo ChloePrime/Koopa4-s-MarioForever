@@ -9802,7 +9802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2642266663093281782, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: minYSpeed
-      value: 13
+      value: 13.5
       objectReference: {fileID: 0}
     - target: {fileID: 2642266663093281782, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: walkSpeed

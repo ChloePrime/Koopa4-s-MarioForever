@@ -59,7 +59,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             {
                 return;
             }
-            if (transform.position.x < that.transform.position.x)
+            if (R2d.position.x < that.R2d.position.x)
             {
                 RealWalkSpeed = -walkSpeed;
             }

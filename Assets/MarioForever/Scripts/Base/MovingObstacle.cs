@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
 using SweetMoleHouse.MarioForever.Scripts.Enemy;
 using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
+using static UnityEngine.Mathf;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Base
 {
@@ -14,15 +16,15 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
     {
         private const float CatchEpsilon = 2 * AntiTrapEpsilon;
 
-        private struct CaughtObjectInfo
+        private readonly struct CaughtObjectInfo
         {
-            public BasePhysics physics;
-            public RaycastHit2D hitResult;
+            public readonly BasePhysics Physics;
+            public readonly RaycastHit2D HitResult;
 
             public CaughtObjectInfo(BasePhysics physics, RaycastHit2D hitResult)
             {
-                this.physics = physics;
-                this.hitResult = hitResult;
+                Physics = physics;
+                HitResult = hitResult;
             }
         }
 
@@ -30,10 +32,13 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         private static ContactFilter2D catcherFilter = new ContactFilter2D().NoFilter();
         private static bool classInited;
 
+        private Collider2D[] colliders;
+        
         protected override void Start()
         {
             base.Start();
             InitClass();
+            colliders = this.DfsComponentsInChildren<Collider2D>().ToArray();
         }
 
         private static void InitClass()
@@ -48,61 +53,79 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             var dx = transform.position.x;
             base.MoveX(distance);
             dx = transform.position.x - dx;
-            transform.Translate(-dx, 0, 0);
-            // 推动前方物体
-            CatchAndMove(GetDirX(), dx, ActionMoveX, true);
-            transform.Translate(dx, 0, 0);
-
-            static void ActionMoveX(BasePhysics physics, float dist) => physics.MoveX(dist);
-        }
-
-        public override void MoveY(float distance)
-        {
-            var dy = transform.position.y;
-            base.MoveY(distance);
-            dy = transform.position.y - dy;
-            transform.Translate(0, -dy, 0);
             
             // 推动前方物体
-            Vector2 dirY = GetDirY();
-            CatchAndMove(dirY, dy, ActionMoveY, true);
+            CatchPushDrag(GetDirX(), 0, dx, ActionMoveX, false);
             
-            // 下降时抓住上方物体
-            if (distance < 0)
-            {
-                CatchAndMove(-dirY, CatchEpsilon, dy, ActionMoveY, false);
-            }
-            
-            transform.Translate(0, dy, 0);
-            
-            static void ActionMoveY(BasePhysics physics, float dist) => physics.MoveY(dist);
+            static void ActionMoveX(BasePhysics physics, float dist)
+                => physics.MoveX(dist);
         }
 
-        private void CatchAndMove(in Vector2 dir, in float offset, in Action<BasePhysics, float> action, in bool kills)
+        public override void MoveY(float distance, bool updateOnGroundStatus)
         {
-            CatchAndMove(dir, Mathf.Abs(offset) + CatchEpsilon, offset, action, kills);
+            var dy = R2d.position.y;
+            base.MoveY(distance, updateOnGroundStatus);
+            dy = R2d.position.y - dy;
+
+            // 推动前方物体
+            CatchPushDrag(GetDirY(), CatchEpsilon, dy, ActionMoveY, true);
+
+            static void ActionMoveY(BasePhysics physics, float dist)
+                => physics.MoveY(dist);
         }
 
-        private void CatchAndMove(in Vector2 dir, in float castDist,in float offset, in Action<BasePhysics, float> action, in bool kills)
+        private void CatchPushDrag(in Vector2 castDir, in float castDist, in float offset,
+            in Action<BasePhysics, float> action, in bool isY)
         {
-            foreach (var caught in CatchObjs(dir, castDist))
+            // 推动前方物体
+            CatchAndMove(castDir, castDist, offset, action, true);
+
+            // 拖拽站在平台上的物体
+            var dragCastLength = Max(0, (isY ? -offset : 0) + CatchEpsilon); 
+            CatchAndMove(Vector2.up, dragCastLength, offset, action, false);
+        }
+
+        private void CatchAndMove(in Vector2 castDir, in float castDist, in float offset,
+            in Action<BasePhysics, float> action, in bool isPush)
+        {
+            if (Abs(offset) < 1e-4) return;
+
+            var colDisabled = false;
+            foreach (var caught in CatchObjs(castDir, castDist))
             {
-                var actualDist = offset;// - Mathf.Sign(distance) * caught.hitResult.distance;
-
-                var actualOffset = caught.physics.transform.position;
-                action(caught.physics, actualDist);
-                actualOffset = caught.physics.transform.position - actualOffset;
-
-                if (!kills) continue;
-
-                bool actionBlocked = actualOffset.sqrMagnitude <= actualDist * actualDist - 1e-4;
-                if (actionBlocked && caught.physics.TryBfsComponentInChildren(out IDamageReceiver receiver))
+                if (!colDisabled)
                 {
-                    //receiver.SetDead(EnumDamageType.ENVIRONMENT);
+                    SetCollisionAvailability(false);
+                    colDisabled = true;
+                }
+
+                var hitDistance = Max(0, caught.HitResult.distance);
+                const float pushProtection = AntiTrapEpsilon;
+                var distToMove = isPush 
+                    ? Sign(offset) * (Abs(offset) - hitDistance + pushProtection)
+                    : offset;
+
+                // 如果实际位移小于被推动的位移，
+                // 那么说明被推动的物体被阻挡，
+                // 此时kill掉被推懂地物体
+                var actualOffset = caught.Physics.transform.position;
+                action(caught.Physics, distToMove);
+                
+                if (!isPush) continue;
+                actualOffset = caught.Physics.transform.position - actualOffset;
+                
+                bool actionBlocked = actualOffset.sqrMagnitude <= distToMove * distToMove - 1e-4;
+                if (actionBlocked && caught.Physics.TryBfsComponentInChildren(out IDamageReceiver receiver))
+                {
+                    receiver.SetDead(EnumDamageType.ENVIRONMENT);
                 }
             }
+            
+            if (colDisabled)
+            {
+                SetCollisionAvailability(true);
+            }
         }
-
 
         /// <summary>
         /// 此方法不会产生垃圾
@@ -111,7 +134,6 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         private IEnumerable<CaughtObjectInfo> CatchObjs(in Vector2 dir, in float distance)
         {
             CAUGHT_OBJ_CACHE.Clear();
-            transform.Translate(0, CatchEpsilon, 0);
 
             var amount = R2d.Cast(dir, catcherFilter, RCastTempArray, distance);
             for (var i = 0; i < amount; i++)
@@ -132,9 +154,15 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 ));
             }
 
-            transform.Translate(0, -CatchEpsilon, 0);
             return CAUGHT_OBJ_CACHE;
         }
 
+        private void SetCollisionAvailability(bool available)
+        {
+            foreach (var c2d in colliders)
+            {
+                c2d.enabled = available;
+            }
+        }
     }
 }
