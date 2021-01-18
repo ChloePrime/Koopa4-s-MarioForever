@@ -63,6 +63,8 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         }
         private SlopeState slopeState = SlopeState.FLAT;
         private BaseSlope curSlopeObj;
+
+        protected XFacingWallStatus IsFacingWallX;
         /// <summary>
         /// 斜坡坡度对速度的衰减
         /// 真实x速度 = x速度 * 这个值
@@ -70,9 +72,11 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         /// 只对上坡有效
         /// </summary>
         private float slopeFactor;
+        
         private float lastFUpdateTime;
         private Vector2 tickStartPos;
         private Vector2 tickEndPos;
+        protected int LastXDir;
         
         // 属性
         
@@ -95,6 +99,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         private Vector2 appearDir;
         private float appearProgress;
         private bool appearingInSolidBefore;
+
         public virtual void Appear(in Vector2 direction, in Vector2 size)
         {
             appeared = false;
@@ -197,12 +202,12 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
 
         private void CheckSurroundings()
         {
-            
             slopeState = SlopeState.FLAT;
             CheckSlope(GetDirX(), true);
             CheckSlope(Vector2.down, false);
-            StopTowardsWall(GetDirXWithSlope(), ref vel.x);
-            StopTowardsWall(GetDirY(), ref vel.y);
+            
+            StopTowardsWall(GetDirXWithSlope(), () => vel.x = 0);
+            StopTowardsWall(GetDirY(), () => vel.y = 0);
         }
 
         /// <summary>
@@ -212,7 +217,12 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         private void MoveAndRecordPos()
         {
             tickStartPos = transform.position;
-            MoveX(XSpeed * Time.fixedDeltaTime);
+            var dirX = Math.Sign(XSpeed);
+            if (dirX != 0)
+            {
+                LastXDir = dirX;
+            }
+            MoveX(XSpeed * Time.fixedDeltaTime, true);
             MoveY(YSpeed * Time.fixedDeltaTime, true);
             RecordPos();
             lastFUpdateTime = Time.time;
@@ -238,8 +248,8 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         /// 如果碰到不是斜坡的物体则速度归零
         /// </summary>
         /// <param name="dir"></param>
-        /// <param name="fieldToSet"></param>
-        protected virtual void StopTowardsWall(in Vector2 dir, ref float fieldToSet)
+        /// <param name="whenHit"></param>
+        protected virtual void StopTowardsWall(in Vector2 dir, in Action whenHit)
         {
             int hits = Cast(dir, Filter, RCastTempArray, AntiTrapEpsilon);
             //不撞到东西或者撞到任意斜坡时不停止速度
@@ -255,7 +265,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                     return;
                 }
             }
-            fieldToSet = 0;
+            whenHit();
         }
         /// <summary>
         /// 应用速度上下限
@@ -320,11 +330,12 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
 
         public bool OverlappingAnything() => R2d.OverlapCollider(Filter, OverlapTempArray) > 0;
 
+        public void MoveX(in float distance) => MoveX(distance, false);
         /// <summary>
         /// 横向移动一段距离
         /// 会计算上下坡
         /// </summary>
-        public virtual void MoveX(float distance)
+        public virtual void MoveX(float distance, bool updateStatus)
         {
             if (IgnoreCollision)
             {
@@ -339,6 +350,14 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             {
                 actualDist = Math.Abs(distance);
                 transform.Translate(distance, 0, 0);
+                if (updateStatus)
+                {
+                    var dir2 = new Vector2(LastXDir, 0);
+                    if (Cast(dir2, Filter, RCastTempArray, 3 * AntiTrapEpsilon) == 0)
+                    {
+                        IsFacingWallX = XFacingWallStatus.NONE;
+                    }
+                }
             }
             else if (slopeState == SlopeState.UP)
             {
@@ -348,6 +367,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 if (hitAmount > 0)
                 {
                     HitWallX(TakeColliders(hitAmount));
+                    UpdateStatusX();
                 }
             }
             else
@@ -355,12 +375,23 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 actualDist = MinHitDistance(amount) - AntiTrapEpsilon;
                 transform.Translate(Math.Sign(distance) * actualDist, 0, 0);
                 HitWallX(TakeColliders(amount));
+                UpdateStatusX();
             }
             if (slopeState == SlopeState.DOWN)
             {
-                Move(new Vector2(0, -actualDist * curSlopeObj.Degree));
+                var hits = Move(new Vector2(0, -actualDist * curSlopeObj.Degree));
+                if (hits > 0)
+                {
+                    UpdateStatusX();
+                }
             }
             RecordPos();
+
+            void UpdateStatusX()
+            {
+                if (!updateStatus || distance == 0F) return;
+                IsFacingWallX = XFacingWallStatusFactory.FromSpeed(distance);
+            }
         }
 
         /// <summary>
@@ -379,7 +410,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         /// <summary>
         /// 纵向移动一段距离
         /// </summary>
-        public virtual void MoveY(float distance, bool updateOnGroundStatus)
+        public virtual void MoveY(float distance, bool updateStatus)
         {
             if (IgnoreCollision)
             {
@@ -393,7 +424,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             if (amount == 0)
             {
                 transform.Translate(0, distance, 0);
-                if (updateOnGroundStatus)
+                if (updateStatus)
                 {
                     if (Cast(Vector2.down, Filter, RCastTempArray, 2 * AntiTrapEpsilon) == 0)
                     {
@@ -409,7 +440,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 Collider2D[] colliders = RCastTempArray.Take(amount).Select(rr => rr.collider).ToArray();
                 HitWallY(colliders);
 
-                if (updateOnGroundStatus && distance <= 0)
+                if (updateStatus && distance <= 0)
                 {
                     IsOnGround = true;
                 }
@@ -547,8 +578,8 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
 
             return Math.Sign(YSpeed) > 0 ? Vector2.up: Vector2.down;
         }
-        
-        private int Cast(Vector2 direction,
+
+        protected int Cast(Vector2 direction,
             ContactFilter2D contactFilter,
             RaycastHit2D[] results,
             float distance = Mathf.Infinity)
@@ -570,7 +601,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 // normal.y >= 0 && normal.y > abs(normal.x)
                 // 不考虑平台，或者法线不超上的情况，此时把平台视作空心的
                 if (!considerPlatform 
-                    || transform.position.y < result.point.y
+                    || transform.position.y < result.point.y - Consts.OnePixel
                     || result.normal.y < Mathf.Abs(result.normal.x))
                 {
                     // 说明这个实心是平台且需要剔除，那么把它从 Cast 结果中剔除

@@ -18,6 +18,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
 
         private readonly struct CaughtObjectInfo
         {
+
             public readonly BasePhysics Physics;
             public readonly RaycastHit2D HitResult;
 
@@ -26,6 +27,21 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 Physics = physics;
                 HitResult = hitResult;
             }
+
+            public bool Equals(CaughtObjectInfo other)
+            {
+                return Equals(Physics, other.Physics);
+            }
+
+            public override bool Equals(object obj)
+            {
+                return obj is CaughtObjectInfo other && Equals(other);
+            }
+
+            public override int GetHashCode()
+            {
+                return Physics != null ? Physics.GetHashCode() : 0;
+            }
         }
 
         private static readonly List<CaughtObjectInfo> CAUGHT_OBJ_CACHE = new List<CaughtObjectInfo>();
@@ -33,12 +49,14 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         private static bool classInited;
 
         private Collider2D[] colliders;
+        private bool isPlatform;
         
         protected override void Start()
         {
             base.Start();
             InitClass();
             colliders = this.DfsComponentsInChildren<Collider2D>().ToArray();
+            isPlatform = CompareTag(Tags.Platform);
         }
 
         private static void InitClass()
@@ -48,27 +66,29 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             classInited = true;
         }
 
-        public override void MoveX(float distance)
+        public override void MoveX(float distance, bool updateStatus)
         {
             var dx = transform.position.x;
-            base.MoveX(distance);
+            base.MoveX(distance, updateStatus);
             dx = transform.position.x - dx;
-            
+
+            var dir = new Vector2(Sign(distance), 0);
             // 推动前方物体
-            CatchPushDrag(GetDirX(), 0, dx, ActionMoveX, false);
+            CatchPushDrag(dir, 0, dx, ActionMoveX, false);
             
             static void ActionMoveX(BasePhysics physics, float dist)
                 => physics.MoveX(dist);
         }
 
-        public override void MoveY(float distance, bool updateOnGroundStatus)
+        public override void MoveY(float distance, bool updateStatus)
         {
             var dy = R2d.position.y;
-            base.MoveY(distance, updateOnGroundStatus);
+            base.MoveY(distance, updateStatus);
             dy = R2d.position.y - dy;
 
+            var dir = new Vector2(0,Sign(distance));
             // 推动前方物体
-            CatchPushDrag(GetDirY(), CatchEpsilon, dy, ActionMoveY, true);
+            CatchPushDrag(dir, 0, dy, ActionMoveY, true);
 
             static void ActionMoveY(BasePhysics physics, float dist)
                 => physics.MoveY(dist);
@@ -78,10 +98,13 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             in Action<BasePhysics, float> action, in bool isY)
         {
             // 推动前方物体
-            CatchAndMove(castDir, castDist, offset, action, true);
+            if (!isPlatform)
+            {
+                CatchAndMove(castDir, castDist, offset, action, true);
+            }
 
             // 拖拽站在平台上的物体
-            var dragCastLength = Max(0, (isY ? -offset : 0) + CatchEpsilon); 
+            var dragCastLength = (isY ? -offset : 0) + CatchEpsilon; 
             CatchAndMove(Vector2.up, dragCastLength, offset, action, false);
         }
 
@@ -99,10 +122,9 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                     colDisabled = true;
                 }
 
-                var hitDistance = Max(0, caught.HitResult.distance);
-                const float pushProtection = AntiTrapEpsilon;
-                var distToMove = isPush 
-                    ? Sign(offset) * (Abs(offset) - hitDistance + pushProtection)
+                var hitDistance = caught.HitResult.distance;
+                var distToMove = isPush
+                    ? Sign(offset) * (Abs(offset) - hitDistance)
                     : offset;
 
                 // 如果实际位移小于被推动的位移，
@@ -154,7 +176,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 ));
             }
 
-            return CAUGHT_OBJ_CACHE;
+            return CAUGHT_OBJ_CACHE.Distinct();
         }
 
         private void SetCollisionAvailability(bool available)

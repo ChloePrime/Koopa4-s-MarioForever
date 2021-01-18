@@ -21,7 +21,10 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
 
         public void SetDead(in EnumDamageType type)
         {
-            Mario.Kill();
+            if (Mario != null)
+            {
+                Mario.Kill();
+            }
         }
 
         private void Start()

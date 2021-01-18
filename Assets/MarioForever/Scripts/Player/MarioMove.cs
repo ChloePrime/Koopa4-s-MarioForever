@@ -92,13 +92,13 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
             base.FixedUpdate();
         }
 
-        protected override void StopTowardsWall(in Vector2 dir, ref float fieldToSet)
+        protected override void StopTowardsWall(in Vector2 dir, in Action whenHit)
         {
-            base.StopTowardsWall(dir, ref fieldToSet);
-            StopTowardsScrollBorder(dir, ref fieldToSet);
+            base.StopTowardsWall(dir, whenHit);
+            StopTowardsScrollBorder(dir, whenHit);
         }
 
-        private void StopTowardsScrollBorder(in Vector2 dir, ref float fieldToSet)
+        private void StopTowardsScrollBorder(in Vector2 dir, in Action whenHit)
         {
             var isAxisX = Abs(dir.x) > Abs(dir.y);
             if (!isAxisX) return;
@@ -106,14 +106,14 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
             {
                 var xRight = MFUtil.XRight(R2d);
                 if (xRight < ScrollInfo.Right) return;
-                fieldToSet = 0;
+                whenHit();
                 R2d.position += new Vector2(ScrollInfo.Right - xRight, 0);
             }
             else
             {
                 var xLeft = MFUtil.XLeft(R2d);
                 if (xLeft > ScrollInfo.Left) return;
-                fieldToSet = 0;
+                whenHit();
                 R2d.position += new Vector2(ScrollInfo.Left - xLeft, 0);
             }
         }
@@ -139,6 +139,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
             }
             else if (Abs(XSpeed) < CurProfile.maxSpeed)
             {
+                if (IsFacingWallX.IsBlocked(AccDirection)) return;
                 // 初速度
                 if (Abs(XSpeed) < minSpeed)
                 {
