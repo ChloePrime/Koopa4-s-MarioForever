@@ -1,10 +1,8 @@
-﻿using System;
-using SweetMoleHouse.MarioForever.Scripts.Base;
+﻿using SweetMoleHouse.MarioForever.Scripts.Base;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
-using SweetMoleHouse.MarioForever.Scripts.Player;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Scripts.Facilities
+namespace SweetMoleHouse.MarioForever.Scripts.Facility
 {
     /// <summary>
     /// 马里奥踩了会掉下去的平台
@@ -18,7 +16,6 @@ namespace SweetMoleHouse.MarioForever.Scripts.Facilities
         [SerializeField] private float fallGravity;
         
         private BasePhysics physics;
-        private Collider2D c2d;
         private bool fallen;
 
         private static void InitClass()
@@ -31,7 +28,6 @@ namespace SweetMoleHouse.MarioForever.Scripts.Facilities
         {
             InitClass();
             physics = GetComponent<BasePhysics>();
-            c2d = GetComponent<Collider2D>();
         }
 
         private void FixedUpdate()
@@ -46,7 +42,8 @@ namespace SweetMoleHouse.MarioForever.Scripts.Facilities
                 // 确保速度向下
                 if (rig.TryGetComponent(out BasePhysics thatPhysics))
                 {
-                    if (thatPhysics.YSpeed > 0 || !thatPhysics.IsStandingOnPlatform(c2d.bounds.max))
+                    if (thatPhysics.YSpeed > 0
+                        || !thatPhysics.IsStandingOnPlatform(CAST_RESULT_CACHE[i].centroid))
                     {
                         continue;
                     }

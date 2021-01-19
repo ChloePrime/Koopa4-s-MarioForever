@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
-using SweetMoleHouse.MarioForever.Scripts.Facilities;
+using SweetMoleHouse.MarioForever.Scripts.Facility;
 using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
@@ -48,7 +48,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
 
         [Header("显示设置")] 
         [SerializeField, RenameInInspector("渲染用物体")]
-        private Transform display;
+        protected Transform display;
         
         [Header("音效设置")]
         [SerializeField, RenameInInspector("顶头音效")]
@@ -185,7 +185,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             {
                 displayLocalPos = display.position - transform.position;
             }
-            R2d = GetComponent<Rigidbody2D>();
+            R2d = this.BfsComponentInChildren<Rigidbody2D>();
             // 防止卡在墙里
             if (appeared && R2d.Cast(Vector2.zero, RCastTempArray) > 0)
             {
@@ -241,6 +241,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
         /// </summary>
         private void MoveAndRecordPos()
         {
+            lastFUpdateTime = Time.time;
             tickStartPos = transform.position;
             var dirX = Math.Sign(XSpeed);
             if (dirX != 0)
@@ -250,7 +251,6 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
             MoveX(XSpeed * Time.fixedDeltaTime, true);
             MoveY(YSpeed * Time.fixedDeltaTime, true);
             RecordPos();
-            lastFUpdateTime = Time.time;
         }
 
         private void RecordPos()

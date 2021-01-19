@@ -29,7 +29,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Constants
 
     public static class Tags
     {
-        public static string Player { get; } = "Player";
-        public static string Platform { get; } = "Platform";
+        public const string Player = "Player";
+        public const string Platform = "Platform";
     }
 }

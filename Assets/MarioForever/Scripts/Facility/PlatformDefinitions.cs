@@ -2,7 +2,7 @@
 using SweetMoleHouse.MarioForever.Scripts.Constants;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Scripts.Facilities
+namespace SweetMoleHouse.MarioForever.Scripts.Facility
 {
     public static class PlatformDefinitions
     {

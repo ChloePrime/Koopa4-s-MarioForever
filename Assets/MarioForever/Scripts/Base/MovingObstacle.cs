@@ -5,7 +5,7 @@ using System.Linq;
 using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
 using SweetMoleHouse.MarioForever.Scripts.Enemy;
-using SweetMoleHouse.MarioForever.Scripts.Facilities;
+using SweetMoleHouse.MarioForever.Scripts.Facility;
 using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 using static UnityEngine.Mathf;
@@ -193,10 +193,32 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
 
         private void SetCollisionAvailability(bool available)
         {
+            List<Collider2D> invalidColliders = null;
             foreach (var c2d in colliders)
             {
+                if (c2d == null)
+                {
+                    invalidColliders ??= new List<Collider2D>();
+                    invalidColliders.Add(c2d);
+                    continue;
+                }
                 c2d.enabled = available;
             }
+
+            if (invalidColliders != null)
+            {
+                RemoveEmptyCollider(invalidColliders);
+            }
+        }
+
+        private void RemoveEmptyCollider(IEnumerable<Collider2D> blacklist)
+        {
+            colliders = colliders.Where(campaign => !blacklist.Contains(campaign)).ToArray();
+        }
+
+        internal void SetDisplay(Transform displayIn)
+        {
+            display = displayIn;
         }
     }
 }
