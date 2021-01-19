@@ -13390,10 +13390,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5674163222070488180, guid: 2187c8e85c4ae434f819938e124abee1, type: 3}
-      propertyPath: loop
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5700435019901215360, guid: 2187c8e85c4ae434f819938e124abee1, type: 3}
       propertyPath: m_Name
       value: Hitboxes
