@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="升级到Unity2020.2并整理代码">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/BasePhysics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/BasePhysics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/MovingObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/MovingObstacle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Constants/Consts.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Constants/Consts.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Facilities.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Facilities/FallingPlatform.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Facilities/FallingPlatform.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Facilities/PlatformDefinitions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Facilities/PlatformDefinitions.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,6 +122,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A70CACC3-8B57-40B0-82A0-E3AB93BE903D/2d/75b3b4ca/VideoAspectRatio.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0B76D74C-9007-4047-ADC3-E5DBD5D3F1DE/2c/b36ad854/HashSet`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/77/f2697cb0/LinkedList`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Prefabs/Player/Player.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/33/4647722e/MustExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/d4/edaba5e9/Void.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83861E9D-A03D-4740-8F8D-3F2EAFC46F03/47/e6550300/Transform.cs" root0="SKIP_HIGHLIGHTING" />
@@ -196,12 +187,12 @@
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/BaseSlope.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Constants/Consts.cs" />
-      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/BasePhysics.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Facilities/PlatformTilemapIniter.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Facilities/FallingPlatform.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Facilities/TilemapPlatformIniter.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/MovingObstacle.cs" />
       <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Facility/FallingPlatform.cs" />
+      <option value="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/BasePhysics.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ls7lgvWXmMeW299Wi6jlQ2E32w" />
@@ -310,21 +301,7 @@
       <workItem from="1610957709722" duration="10718000" />
       <workItem from="1610970307526" duration="8821000" />
       <workItem from="1610981070018" duration="4023000" />
-      <workItem from="1611028195201" duration="8979000" />
-    </task>
-    <task id="LOCAL-00025" summary="栗子动画">
-      <created>1609400765846</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1609400765846</updated>
-    </task>
-    <task id="LOCAL-00026" summary="关卡BGM">
-      <created>1609400890139</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1609400890139</updated>
+      <workItem from="1611028195201" duration="9750000" />
     </task>
     <task id="LOCAL-00027" summary="将动画放到Art文件夹下">
       <created>1609417192277</created>
@@ -655,7 +632,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610984908941</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="掉落平台，Tilemap平台">
+      <created>1611044187295</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1611044187296</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Player Prefab小问题">
+      <created>1611044972541</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1611044972541</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -687,8 +678,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="马里奥火力花状态打飞机动画" />
-    <MESSAGE value="修复马里奥打飞机时受伤会播放不存在的动画的bug" />
     <MESSAGE value="把走动物体的动画放到Walking Rigidbody里" />
     <MESSAGE value="完成马里奥发射火球功能，给火球添加特效" />
     <MESSAGE value="调整火球爆炸的烟雾粒子" />
@@ -712,7 +701,9 @@
     <MESSAGE value="移动火球爆炸特效的图层" />
     <MESSAGE value="修复下斜坡不正常bug" />
     <MESSAGE value="掉落平台" />
-    <option name="LAST_COMMIT_MESSAGE" value="掉落平台" />
+    <MESSAGE value="掉落平台，Tilemap平台" />
+    <MESSAGE value="Player Prefab小问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="Player Prefab小问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

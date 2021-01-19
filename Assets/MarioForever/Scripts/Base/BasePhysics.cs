@@ -219,10 +219,6 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base
                 CheckSurroundings();
             }
             MoveAndRecordPos();
-            if (CompareTag(Tags.Player))
-            {
-                Global.DebugText = $"SlopeState:{slopeState},FacingWallX:{IsFacingWallX},LastXDir:{lastXDir}";
-            }
         }
 
         private void CheckSurroundings()
