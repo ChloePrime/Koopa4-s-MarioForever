@@ -10,7 +10,7 @@ using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 using static UnityEngine.Mathf;
 
-namespace SweetMoleHouse.MarioForever.Scripts.Base
+namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics
 {
     [SuppressMessage("ReSharper", "Unity.InefficientPropertyAccess")]
     public class MovingObstacle : BasePhysics

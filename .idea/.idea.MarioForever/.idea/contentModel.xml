@@ -9,20 +9,22 @@
           <e p="Scripts" t="Include">
             <e p="AspectLock.cs" t="Include" />
             <e p="Base" t="Include">
-              <e p="BasePhysics.cs" t="Include" />
-              <e p="BaseSlope.cs" t="Include" />
               <e p="GlobalSingleton.cs" t="Include" />
-              <e p="IAppearable.cs" t="Include" />
-              <e p="IHitable.cs" t="Include" />
-              <e p="MovingObstacle.cs" t="Include" />
+              <e p="Physics" t="Include">
+                <e p="BasePhysics.cs" t="Include" />
+                <e p="BaseSlope.cs" t="Include" />
+                <e p="IAppearable.cs" t="Include" />
+                <e p="IHitable.cs" t="Include" />
+                <e p="MovingObstacle.cs" t="Include" />
+                <e p="SlopeLeftDown.cs" t="Include" />
+                <e p="SlopeRightDown.cs" t="Include" />
+                <e p="Walk.cs" t="Include" />
+              </e>
               <e p="Rpg" t="Include">
                 <e p="Faction.cs" t="Include" />
                 <e p="IDamageReceiver.cs" t="Include" />
               </e>
               <e p="Singleton.cs" t="Include" />
-              <e p="SlopeLeftDown.cs" t="Include" />
-              <e p="SlopeRightDown.cs" t="Include" />
-              <e p="Walk.cs" t="Include" />
             </e>
             <e p="Bonus" t="Include">
               <e p="MushroomAnimation.cs" t="Include" />

@@ -1,4 +1,4 @@
-﻿namespace SweetMoleHouse.MarioForever.Scripts.Base
+﻿namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics
 {
     /// <summary>
     /// 左下斜坡◣

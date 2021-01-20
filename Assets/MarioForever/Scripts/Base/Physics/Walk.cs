@@ -2,7 +2,7 @@
 using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Scripts.Base
+namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics
 {
     /// <summary>
     /// 行走的东西

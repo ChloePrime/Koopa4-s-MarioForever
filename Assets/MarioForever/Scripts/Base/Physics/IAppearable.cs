@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Scripts.Base
+namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics
 {
     /// <summary>
     /// 可以从水管/问号块内出现的物品

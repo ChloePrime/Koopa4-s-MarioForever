@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="升级到Unity2020.2并整理代码">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Platform.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Platform.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Facility/Falling Platform.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Facility/Falling Platform.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,21 +304,7 @@
       <workItem from="1610970307526" duration="8821000" />
       <workItem from="1610981070018" duration="4023000" />
       <workItem from="1611028195201" duration="10392000" />
-      <workItem from="1611112329318" duration="573000" />
-    </task>
-    <task id="LOCAL-00028" summary="重构单例，BGM/BGM切换">
-      <created>1609417336777</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1609417336777</updated>
-    </task>
-    <task id="LOCAL-00029" summary="删除没用的Editor脚本">
-      <created>1609418803012</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1609418803012</updated>
+      <workItem from="1611112329318" duration="1311000" />
     </task>
     <task id="LOCAL-00030" summary="区域切换">
       <created>1609489169580</created>
@@ -647,7 +635,21 @@
       <option name="project" value="LOCAL" />
       <updated>1611045007003</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="把平台改成实心的">
+      <created>1611113085430</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1611113085430</updated>
+    </task>
+    <task id="LOCAL-00078" summary="把平台改成穿透实心的">
+      <created>1611113108260</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1611113108260</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -679,8 +681,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="完成马里奥发射火球功能，给火球添加特效" />
-    <MESSAGE value="调整火球爆炸的烟雾粒子" />
     <MESSAGE value="重命名怪物伤害判定相关的两个脚本" />
     <MESSAGE value="板栗仔相片" />
     <MESSAGE value="取消火球，板栗仔相片和其他行走物品的碰撞" />
@@ -704,7 +704,9 @@
     <MESSAGE value="掉落平台，Tilemap平台" />
     <MESSAGE value="Player Prefab小问题" />
     <MESSAGE value="删除调试信息" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除调试信息" />
+    <MESSAGE value="把平台改成实心的" />
+    <MESSAGE value="把平台改成穿透实心的" />
+    <option name="LAST_COMMIT_MESSAGE" value="把平台改成穿透实心的" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

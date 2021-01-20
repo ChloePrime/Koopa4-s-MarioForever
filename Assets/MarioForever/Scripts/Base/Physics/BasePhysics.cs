@@ -5,7 +5,7 @@ using SweetMoleHouse.MarioForever.Scripts.Facility;
 using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
-namespace SweetMoleHouse.MarioForever.Scripts.Base
+namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics
 {
     /// <summary>
     /// 移动的东西
