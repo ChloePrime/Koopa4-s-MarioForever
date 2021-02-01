@@ -121,6 +121,7 @@
               <e p="IncompleteSetupException.cs" t="Include" />
               <e p="MathHelper.cs" t="Include" />
               <e p="MFUtil.cs" t="Include" />
+              <e p="PhysicHelper.cs" t="Include" />
               <e p="RenameInInspectorAttribute.cs" t="Include" />
               <e p="RenameInInspectorAttributeDrawer.cs" t="Include" />
               <e p="Widget" t="Include">

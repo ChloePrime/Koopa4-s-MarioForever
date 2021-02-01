@@ -38,7 +38,10 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
             // 此函数调用时 Start 可能未执行
             if (!inited) Start(); 
             
-            physics.TeleportTo(sr.transform.position);
+            physics.TeleportTo(sr.transform.position 
+                               + new Vector3(0, sr.size.y, 0));
+            transform.localScale = sr.transform.lossyScale;
+            
             renderer.sprite = sr.sprite;
         }
     }

@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
 Shader "MarioForever/Flip"
 {
     Properties
@@ -25,6 +27,7 @@ Shader "MarioForever/Flip"
         Pass
         {
             CGPROGRAM
+            // Deprecated
             #pragma vertex vert
             #pragma fragment frag
 
@@ -49,17 +52,18 @@ Shader "MarioForever/Flip"
             v2f vert (appdata input)
             {
 				v2f output;
-				output.vertex = UnityObjectToClipPos(input.vertex);
+				float4 v = input.vertex;
+                v.x = _x ? 1 - v.x : v.x;
+                v.y = _y ? 1 - v.y : v.y;
+                //v = mul(UNITY_MATRIX_MVP, v);
+                output.vertex = UnityObjectToClipPos(v);
 				output.texcoord = input.texcoord;
-
 				return output;
             }
 
             half4 frag (v2f v) : SV_Target
             {
                 float2 texc = v.texcoord;
-                texc.x = _x ? 1 - texc.x : texc.x;
-                texc.y = _y ? 1 - texc.y : texc.y;
                 return tex2D(_MainTex, texc);
             }
             ENDCG

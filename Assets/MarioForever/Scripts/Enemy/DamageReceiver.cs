@@ -30,7 +30,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
         [SerializeField] private Faction faction;
 
         private bool isDead;
-        private Corpse runtimeCorpse;
+        private Corpse corpseBehavior;
         public Transform Host => host;
         public SpriteRenderer Renderer { get; private set; }
 
@@ -49,7 +49,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
             }
 
             corpse = Instantiate(corpse, host.parent);
-            runtimeCorpse = corpse.GetComponent<Corpse>();
+            corpseBehavior = corpse.GetComponent<Corpse>();
             corpse.SetActive(false);
         }
 
@@ -97,7 +97,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
             }
             
             corpse.SetActive(true);
-            runtimeCorpse.AcceptBody(Renderer);
+            corpseBehavior.AcceptBody(Renderer);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

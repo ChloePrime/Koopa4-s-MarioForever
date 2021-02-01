@@ -496,7 +496,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics
                 foreach (var col in colliders)
                 {
                     IHitable hittable;
-                    if ((hittable = col.GetComponent<IHitable>()) != null)
+                    if ((hittable = col.GetHost().GetComponent<IHitable>()) != null)
                     {
                         defaultSound = !hittable.OnHit(transform) && defaultSound;
                     }

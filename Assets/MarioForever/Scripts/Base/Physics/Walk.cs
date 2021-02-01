@@ -16,6 +16,24 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics
         [SerializeField, RenameInInspector("与其他行走物品相撞")]
         private bool collideWithOthers = true;
 
+
+        /// <summary>
+        /// 带符号的行走速度
+        /// </summary>
+        protected float realWalkSpeed;
+        /// <summary>
+        /// 带符号的行走速度
+        /// </summary>
+        protected float RealWalkSpeed
+        {
+            get => realWalkSpeed;
+            set
+            {
+                realWalkSpeed = value;
+                ResetDisplayDirection();
+            }
+        }
+
         public override void SetDirection(float dir)
         {
             base.SetDirection(dir);
@@ -24,11 +42,6 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics
             walkSpeed = Mathf.Abs(walkSpeed) * axis;
             RealWalkSpeed = Mathf.Abs(RealWalkSpeed) * Mathf.Sign(axis);
         }
-
-        /// <summary>
-        /// 带符号的行走速度
-        /// </summary>
-        protected float RealWalkSpeed;
 
         protected override void Start()
         {
@@ -45,6 +58,14 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics
         {
             base.HitWallX(colliders);
             RealWalkSpeed *= -1;
+        }
+
+        private void ResetDisplayDirection()
+        {
+            if (display == transform) return;
+            var animScale = display.transform.localScale;
+            animScale.x = Mathf.Sign(RealWalkSpeed);
+            display.transform.localScale = animScale;
         }
 
         protected virtual void OnCollisionEnter2D(Collision2D collision)
