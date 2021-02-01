@@ -131,7 +131,9 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
 
         public void SetPowerup(MarioPowerup target, float rainbowTime = 0)
         {
+            if (Powerup == target) return;
             Powerup = target;
+            
             if (rainbowTime > 0)
             {
                 FlashCtrl.RainbowFlashTime = rainbowTime;
@@ -167,6 +169,9 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
         private void Start()
         {
             InitChildren();
+            
+            // 刷新玩家能力
+            PowerupManager.SetPowerup(Powerup);
             RefreshSize();
         }
 
