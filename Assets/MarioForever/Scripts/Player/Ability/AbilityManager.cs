@@ -21,14 +21,16 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player.Ability
         public AudioClip ShootSound => shootSound;
         public bool CanShoot => active != null;
         public Mario Mario => mario;
-        
+
+        private BaseAbility[] Abilities => abilities ??= GetComponents<BaseAbility>();
+
         public void SetPowerup(MarioPowerup powerup)
         {
             // 防止重复 set 浪费性能
             if (active != null && active.CorrespondingPowerup == powerup) return;
 
             active = null;
-            foreach (var ability in abilities)
+            foreach (var ability in Abilities)
             {
                 var isActive = ability.CorrespondingPowerup == powerup;
                 ability.enabled = isActive;
@@ -46,7 +48,6 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player.Ability
 
         private void Start()
         {
-            abilities = GetComponents<BaseAbility>();
             mario = GetComponentInParent<Mario>();
             
             InitInput();
