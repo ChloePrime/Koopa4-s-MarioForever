@@ -318,7 +318,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics
                 {
                     continue;
                 }
-                
+
                 int xDir = dir.x == 0 ? lastXDir : Math.Sign(dir.x);
                 if (isUp && xDir == slope.Dir)
                 {
