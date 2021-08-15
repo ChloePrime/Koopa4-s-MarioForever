@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.Collections;
 using UnityEngine;
 
@@ -8,24 +9,11 @@ namespace SweetMoleHouse.MarioForever.Scripts.Util
     {
         #region DFS, GameObject
 
-        public static T DfsComponentInChildren<T>(this GameObject thiz)
-        {
-            if (thiz.TryGetComponent(out T result))
-            {
-                return result;
-            }
-
-            foreach (Transform child in thiz.transform)
-            {
-                return child.gameObject.DfsComponentInChildren<T>();
-            }
-
-            return default;
-        }
+        public static T DfsComponentInChildren<T>(this GameObject thiz) => thiz.GetComponentInChildren<T>();
 
         public static bool TryDfsComponentInChildren<T>(this GameObject thiz, out T result)
         {
-            result = thiz.DfsComponentInChildren<T>();
+            result = thiz.GetComponentInChildren<T>();
             return result != null;
         }
         
@@ -49,20 +37,15 @@ namespace SweetMoleHouse.MarioForever.Scripts.Util
 
         #region DFS, Component
 
-        public static T DfsComponentInChildren<T>(this Component thiz)
-        {
-            return DfsComponentInChildren<T>(thiz.gameObject);
-        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static T DfsComponentInChildren<T>(this Component thiz) => 
+            thiz.gameObject.DfsComponentInChildren<T>();
 
-        public static bool TryDfsComponentInChildren<T>(this Component thiz, out T result)
-        {
-            return thiz.gameObject.TryDfsComponentInChildren(out result);
-        }
+        public static bool TryDfsComponentInChildren<T>(this Component thiz, out T result) =>
+            thiz.gameObject.TryDfsComponentInChildren(out result);
 
-        public static IEnumerable<T> DfsComponentsInChildren<T>(this Component thiz)
-        {
-            return thiz.gameObject.DfsComponentsInChildren<T>();
-        }
+        public static IEnumerable<T> DfsComponentsInChildren<T>(this Component thiz) => 
+            thiz.gameObject.DfsComponentsInChildren<T>();
 
         #endregion
 
@@ -71,23 +54,29 @@ namespace SweetMoleHouse.MarioForever.Scripts.Util
 
         public static T BfsComponentInChildren<T>(this GameObject thiz)
         {
-            UNVISITED_BFS.Clear();
-            UNVISITED_BFS.Enqueue(thiz.transform);
-            while (UNVISITED_BFS.Count != 0)
+            try
             {
-                var cur = UNVISITED_BFS.Dequeue();
-                if (cur.TryGetComponent(out T result))
+                UNVISITED_BFS.Enqueue(thiz.transform);
+                while (UNVISITED_BFS.Count != 0)
                 {
-                    return result;
+                    var cur = UNVISITED_BFS.Dequeue();
+                    if (cur.TryGetComponent(out T result))
+                    {
+                        return result;
+                    }
+
+                    foreach (Transform child in cur)
+                    {
+                        UNVISITED_BFS.Enqueue(child);
+                    }
                 }
 
-                foreach (Transform child in cur)
-                {
-                    UNVISITED_BFS.Enqueue(child);
-                }
+                return default;
             }
-
-            return default;
+            finally
+            {
+                UNVISITED_BFS.Clear();
+            }
         }
 
 
@@ -97,22 +86,34 @@ namespace SweetMoleHouse.MarioForever.Scripts.Util
             return result != null;
         }
 
+        private static readonly Pool<Queue<Transform>> QUEUE_FOR_ASYNC_BFS = Pool.Of(
+            finalizer: (Queue<Transform> queue) => queue.Clear()
+        );
+
         public static IEnumerable<T> BfsComponentsInChildren<T>(this GameObject thiz)
         {
-            var queue = new Queue<Transform>();
-            queue.Enqueue(thiz.transform);
-            while (UNVISITED_BFS.Count != 0)
+            var queue = QUEUE_FOR_ASYNC_BFS.Rent();
+            
+            try
             {
-                var cur = queue.Dequeue();
-                if (cur.TryGetComponent(out T component))
+                queue.Enqueue(thiz.transform);
+                while (queue.Count != 0)
                 {
-                    yield return component;
-                }
+                    var cur = queue.Dequeue();
+                    if (cur.TryGetComponent(out T component))
+                    {
+                        yield return component;
+                    }
 
-                foreach (Transform child in cur)
-                {
-                    queue.Enqueue(child);
+                    foreach (Transform child in cur)
+                    {
+                        queue.Enqueue(child);
+                    }
                 }
+            }
+            finally
+            {
+                QUEUE_FOR_ASYNC_BFS.Return(queue);
             }
         }
         
