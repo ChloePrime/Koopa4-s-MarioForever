@@ -1,4 +1,7 @@
-﻿using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
+﻿using System;
+using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using SweetMoleHouse.MarioForever.Scripts.Enemy;
 using UnityEngine;
 
@@ -9,17 +12,15 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
     /// </summary>
     public class MarioRpgHitbox : MonoBehaviour, IDamageReceiver
     {
-        [SerializeField] private Faction faction;
-
         public Transform Host => Mario.transform;
         public Mario Mario { get; private set; }
         public Faction Faction => faction;
-        public void Damage(EnumDamageType type)
+        public void Damage(Transform damager, EnumDamageType type)
         {
-            Mario.Damage();
+            Mario.Damage(damager);
         }
 
-        public void SetDead(EnumDamageType type)
+        public void SetDead(Transform damager, EnumDamageType type)
         {
             if (Mario != null)
             {
@@ -31,5 +32,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
         {
             Mario = GetComponentInParent<Mario>();
         }
+        
+        [SerializeField] private Faction faction;
     }
 }

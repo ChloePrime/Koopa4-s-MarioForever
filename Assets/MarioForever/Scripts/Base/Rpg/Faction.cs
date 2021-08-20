@@ -17,10 +17,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Rpg
             {
                 throw new ArgumentNullException();
             }
-            if (asSet == null)
-            {
-                asSet = new HashSet<Faction>(hostiles);
-            }
+            asSet ??= new HashSet<Faction>(hostiles);
             return asSet.Contains(faction);
         }
     }

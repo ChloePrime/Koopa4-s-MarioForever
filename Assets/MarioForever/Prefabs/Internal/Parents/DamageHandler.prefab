@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54a725d2710a8414c8596dcacd9198cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceptedDamageTypes: -1
+  acceptedDamageTypes: 2147483647
   host: {fileID: 0}
   corpse: {fileID: 6802158544873612791, guid: 18d3698332d434c4684d9be13c7724ef, type: 3}
   stompSound: {fileID: 8300000, guid: f3e73bb22ebefc54d8f09930bc579bc6, type: 3}

@@ -39,8 +39,52 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
         public Faction Faction => faction;
 
 
-        public event Func<EnumDamageType, ActionResult> OnDeath;
-        public event Func<EnumDamageType, ActionResult> OnGenerateCorpse;
+        public event Func<Transform, EnumDamageType, ActionResult> OnDeath;
+        public event Func<Transform, EnumDamageType, ActionResult> OnGenerateCorpse;
+        /// <summary>
+        /// 返回null时意味着使用默认音效。
+        /// </summary>
+        public event Func<EnumDamageType, AudioClip> OnGetDeathSound;
+        
+        
+        public virtual void Damage(Transform damager, EnumDamageType type)
+        {
+            if ((acceptedDamageTypes & type) > 0)
+            {
+                SetDead(damager, type);
+            }
+        }
+
+        public void SetDead(Transform damager, EnumDamageType type)
+        {
+            // 防止死亡代码重复执行
+            if (isDead) return;
+            isDead = true;
+
+            if (OnDeath?.Invoke(damager, type).IsCanceled() == true)
+            {
+                // 死亡被取消后支持再次死亡，以方便乌龟切换。
+                ResetDeathFlagAtNextFrame().Forget();
+                return;
+            }
+
+            PlayDeathSound(type);
+            if (!type.Contains(EnumDamageType.STOMP))
+            {
+                score.Summon(host.transform);
+            }
+
+            GenerateCorpse(damager, type);
+
+            if (TryGetComponent(out DamageSource damageSource))
+            {
+                damageSource.enabled = false;
+            }
+
+            Destroy(host.gameObject);
+        }
+        
+        public void PlayDeathSound(EnumDamageType damageType) => Global.PlaySound(GetDeathSound(damageType));
 
         protected override void Start()
         {
@@ -55,47 +99,15 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
             corpseBehavior = corpse.GetComponent<Corpse>();
             corpse.SetActive(false);
         }
-
-
-        public virtual void Damage(EnumDamageType type)
+        private AudioClip GetDeathSound(EnumDamageType damageType)
         {
-            if ((acceptedDamageTypes & type) > 0)
+            AudioClip result;
+            if (OnGetDeathSound != null && (result = OnGetDeathSound(damageType)) != null)
             {
-                SetDead(type);
+                return result;
             }
-        }
-
-        public void SetDead(EnumDamageType type)
-        {
-            // 防止死亡代码重复执行
-            if (isDead) return;
-            isDead = true;
-
-            if (OnDeath?.Invoke(type).IsCanceled() == true)
-            {
-                // 死亡被取消后支持再次死亡，以方便乌龟切换。
-                ResetDeathFlagAtNextFrame().Forget();
-                return;
-            }
-
-            if (type.Contains(EnumDamageType.STOMP))
-            {
-                Global.PlaySound(stompSound);
-            }
-            else
-            {
-                Global.PlaySound(defeatSound);
-                score.Summon(host.transform);
-            }
-
-            GenerateCorpse(type);
-
-            if (TryGetComponent(out DamageSource damager))
-            {
-                damager.enabled = false;
-            }
-
-            Destroy(host.gameObject);
+            
+            return damageType.Contains(EnumDamageType.STOMP) ? stompSound : defeatSound;
         }
 
         private async UniTaskVoid ResetDeathFlagAtNextFrame()
@@ -104,9 +116,9 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
             isDead = false;
         }
 
-        private void GenerateCorpse(in EnumDamageType type)
+        private void GenerateCorpse(Transform damager, EnumDamageType type)
         {
-            bool overriden = OnGenerateCorpse?.Invoke(type).IsCanceled() ?? false;
+            bool overriden = OnGenerateCorpse?.Invoke(damager, type).IsCanceled() ?? false;
             if (overriden)
             {
                 Destroy(corpse);
@@ -127,15 +139,16 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void OnCollisionStay2D(Collision2D collision)
         {
-            OnCollision(collision.transform);
+            // 这个地方会优先使用 collision.rigidbody.transform
+            TryGetStomped(collision.transform);
         }
 
-        public void OnCollision(Transform other)
+        public void TryGetStomped(Transform other)
         {
             bool isMario = other.TryGetComponent(out Mario mario);
             if (isMario && IsStomp(other, mario))
             {
-                Damage(EnumDamageType.STOMP);
+                Damage(other, EnumDamageType.STOMP);
                 mario.OnStomp(GetStompPower(mario), true);
             }
         }

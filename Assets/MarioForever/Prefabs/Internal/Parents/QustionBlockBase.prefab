@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2232048350775857966}
   - component: {fileID: 2232048350775857967}
   m_Layer: 0
-  m_Name: Qustion Block Base
+  m_Name: QustionBlockBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3115459536062683082}
   - component: {fileID: 1203845159692809071}
   m_Layer: 0
-  m_Name: Score Base
+  m_Name: ScoreBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

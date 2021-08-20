@@ -4,11 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="升级Unity版本，Add NuGetForUnity">
+    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/Goomba Photo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/Goomba Photo.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/Goomba.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/Goomba.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/Turtle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/Turtle.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/turtle.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/turtle.gif.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Enemy/Goomba.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Enemy/Goomba.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Enemy/Turtle.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Enemy/Turtle.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Bonus Base.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Bonus Base.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/DamageHandler.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/DamageHandler.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Falling Platform.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Falling Platform.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Moving Tilemap.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Moving Tilemap.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Qustion Block Base.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Qustion Block Base.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Score Base.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Score Base.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Walking Rigidbody.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Walking Rigidbody.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Stompable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Stompable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/Pool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/Pool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/MovingObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/MovingObstacle.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Rpg/Faction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Rpg/Faction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Rpg/IDamageReceiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Rpg/IDamageReceiver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Common/Fireball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Common/Fireball.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Common/Walking Enemy Base.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Common/Walking Enemy Base.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageReceiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageReceiver.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageSource.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/EnumDamageType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/EnumDamageType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Goomba/GoombaDeathHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Goomba/GoombaDeathHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/MarioForever.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/MarioForever.asmdef" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Mario.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Mario.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioRpgHitbox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioRpgHitbox.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Search.settings" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Search.settings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,6 +72,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Rpg/IHaltableDamageReceiver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Common/Fireball.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/BaseAnimatedAbility.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/IncompleteSetupException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/9a/e76d3896/VideoCapture.cs" root0="SKIP_HIGHLIGHTING" />
@@ -61,7 +106,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/F9C6778C-8A82-47B7-A317-8B15F7809C0F/82/c733c21a/Animator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/adfa4b62400849189388df71c9e26e89144200/02/159499d2/NativeArray`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/fe/16149525/02000055.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2a255f4f234d4e00850afff85a122b331b800/7e/47142e49/Collision2D.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6b1444477c1d41c692ef6c02a838308529ac30/c6/a3e056a4/ArgumentOutOfRangeException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8c1963fe95f34218bb2d21bb9323c90e168a30/86/07a081a4/Queue`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@4f6166102d/Runtime/UniTask.Delay.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/c8/50586cde/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/RenameInInspectorAttribute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/a5/5b335fd6/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
@@ -70,6 +118,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/03D8F91A-1F2F-47A1-8C34-D619BAFE2609/58/d4ffc58d/ContactFilter2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/0f/43f6ce7b/PixelPerfectRendering.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Common/Fireball.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Turtle/MovingShell.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/GlobalSingleton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/metadata/EE6CBE48-22D0-46D9-8553-A66D7FBAADCD/ff/071b3c81/NuGetForUnity.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/75/4e875a83/MethodImplOptions.cs" root0="SKIP_HIGHLIGHTING" />
@@ -79,6 +128,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6B144447-7C1D-41C6-92EF-6C02A8383085/51/be36789d/IList`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B8EE7494-4007-4F27-9F13-A58F9C2CED22/b0/ea7d696a/AudioBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/36/a3f34ce9/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/adfa4b62400849189388df71c9e26e89144200/e8/2053b87a/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@4f6166102d/Runtime/UniTaskVoid.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/91/676446e3/Exception.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/5e/a5fdae07/DefaultValueAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/ea/979085fa/Stack`1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -91,24 +142,30 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0B76D74C-9007-4047-ADC3-E5DBD5D3F1DE/2c/b36ad854/HashSet`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/adfa4b62400849189388df71c9e26e89144200/f5/b6d3f379/BurstDiscardAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/2f/2e3abdbb/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@4f6166102d/Runtime/UniTask.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/85/b2eb4c46/CustomYieldInstruction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1485879A-518A-4C36-8A6E-90B1F4A14835/c3/42f8409a/UnityMainToolbar.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9D69AD7C-AC3F-49D6-AE0F-B5718C3A7703/03/1240f1d3/PackageManagerWindowRoot.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/42/f57e2c82/ValueType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3B28F550-0D54-4E01-9E30-DCA09FAB36D7/11/fff89778/ToolStripContentPanelRenderEventArgs.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@4f6166102d/Runtime/CompilerServices/AsyncMethodBuilderAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2a255f4f234d4e00850afff85a122b331b800/1c/e9035ce1/PhysicsScene2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/8a/057b9d87/WaitForSecondsRealtime.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0EBEB27C-A6DF-45BB-AEEC-500DC98FF733/35/11410d07/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/ComTreeUtil.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351E49E2-A5BF-4FD6-BEAB-B458CE2255F3/d4/e055e298/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@4f6166102d/Runtime/CompilerServices/AsyncUniTaskVoidMethodBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2a255f4f234d4e00850afff85a122b331b800/5e/0a57d399/Physics2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/1a/1a0c04dd/Single.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Util/Pool.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/6d/520ca046/NativeArray`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C8C8BE24-5827-4F9A-8513-7FE28C871FEB/7d/36176fd0/jvalue.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/32/49af8a5e/Shader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/36/bceef55a/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/95/09d7ebe1/NativeSlice`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/HideInPlayMode.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6b1444477c1d41c692ef6c02a838308529ac30/c1/9a8d4b03/MethodImplAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/c0/3d92a5d2/Enum.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e81851a0dc734a79afa9f5b7273162be52e178/77/446411e2/MethodImplOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/5f/9eba803c/IEnumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/03D8F91A-1F2F-47A1-8C34-D619BAFE2609/c9/959bccbb/Rigidbody2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/a9/6976ab95/Scene.cs" root0="SKIP_HIGHLIGHTING" />
@@ -124,6 +181,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/ac/148e6335/Func`2.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/de/3dab2142/Stack.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/c5/7619ea6e/SuppressMessageAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Turtle/TurtleSwapper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/17/01bfd63a/Guid.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/AreaManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/e2/6574fa24/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
@@ -137,11 +195,9 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/adfa4b62400849189388df71c9e26e89144200/17/7d71f7a2/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5DE66FF1-1FCB-4513-8463-255B392B032B/d7/10648b83/Queue`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/1e/018f8dee/Type.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/fb/9ae55d48/NotImplementedException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/02/22233060/SerializableAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Constants/ScoreTypeData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///Dummy.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351E49E2-A5BF-4FD6-BEAB-B458CE2255F3/04/c3e57480/IPartition`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8c1963fe95f34218bb2d21bb9323c90e168a30/64/a73e09a1/ConcurrentBag`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40688824-5465-403C-962D-1CE18CA533E0/3e/22c2b45f/AudioSourceInspector.cs" root0="SKIP_HIGHLIGHTING" />
@@ -212,7 +268,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3502052" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3500817" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="NEW_TOOLWINDOW_STRIPE_DEFAULTS" value="true" />
@@ -325,28 +381,11 @@
       <workItem from="1624693065244" duration="1860000" />
       <workItem from="1627552953763" duration="1743000" />
       <workItem from="1629005460295" duration="5344000" />
-      <workItem from="1629096607721" duration="4407000" />
-    </task>
-    <task id="LOCAL-00042" summary="为区域切换标记绘制专用帖图">
-      <created>1609816841454</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1609816841454</updated>
-    </task>
-    <task id="LOCAL-00043" summary="重命名马里奥动画文件夹">
-      <created>1609816923984</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1609816923984</updated>
-    </task>
-    <task id="LOCAL-00044" summary="重命名马里奥动画文件夹">
-      <created>1609816999762</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1609816999762</updated>
+      <workItem from="1629096607721" duration="11872000" />
+      <workItem from="1629185802332" duration="1365000" />
+      <workItem from="1629377953001" duration="5485000" />
+      <workItem from="1629436867956" duration="8687000" />
+      <workItem from="1629447797979" duration="14873000" />
     </task>
     <task id="LOCAL-00045" summary="重命名Area.prefab的名称">
       <created>1609817026405</created>
@@ -670,7 +709,28 @@
       <option name="project" value="LOCAL" />
       <updated>1629112681784</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="刺儿">
+      <created>1629115982046</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1629115982046</updated>
+    </task>
+    <task id="LOCAL-00092" summary="对象池">
+      <created>1629115997558</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1629115997558</updated>
+    </task>
+    <task id="LOCAL-00093" summary="优化踩踏判定">
+      <created>1629446999217</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1629446999218</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -703,9 +763,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="修复马里奥跑动时射击的运动手感问题" />
-    <MESSAGE value="运动实心" />
-    <MESSAGE value="移动实心" />
     <MESSAGE value="运动的穿透平台" />
     <MESSAGE value="重构BasePhysics代码，Update中的插值将只针对渲染用的物件" />
     <MESSAGE value="修复上下坡异常的bug" />
@@ -728,7 +785,10 @@
     <MESSAGE value="修复死后复活报错的bug" />
     <MESSAGE value="Add: 对象池" />
     <MESSAGE value="升级Unity版本，Add NuGetForUnity" />
-    <option name="LAST_COMMIT_MESSAGE" value="升级Unity版本，Add NuGetForUnity" />
+    <MESSAGE value="刺儿" />
+    <MESSAGE value="对象池" />
+    <MESSAGE value="优化踩踏判定" />
+    <option name="LAST_COMMIT_MESSAGE" value="优化踩踏判定" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -739,7 +799,24 @@
           <properties documentPath="E:\Unity\MarioForever\Assets\Scripts\Level\Background.cs" initialLine="92" containingFunctionPresentation="method 'Update'" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageReceiver.cs</url>
+          <line>51</line>
+          <properties documentPath="E:\Unity\MarioForever\Assets\MarioForever\Scripts\Enemy\DamageReceiver.cs" initialLine="51" containingFunctionPresentation="method 'Damage'">
+            <startOffsets>
+              <option value="1802" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1839" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XPathView.XPathProjectComponent">
+    <history />
+    <find-history />
   </component>
 </project>

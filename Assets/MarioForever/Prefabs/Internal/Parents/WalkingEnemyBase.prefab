@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: self
       value: 
       objectReference: {fileID: 6419509510554172581}
+    - target: {fileID: 4365835876634559861, guid: 515f4bff2840dd94ca976df68eca1784, type: 3}
+      propertyPath: damageType
+      value: 1073741824
+      objectReference: {fileID: 0}
     - target: {fileID: 6204453993478765736, guid: 515f4bff2840dd94ca976df68eca1784, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -72,6 +76,10 @@ PrefabInstance:
       value: Damage
       objectReference: {fileID: 0}
     - target: {fileID: 6605357505143643918, guid: 515f4bff2840dd94ca976df68eca1784, type: 3}
+      propertyPath: host
+      value: 
+      objectReference: {fileID: 6419509510554172581}
+    - target: {fileID: 6605357505143643918, guid: 515f4bff2840dd94ca976df68eca1784, type: 3}
       propertyPath: self
       value: 
       objectReference: {fileID: 6419509510554172581}
@@ -86,18 +94,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2642266663093281768, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2642266663093281768, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.7980089
-      objectReference: {fileID: 0}
-    - target: {fileID: 2642266663093281768, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -9.363008
-      objectReference: {fileID: 0}
-    - target: {fileID: 2642266663093281768, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
-      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2642266663093281768, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
@@ -150,7 +146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2642266663093281783, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_Name
-      value: Walking Enemy Base
+      value: WalkingEnemyBase
       objectReference: {fileID: 0}
     - target: {fileID: 7236889029517880874, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_RootOrder

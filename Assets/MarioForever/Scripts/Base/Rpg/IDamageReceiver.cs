@@ -1,4 +1,5 @@
 using System.Collections;
+using Cysharp.Threading.Tasks;
 using SweetMoleHouse.MarioForever.Scripts.Enemy;
 using UnityEngine;
 
@@ -10,8 +11,8 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Rpg
 
         Transform Host { get; }
         
-        void Damage(EnumDamageType type);
+        void Damage(Transform damager, EnumDamageType type);
 
-        void SetDead(EnumDamageType type);
+        void SetDead(Transform damager, EnumDamageType type);
     }
 }

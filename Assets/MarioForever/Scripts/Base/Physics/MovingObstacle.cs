@@ -155,7 +155,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics
                 bool actionBlocked = actualOffset.sqrMagnitude <= distToMove * distToMove - 1e-4;
                 if (actionBlocked && caught.Physics.TryBfsComponentInChildren(out IDamageReceiver receiver))
                 {
-                    receiver.SetDead(EnumDamageType.ENVIRONMENT);
+                    receiver.SetDead(transform, EnumDamageType.ENVIRONMENT);
                 }
             }
             

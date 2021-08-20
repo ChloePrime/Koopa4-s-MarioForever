@@ -90,6 +90,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics
 
         public float XSpeed { get => vel.x; set => vel.x = value; }
         public float YSpeed { get => vel.y; set => vel.y = value; }
+        public float Direction => XSpeed;
         public virtual float Gravity { get => gravity; set => gravity = value; }
         public Rigidbody2D R2d { get; private set; }
 

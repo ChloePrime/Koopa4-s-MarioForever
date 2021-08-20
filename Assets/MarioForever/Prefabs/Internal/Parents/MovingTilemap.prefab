@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 475884923460458425}
   - component: {fileID: 2497359278408007969}
   m_Layer: 0
-  m_Name: Platform 1
+  m_Name: MovingTilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

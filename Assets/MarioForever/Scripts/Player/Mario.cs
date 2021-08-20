@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
 using SweetMoleHouse.MarioForever.Scripts.Effect;
 using SweetMoleHouse.MarioForever.Scripts.Level;
@@ -75,6 +76,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
         public bool IsWallJumping { get; set; }
         public bool Invulnerable => FlashCtrl.FlashTime > 0 && FlashIsInvul;
         private bool FlashIsInvul { get; set; }
+        private readonly HashSet<Transform> invulnerableFrom = new HashSet<Transform>();
 
         #endregion
 
@@ -95,11 +97,11 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
             }
         }
 
-
         public void RefreshSize()
         {
             Size = GetRealSize();
         }
+        
         /// <summary>
         /// 获取非下蹲时的马里奥个子
         /// </summary>
@@ -109,12 +111,13 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
             return Powerup == MarioPowerup.SMALL ? MarioSize.SMALL : MarioSize.BIG;
         }
 
-        public void Damage(in float flashTime = 2)
+        public void Damage(Transform damager, float flashTime = 2)
         {
-            if (Invulnerable)
+            if (Invulnerable || invulnerableFrom.Contains(damager))
             {
                 return;
             }
+
             if (Powerup == MarioPowerup.SMALL)
             {
                 Kill();
@@ -123,10 +126,20 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
             {
                 Global.PlaySound(hurtSound);
                 SetPowerup(Powerup == MarioPowerup.BIG ? MarioPowerup.SMALL : MarioPowerup.BIG);
-                
+
                 FlashCtrl.FlashTime = flashTime;
                 FlashIsInvul = true;
             }
+        }
+
+        public void SetInvulnerableFrom(Transform targetHost, TimeSpan time) =>
+            SetInvulnerableFrom0(targetHost, time).Forget();
+        
+        private async UniTaskVoid SetInvulnerableFrom0(Transform targetHost, TimeSpan time)
+        {
+            invulnerableFrom.Add(targetHost);
+            await UniTask.Delay(time);
+            invulnerableFrom.Remove(targetHost);
         }
 
         public void SetPowerup(MarioPowerup target, float rainbowTime = 0)

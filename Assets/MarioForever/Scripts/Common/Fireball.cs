@@ -37,7 +37,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Common
             physics.OnHitWallX += _ => Explode();
             physics.OnHitWallY += OnHitWallY;
 
-            GetComponentInChildren<DamageSource>().OnDamaging += _ => Explode();
+            GetComponentInChildren<DamageSource>().OnDamaging += (_, __) => Explode();
         }
 
         private void FixedUpdate()

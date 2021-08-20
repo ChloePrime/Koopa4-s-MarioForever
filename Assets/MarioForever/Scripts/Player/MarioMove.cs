@@ -194,7 +194,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
                 Collider2D hit = OverlapTempArray[i];
                 if (hit.TryGetComponent(out DamageReceiver dr) && dr.IsStomp(mario.transform, mario))
                 {
-                    dr.OnCollision(mario.transform);
+                    dr.TryGetStomped(mario.transform);
                 }
             }
         }
