@@ -1,6 +1,6 @@
 ﻿using System;
-using SweetMoleHouse.MarioForever.Scripts.Base;
 using SweetMoleHouse.MarioForever.Scripts.Base.Physics;
+using SweetMoleHouse.MarioForever.Scripts.Enemy;
 using SweetMoleHouse.MarioForever.Scripts.Level;
 using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
@@ -168,6 +168,35 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
                 mario.ComboInfo.ResetCombo();
             }
             base.HitWallY(in colliders);
+        }
+
+        public override void MoveY(float distance, bool updateStatus)
+        {
+            base.MoveY(distance, updateStatus);
+            if (YSpeed > 0) return;
+            TryOptimizeStomp();
+        }
+
+        private void TryOptimizeStomp()
+        {
+            Vector3 position = mario.transform.position;
+            // 此处 YSpeed < 0
+            float extraBoxHeight = -YSpeed * Time.fixedDeltaTime;
+            float x = position.x;
+            float y = position.y - extraBoxHeight / 2;
+            var hitCount = Physics2D.OverlapBoxNonAlloc(
+                new Vector2(x, y), new Vector2(1f, extraBoxHeight), angle: 0f,
+                OverlapTempArray
+            );
+
+            for (int i = 0; i < hitCount; i++)
+            {
+                Collider2D hit = OverlapTempArray[i];
+                if (hit.TryGetComponent(out DamageReceiver dr) && dr.IsStomp(mario.transform, mario))
+                {
+                    dr.OnCollision(mario.transform);
+                }
+            }
         }
     }
 }

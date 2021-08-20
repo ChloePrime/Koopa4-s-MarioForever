@@ -1,5 +1,6 @@
 ﻿using System;
 using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
+using SweetMoleHouse.MarioForever.Scripts.Player;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Enemy
@@ -24,7 +25,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
             if (!other.TryGetComponent(out IDamageReceiver hitbox)) return;
             if (!faction.IsHostileTo(hitbox.Faction)) return;
             // 判断是否是踩
-            if (IsStomp(hitbox.Host))
+            if (IsStomp(hitbox.Host, hitbox.Host.GetComponent<Mario>()))
             {
                 return;
             }

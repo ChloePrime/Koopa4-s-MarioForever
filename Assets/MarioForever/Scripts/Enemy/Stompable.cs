@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using SweetMoleHouse.MarioForever.Scripts.Player;
+using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Enemy
 {
@@ -16,9 +17,9 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
             hasStompHandler = parent != null && parent.TryGetComponent(out stompHandler);
         }
 
-        protected bool IsStomp(in Transform mario)
+        public bool IsStomp(in Transform stomper, Mario mario = null)
         {
-            return hasStompHandler && stompHandler.IsStomp(mario);
+            return hasStompHandler && stompHandler.IsStomp(stomper, mario);
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
+using Cysharp.Threading.Tasks;
 using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
 using SweetMoleHouse.MarioForever.Scripts.Player;
@@ -37,6 +39,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
         public Faction Faction => faction;
 
 
+        public event Func<EnumDamageType, ActionResult> OnDeath;
         public event Func<EnumDamageType, ActionResult> OnGenerateCorpse;
 
         protected override void Start()
@@ -48,13 +51,13 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
                 host = GetComponent<Collider2D>().attachedRigidbody.transform;
             }
 
-            corpse = Instantiate(corpse, host.parent);
+            corpse = Instantiate(corpse, host);
             corpseBehavior = corpse.GetComponent<Corpse>();
             corpse.SetActive(false);
         }
 
 
-        public virtual void Damage(in EnumDamageType type)
+        public virtual void Damage(EnumDamageType type)
         {
             if ((acceptedDamageTypes & type) > 0)
             {
@@ -62,13 +65,20 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
             }
         }
 
-        public virtual void SetDead(in EnumDamageType type)
+        public void SetDead(EnumDamageType type)
         {
             // 防止死亡代码重复执行
             if (isDead) return;
             isDead = true;
 
-            if (type == EnumDamageType.STOMP)
+            if (OnDeath?.Invoke(type).IsCanceled() == true)
+            {
+                // 死亡被取消后支持再次死亡，以方便乌龟切换。
+                ResetDeathFlagAtNextFrame().Forget();
+                return;
+            }
+
+            if (type.Contains(EnumDamageType.STOMP))
             {
                 Global.PlaySound(stompSound);
             }
@@ -84,7 +94,14 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
             {
                 damager.enabled = false;
             }
+
             Destroy(host.gameObject);
+        }
+
+        private async UniTaskVoid ResetDeathFlagAtNextFrame()
+        {
+            await UniTask.NextFrame(PlayerLoopTiming.FixedUpdate);
+            isDead = false;
         }
 
         private void GenerateCorpse(in EnumDamageType type)
@@ -97,18 +114,26 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
             }
             
             corpse.SetActive(true);
+            corpse.transform.parent = host.transform.parent;
             corpseBehavior.AcceptBody(Renderer);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void OnCollisionEnter2D(Collision2D collision)
         {
             OnCollisionStay2D(collision);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private void OnCollisionStay2D(Collision2D collision)
         {
-            bool isMario = collision.transform.TryGetComponent(out Mario mario);
-            if (isMario && IsStomp(collision.transform))
+            OnCollision(collision.transform);
+        }
+
+        public void OnCollision(Transform other)
+        {
+            bool isMario = other.TryGetComponent(out Mario mario);
+            if (isMario && IsStomp(other, mario))
             {
                 Damage(EnumDamageType.STOMP);
                 mario.OnStomp(GetStompPower(mario), true);

@@ -14,12 +14,12 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player
         public Transform Host => Mario.transform;
         public Mario Mario { get; private set; }
         public Faction Faction => faction;
-        public void Damage(in EnumDamageType type)
+        public void Damage(EnumDamageType type)
         {
             Mario.Damage();
         }
 
-        public void SetDead(in EnumDamageType type)
+        public void SetDead(EnumDamageType type)
         {
             if (Mario != null)
             {

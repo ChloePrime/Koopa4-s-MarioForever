@@ -10,8 +10,8 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Rpg
 
         Transform Host { get; }
         
-        void Damage(in EnumDamageType type);
+        void Damage(EnumDamageType type);
 
-        void SetDead(in EnumDamageType type);
+        void SetDead(EnumDamageType type);
     }
 }
