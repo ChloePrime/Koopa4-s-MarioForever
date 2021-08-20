@@ -4,55 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="">
+    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="破王八">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/Goomba Photo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/Goomba Photo.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/Goomba.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/Goomba.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/Turtle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/Turtle.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/turtle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/turtle.gif.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Enemy/Goomba.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Enemy/Goomba.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Enemy/Turtle.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Enemy/Turtle.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Bonus Base.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Bonus Base.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/DamageHandler.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/DamageHandler.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Falling Platform.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Falling Platform.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Moving Tilemap.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Moving Tilemap.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Qustion Block Base.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Qustion Block Base.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Score Base.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Score Base.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Walking Rigidbody.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/Walking Rigidbody.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/MovingObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/MovingObstacle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Rpg/Faction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Rpg/Faction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Rpg/IDamageReceiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Rpg/IDamageReceiver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Common/Fireball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Common/Fireball.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Common/Walking Enemy Base.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Common/Walking Enemy Base.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageReceiver.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageReceiver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/DamageSource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/EnumDamageType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/EnumDamageType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Goomba/GoombaDeathHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Goomba/GoombaDeathHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/MarioForever.asmdef" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/MarioForever.asmdef" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Mario.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Mario.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioRpgHitbox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/MarioRpgHitbox.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Search.settings" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Search.settings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Turtle/MovingShell.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Turtle/MovingShell.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NuGet.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NuGet/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NuGet/Editor/NugetForUnity.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NuGet/Editor/NugetForUnity.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NuGet/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NuGet/LICENSE.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NuGet/README.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NuGet/README.pdf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NuGet/Resources.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NuGet/Resources/defaultIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NuGet/Resources/defaultIcon.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +76,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8c1963fe95f34218bb2d21bb9323c90e168a30/86/07a081a4/Queue`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.cysharp.unitask@4f6166102d/Runtime/UniTask.Delay.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/c8/50586cde/IEnumerable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://E:/Unity/MarioForever/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/RenameInInspectorAttribute.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/a5/5b335fd6/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Player/Ability/AbilityManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -385,14 +351,7 @@
       <workItem from="1629185802332" duration="1365000" />
       <workItem from="1629377953001" duration="5485000" />
       <workItem from="1629436867956" duration="8687000" />
-      <workItem from="1629447797979" duration="14873000" />
-    </task>
-    <task id="LOCAL-00045" summary="重命名Area.prefab的名称">
-      <created>1609817026405</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1609817026405</updated>
+      <workItem from="1629447797979" duration="16815000" />
     </task>
     <task id="LOCAL-00046" summary="重构马里奥动画代码，添加火焰花状态动画">
       <created>1609822494567</created>
@@ -730,7 +689,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629446999218</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="破王八">
+      <created>1629464134567</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1629464134568</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -763,7 +729,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="运动的穿透平台" />
     <MESSAGE value="重构BasePhysics代码，Update中的插值将只针对渲染用的物件" />
     <MESSAGE value="修复上下坡异常的bug" />
     <MESSAGE value="移动实心推动物体上斜坡" />
@@ -788,7 +753,8 @@
     <MESSAGE value="刺儿" />
     <MESSAGE value="对象池" />
     <MESSAGE value="优化踩踏判定" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化踩踏判定" />
+    <MESSAGE value="破王八" />
+    <option name="LAST_COMMIT_MESSAGE" value="破王八" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
