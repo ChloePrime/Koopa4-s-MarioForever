@@ -11,7 +11,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
         private bool hasStompHandler;
         private StompHandler stompHandler;
 
-        protected virtual void Start()
+        protected virtual void Awake()
         {
             Transform parent = transform.parent;
             hasStompHandler = parent != null && parent.TryGetComponent(out stompHandler);

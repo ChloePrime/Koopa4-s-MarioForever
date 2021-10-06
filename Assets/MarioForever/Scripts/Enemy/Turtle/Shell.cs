@@ -15,6 +15,8 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy.Turtle
             kickHandler = this.BfsComponentInChildren<DamageReceiver>();
             this.BfsComponentInChildren<DamageSource>().OnPreDamage += (_, kicker) =>
             {
+                // 一般敌人: OnPreDamage的第二个参数为被攻击者
+                // 贵客:    OnPreDamage的第二个参数为攻击者
                 kickHandler.Damage(kicker.Host, EnumDamageType.KICK_SHELL);
                 return ActionResult.CANCEL;
             };

@@ -86,9 +86,9 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
         
         public void PlayDeathSound(EnumDamageType damageType) => Global.PlaySound(GetDeathSound(damageType));
 
-        protected override void Start()
+        protected override void Awake()
         {
-            base.Start();
+            base.Awake();
             Renderer = host.GetComponentInChildren<SpriteRenderer>();
             if (host == null)
             {
@@ -148,8 +148,8 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
             bool isMario = other.TryGetComponent(out Mario mario);
             if (isMario && IsStomp(other, mario))
             {
-                Damage(other, EnumDamageType.STOMP);
                 mario.OnStomp(GetStompPower(mario), true);
+                Damage(other, EnumDamageType.STOMP);
             }
         }
 

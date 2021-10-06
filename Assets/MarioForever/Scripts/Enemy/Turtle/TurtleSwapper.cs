@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using SweetMoleHouse.MarioForever.Scripts.Base.Physics;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
@@ -10,6 +11,8 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy.Turtle
     /// </summary>
     public class TurtleSwapper : MonoBehaviour
     {
+        public event Action<Transform> OnTurtleSwap;
+        
         private void Start()
         {
             damageReceiver = GetComponentInChildren<DamageReceiver>();
@@ -21,11 +24,16 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy.Turtle
             // 非踩踏攻击
             if (damageType.Contains(EnumDamageType.STOMP) || damageType.Contains(EnumDamageType.KICK_SHELL))
             {
+                OnTurtleSwap?.Invoke(damager);
                 // 播放音效
                 damageReceiver.PlayDeathSound(damageType);
                 // 生成切换对象并销毁自身
                 var myTransform = transform;
-                SwapTo(Instantiate(swapTarget, myTransform.parent), myTransform.position.x - damager.position.x);
+                var x = myTransform.position.x;
+                var myParent = myTransform.parent;
+                
+                Destroy(gameObject);
+                SwapTo(Instantiate(swapTarget, myParent), x - damager.position.x);
                 // 取消默认死亡逻辑
                 return ActionResult.CANCEL;
             }
@@ -46,15 +54,6 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy.Turtle
             {
                 target.transform.position = transform.position;
             }
-
-            // 销毁自身
-            Destroy(gameObject);
-        }
-
-        private async void DestroyTurtleAtNextFrame()
-        {
-            await UniTask.NextFrame(PlayerLoopTiming.FixedUpdate);
-            Destroy(gameObject);
         }
 
         [SerializeField] private GameObject swapTarget;
