@@ -7,7 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="升级至2021.2&#10;C# 9 真香" />
+    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="规范资源文件命名">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Editor/AssetNaming.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Editor/AssetNaming.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -354,13 +357,6 @@
       <workItem from="1637295131697" duration="237000" />
       <workItem from="1637302092999" duration="6228000" />
     </task>
-    <task id="LOCAL-00049" summary="修复马里奥打飞机时受伤会播放不存在的动画的bug">
-      <created>1609835682691</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1609835682691</updated>
-    </task>
     <task id="LOCAL-00050" summary="把走动物体的动画放到Walking Rigidbody里">
       <created>1609838395792</created>
       <option name="number" value="00050" />
@@ -697,7 +693,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637304169032</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="规范资源文件命名">
+      <created>1637310919948</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1637310919949</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -730,7 +733,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="移动火球爆炸特效的图层" />
     <MESSAGE value="修复下斜坡不正常bug" />
     <MESSAGE value="掉落平台" />
     <MESSAGE value="掉落平台，Tilemap平台" />
@@ -755,7 +757,8 @@
     <MESSAGE value="Remove NugetForUnity" />
     <MESSAGE value="修复破王八" />
     <MESSAGE value="升级至2021.2&#10;C# 9 真香" />
-    <option name="LAST_COMMIT_MESSAGE" value="升级至2021.2&#10;C# 9 真香" />
+    <MESSAGE value="规范资源文件命名" />
+    <option name="LAST_COMMIT_MESSAGE" value="规范资源文件命名" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

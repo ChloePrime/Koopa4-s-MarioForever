@@ -40,7 +40,7 @@ public static class AssetNaming {
             } else if (assetPath.EndsWith(".shader")     && !assetName.StartsWith("S_")) {
                 newAssetName = "S_" + assetName;
             } else {
-                Debug.Log($"Skip asset {assetPath} -> ");
+                Debug.Log($"Skip asset {assetPath}");
                 continue;
             }
 
