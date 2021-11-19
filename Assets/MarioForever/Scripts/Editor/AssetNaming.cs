@@ -29,15 +29,15 @@ public static class AssetNaming {
             string dir = assetPath[..^assetName.Length];
 
             string newAssetName;
-            if (assetPath.EndsWithAny(".png", ".jpg") || !assetName.StartsWith("T_")) {
+            if (assetPath.EndsWithAny(".png", ".jpg") && !assetName.StartsWith("T_")) {
                 newAssetName = "T_" + assetName;
-            } else if (assetPath.EndsWith(".anim")       || !assetName.StartsWith("An_")) {
+            } else if (assetPath.EndsWith(".anim")       && !assetName.StartsWith("An_")) {
                 newAssetName = "An_" + assetName;
-            } else if (assetPath.EndsWith(".controller") || !assetName.StartsWith("Asm_")) {
+            } else if (assetPath.EndsWith(".controller") && !assetName.StartsWith("Asm_")) {
                 newAssetName = "Asm_" + assetName;
-            } else if (assetPath.EndsWith(".mat")        || !assetName.StartsWith("M_")) {
+            } else if (assetPath.EndsWith(".mat")        && !assetName.StartsWith("M_")) {
                 newAssetName = "M_" + assetName;
-            } else if (assetPath.EndsWith(".shader")     || !assetName.StartsWith("S_")) {
+            } else if (assetPath.EndsWith(".shader")     && !assetName.StartsWith("S_")) {
                 newAssetName = "S_" + assetName;
             } else {
                 Debug.Log($"Skip asset {assetPath} -> ");
@@ -46,9 +46,11 @@ public static class AssetNaming {
 
             newAssetName = newAssetName.Replace(" ", "");
             if (assetName != newAssetName) {
+                string err = AssetDatabase.RenameAsset(assetPath, newAssetName);
                 string newAssetPath = dir + newAssetName;
-                AssetDatabase.RenameAsset(assetPath, newAssetPath);
-                Debug.Log($"Rename asset {assetPath} -> {newAssetPath}");
+                Debug.Log(err == ""
+                    ? $"Rename asset {assetPath} -> {newAssetPath}"
+                    : $"Failed to Rename {assetPath} -> {newAssetPath}:\n{err}");
             }
         }
         
