@@ -7,82 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="">
+    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="升级至2021.2&#10;C# 9 真香">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Materials/Gradient-1.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Materials/Gradient-1.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Bonus/Bouns(Static).png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Bonus/Bouns(Static).png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Bonus/Fire Flower.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Bonus/Fire Flower.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Bonus/Question Block.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Bonus/Question Block.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Editor/Platform Marks.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Editor/Platform Marks.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/Enemies.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/Enemies.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Facility/Platform.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Facility/Platform.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Mario/0 Small/1Walk.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Mario/0 Small/1Walk.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Mario/1 Big/1Walk.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Mario/1 Big/1Walk.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Mario/2 Fire Flower/1Walk.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Mario/2 Fire Flower/1Walk.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Particles.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Particles.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/0x1Pack 1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/0x1Pack 1.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/0x1Pack 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/0x1Pack 2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/0x1Pack 3.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/0x1Pack 3.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/0x1Pack 4.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/0x1Pack 4.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/0x1Pack 5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/0x1Pack 5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/0x1Pack 6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/0x1Pack 6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Blocks.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Blocks.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Castle.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Castle.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Dawn.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Dawn.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Desert.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Desert.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Forest.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Forest.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Ghost.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Ghost.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Green Grass.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Green Grass.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Night.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Night.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Pipes.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Pipes.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Sky.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Sky.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Snow.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Snow.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Tank.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Tank.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Underground.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Underground.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Volcano.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Tiles/Volcano.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/UI/Coinx.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/UI/Coinx.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/UI/Score.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/UI/Score.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/.signature.p7s" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/LICENSE.TXT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/LICENSE.TXT.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/System.Buffers.4.5.1.nupkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/System.Buffers.4.5.1.nupkg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/THIRD-PARTY-NOTICES.TXT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/THIRD-PARTY-NOTICES.TXT.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/lib.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/lib/netstandard2.0.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/lib/netstandard2.0/System.Buffers.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/lib/netstandard2.0/System.Buffers.dll.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/lib/netstandard2.0/System.Buffers.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/lib/netstandard2.0/System.Buffers.xml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/useSharedDesignerContext.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/useSharedDesignerContext.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/version.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Buffers.4.5.1/version.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/.signature.p7s" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/LICENSE.TXT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/LICENSE.TXT.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/System.Memory.4.5.4.nupkg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/System.Memory.4.5.4.nupkg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/THIRD-PARTY-NOTICES.TXT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/THIRD-PARTY-NOTICES.TXT.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/lib.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/lib/netstandard2.0.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/lib/netstandard2.0/System.Memory.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/lib/netstandard2.0/System.Memory.dll.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/lib/netstandard2.0/System.Memory.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/lib/netstandard2.0/System.Memory.xml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/useSharedDesignerContext.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/useSharedDesignerContext.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/version.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Packages/System.Memory.4.5.4/version.txt.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Classes/InputControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Classes/InputControl.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +40,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Constants/ScoreTypeData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e81851a0dc734a79afa9f5b7273162be52e178/77/446411e2/MethodImplOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B8EE7494-4007-4F27-9F13-A58F9C2CED22/7b/e2dfdb0e/AudioSource.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Unity/MarioForever/Assets/MarioForever/Art/Sprites/Tiles/0x1Pack 1.png.meta" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Turtle/MovingShell.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83861E9D-A03D-4740-8F8D-3F2EAFC46F03/47/e6550300/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6b1444477c1d41c692ef6c02a838308529ac30/c1/9a8d4b03/MethodImplAttribute.cs" root0="SKIP_HIGHLIGHTING" />
@@ -180,6 +107,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Rpg/IHaltableDamageReceiver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/fa/a93c845e/CreateAssetMenuAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/RenameInInspectorAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Editor/AssetNaming.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/HideInPlayMode.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Util/IncompleteSetupException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/UI/ScoreMovement.cs" root0="FORCE_HIGHLIGHTING" />
@@ -192,6 +120,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2a255f4f234d4e00850afff85a122b331b800/7e/47142e49/Collision2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B8EE7494-4007-4F27-9F13-A58F9C2CED22/b0/ea7d696a/AudioBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/36/a3f34ce9/Renderer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5a41d6b7189842eca409fd0b1c3e3dcf17bf78/48/System.IO.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/91/676446e3/Exception.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/5e/a5fdae07/DefaultValueAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8c1963fe95f34218bb2d21bb9323c90e168a30/64/a73e09a1/ConcurrentBag`1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -312,7 +241,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
     <property name="threadsIsVisibleKey" value="false" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -419,14 +348,7 @@
       <workItem from="1629467161563" duration="904000" />
       <workItem from="1633506685000" duration="4354000" />
       <workItem from="1637295131697" duration="237000" />
-      <workItem from="1637302092999" duration="1541000" />
-    </task>
-    <task id="LOCAL-00048" summary="马里奥火力花状态打飞机动画">
-      <created>1609831630234</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1609831630234</updated>
+      <workItem from="1637302092999" duration="6228000" />
     </task>
     <task id="LOCAL-00049" summary="修复马里奥打飞机时受伤会播放不存在的动画的bug">
       <created>1609835682691</created>
@@ -764,7 +686,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633513277134</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="升级至2021.2&#10;C# 9 真香">
+      <created>1637304169032</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1637304169032</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -797,7 +726,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="移动实心推动物体上斜坡" />
     <MESSAGE value="移动火球爆炸特效的图层" />
     <MESSAGE value="修复下斜坡不正常bug" />
     <MESSAGE value="掉落平台" />
@@ -822,7 +750,8 @@
     <MESSAGE value="破王八" />
     <MESSAGE value="Remove NugetForUnity" />
     <MESSAGE value="修复破王八" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复破王八" />
+    <MESSAGE value="升级至2021.2&#10;C# 9 真香" />
+    <option name="LAST_COMMIT_MESSAGE" value="升级至2021.2&#10;C# 9 真香" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -839,5 +768,9 @@
   <component name="XPathView.XPathProjectComponent">
     <history />
     <find-history />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
