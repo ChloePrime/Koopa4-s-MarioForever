@@ -33,7 +33,7 @@ public static class AssetNaming {
             string assetName = Path.GetFileName(assetPath);
             string dir = assetPath[..^assetName.Length];
 
-            string newAssetName = FixNaming(assetName);
+            string newAssetName = FixNaming(assetName, dir);
             if (assetName == newAssetName) {
                 Debug.Log($"Skip asset {assetName}");
                 continue;
@@ -96,14 +96,14 @@ public static class AssetNaming {
         return suffixes.Any(self.EndsWith);
     }
 
-    private static string FixNaming(string oldName) {
+    private static string FixNaming(string oldName, string directory) {
         string newName;
         if (oldName.EndsWithAny(".png", ".jpg") && !oldName.StartsWith("T_")) {
             newName = "T_" + oldName;
         } else if (oldName.EndsWith(".anim")       && !oldName.StartsWith("An_")) {
             newName = "An_" + oldName;
-        } else if (oldName.EndsWith(".prefab")     && !oldName.StartsWith("GO_")) {
-            newName = "GO_" + oldName;
+        } else if (oldName.EndsWith(".prefab")) {
+            newName = FixNamingForPrefab(oldName, directory);
         } else if (oldName.EndsWith(".controller") && !oldName.StartsWith("Asm_")) {
             newName = "Asm_" + oldName;
         } else if (oldName.EndsWith(".mat")        && !oldName.StartsWith("M_")) {
@@ -117,6 +117,26 @@ public static class AssetNaming {
         }
 
         return newName.Replace(" ", "");
+    }
+
+    private static string FixNamingForPrefab(string oldName, string directory) {
+        bool isTilemapRelated = directory.Contains("/Tile", StringComparison.OrdinalIgnoreCase);
+        if (isTilemapRelated) {
+            if (oldName.StartsWith("GO_")) {
+                // _SomeAsset.prefab
+                return oldName[2..];
+            } else if (!oldName.StartsWith("_")) {
+                return "_" + oldName;
+            } else {
+                return oldName;
+            }
+        }
+
+        if (!oldName.StartsWith("GO_")) {
+            return oldName.StartsWith('_') ? "GO" + oldName : "GO_" + oldName;
+        }
+
+        return oldName;
     }
 }
 }
