@@ -165,6 +165,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -174,8 +175,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -1228,6 +1229,54 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Desert_31: -8090357455017542349
+      Desert_4: 2200316129524247793
+      Desert_32: -7376658894980979686
+      Desert_39: -219950700704652379
+      Desert_44: -1440213720829887421
+      Desert_14: -2652693293121697407
+      Desert_2: -8034199350092224423
+      Desert_43: 7650648958496539400
+      Desert_3: -3472776297332130694
+      Desert_17: 5455571804174226438
+      Desert_41: -7056205624446473601
+      Desert_1: -1684463988762818810
+      Desert_24: 6736723111324149197
+      Desert_40: 7476028836548432936
+      Desert_8: 1494933670736963382
+      Desert_36: -2092669297930739559
+      Desert_18: 6747880713673063236
+      Desert_10: 4357044945649823405
+      Desert_38: 263114726737046106
+      Desert_13: 3071275658661546787
+      Desert_26: 1720628983494029871
+      Desert_12: 8787155665117254736
+      Desert_28: -8889460602187700167
+      Desert_25: 1413824859108785202
+      Desert_15: -4932994266883439943
+      Desert_37: 6677440907238784420
+      Desert_9: -3958981189103962199
+      Desert_42: 2445486689009598530
+      Desert_30: 693460620139924369
+      Desert_20: -4949627433556570602
+      Desert_6: -1407267355242168244
+      Desert_27: 6752001963717807473
+      Desert_23: 2017584122348643233
+      Desert_33: 8618043442569853721
+      Desert_5: 7868347602809382003
+      Desert_22: 4753334088907740339
+      Desert_34: -1891244313942073252
+      Desert_7: 8511966426888049946
+      Desert_21: -8699625482541703765
+      Desert_45: -6534215636157876685
+      Desert_29: 177669463780978171
+      Desert_11: -5546169963851916408
+      Desert_19: -4553087126160766624
+      Desert_0: 130452656225014213
+      Desert_16: 2925299890117126709
+      Desert_35: -8331338080179206456
+      Desert_46: -3014070355108774602
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

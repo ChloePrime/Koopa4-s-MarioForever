@@ -78,6 +78,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -87,8 +88,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -532,6 +533,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Volcano_4: -5193849555569363067
+      Volcano_5: -2422915149373773417
+      Volcano_6: 6677186955301177315
+      Volcano_2: 5479395018758392222
+      Volcano_14: -6616189737343879761
+      Volcano_3: 1747201169635674648
+      Volcano_13: 2549692272635058062
+      Volcano_0: -1309091486694266011
+      Volcano_9: -8226293114896351607
+      Volcano_8: 8509825493297313865
+      Volcano_17: 7240332654026411517
+      Volcano_12: -1798381659903650099
+      Volcano_10: 2287430067347338573
+      Volcano_16: 1979359648338649501
+      Volcano_15: 5739326615861638823
+      Volcano_1: -65353184162297358
+      Volcano_7: -4308262480644118348
+      Volcano_11: -2063685462047807512
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

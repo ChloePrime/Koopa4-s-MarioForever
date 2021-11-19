@@ -132,6 +132,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -141,8 +142,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -619,6 +620,25 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      "\u7EFF\u8272\u8349\u5730_1": 4901261168184147601
+      "\u7EFF\u8272\u8349\u5730_17": -8719611621196793069
+      "\u7EFF\u8272\u8349\u5730_0": -9020188697892857516
+      "\u7EFF\u8272\u8349\u5730_2": 887259612020953526
+      "\u7EFF\u8272\u8349\u5730_10": -7427259927701309915
+      "\u7EFF\u8272\u8349\u5730_7": -7438074418125131395
+      "\u7EFF\u8272\u8349\u5730_3": 2114924327016341704
+      "\u7EFF\u8272\u8349\u5730_11": 3634716237017513363
+      "\u7EFF\u8272\u8349\u5730_5": -5042496232137378790
+      "\u7EFF\u8272\u8349\u5730_15": -7953816889775390120
+      "\u7EFF\u8272\u8349\u5730_14": -995346426524353426
+      "\u7EFF\u8272\u8349\u5730_12": -6646114657788152508
+      "\u7EFF\u8272\u8349\u5730_16": 4870961810638225430
+      "\u7EFF\u8272\u8349\u5730_4": -503427410626488547
+      "\u7EFF\u8272\u8349\u5730_6": -4827843022531531530
+      "\u7EFF\u8272\u8349\u5730_13": -1904856000069885307
+      "\u7EFF\u8272\u8349\u5730_8": -862727970677184349
+      "\u7EFF\u8272\u8349\u5730_9": -7370656350968753750
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

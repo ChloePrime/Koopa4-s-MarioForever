@@ -93,6 +93,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -102,8 +103,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -652,6 +653,30 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Sky_1: -5034697430855179653
+      Sky_11: -8130776206791237211
+      Sky_12: 8187388571030521137
+      Sky_20: 7632937261858183746
+      Sky_13: -1769328443631771431
+      Sky_3: 7596160764380411159
+      Sky_16: 6122409206075928000
+      Sky_5: 827277797987302843
+      Sky_21: -1138192431480094785
+      Sky_15: 570937814000128433
+      Sky_0: 2410671940745902572
+      Sky_22: 7482816999835491174
+      Sky_19: 7518671637283277190
+      Sky_18: -8653762976590664932
+      Sky_7: -8230503452430015897
+      Sky_8: -1692089440758696756
+      Sky_14: -5213211861093524542
+      Sky_4: -7551417194501898685
+      Sky_9: 8901821185649789169
+      Sky_17: -3694822798212541651
+      Sky_6: -3797368470069866874
+      Sky_2: -6075385143875775188
+      Sky_10: 7721213272108688778
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
