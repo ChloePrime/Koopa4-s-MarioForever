@@ -17,13 +17,14 @@ public static class AssetNaming {
     public static void RegulateAssetNaming() {
         const string root = "Assets/MarioForever/";
 
-        foreach (string assetPath in
+        foreach (string file in
             Directory.EnumerateFiles(root, "*.*", SearchOption.AllDirectories)
         ) {
-            if (!File.Exists(assetPath) || assetPath.EndsWithAny(".meta", ".cs", ".asset")) {
+            if (!File.Exists(file) || file.EndsWithAny(".meta", ".cs", ".asset")) {
                 continue;
             }
 
+            string assetPath = file.Replace('\\', '/');
             string assetName = Path.GetFileName(assetPath);
             string dir = assetPath[..^assetName.Length];
 
