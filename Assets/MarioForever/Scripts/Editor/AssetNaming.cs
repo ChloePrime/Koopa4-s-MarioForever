@@ -119,6 +119,10 @@ public static class AssetNaming {
         return newName.Replace(" ", "");
     }
 
+    /// <summary>
+    /// 对于 Tilemap 使用的 Prefab，
+    /// 将以 _ 开头而非 GO_ 开头
+    /// </summary>
     private static string FixNamingForPrefab(string oldName, string directory) {
         bool isTilemapRelated = directory.Contains("/Tile", StringComparison.OrdinalIgnoreCase);
         if (isTilemapRelated) {
