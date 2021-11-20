@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2642266663093281768}
-  - component: {fileID: 2642266663093281770}
-  - component: {fileID: 2642266663093281771}
   - component: {fileID: 2642266663093281782}
+  - component: {fileID: 2642266663093281771}
+  - component: {fileID: 2642266663093281770}
   m_Layer: 8
   m_Name: GO_WalkingRigidbody
   m_TagString: Untagged
@@ -29,32 +29,35 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7236889029517880874}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &2642266663093281770
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &2642266663093281782
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2642266663093281783}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2197edae81ff434d8a90e03aad20ff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: 48
+  maxXSpeed: Infinity
+  maxYSpeed: Infinity
+  minYSpeed: Infinity
+  vel: {x: 0, y: 0}
+  ignoreCollision: 0
+  display: {fileID: 7236889029517880874}
+  hitHeadSfx: {fileID: 0}
+  appearSpeed: 1.5
+  walkSpeed: 1.5
+  collideWithOthers: 1
 --- !u!61 &2642266663093281771
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -81,29 +84,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.96875, y: 0.9}
   m_EdgeRadius: 0
---- !u!114 &2642266663093281782
-MonoBehaviour:
+--- !u!50 &2642266663093281770
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2642266663093281783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2197edae81ff434d8a90e03aad20ff0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravity: 48
-  maxXSpeed: Infinity
-  maxYSpeed: Infinity
-  minYSpeed: Infinity
-  vel: {x: 0, y: 0}
-  ignoreCollision: 0
-  display: {fileID: 7236889029517880874}
-  hitHeadSfx: {fileID: 0}
-  appearSpeed: 1.5
-  walkSpeed: 1.5
-  collideWithOthers: 1
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6381644747911099485
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,6 +133,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2642266663093281768}
   m_RootOrder: 0
@@ -190,7 +192,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &7553030440749307621
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -198,11 +200,12 @@ Animator:
   m_GameObject: {fileID: 6381644747911099485}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 890e544f11f9ad14d83b73d5b8a4b56c, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1

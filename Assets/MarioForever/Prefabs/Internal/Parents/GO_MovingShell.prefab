@@ -79,11 +79,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6419509510554172602, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
       propertyPath: m_Name
-      value: MovingShell
+      value: GO_MovingShell
       objectReference: {fileID: 0}
     - target: {fileID: 6419509510554172603, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
       propertyPath: walkSpeed
       value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6419509510554172603, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
+      propertyPath: collideWithOthers
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8061836590662854153, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
       propertyPath: m_Size.x

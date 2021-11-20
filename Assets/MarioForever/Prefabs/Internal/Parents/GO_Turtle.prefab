@@ -20,10 +20,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1543709169721903528, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 3a147c2e2fbb02641a6b1686c556b9f8, type: 2}
     - target: {fileID: 6419509510554172581, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -70,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6419509510554172602, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
       propertyPath: m_Name
-      value: Turtle
+      value: GO_Turtle
       objectReference: {fileID: 0}
     - target: {fileID: 8061836590662854153, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
       propertyPath: m_Size.x

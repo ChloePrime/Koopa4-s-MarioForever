@@ -6902,7 +6902,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Enemies_210
+      name: T_PurpleTurtle0
       rect:
         serializedVersion: 2
         x: 1
@@ -6923,7 +6923,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Enemies_211
+      name: T_PurpleTurtle1
       rect:
         serializedVersion: 2
         x: 37
@@ -6944,7 +6944,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Enemies_212
+      name: T_FlyPurpleTurtle0
       rect:
         serializedVersion: 2
         x: 73
@@ -6965,7 +6965,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Enemies_213
+      name: T_FlyPurpleTurtle1
       rect:
         serializedVersion: 2
         x: 109
@@ -6986,7 +6986,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Enemies_214
+      name: T_PurpleShell0
       rect:
         serializedVersion: 2
         x: 145
@@ -7007,7 +7007,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Enemies_215
+      name: T_PurpleShell1
       rect:
         serializedVersion: 2
         x: 181
@@ -7028,7 +7028,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Enemies_216
+      name: T_PurpleShell2
       rect:
         serializedVersion: 2
         x: 217
@@ -7049,7 +7049,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Enemies_217
+      name: T_PurpleShell3
       rect:
         serializedVersion: 2
         x: 253
@@ -7070,7 +7070,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: T_Enemies_218
+      name: T_PurpleShell4
       rect:
         serializedVersion: 2
         x: 289
@@ -19326,6 +19326,7 @@ TextureImporter:
       T_Enemies_422: -4732038438845513662
       T_Enemies_792: -2371966748453150605
       T_Enemies_736: 3249852802477758786
+      T_PurpleTurtle1: -5512094648346048844
       T_Enemies_615: -1359340644462071305
       T_Enemies_242: -2045263686945575246
       T_Enemies_76: -4581475254534957352
@@ -19338,11 +19339,11 @@ TextureImporter:
       T_Enemies_766: 3959188361016415912
       T_Enemies_266: 3722179456332800004
       T_Enemies_673: 7458467569829825319
-      T_Enemies_760: 6331204524873011746
       T_Enemies_724: -4607547449973321959
+      T_Enemies_760: 6331204524873011746
       T_Enemies_288: 1933428922345243284
-      T_Enemies_569: -9064940581891041910
       T_Enemies_356: 4494053572592915613
+      T_Enemies_569: -9064940581891041910
       T_Enemies_491: 3239750355448910219
       T_RedShell2: 1014651467600363404
       T_GreenShell0: 3956877773602598782
@@ -19464,12 +19465,14 @@ TextureImporter:
       T_Enemies_458: 5803252358176458923
       T_Enemies_109: 6278365658699877085
       T_Enemies_800: -8290537733590661986
+      T_PurpleShell1: -6555831616825065430
       T_Enemies_449: -7065406382397486120
       T_Enemies_443: 6697682200848218502
       T_Enemies_452: 6847419789831903878
       T_Enemies_313: 7411870928761454273
       T_Enemies_241: -731756946235510198
       T_Enemies_23: -4392879520021641703
+      T_PurpleShell3: 1548745723376268687
       T_Enemies_175: 1992161305237088239
       T_Enemies_84: 2561184826911247161
       T_Enemies_260: 6004811294147253652
@@ -19482,7 +19485,6 @@ TextureImporter:
       T_Enemies_641: 3656204211181538475
       T_Enemies_85: 3016638612662664488
       T_Enemies_472: -3404719323058821731
-      T_Enemies_218: -5188712087304336914
       T_Enemies_829: -1386316493065020527
       T_Enemies_595: 2995812153045928648
       T_Enemies_464: -2687233724321928115
@@ -19523,7 +19525,6 @@ TextureImporter:
       T_Enemies_740: -6023964116613296547
       T_Enemies_640: -4641045817295263425
       T_Enemies_271: -5512094648346048844
-      T_Enemies_211: -6234434319360123534
       T_Enemies_612: 2930218861011691250
       T_Enemies_776: -5615647706442305919
       T_Enemies_318: -4640851858021030223
@@ -19549,6 +19550,7 @@ TextureImporter:
       T_Enemies_92: -4847691323813258625
       T_Enemies_445: 8214992237754589118
       T_Enemies_67: 8817927765212862214
+      T_PurpleShell4: -3404719323058821731
       T_Enemies_522: 6988031274938670432
       T_Enemies_521: 740785385162191943
       T_Enemies_239: 7821797303330725085
@@ -19599,6 +19601,7 @@ TextureImporter:
       T_Enemies_317: -7822919445192130807
       T_Enemies_657: 4926687446771336793
       T_Enemies_155: -7237166896458113535
+      T_PurpleTurtle0: -7108351800279542499
       T_Enemies_728: -3949347213736906345
       T_Enemies_727: -2126237197540266637
       T_Enemies_627: -3398083761872812841
@@ -19702,6 +19705,7 @@ TextureImporter:
       T_GreenShell1: -4794967539958357966
       T_Enemies_375: 6009237170898022638
       T_YellowTurtle0: -1814526776860715018
+      T_FlyPurpleTurtle1: 3494369577137067556
       T_Enemies_793: 4583930189806690113
       T_RedTurtle1: -6154621009441377342
       T_Enemies_261: 1511843784806208459
@@ -19805,7 +19809,6 @@ TextureImporter:
       T_Enemies_38: 361089235831352994
       T_Enemies_668: -8072977402653731372
       T_Enemies_59: -6555831616825065430
-      T_Enemies_215: 3144269994889262944
       T_Enemies_459: 1133537263427026768
       T_Enemies_276: 5483056878145783935
       T_Enemies_565: 4728665752062473393
@@ -19816,13 +19819,12 @@ TextureImporter:
       T_Enemies_405: -4430266831369276705
       T_Enemies_368: 774799802513773701
       T_Enemies_719: 1869027217148968067
-      T_Enemies_212: -1363958466612383603
+      T_Enemies_827: -5734449172580708489
       T_Enemies_630: 1535263735973889304
       T_Enemies_189: -4933128433902454764
       T_Enemies_82: 6483359012913088912
       T_Enemies_661: 8321925343827736318
       T_Enemies_505: 5752320045997096100
-      T_Enemies_827: -5734449172580708489
       T_Enemies_336: 313640140779321451
       T_Enemies_658: -2178159248598507620
       T_Enemies_420: -8157254243357701270
@@ -19841,7 +19843,6 @@ TextureImporter:
       T_Enemies_52: -5234243887011947869
       T_Enemies_71: 8862193209023206990
       T_Enemies_324: -7108351800279542499
-      T_Enemies_210: 5397657373581799590
       T_YellowShell3: -3038209794551486904
       T_Enemies_706: 1194001097858498730
       T_Enemies_393: -5732758901795868546
@@ -19919,7 +19920,6 @@ TextureImporter:
       T_Enemies_255: -1864957766386997569
       T_Enemies_737: 7875096885658438491
       T_Enemies_171: 1548745723376268687
-      T_Enemies_217: -5542213436961446780
       T_Enemies_794: 2415213531778745866
       T_Enemies_301: -88126416166889395
       T_Enemies_94: 8511779694327787486
@@ -19945,7 +19945,6 @@ TextureImporter:
       T_Enemies_333: 1934497765827911320
       T_Enemies_208: 3494369577137067556
       T_Enemies_751: 8926732015668048057
-      T_Enemies_213: 2512114899690833875
       T_Enemies_734: -5942364825663081750
       T_Enemies_584: -7325029722012876144
       T_Enemies_815: -1346617515862341854
@@ -20049,10 +20048,10 @@ TextureImporter:
       T_Enemies_378: -2746580611095367672
       T_Enemies_461: -6749314582007014872
       T_Enemies_828: -2960778044091982143
+      T_PurpleShell0: 6258918682703351920
       T_Enemies_570: 4931237580228153053
       T_Enemies_616: -327514432990638087
       T_Enemies_263: 6258918682703351920
-      T_Enemies_214: 3390179354797901122
       T_Enemies_112: 7153376495585855215
       T_Enemies_698: -2251326128723052975
       T_Enemies_244: -5489418038169404931
@@ -20086,15 +20085,16 @@ TextureImporter:
       T_Enemies_56: -2602228601257165919
       T_Enemies_75: 4901125439430872963
       T_Enemies_572: 3477340586558973006
+      T_FlyPurpleTurtle0: 1869027217148968067
       T_Enemies_106: -8048543825969025269
       T_Enemies_256: -2529134136783370794
       T_Enemies_513: 2495563373888273964
       T_Enemies_683: -3839651371713042016
       T_Enemies_254: -3728355714346135033
-      T_Enemies_216: 6246379654809495032
       T_Enemies_319: 4441879043521645503
       T_Enemies_234: 2444488320500744996
       T_Enemies_259: -920002668226636742
+      T_PurpleShell2: -3839651371713042016
       T_RedShell4: 3477257569300090031
       T_Enemies_397: -766859008075336968
       T_Enemies_409: -3038209794551486904
