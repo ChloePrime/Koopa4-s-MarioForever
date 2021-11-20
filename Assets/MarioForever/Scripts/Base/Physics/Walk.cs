@@ -51,8 +51,8 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics
 
         protected override void FixedUpdate()
         {
-            XSpeed = RealWalkSpeed;
             base.FixedUpdate();
+            XSpeed = RealWalkSpeed;
         }
         protected override void HitWallX(in Collider2D[] colliders)
         {
