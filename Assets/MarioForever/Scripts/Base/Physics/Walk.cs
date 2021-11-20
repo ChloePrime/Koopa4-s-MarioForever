@@ -64,8 +64,10 @@ public class Walk : BasePhysics {
 
     protected async void OnCollisionEnter2D(Collision2D collision) {
         var hisCollider = collision.collider;
-        if (hisCollider == null
-            || !hisCollider.GetHost().TryGetComponent(out Walk that)) {
+        await UniTask.Yield(PlayerLoopTiming.LastFixedUpdate);
+        bool isInvalid = this == null || hisCollider == null;
+
+        if (isInvalid || !hisCollider.GetHost().TryGetComponent(out Walk that)) {
             return;
         }
 

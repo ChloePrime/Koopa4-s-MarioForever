@@ -92,6 +92,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8441745914051022, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2642266663093281768, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -146,11 +150,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2642266663093281783, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_Name
-      value: WalkingEnemyBase
+      value: GO_WalkingEnemyBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 6305329819702020537, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7236889029517880874, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2642266663093281769, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}

@@ -237,7 +237,7 @@ public class BasePhysics : MonoBehaviour, IAppearable {
     private void MoveAndRecordPos() {
         lastFUpdateTime = Time.time;
         tickStartPos = transform.position;
-        var dirX = Math.Sign(XSpeed);
+        int dirX = Math.Sign(XSpeed);
         if (dirX != 0) {
             lastXDir = dirX;
         }
@@ -288,10 +288,6 @@ public class BasePhysics : MonoBehaviour, IAppearable {
     /// </summary>
     protected virtual void ClampSpeed() {
         XSpeed = Mathf.Clamp(XSpeed, -maxXSpeed, maxXSpeed);
-        ClampYSpeed();
-    }
-
-    protected void ClampYSpeed() {
         YSpeed = Mathf.Clamp(YSpeed, -minYSpeed, maxYSpeed);
     }
 
@@ -389,7 +385,7 @@ public class BasePhysics : MonoBehaviour, IAppearable {
         RecordPos();
 
         void UpdateWallStatusX() {
-            if (!updateStatus || distance == 0F) return;
+            if (!updateStatus || Mathf.Abs(distance) <= 1e-4F) return;
             IsFacingWallX = XFacingWallStatusFactory.FromSpeed(distance);
         }
     }
@@ -572,13 +568,13 @@ public class BasePhysics : MonoBehaviour, IAppearable {
 
         int bias = 0;
         for (var i = 0; i < count; i++) {
-            var result = results[i];
+            RaycastHit2D result = results[i];
             if (bias > 0) {
                 results[i - bias] = result;
             }
 
             // 如果不是平台，不做处理
-            var rig = result.rigidbody != null ? (Component)result.rigidbody : result.collider;
+            Component rig = result.GetHost();
             if (!rig.CompareTag(Tags.Platform)) continue;
             // normal.y >= 0 && normal.y > abs(normal.x)
             // 不考虑平台，或者法线不超上的情况，此时把平台视作空心的

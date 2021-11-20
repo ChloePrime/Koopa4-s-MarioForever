@@ -7,25 +7,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="">
+    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="调整组1互相碰撞的行为，修复怪物卡墙">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Bonus/Asm_Mushroom.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Bonus/Asm_Mushroom.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle/An_GreenShell.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle/An_GreenShell.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle/An_GreenTurtle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle/An_GreenTurtle.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle/Asm_GreenShell.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle/Asm_GreenShell.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle/Asm_GreenTurtle.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle/Asm_GreenTurtle.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle/EventSystem.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Animations/Enemy/Turtle/EventSystem.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/T_Enemies.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Art/Sprites/Enemies/T_Enemies.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Enemy/GO_GreenTurtle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Enemy/GO_GreenTurtle.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/GO_DamageHandler.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/GO_DamageHandler.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/GO_MovingShell.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/GO_MovingShell.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/GO_Turtle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/GO_Turtle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/GO_WalkingEnemyBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/GO_WalkingEnemyBase.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/GO_WalkingRigidbody.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/GO_WalkingRigidbody.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scenes/SampleScene/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/Walk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/Walk.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +58,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/12f9706bdb064a6c8a1d1b6f565a0097805e00/23/e39881b8/AssetDatabase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/26bac63140cb4cf2b0c6c0eff4f094e0f200/ab/7ec9e7d9/AudioSource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/40688824-5465-403C-962D-1CE18CA533E0/66/c9c2e865/Editor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Unity/MarioForever/Assets/MarioForever/Prefabs/Internal/Parents/GO_WalkingEnemyBase.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/77/527c4d0c/SceneUtility.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C89001DF-7C70-4A63-A3E3-492A8549C9C3/07/78cae274/GUIStyle.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/cd/d11f8677/List`1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -78,8 +68,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/1e/32f87506/Component.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2a255f4f234d4e00850afff85a122b331b800/1c/e9035ce1/PhysicsScene2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/db/b01074a1/ICollection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Unity/MarioForever/Assets/MarioForever/Prefabs/Internal/Parents/GO_WalkingRigidbody.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6b1444477c1d41c692ef6c02a838308529ac30/1f/91b745cd/Action`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/0e/de43a0cc/MonoBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/81474ae5a61440b2a10f79d2cb6ae4921f800/16/a521bf80/Collision2D.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/43/e9b8f25e/Exception.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/fc/3a110a8f/ICloneable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/03D8F91A-1F2F-47A1-8C34-D619BAFE2609/87/978bf26a/RaycastHit2D.cs" root0="SKIP_HIGHLIGHTING" />
@@ -91,6 +83,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/17/01bfd63a/Guid.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/cf/6f43aa8d/OptionalFieldAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/e2/6574fa24/GameObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Unity/MarioForever/Assets/MarioForever/Scripts/Base/Physics/Walk.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/5a/2e8b3d17/_Exception.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/66/9b4847eb/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9577AC7A-62EF-4317-9789-031239BA8798/f0/42b8580c/_Exception.cs" root0="SKIP_HIGHLIGHTING" />
@@ -158,6 +151,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/2f/2e3abdbb/Behaviour.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/85/b2eb4c46/CustomYieldInstruction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1485879A-518A-4C36-8A6E-90B1F4A14835/c3/42f8409a/UnityMainToolbar.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Unity/MarioForever/Assets/MarioForever/Scripts/Base/Physics/Walk.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9D69AD7C-AC3F-49D6-AE0F-B5718C3A7703/03/1240f1d3/PackageManagerWindowRoot.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/42/f57e2c82/ValueType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/adfa4b62400849189388df71c9e26e89144200/02/159499d2/NativeArray`1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -181,6 +175,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/32/49af8a5e/Shader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e81851a0dc734a79afa9f5b7273162be52e178/19/283fbecd/IProducerConsumerCollection`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/GlobalSingleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/09a87b4f78a44029aa4255931db9bc1387800/4e/48dda9f1/PlayerLoopTiming.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/36/bceef55a/Transform.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Turtle/TurtleSwapper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/95/09d7ebe1/NativeSlice`1.cs" root0="SKIP_HIGHLIGHTING" />
@@ -371,28 +366,7 @@
       <workItem from="1633506685000" duration="4354000" />
       <workItem from="1637295131697" duration="237000" />
       <workItem from="1637302092999" duration="6228000" />
-      <workItem from="1637391044915" duration="944000" />
-    </task>
-    <task id="LOCAL-00055" summary="取消火球，板栗仔相片和其他行走物品的碰撞">
-      <created>1610169538495</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1610169538496</updated>
-    </task>
-    <task id="LOCAL-00056" summary="删除未使用的马里奥挨打碰撞箱脚本">
-      <created>1610169819704</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1610169819704</updated>
-    </task>
-    <task id="LOCAL-00057" summary="移动命名空间至与idea的提示匹配">
-      <created>1610172613702</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1610172613702</updated>
+      <workItem from="1637391044915" duration="4995000" />
     </task>
     <task id="LOCAL-00058" summary="完成马里奥火球打死敌人功能，优化火球特效">
       <created>1610180365529</created>
@@ -716,7 +690,28 @@
       <option name="project" value="LOCAL" />
       <updated>1637330842784</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="修复怪物卡墙">
+      <created>1637392535278</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1637392535278</updated>
+    </task>
+    <task id="LOCAL-00105" summary="王八的Prefab和动画">
+      <created>1637392573645</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1637392573645</updated>
+    </task>
+    <task id="LOCAL-00106" summary="调整组1互相碰撞的行为，修复怪物卡墙">
+      <created>1637395151179</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1637395151179</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -749,9 +744,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="把平台改成实心的" />
-    <MESSAGE value="把平台改成穿透实心的" />
-    <MESSAGE value="整理Base文件夹" />
     <MESSAGE value="新增王八（贴图，动画），弃用Flip Shader" />
     <MESSAGE value="修复尸体让行走物品转向的bug" />
     <MESSAGE value="移除火球的y速度下限" />
@@ -774,7 +766,10 @@
     <MESSAGE value="规范 Enemies.png 内 Sprite 的命名" />
     <MESSAGE value="Prefab 命名规范化" />
     <MESSAGE value="绿王八" />
-    <option name="LAST_COMMIT_MESSAGE" value="绿王八" />
+    <MESSAGE value="修复怪物卡墙" />
+    <MESSAGE value="王八的Prefab和动画" />
+    <MESSAGE value="调整组1互相碰撞的行为，修复怪物卡墙" />
+    <option name="LAST_COMMIT_MESSAGE" value="调整组1互相碰撞的行为，修复怪物卡墙" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
