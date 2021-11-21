@@ -7,13 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="修复偶发的龟壳卡墙问题">
-      <change afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.BasePhysics.API.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.BasePhysics.API.cs.meta" afterDir="false" />
+    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="修复板栗仔相片消失的bug">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/GO_WalkingRigidbody.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/GO_WalkingRigidbody.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/Walk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/Walk.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +41,7 @@
     <setting file="mock://D:/Unity/MarioForever/Assets/MarioForever/Prefabs/Internal/Parents/GO_WalkingRigidbody.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Bonus/Powerup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Constants/ScoreTypeData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/Unity/MarioForever/Assets/MarioForever/Prefabs/Enemy/GO_Goomba.prefab" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/e81851a0dc734a79afa9f5b7273162be52e178/77/446411e2/MethodImplOptions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/B8EE7494-4007-4F27-9F13-A58F9C2CED22/7b/e2dfdb0e/AudioSource.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Turtle/MovingShell.cs" root0="FORCE_HIGHLIGHTING" />
@@ -114,6 +111,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AB02AC76-3CC5-4D76-889A-E3FDE03DF39B/0f/43f6ce7b/PixelPerfectRendering.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62FFEEB7-EC02-4BEA-B61E-5FBF8D44AC5B/47/024c5586/IEqualityComparer`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MarioForever/Scripts/Enemy/Goomba/GoombaDeathHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://D:/Unity/MarioForever/Assets/MarioForever/Prefabs/Internal/GO_GoombaPhoto.prefab" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Unity/MarioForever/Assets/MarioForever/Scenes/SampleScene/SampleScene.unity" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/metadata/EE6CBE48-22D0-46D9-8553-A66D7FBAADCD/ff/071b3c81/NuGetForUnity.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6b1444477c1d41c692ef6c02a838308529ac30/c6/a3e056a4/ArgumentOutOfRangeException.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63DD8BF9-8CFA-4BA9-85AF-735EF1A56BA9/75/4e875a83/MethodImplOptions.cs" root0="SKIP_HIGHLIGHTING" />
@@ -374,21 +373,7 @@
       <workItem from="1637391044915" duration="9894000" />
       <workItem from="1637420247737" duration="2950000" />
       <workItem from="1637467668349" duration="2613000" />
-      <workItem from="1637470969734" duration="6204000" />
-    </task>
-    <task id="LOCAL-00063" summary="添加平台标记贴图">
-      <created>1610519664642</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1610519664642</updated>
-    </task>
-    <task id="LOCAL-00064" summary="修复马里奥跑动时射击的运动手感问题">
-      <created>1610525275577</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1610525275577</updated>
+      <workItem from="1637470969734" duration="7515000" />
     </task>
     <task id="LOCAL-00065" summary="运动实心">
       <created>1610550523595</created>
@@ -719,7 +704,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637497131800</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="修复偶发的龟壳卡墙问题">
+      <created>1637498186587</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1637498186587</updated>
+    </task>
+    <task id="LOCAL-00113" summary="修复板栗仔相片消失的bug">
+      <created>1637501462831</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1637501462831</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -752,7 +751,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="整理文件夹，加入Nuget" />
     <MESSAGE value="修复死后复活报错的bug" />
     <MESSAGE value="Add: 对象池" />
     <MESSAGE value="升级Unity版本，Add NuGetForUnity" />
@@ -777,7 +775,8 @@
     <MESSAGE value="微调伤害判定 Hitbox" />
     <MESSAGE value="修复子弹能爬坡的 bug" />
     <MESSAGE value="修复偶发的龟壳卡墙问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复偶发的龟壳卡墙问题" />
+    <MESSAGE value="修复板栗仔相片消失的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复板栗仔相片消失的bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
