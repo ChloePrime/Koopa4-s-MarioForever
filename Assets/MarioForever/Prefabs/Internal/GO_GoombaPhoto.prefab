@@ -22,9 +22,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1323213654944790852, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
+      propertyPath: m_Size.x
+      value: 1.03125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323213654944790852, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1323213654944790852, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d180dcbfa8e0b764c93b5eace372922d, type: 3}
+      objectReference: {fileID: -860468679390908754, guid: 222b817c3127054428d76866d73ba96d, type: 3}
     - target: {fileID: 1323213654944790852, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_SortingLayer
       value: -2
@@ -95,7 +103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2642266663093281783, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_Name
-      value: Goomba Photo
+      value: GO_GoombaPhoto
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7553030440749307621, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
