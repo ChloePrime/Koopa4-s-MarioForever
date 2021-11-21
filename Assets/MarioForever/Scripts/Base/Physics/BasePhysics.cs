@@ -10,7 +10,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics {
 /// 移动的东西
 /// 需要自身有<see cref="Rigidbody2D"/>方可生效
 /// </summary>
-public class BasePhysics : MonoBehaviour, IAppearable {
+public partial class BasePhysics : MonoBehaviour, IAppearable {
     protected const float AntiTrapEpsilon = Consts.OnePixel / 4;
     protected static ContactFilter2D Filter = new ContactFilter2D().NoFilter();
     public static ContactFilter2D GlobalFilter => Filter;
@@ -37,6 +37,8 @@ public class BasePhysics : MonoBehaviour, IAppearable {
     [SerializeField, RenameInInspector("最小Y速度（向下）")]
     private float minYSpeed = float.PositiveInfinity;
 
+    [SerializeField] private SlopeFlags slopeFlags;
+
     /// <summary>
     /// 速度矢量（block/s）
     /// </summary>
@@ -56,12 +58,6 @@ public class BasePhysics : MonoBehaviour, IAppearable {
     private float appearSpeed = 1.5f;
 
     // 运行时字段
-
-    public enum SlopeState {
-        FLAT = 0,
-        UP = 1,
-        DOWN = -1
-    }
 
     public SlopeState CurSlopeState { get; private set; } = SlopeState.FLAT;
     private BaseSlope curSlopeObj;
@@ -222,10 +218,16 @@ public class BasePhysics : MonoBehaviour, IAppearable {
         MoveAndRecordPos();
     }
 
+    private bool CanUpslope => (slopeFlags & SlopeFlags.IGNORE_UPSLOPE) == 0;
+    private bool CanDownslope => (slopeFlags & SlopeFlags.IGNORE_DOWNSLOPE) == 0;
     private void CheckSurroundings() {
         CurSlopeState = SlopeState.FLAT;
-        CheckSlope(GetDirX(), MathF.Abs(XSpeed) * Time.fixedDeltaTime, true);
-        CheckSlope(Vector2.down, MathF.Abs(YSpeed) * Time.fixedDeltaTime, false);
+        if (CanUpslope) {
+            CheckSlope(GetDirX(), MathF.Abs(XSpeed) * Time.fixedDeltaTime, true);
+        }
+        if (CanDownslope) {
+            CheckSlope(Vector2.down, MathF.Abs(YSpeed) * Time.fixedDeltaTime, false);
+        }
 
         StopTowardsWall(GetDirXWithSlope(XSpeed), () => vel.x = 0);
         StopTowardsWall(GetDirY(), () => vel.y = 0);
