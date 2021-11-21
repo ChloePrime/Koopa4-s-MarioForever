@@ -23,8 +23,9 @@ namespace SweetMoleHouse.MarioForever.Scripts.Constants
     /// </summary>
     public static class LayerNames
     {
-        public static string AllMovable { get; } = "Physics";
-        public static string DmgDetector { get; } = "Murderers";
+        public static string AllMovable => "Physics";
+        public static string DmgDetector => "Murderers";
+        public static string IgnorePhysics => "IgnoreRaycast";
     }
 
     public static class Tags

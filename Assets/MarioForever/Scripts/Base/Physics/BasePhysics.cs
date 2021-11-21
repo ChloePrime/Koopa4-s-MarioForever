@@ -57,13 +57,13 @@ public class BasePhysics : MonoBehaviour, IAppearable {
 
     // 运行时字段
 
-    private enum SlopeState {
+    public enum SlopeState {
         FLAT = 0,
         UP = 1,
         DOWN = -1
     }
 
-    private SlopeState slopeState = SlopeState.FLAT;
+    public SlopeState CurSlopeState { get; private set; } = SlopeState.FLAT;
     private BaseSlope curSlopeObj;
 
     protected XFacingWallStatus IsFacingWallX;
@@ -111,8 +111,8 @@ public class BasePhysics : MonoBehaviour, IAppearable {
     }
 
     public BaseSlope CurSlopeObj {
-        set { curSlopeObj = value; }
-        get { return curSlopeObj; }
+        set => curSlopeObj = value;
+        get => curSlopeObj;
     }
 
     #region 从水管出现
@@ -185,7 +185,7 @@ public class BasePhysics : MonoBehaviour, IAppearable {
             displayLocalPos = display.position - transform.position;
         }
         
-        R2d = this.BfsComponentInChildren<Rigidbody2D>();
+        R2d = GetComponent<Rigidbody2D>();
     }
 
     protected virtual void Start() {
@@ -194,6 +194,7 @@ public class BasePhysics : MonoBehaviour, IAppearable {
         // 防止卡在墙里
         if (appeared && R2d.Cast(Vector2.zero, RCastTempArray) > 0) {
             transform.Translate(0, 0.01F, 0);
+            IsOnGround = true;
         }
     }
 
@@ -222,9 +223,9 @@ public class BasePhysics : MonoBehaviour, IAppearable {
     }
 
     private void CheckSurroundings() {
-        slopeState = SlopeState.FLAT;
-        CheckSlope(GetDirX(), true);
-        CheckSlope(Vector2.down, false);
+        CurSlopeState = SlopeState.FLAT;
+        CheckSlope(GetDirX(), MathF.Abs(XSpeed) * Time.fixedDeltaTime, true);
+        CheckSlope(Vector2.down, MathF.Abs(YSpeed) * Time.fixedDeltaTime, false);
 
         StopTowardsWall(GetDirXWithSlope(XSpeed), () => vel.x = 0);
         StopTowardsWall(GetDirY(), () => vel.y = 0);
@@ -295,9 +296,10 @@ public class BasePhysics : MonoBehaviour, IAppearable {
     /// 检测斜坡状态
     /// </summary>
     /// <param name="dir">检测的方向矢量</param>
+    /// <param name="distance">检测距离</param>
     /// <param name="isUp">这次检测是上坡(true)还是下坡(false)</param>
-    private void CheckSlope(in Vector2 dir, in bool isUp) {
-        int results = Cast(dir, Filter, RCastTempArray, 0.125f);
+    private void CheckSlope(in Vector2 dir, float distance, in bool isUp) {
+        int results = Cast(dir, Filter, RCastTempArray, distance + 0.125f);
         for (int i = 0; i < results; i++) {
             var result = RCastTempArray[i];
             if (result.collider == null) continue;
@@ -307,14 +309,14 @@ public class BasePhysics : MonoBehaviour, IAppearable {
 
             int xDir = dir.x == 0 ? lastXDir : Math.Sign(dir.x);
             if (isUp && xDir == slope.Dir) {
-                slopeState = SlopeState.UP;
+                CurSlopeState = SlopeState.UP;
                 SetSlope(slope);
                 return;
             }
             //判断是不是朝着斜坡上坡的反方向走
 
             if (!isUp && xDir + slope.Dir == 0) {
-                slopeState = SlopeState.DOWN;
+                CurSlopeState = SlopeState.DOWN;
                 SetSlope(slope);
                 return;
             }
@@ -361,7 +363,7 @@ public class BasePhysics : MonoBehaviour, IAppearable {
                     IsFacingWallX = XFacingWallStatus.NONE;
                 }
             }
-        } else if (slopeState == SlopeState.UP) {
+        } else if (CurSlopeState == SlopeState.UP) {
             distance *= slopeFactor;
             actualDist = Math.Abs(distance);
             int hitAmount = Move(new Vector2(distance, actualDist * curSlopeObj.Degree));
@@ -378,7 +380,7 @@ public class BasePhysics : MonoBehaviour, IAppearable {
             UpdateWallStatusX();
         }
 
-        if (slopeState == SlopeState.DOWN) {
+        if (CurSlopeState == SlopeState.DOWN) {
             Move(new Vector2(0, -actualDist * curSlopeObj.Degree));
         }
 
@@ -391,8 +393,8 @@ public class BasePhysics : MonoBehaviour, IAppearable {
     }
 
     public void PushX(float distance) {
-        CheckSlope(new Vector2(distance, 0), true);
-        if (slopeState == SlopeState.UP) {
+        CheckSlope(new Vector2(distance, 0), distance, true);
+        if (CurSlopeState == SlopeState.UP) {
             distance *= curSlopeObj.Degree;
         }
 
@@ -538,12 +540,12 @@ public class BasePhysics : MonoBehaviour, IAppearable {
     /// <returns>X方向的方向矢量</returns>
     protected Vector2 GetDirXWithSlope(float xSpeed) {
         float x = xSpeed == 0 ? lastXDir : Math.Sign(XSpeed);
-        if (slopeState != SlopeState.UP) {
+        if (CurSlopeState != SlopeState.UP) {
             return new Vector2(x, 0);
         }
 
         x *= slopeFactor;
-        float y = Mathf.Abs(x) * (int)slopeState * curSlopeObj.Degree;
+        float y = Mathf.Abs(x) * (int)CurSlopeState * curSlopeObj.Degree;
         return new Vector2(x, y);
     }
 
@@ -563,6 +565,7 @@ public class BasePhysics : MonoBehaviour, IAppearable {
         ContactFilter2D contactFilter,
         RaycastHit2D[] results,
         float distance = Mathf.Infinity) {
+        
         int count = R2d.Cast(direction, contactFilter, results, distance);
         bool considerPlatform = direction.y < 0 && -direction.y > Mathf.Abs(direction.x);
 

@@ -19,7 +19,7 @@ public class Walk : BasePhysics {
     /// <summary>
     /// 带符号的行走速度
     /// </summary>
-    protected float realWalkSpeed;
+    private float realWalkSpeed;
 
     /// <summary>
     /// 带符号的行走速度
@@ -31,6 +31,11 @@ public class Walk : BasePhysics {
             ResetDisplayDirection();
         }
     }
+
+    /// <summary>
+    /// 转向
+    /// </summary>
+    public void TurnRound() => RealWalkSpeed *= -1;
 
     public override void SetDirection(float dir) {
         base.SetDirection(dir);
@@ -52,12 +57,12 @@ public class Walk : BasePhysics {
 
     protected override void HitWallX(in Collider2D[] colliders) {
         base.HitWallX(colliders);
-        RealWalkSpeed *= -1;
+        TurnRound();
     }
 
     private void ResetDisplayDirection() {
         if (display == transform) return;
-        var animScale = display.transform.localScale;
+        Vector3 animScale = display.transform.localScale;
         animScale.x = Mathf.Sign(RealWalkSpeed);
         display.transform.localScale = animScale;
     }
