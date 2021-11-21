@@ -7,13 +7,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="微调伤害判定 Hitbox">
-      <change afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.SlopeEnums.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.SlopeEnums.cs.meta" afterDir="false" />
+    <list default="true" id="c6319313-9d7b-4498-8374-473ca38259dc" name="Default Changelist" comment="修复偶发的龟壳卡墙问题">
+      <change afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.BasePhysics.API.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.BasePhysics.API.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MarioForever/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/GO_Fireball.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/GO_Fireball.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/GO_WalkingRigidbody.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Prefabs/Internal/Parents/GO_WalkingRigidbody.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/BasePhysics.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/Background.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Level/Background.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/Walk.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MarioForever/Scripts/Base/Physics/Walk.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -374,14 +374,7 @@
       <workItem from="1637391044915" duration="9894000" />
       <workItem from="1637420247737" duration="2950000" />
       <workItem from="1637467668349" duration="2613000" />
-      <workItem from="1637470969734" duration="5139000" />
-    </task>
-    <task id="LOCAL-00062" summary="增加穿透实心，整理常量类">
-      <created>1610263517283</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1610263517284</updated>
+      <workItem from="1637470969734" duration="6204000" />
     </task>
     <task id="LOCAL-00063" summary="添加平台标记贴图">
       <created>1610519664642</created>
@@ -719,7 +712,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637480986420</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="修复子弹能爬坡的 bug">
+      <created>1637497131800</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1637497131800</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -752,8 +752,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="修复关卡开始时补给失效的bug" />
-    <MESSAGE value="整理文件夹，加入System.Span豪华午餐" />
     <MESSAGE value="整理文件夹，加入Nuget" />
     <MESSAGE value="修复死后复活报错的bug" />
     <MESSAGE value="Add: 对象池" />
@@ -777,7 +775,9 @@
     <MESSAGE value="优化怪物相互碰撞" />
     <MESSAGE value="红紫乌龟悬崖边回头" />
     <MESSAGE value="微调伤害判定 Hitbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="微调伤害判定 Hitbox" />
+    <MESSAGE value="修复子弹能爬坡的 bug" />
+    <MESSAGE value="修复偶发的龟壳卡墙问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复偶发的龟壳卡墙问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -134,6 +134,7 @@ MonoBehaviour:
   maxXSpeed: Infinity
   maxYSpeed: Infinity
   minYSpeed: Infinity
+  slopeFlags: 0
   vel: {x: 0, y: 0}
   ignoreCollision: 0
   display: {fileID: 7236889029517880874}

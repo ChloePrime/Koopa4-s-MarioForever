@@ -7,8 +7,10 @@ using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics {
 /// <summary>
-/// 移动的东西
-/// 需要自身有<see cref="Rigidbody2D"/>方可生效
+/// 移动的东西，
+/// 需要自身有 <see cref="Rigidbody2D"/> 方可生效。
+/// 使用 transform.position 的 setter 无法设置其位置，需要使用
+/// <see cref="TeleportTo(float,float)"/>, <see cref="TeleportBy(float,float)"/> 方可移动其位置。
 /// </summary>
 public partial class BasePhysics : MonoBehaviour, IAppearable {
     protected const float AntiTrapEpsilon = Consts.OnePixel / 4;
@@ -80,32 +82,8 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
 
     // 属性
 
-    public bool IsOnGround { get; private set; }
-
-    public float XSpeed {
-        get => vel.x;
-        set => vel.x = value;
-    }
-
-    public float YSpeed {
-        get => vel.y;
-        set => vel.y = value;
-    }
-
-    public float Direction => XSpeed;
-
-    public virtual float Gravity {
-        get => gravity;
-        set => gravity = value;
-    }
-
     public Rigidbody2D R2d { get; private set; }
-
-    public bool IgnoreCollision {
-        get => ignoreCollision;
-        set => ignoreCollision = value;
-    }
-
+    
     public BaseSlope CurSlopeObj {
         set => curSlopeObj = value;
         get => curSlopeObj;
@@ -473,15 +451,6 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
                 Global.PlaySound(hitHeadSfx);
             }
         }
-    }
-
-    public void TeleportTo(Vector2 pos) {
-        transform.position = tickStartPos = tickEndPos = pos;
-    }
-
-    public void TeleportBy(Vector2 offset) {
-        var pos = (Vector2)transform.position + offset;
-        TeleportTo(pos);
     }
 
     private static float MinHitDistance(int amount) {

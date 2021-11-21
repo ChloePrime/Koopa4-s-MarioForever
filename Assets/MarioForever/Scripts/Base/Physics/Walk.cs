@@ -35,7 +35,10 @@ public class Walk : BasePhysics {
     /// <summary>
     /// 转向
     /// </summary>
-    public void TurnRound() => RealWalkSpeed *= -1;
+    public void TurnRound() {
+        RealWalkSpeed *= -1;
+        TeleportBy(RealWalkSpeed * Time.fixedDeltaTime, 0);
+    }
 
     public override void SetDirection(float dir) {
         base.SetDirection(dir);
@@ -51,8 +54,8 @@ public class Walk : BasePhysics {
     }
 
     protected override void FixedUpdate() {
-        base.FixedUpdate();
         XSpeed = RealWalkSpeed;
+        base.FixedUpdate();
     }
 
     protected override void HitWallX(in Collider2D[] colliders) {
