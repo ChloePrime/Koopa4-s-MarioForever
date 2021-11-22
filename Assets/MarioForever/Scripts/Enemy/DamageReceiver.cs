@@ -140,7 +140,7 @@ public class DamageReceiver : Stompable, IDamageReceiver {
     public void TryGetStomped(Transform other) {
         if (other.TryGetComponent(out Mario mario) && IsStomp(other, mario)) {
             mario.OnStomp(GetStompPower(mario), true);
-            Damage(mario.StompDamageSource, EnumDamageType.STOMP);
+            mario.StompDamageSource.DoDamageTo(this);
         }
     }
 

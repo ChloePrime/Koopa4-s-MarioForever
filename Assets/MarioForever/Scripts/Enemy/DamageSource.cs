@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Enemy {
 /// <summary>
-/// 伤害来源
+/// 伤害来源，
 /// 需要自身带有 Trigger 类碰撞箱
 /// </summary>
 public class DamageSource : Stompable, ISubObject {
@@ -18,7 +18,6 @@ public class DamageSource : Stompable, ISubObject {
 
     [SerializeField, RenameInInspector("固定尸体飘动方向")]
     private bool fixCorpseDirection;
-
 
     [Header("高级设置")] [SerializeField] private Transform host;
     [SerializeField] private bool disableActiveDamage;
@@ -30,18 +29,38 @@ public class DamageSource : Stompable, ISubObject {
     public event Func<DamageSource, IDamageReceiver, ActionResult> OnPreDamage;
     public event Action<DamageSource, IDamageReceiver> OnDamaging;
 
-    public void DoDamageTo(IDamageReceiver hitbox) {
-        if (!faction.IsHostileTo(hitbox.Faction)) return;
+    public bool CanHarm<T>(T hitbox) where T : IDamageReceiver {
+        if (!faction.IsHostileTo(hitbox.Faction)) return false;
         // 判断是否是踩
-        if (IsStomp(hitbox.Host, hitbox.Host.GetComponent<Mario>())) {
+        if (hitbox.Host.TryGetComponent(out Mario mario) && IsStomp(hitbox.Host, mario)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public void DoDamageTo<T>(T hitbox) where T : IDamageReceiver => DoDamageTo(hitbox, damageType);
+
+    public void DoDamageTo<T>(T hitbox, EnumDamageType damageTypeIn) where T : IDamageReceiver {
+        if (!CanHarm(hitbox)) {
             return;
         }
 
         if (OnPreDamage?.Invoke(this, hitbox).IsCanceled() != true) {
-            hitbox.Damage(this, damageType);
+            hitbox.Damage(this, damageTypeIn);
         }
 
         OnDamaging?.Invoke(this, hitbox);
+    }
+
+    public void Kill<T>(T hitbox) where T : IDamageReceiver => Kill(hitbox, damageType);
+
+    public void Kill<T>(T hitbox, EnumDamageType damageTypeIn) where T : IDamageReceiver {
+        if (!CanHarm(hitbox)) {
+            return;
+        }
+
+        hitbox.SetDead(this, damageTypeIn);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -57,6 +76,7 @@ public class DamageSource : Stompable, ISubObject {
         if (!other.TryGetComponent(out IDamageReceiver hitbox)) {
             return;
         }
+
         DoDamageTo(hitbox);
     }
 }
