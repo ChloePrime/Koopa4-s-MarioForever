@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Runtime.CompilerServices;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Enemy
@@ -21,5 +22,8 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool Contains(this EnumDamageType self, EnumDamageType target) => (self & target) > 0;
+        public static bool ContainsAny(this EnumDamageType self, params EnumDamageType[] target) {
+            return target.Any(dmgType => (self & dmgType) > 0);
+        }
     }
 }

@@ -12,6 +12,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6419509510554172581}
     - target: {fileID: 4365835876634559861, guid: 515f4bff2840dd94ca976df68eca1784, type: 3}
+      propertyPath: host
+      value: 
+      objectReference: {fileID: 6419509510554172581}
+    - target: {fileID: 4365835876634559861, guid: 515f4bff2840dd94ca976df68eca1784, type: 3}
       propertyPath: damageType
       value: 1073741824
       objectReference: {fileID: 0}
@@ -154,11 +158,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6305329819702020537, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7236889029517880874, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2642266663093281769, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}

@@ -9744,8 +9744,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 324184ca90fbd214d9fd0f7d23e4069f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faction: {fileID: 11400000, guid: 0bea7198886311241aa4f22488d3e2ac, type: 2}
   damageType: 2
+  faction: {fileID: 11400000, guid: 0bea7198886311241aa4f22488d3e2ac, type: 2}
+  fixCorpseDirection: 1
+  host: {fileID: 4085723854135149140}
+  disableActiveDamage: 0
 --- !u!1001 &2024473264026870204
 PrefabInstance:
   m_ObjectHideFlags: 0

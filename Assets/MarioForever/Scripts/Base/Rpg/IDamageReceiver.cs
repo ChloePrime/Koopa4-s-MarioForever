@@ -1,18 +1,21 @@
-using System.Collections;
-using Cysharp.Threading.Tasks;
+using System.Diagnostics.CodeAnalysis;
 using SweetMoleHouse.MarioForever.Scripts.Enemy;
-using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Base.Rpg
 {
-    public interface IDamageReceiver
+    public interface IDamageReceiver: ISubObject
     {
         Faction Faction { get; }
-
-        Transform Host { get; }
         
-        void Damage(Transform damager, EnumDamageType type);
+        void Damage(DamageSource damager, EnumDamageType damageType);
 
-        void SetDead(Transform damager, EnumDamageType type);
+        void SetDead(DamageSource damager, EnumDamageType damageType);
+
+        /// <summary>
+        /// 受击者的攻击方式，
+        /// 用于踢龟壳 / 反击等情况
+        /// </summary>
+        [MaybeNull]
+        DamageSource MyDamageSource => null;
     }
 }

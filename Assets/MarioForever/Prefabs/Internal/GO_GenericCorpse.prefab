@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8775a22a00a04df4badbbce53e243dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flySpeed: {x: 3, y: 11}
 --- !u!1001 &8848773578739172864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,10 +69,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2642266663093281782, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
-      propertyPath: vel.y
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2642266663093281782, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: gravity
       value: 30
       objectReference: {fileID: 0}
@@ -89,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2642266663093281783, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_Name
-      value: Generic Corpse
+      value: GO_GenericCorpse
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}

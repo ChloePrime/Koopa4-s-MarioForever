@@ -1,48 +1,53 @@
-﻿using SweetMoleHouse.MarioForever.Scripts.Base;
+﻿using System;
 using SweetMoleHouse.MarioForever.Scripts.Base.Physics;
 using SweetMoleHouse.MarioForever.Scripts.Level;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-namespace SweetMoleHouse.MarioForever.Scripts.Enemy
-{
-    /// <summary>
-    /// 怪物尸体
-    /// </summary>
-    public class Corpse : MonoBehaviour 
-    {
-        private new SpriteRenderer renderer;
-        private BasePhysics physics;
-        private bool inited;
+namespace SweetMoleHouse.MarioForever.Scripts.Enemy {
+/// <summary>
+/// 怪物尸体
+/// </summary>
+public class Corpse : MonoBehaviour {
+    [SerializeField] private Vector2 flySpeed = new (5, 12);
+    
+    private new SpriteRenderer renderer;
+    private BasePhysics physics;
 
-        private void Start()
-        {
-            if (inited) return;
-            
-            physics = GetComponent<BasePhysics>();
-            
-            renderer = GetComponentInChildren<SpriteRenderer>();
-            
-            inited = true;
+    private void Awake() {
+        physics = GetComponent<BasePhysics>();
+        renderer = GetComponentInChildren<SpriteRenderer>();
+    }
+
+    private void Fly(DamageSource damageSrc) {
+        float dir;
+        if (damageSrc.FixCorpseDirection && damageSrc.Host.TryGetComponent(out BasePhysics bullet)) {
+            dir = MathF.Sign(bullet.Direction);
+        } else {
+            dir = Random.Range(0, 2) * 2 - 1;
         }
 
-        private void Update()
-        {
-            if (transform.position.y <= ScrollInfo.Bottom - 8)
-            {
-                Destroy(gameObject);
-            }
+        if (physics is Walk walk) {
+            walk.WalkSpeed = dir * flySpeed.x;
+        } else {
+            physics.XSpeed = dir * flySpeed.x;
         }
 
-        public void AcceptBody(in SpriteRenderer sr)
-        {
-            // 此函数调用时 Start 可能未执行
-            if (!inited) Start(); 
-            
-            physics.TeleportTo(sr.transform.position 
-                               + new Vector3(0, sr.size.y, 0));
-            transform.localScale = sr.transform.lossyScale;
-            
-            renderer.sprite = sr.sprite;
+        physics.YSpeed = flySpeed.y;
+    }
+
+    private void Update() {
+        if (transform.position.y <= ScrollInfo.Bottom - 8) {
+            Destroy(gameObject);
         }
     }
+
+    public void InitCorpse(DamageSource damageSrc, SpriteRenderer sr) {
+        Vector2 initialPos = (Vector2)sr.transform.position + new Vector2(0, sr.size.y);
+        physics.TeleportTo(initialPos);
+        transform.localScale = sr.transform.lossyScale;
+        renderer.sprite = sr.sprite;
+        Fly(damageSrc);
+    }
+}
 }

@@ -148,7 +148,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
         Inited = true;
     }
 
-    private void Awake() {
+    protected virtual void Awake() {
         InitClass();
         
         if (display == null) {

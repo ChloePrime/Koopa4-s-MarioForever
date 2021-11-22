@@ -15,6 +15,13 @@ public class Walk : BasePhysics {
     [SerializeField, RenameInInspector("与其他行走物品相撞")]
     private bool collideWithOthers = true;
 
+    public float WalkSpeed {
+        get => walkSpeed;
+        set {
+            walkSpeed = value;
+            RealWalkSpeed = value * MathF.Sign(RealWalkSpeed);
+        }
+    }
 
     /// <summary>
     /// 带符号的行走速度
@@ -27,8 +34,11 @@ public class Walk : BasePhysics {
     protected float RealWalkSpeed {
         get => realWalkSpeed;
         set {
+            bool dirty = MathF.Sign(realWalkSpeed) != MathF.Sign(value);
             realWalkSpeed = value;
-            ResetDisplayDirection();
+            if (dirty) {
+                ResetDisplayDirection();
+            }
         }
     }
 
