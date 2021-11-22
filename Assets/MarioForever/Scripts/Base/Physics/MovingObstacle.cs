@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
 using SweetMoleHouse.MarioForever.Scripts.Enemy;
@@ -13,9 +14,9 @@ using static UnityEngine.Mathf;
 namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics {
 [SuppressMessage("ReSharper", "Unity.InefficientPropertyAccess")]
 public class MovingObstacle : BasePhysics {
-    private const float CatchEpsilon = 2 * AntiTrapEpsilon;
+    private const float CatchEpsilon = 2 * Consts.OnePixel;
 
-    private readonly struct CaughtObjectInfo {
+    private readonly struct CaughtObjectInfo: IEquatable<CaughtObjectInfo> {
         public readonly BasePhysics Physics;
         public readonly RaycastHit2D HitResult;
 
@@ -48,14 +49,12 @@ public class MovingObstacle : BasePhysics {
     private static ContactFilter2D catcherFilter = new ContactFilter2D().NoFilter();
     private static bool classInited;
 
-    private Collider2D[] colliders;
     private bool isPlatform;
 
     [Header("高级设置")] [SerializeField] private DamageSource damageSource;
 
     protected override void Awake() {
         base.Awake();
-        colliders = this.DfsComponentsInChildren<Collider2D>().ToArray();
         isPlatform = CompareTag(Tags.Platform);
     }
 
@@ -71,49 +70,48 @@ public class MovingObstacle : BasePhysics {
     }
 
     public override void MoveX(float distance, bool updateStatus) {
-        var dx = transform.position.x;
+        float dx = transform.position.x;
         base.MoveX(distance, updateStatus);
         dx = transform.position.x - dx;
 
         var dir = new Vector2(Sign(distance), 0);
         // 推动前方物体
-        CatchPushDrag(dir, 0, dx, ActionMoveX, false);
+        if (!isPlatform) {
+            CatchAndMove(dir, 0, dx, ActionMoveX, true);
+        }
 
-        static void ActionMoveX(BasePhysics physics, float dist)
+        // 载动上方物体
+        CatchAndMove(Vector2.up, CatchEpsilon, dx, ActionMoveX, false);
+
+        static void ActionMoveX(BasePhysics physics, float dist, RaycastHit2D hitInfo)
             => physics.PushX(dist);
     }
 
     public override void MoveY(float distance, bool updateStatus) {
-        var dy = transform.position.y;
+        float y = transform.position.y;
         base.MoveY(distance, updateStatus);
-        dy = transform.position.y - dy;
+        float dy = transform.position.y - y;
 
-        var dir = new Vector2(0, Sign(distance));
+        Vector2 dir = new(0, Sign(distance));
+        float castDistance = Abs(dy) + CatchEpsilon;
         // 推动前方物体
-        CatchPushDrag(dir, 0, dy, ActionMoveY, true);
+        CatchAndMove(dir, castDistance, dy, ActionMoveY, true);
+        // 拉动上方物体
+        if (dy < 0) {
+            CatchAndMove(Vector2.up, castDistance, dy, ActionMoveY, false);
+        }
 
-        static void ActionMoveY(BasePhysics physics, float dist)
+        static void ActionMoveY(BasePhysics physics, float dist, RaycastHit2D hitInfo)
             => physics.MoveY(dist);
     }
 
-    private void CatchPushDrag(in Vector2 castDir, in float castDist, in float offset,
-        in Action<BasePhysics, float> action, in bool isY) {
-        bool isMovingUp = isY && offset > 0;
-        bool isMovingDown = isY && offset < 0;
-        // 推动前方物体
-        if (!isPlatform) {
-            CatchAndMove(castDir, castDist, offset, action, true);
-            if (isMovingUp) return;
-        }
+    private delegate void OnDragCall(BasePhysics physics, float offset, RaycastHit2D hitInfo);
 
-        // 拖拽站在平台上的物体
-        var dragCastLength = (isMovingDown ? -offset : 0) + CatchEpsilon;
-        // 防止向上运动的实心多次推动上方物体
-        CatchAndMove(Vector2.up, dragCastLength, offset, action, false);
-    }
-
-    private void CatchAndMove(in Vector2 castDir, in float castDist, in float offset,
-        in Action<BasePhysics, float> action, in bool isPush) {
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    private void CatchAndMove(
+        in Vector2 castDir, in float castDist, in float offset,
+        in OnDragCall action, in bool isPush) {
+        
         if (Abs(offset) < 1e-4) return;
 
         var colDisabled = false;
@@ -134,16 +132,16 @@ public class MovingObstacle : BasePhysics {
             // 如果实际位移小于被推动的位移，
             // 那么说明被推动的物体被阻挡，
             // 此时kill掉被推懂地物体
-            var actualOffset = caught.Physics.transform.position;
-            action(caught.Physics, distToMove);
+            Vector3 actualOffset = caught.Physics.transform.position;
+            action(caught.Physics, distToMove, caught.HitResult);
 
             if (!isPush) continue;
             actualOffset = caught.Physics.transform.position - actualOffset;
 
             bool actionBlocked = actualOffset.sqrMagnitude <= distToMove * distToMove - 1e-4;
-            if (actionBlocked && !ReferenceEquals(damageSource, null) 
+            if (actionBlocked && !ReferenceEquals(damageSource, null)
                               && caught.Physics.TryBfsComponentInChildren(out IDamageReceiver receiver)) {
-                damageSource.DoDamageTo(receiver);
+                damageSource.Kill(receiver);
             }
         }
 
@@ -153,7 +151,7 @@ public class MovingObstacle : BasePhysics {
     }
 
     private IEnumerable<CaughtObjectInfo> CatchObjs(in Vector2 dir, in float distance) {
-        var caughtObjCache = new List<CaughtObjectInfo>();
+        List<CaughtObjectInfo> caughtObjCache = new();
 
         var amount = R2d.Cast(dir, catcherFilter, RCastTempArray, distance);
         for (var i = 0; i < amount; i++) {
@@ -175,24 +173,7 @@ public class MovingObstacle : BasePhysics {
     }
 
     private void SetCollisionAvailability(bool available) {
-        List<Collider2D> invalidColliders = null;
-        foreach (var c2d in colliders) {
-            if (c2d == null) {
-                invalidColliders ??= new List<Collider2D>();
-                invalidColliders.Add(c2d);
-                continue;
-            }
-
-            c2d.enabled = available;
-        }
-
-        if (invalidColliders != null) {
-            RemoveEmptyCollider(invalidColliders);
-        }
-    }
-
-    private void RemoveEmptyCollider(IEnumerable<Collider2D> blacklist) {
-        colliders = colliders.Where(campaign => !blacklist.Contains(campaign)).ToArray();
+        R2d.simulated = available;
     }
 
     internal void SetDisplay(Transform displayIn) {
