@@ -13,6 +13,11 @@ public class Shell : MonoBehaviour {
         this.BfsComponentInChildren<DamageSource>().OnPreDamage += (_, kicker) => {
             // 一般敌人: OnPreDamage的第二个参数为被攻击者
             // 贵客:    OnPreDamage的第二个参数为攻击者
+            if (ReferenceEquals(kicker.MyDamageSource, null)) {
+                return ActionResult.PASS;
+            }
+
+            kicker.MyDamageSource.DoDamageTo(kickHandler, EnumDamageType.KICK_SHELL);
             return ActionResult.CANCEL;
         };
         kickHandler.OnGetDeathSound += dmgType => dmgType == EnumDamageType.KICK_SHELL ? kickSound : null;

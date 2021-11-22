@@ -173,9 +173,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 324184ca90fbd214d9fd0f7d23e4069f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  host: {fileID: 6204453993478765736}
   damageType: 0
   faction: {fileID: 11400000, guid: 0bea7198886311241aa4f22488d3e2ac, type: 2}
+  fixCorpseDirection: 0
+  host: {fileID: 6204453993478765736}
+  disableActiveDamage: 0
 --- !u!1 &7223232026824965058
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,9 +250,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acceptedDamageTypes: 2147483647
-  host: {fileID: 0}
   corpse: {fileID: 6802158544873612791, guid: 18d3698332d434c4684d9be13c7724ef, type: 3}
   stompSound: {fileID: 8300000, guid: f3e73bb22ebefc54d8f09930bc579bc6, type: 3}
   defeatSound: {fileID: 8300000, guid: 2d454e0f3831de5479ac1528891f038d, type: 3}
   score: 1
   faction: {fileID: 11400000, guid: 0bea7198886311241aa4f22488d3e2ac, type: 2}
+  host: {fileID: 6204453993478765736}
+  myDamageSource: {fileID: 4365835876634559861}

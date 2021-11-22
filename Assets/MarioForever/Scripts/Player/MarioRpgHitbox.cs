@@ -10,6 +10,7 @@ public class MarioRpgHitbox : MonoBehaviour, IDamageReceiver {
     public Transform Host => Mario.transform;
     public Mario Mario { get; private set; }
     public Faction Faction => faction;
+    public DamageSource MyDamageSource => Mario.StompDamageSource;
 
     public void Damage(DamageSource damager, EnumDamageType damageType) {
         Mario.Damage(damager);
