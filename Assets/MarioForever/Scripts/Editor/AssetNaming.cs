@@ -6,6 +6,7 @@ using System.Text;
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Editor {
 /// <summary>
@@ -25,7 +26,7 @@ public static class AssetNaming {
         foreach (string file in
             Directory.EnumerateFiles(root, "*.*", SearchOption.AllDirectories)
         ) {
-            if (!File.Exists(file) || file.EndsWithAny(".meta", ".cs", ".asset")) {
+            if (!File.Exists(file) || file.EndsWithAny(".meta", ".cs")) {
                 continue;
             }
 
@@ -33,7 +34,7 @@ public static class AssetNaming {
             string assetName = Path.GetFileName(assetPath);
             string dir = assetPath[..^assetName.Length];
 
-            string newAssetName = FixNaming(assetName, dir);
+            string newAssetName = FixNaming(assetPath, assetName, dir);
             if (assetName == newAssetName) {
                 Debug.Log($"Skip asset {assetName}");
                 continue;
@@ -96,10 +97,12 @@ public static class AssetNaming {
         return suffixes.Any(self.EndsWith);
     }
 
-    private static string FixNaming(string oldName, string directory) {
+    private static string FixNaming(string assetPath, string oldName, string directory) {
         string newName;
         if (oldName.EndsWithAny(".png", ".jpg") && !oldName.StartsWith("T_")) {
             newName = "T_" + oldName;
+        } else if (oldName.EndsWith(".asset")) {
+            newName = FixNamingForScriptableObject(assetPath, oldName, directory);
         } else if (oldName.EndsWith(".anim")       && !oldName.StartsWith("An_")) {
             newName = "An_" + oldName;
         } else if (oldName.EndsWith(".prefab")) {
@@ -138,6 +141,19 @@ public static class AssetNaming {
 
         if (!oldName.StartsWith("GO_")) {
             return oldName.StartsWith('_') ? "GO" + oldName : "GO_" + oldName;
+        }
+
+        return oldName;
+    }
+
+    private static string FixNamingForScriptableObject(string assetPath, string oldName, string directory) {
+        var asset = AssetDatabase.LoadAssetAtPath<ScriptableObject>(assetPath);
+        if (asset is TileBase && !oldName.StartsWith("Tile_")) {
+            if (oldName.StartsWith("T_")) {
+                return "Tile_" + oldName[2..];
+            } else {
+                return "Tile_" + oldName;
+            }
         }
 
         return oldName;
