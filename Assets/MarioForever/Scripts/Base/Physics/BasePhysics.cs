@@ -532,7 +532,10 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
         return Math.Sign(YSpeed) > 0 ? Vector2.up : Vector2.down;
     }
 
-    protected int Cast(Vector2 direction,
+    /// <summary>
+    /// RayCast，但是会正确处理穿透平台。
+    /// </summary>
+    public int Cast(Vector2 direction,
         ContactFilter2D contactFilter,
         RaycastHit2D[] results,
         float distance = Mathf.Infinity) {
