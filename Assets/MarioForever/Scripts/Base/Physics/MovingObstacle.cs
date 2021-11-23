@@ -138,7 +138,7 @@ public class MovingObstacle : BasePhysics {
             if (!isPush) continue;
             actualOffset = caught.Physics.transform.position - actualOffset;
 
-            bool actionBlocked = actualOffset.sqrMagnitude <= distToMove * distToMove - 1e-4;
+            bool actionBlocked = actualOffset.sqrMagnitude < distToMove * distToMove - 1e-8;
             if (actionBlocked && !ReferenceEquals(damageSource, null)
                               && caught.Physics.TryBfsComponentInChildren(out IDamageReceiver receiver)) {
                 damageSource.Kill(receiver);
