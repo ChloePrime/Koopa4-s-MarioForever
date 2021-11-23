@@ -4822,45 +4822,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &6446278977679745502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4085723854135149131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7bc4c7b0629b0642a0748ced54e0e2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explodeSound: {fileID: 8300000, guid: 3696a4b7332de294caea0f2cdbf90af4, type: 3}
---- !u!114 &7464592412184994632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4085723854135149131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 878a71a2f2cf49143b6d5a96a1c08485, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounceStrength: 7
---- !u!114 &7660873100851996881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4938328534019118561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d069b8b5cddf0045914f672cfd9584b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotSpeed: 450
 --- !u!1 &7110418592134919283
 GameObject:
   m_ObjectHideFlags: 0
@@ -9840,6 +9801,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GO_Fireball
       objectReference: {fileID: 0}
+    - target: {fileID: 5381748952367621756, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6305329819702020537, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -9869,3 +9834,42 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6381644747911099485, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
   m_PrefabInstance: {fileID: 2024473264026870204}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6446278977679745502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4085723854135149131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7bc4c7b0629b0642a0748ced54e0e2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explodeSound: {fileID: 8300000, guid: 3696a4b7332de294caea0f2cdbf90af4, type: 3}
+--- !u!114 &7464592412184994632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4085723854135149131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 878a71a2f2cf49143b6d5a96a1c08485, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceStrength: 7
+--- !u!114 &7660873100851996881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4938328534019118561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d069b8b5cddf0045914f672cfd9584b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotSpeed: 450

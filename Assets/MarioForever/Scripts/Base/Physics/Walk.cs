@@ -52,14 +52,11 @@ public class Walk : BasePhysics {
 
     public override void SetDirection(float dir) {
         base.SetDirection(dir);
-
-        var axis = Math.Sign(dir);
-        walkSpeed = Mathf.Abs(walkSpeed) * axis;
-        RealWalkSpeed = Mathf.Abs(RealWalkSpeed) * Mathf.Sign(axis);
+        RealWalkSpeed = MathF.Abs(walkSpeed) * MathF.Sign(dir);
     }
 
-    protected override void Start() {
-        base.Start();
+    protected override void Awake() {
+        base.Awake();
         RealWalkSpeed = walkSpeed;
     }
 
