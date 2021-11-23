@@ -1,11 +1,11 @@
 {
   "dependencies": {
     "com.cysharp.unitask": {
-      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+      "version": "2.2.5",
       "depth": 0,
-      "source": "git",
+      "source": "registry",
       "dependencies": {},
-      "hash": "4f6166102d3c9bd4dcf9acdc48ead7a618cfe891"
+      "url": "https://package.openupm.com"
     },
     "com.unity.2d.animation": {
       "version": "7.0.1",
