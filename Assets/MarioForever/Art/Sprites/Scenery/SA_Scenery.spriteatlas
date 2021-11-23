@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SA_Scenery
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 74da5c788bdb41943a2c1267b835310c, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 23b25e10da15e0a428121a2a1cbd91ef, type: 3}
+  - {fileID: 21300000, guid: 653d5e41f074880449848996927f66b3, type: 3}
+  - {fileID: 21300000, guid: 9658cb52940bf5947b83520da87b1df6, type: 3}
+  - {fileID: 21300000, guid: cf6d7b8269afeb74fa733c34b21c9af2, type: 3}
+  - {fileID: 21300000, guid: 9c90f6c36bb8705408c9e496ab9239cb, type: 3}
+  - {fileID: 21300000, guid: 68ba5fe32084b7b46a920da715259783, type: 3}
+  - {fileID: 21300000, guid: 599d7fe6b5edc14479e781232cdc2aad, type: 3}
+  - {fileID: 21300000, guid: 6acdb0076c6c2604ba5bd2120d116bfc, type: 3}
+  - {fileID: 21300000, guid: b760d377dceb2cf4d93fa4a74a34391d, type: 3}
+  - {fileID: 21300000, guid: 32ff43483ba20044fba5d94af5532a8c, type: 3}
+  - {fileID: 21300000, guid: 62b38e0a4fb34ee4b8edd0765d35654f, type: 3}
+  - {fileID: 21300000, guid: 8754433af3cce824783f1cb5717f596a, type: 3}
+  - {fileID: 21300000, guid: 6663255a6b8e1894f80d50ab7867e71f, type: 3}
+  - {fileID: 21300000, guid: 4c25289a20a74c34d8694d5d9b01e754, type: 3}
+  - {fileID: 21300000, guid: 0609851b6970be64c82f45adb627039d, type: 3}
+  - {fileID: 21300000, guid: 54d2612b68bb1b24fafaff6c8ab7efc5, type: 3}
+  - {fileID: 21300000, guid: 4528cfecc716aad4fab9cc3ef56a2a2f, type: 3}
+  - {fileID: 21300000, guid: a2b2239d6331af7459d111b75c37e648, type: 3}
+  - {fileID: 21300000, guid: da7e0b4e22db689409b0f577d4ccdb45, type: 3}
+  - {fileID: 21300000, guid: e3def02f3a5fc5c4aba73e069d7b6851, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - T_Castle1
+  - T_SnowCastle2
+  - T_SnowCastle1
+  - T_Grove
+  - T_GreenMountain
+  - T_Cloud
+  - T_BowserStatueR
+  - T_DarkBlueMountain
+  - T_BridgeSupportL
+  - T_FacedCloud
+  - T_TopCloud
+  - T_Waterfall
+  - T_BowserStatueL
+  - T_SnowMountain
+  - T_BlueMountain
+  - T_LargeCloud
+  - T_BridgeSupportR
+  - T_Castle2
+  - T_MountainGroup
+  - T_CaveLight
+  m_RenderDataMap: {}
+  m_Tag: SA_Scenery
+  m_IsVariant: 0
