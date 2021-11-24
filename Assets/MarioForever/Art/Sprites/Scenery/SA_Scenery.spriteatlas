@@ -43,13 +43,20 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 9658cb52940bf5947b83520da87b1df6, type: 3}
   - {fileID: 21300000, guid: cf6d7b8269afeb74fa733c34b21c9af2, type: 3}
   - {fileID: 21300000, guid: 9c90f6c36bb8705408c9e496ab9239cb, type: 3}
-  - {fileID: 21300000, guid: 68ba5fe32084b7b46a920da715259783, type: 3}
+  - {fileID: -47764962, guid: 68ba5fe32084b7b46a920da715259783, type: 3}
+  - {fileID: 2042624510, guid: 68ba5fe32084b7b46a920da715259783, type: 3}
+  - {fileID: 1692864100, guid: 68ba5fe32084b7b46a920da715259783, type: 3}
   - {fileID: 21300000, guid: 599d7fe6b5edc14479e781232cdc2aad, type: 3}
   - {fileID: 21300000, guid: 6acdb0076c6c2604ba5bd2120d116bfc, type: 3}
   - {fileID: 21300000, guid: b760d377dceb2cf4d93fa4a74a34391d, type: 3}
-  - {fileID: 21300000, guid: 32ff43483ba20044fba5d94af5532a8c, type: 3}
+  - {fileID: -466389632, guid: 32ff43483ba20044fba5d94af5532a8c, type: 3}
+  - {fileID: 1815632719, guid: 32ff43483ba20044fba5d94af5532a8c, type: 3}
+  - {fileID: -24916513, guid: 32ff43483ba20044fba5d94af5532a8c, type: 3}
   - {fileID: 21300000, guid: 62b38e0a4fb34ee4b8edd0765d35654f, type: 3}
-  - {fileID: 21300000, guid: 8754433af3cce824783f1cb5717f596a, type: 3}
+  - {fileID: -86415336, guid: 8754433af3cce824783f1cb5717f596a, type: 3}
+  - {fileID: -695771921, guid: 8754433af3cce824783f1cb5717f596a, type: 3}
+  - {fileID: -403471426, guid: 8754433af3cce824783f1cb5717f596a, type: 3}
+  - {fileID: 423971800, guid: 8754433af3cce824783f1cb5717f596a, type: 3}
   - {fileID: 21300000, guid: 6663255a6b8e1894f80d50ab7867e71f, type: 3}
   - {fileID: 21300000, guid: 4c25289a20a74c34d8694d5d9b01e754, type: 3}
   - {fileID: 21300000, guid: 0609851b6970be64c82f45adb627039d, type: 3}
@@ -57,20 +64,32 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 4528cfecc716aad4fab9cc3ef56a2a2f, type: 3}
   - {fileID: 21300000, guid: a2b2239d6331af7459d111b75c37e648, type: 3}
   - {fileID: 21300000, guid: da7e0b4e22db689409b0f577d4ccdb45, type: 3}
-  - {fileID: 21300000, guid: e3def02f3a5fc5c4aba73e069d7b6851, type: 3}
+  - {fileID: 1539713494, guid: e3def02f3a5fc5c4aba73e069d7b6851, type: 3}
+  - {fileID: -522459569, guid: e3def02f3a5fc5c4aba73e069d7b6851, type: 3}
+  - {fileID: -270073972, guid: e3def02f3a5fc5c4aba73e069d7b6851, type: 3}
+  - {fileID: -2079666006, guid: e3def02f3a5fc5c4aba73e069d7b6851, type: 3}
+  - {fileID: 423153586, guid: e3def02f3a5fc5c4aba73e069d7b6851, type: 3}
+  - {fileID: -659297588, guid: e3def02f3a5fc5c4aba73e069d7b6851, type: 3}
   m_PackedSpriteNamesToIndex:
   - T_Castle1
   - T_SnowCastle2
   - T_SnowCastle1
   - T_Grove
   - T_GreenMountain
-  - T_Cloud
+  - T_Cloud_2
+  - T_Cloud_0
+  - T_Cloud_1
   - T_BowserStatueR
   - T_DarkBlueMountain
   - T_BridgeSupportL
-  - T_FacedCloud
+  - T_FacedCloud_1
+  - T_FacedCloud_0
+  - T_FacedCloud_2
   - T_TopCloud
-  - T_Waterfall
+  - T_Waterfall_3
+  - T_Waterfall_2
+  - T_Waterfall_1
+  - T_Waterfall_0
   - T_BowserStatueL
   - T_SnowMountain
   - T_BlueMountain
@@ -78,7 +97,12 @@ SpriteAtlas:
   - T_BridgeSupportR
   - T_Castle2
   - T_MountainGroup
-  - T_CaveLight
+  - T_CaveLight_4
+  - T_CaveLight_5
+  - T_CaveLight_0
+  - T_CaveLight_1
+  - T_CaveLight_2
+  - T_CaveLight_3
   m_RenderDataMap: {}
   m_Tag: SA_Scenery
   m_IsVariant: 0
