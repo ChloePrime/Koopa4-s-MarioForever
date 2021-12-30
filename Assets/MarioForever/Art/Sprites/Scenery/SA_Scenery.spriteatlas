@@ -7,6 +7,7 @@ SpriteAtlas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SA_Scenery
+  serializedVersion: 2
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -106,3 +107,4 @@ SpriteAtlas:
   m_RenderDataMap: {}
   m_Tag: SA_Scenery
   m_IsVariant: 0
+  m_IsPlaceholder: 0

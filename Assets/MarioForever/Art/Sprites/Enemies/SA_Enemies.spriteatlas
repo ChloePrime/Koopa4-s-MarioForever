@@ -7,6 +7,7 @@ SpriteAtlas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SA_Enemies
+  serializedVersion: 2
   m_EditorData:
     serializedVersion: 2
     textureSettings:
@@ -1646,3 +1647,4 @@ SpriteAtlas:
   m_RenderDataMap: {}
   m_Tag: SA_Enemies
   m_IsVariant: 0
+  m_IsPlaceholder: 0
