@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8937609295974480525}
   - component: {fileID: 8937609295974480530}
   m_Layer: 0
-  m_Name: GO_Background
+  m_Name: GO_Scenery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

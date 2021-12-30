@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &492898908762743010
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5731249457969265747, guid: 202000ad22724694ca0c636bcc1b2de2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 457e801232afb1d4799c41dab9d2aec8, type: 2}
+    - target: {fileID: 6943457887388433831, guid: 202000ad22724694ca0c636bcc1b2de2, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943457887388433831, guid: 202000ad22724694ca0c636bcc1b2de2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943457887388433831, guid: 202000ad22724694ca0c636bcc1b2de2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943457887388433831, guid: 202000ad22724694ca0c636bcc1b2de2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943457887388433831, guid: 202000ad22724694ca0c636bcc1b2de2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943457887388433831, guid: 202000ad22724694ca0c636bcc1b2de2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943457887388433831, guid: 202000ad22724694ca0c636bcc1b2de2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943457887388433831, guid: 202000ad22724694ca0c636bcc1b2de2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943457887388433831, guid: 202000ad22724694ca0c636bcc1b2de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943457887388433831, guid: 202000ad22724694ca0c636bcc1b2de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943457887388433831, guid: 202000ad22724694ca0c636bcc1b2de2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6943457887388433848, guid: 202000ad22724694ca0c636bcc1b2de2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1876784645, guid: 8471eae5aaadd6d4b8964dfce4044172, type: 3}
+    - target: {fileID: 6943457887388433849, guid: 202000ad22724694ca0c636bcc1b2de2, type: 3}
+      propertyPath: m_Name
+      value: GO_PuffTree_Red
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 202000ad22724694ca0c636bcc1b2de2, type: 3}

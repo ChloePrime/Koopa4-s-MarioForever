@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 4c25289a20a74c34d8694d5d9b01e754, type: 3}
     - target: {fileID: 8937609295974480531, guid: 6eb52050ac0773c4dade6ed8c2150228, type: 3}
       propertyPath: m_Name
-      value: GO_T_SnowMountain
+      value: GO_SnowMountain
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eb52050ac0773c4dade6ed8c2150228, type: 3}
