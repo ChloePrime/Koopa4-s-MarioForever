@@ -12,11 +12,11 @@ public class MarioRpgHitbox : MonoBehaviour, IDamageReceiver {
     public Faction Faction => faction;
     public DamageSource MyDamageSource => Mario.StompDamageSource;
 
-    public void Damage(DamageSource damager, EnumDamageType damageType) {
-        Mario.Damage(damager);
+    public void Damage(DamageEvent damage) {
+        Mario.Damage(damage);
     }
 
-    public void SetDead(DamageSource damager, EnumDamageType damageType) {
+    public void SetDead(DamageEvent damage) {
         if (Mario != null) {
             Mario.Kill();
         }

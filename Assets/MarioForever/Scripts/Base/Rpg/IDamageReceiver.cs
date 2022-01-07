@@ -7,9 +7,9 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Rpg
     {
         Faction Faction { get; }
         
-        void Damage(DamageSource damager, EnumDamageType damageType);
+        void Damage(DamageEvent damage);
 
-        void SetDead(DamageSource damager, EnumDamageType damageType);
+        void SetDead(DamageEvent damage);
 
         /// <summary>
         /// 受击者的攻击方式，

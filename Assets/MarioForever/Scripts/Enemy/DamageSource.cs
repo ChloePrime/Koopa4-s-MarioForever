@@ -29,6 +29,13 @@ public class DamageSource : Stompable, ISubObject {
     public event Func<DamageSource, IDamageReceiver, ActionResult> OnPreDamage;
     public event Action<DamageSource, IDamageReceiver> OnDamaging;
 
+    public delegate void DamageModifier(ref DamageEvent damage);
+
+    /// <summary>
+    /// 对 DamageEvent 进行一些后处理
+    /// </summary>
+    public event DamageModifier OnModifyDamageProperties;
+
     public bool CanHarm<T>(T hitbox) where T : IDamageReceiver {
         if (!faction.IsHostileTo(hitbox.Faction)) return false;
         // 判断是否是踩
@@ -42,15 +49,33 @@ public class DamageSource : Stompable, ISubObject {
     public void DoDamageTo<T>(T hitbox) where T : IDamageReceiver => DoDamageTo(hitbox, damageType);
 
     public void DoDamageTo<T>(T hitbox, EnumDamageType damageTypeIn) where T : IDamageReceiver {
+        DamageEvent damage = new(this, damageTypeIn);
+        DoDamageTo(hitbox, damage);
+    }
+
+    public void DoDamageTo<T>(T hitbox, DamageEvent damage) where T : IDamageReceiver {
+        if (damage.Source != this) {
+            throw new ArgumentException("Damage source not match!");
+        }
+
         if (!CanHarm(hitbox)) {
             return;
         }
 
         if (OnPreDamage?.Invoke(this, hitbox).IsCanceled() != true) {
-            hitbox.Damage(this, damageTypeIn);
+            OnModifyDamageProperties?.Invoke(ref damage);
+            hitbox.Damage(damage);
         }
 
         OnDamaging?.Invoke(this, hitbox);
+    }
+
+    public DamageEvent CreateDamageEvent() {
+        return CreateDamageEvent(this.damageType);
+    }
+
+    public DamageEvent CreateDamageEvent(EnumDamageType damageTypeIn) {
+        return new DamageEvent(this, damageTypeIn);
     }
 
     public void Kill<T>(T hitbox) where T : IDamageReceiver => Kill(hitbox, damageType);
@@ -60,7 +85,8 @@ public class DamageSource : Stompable, ISubObject {
             return;
         }
 
-        hitbox.SetDead(this, damageTypeIn);
+        DamageEvent damage = new(this, damageTypeIn);
+        hitbox.SetDead(damage);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]

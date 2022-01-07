@@ -47,37 +47,34 @@ public class DamageReceiver : Stompable, IDamageReceiver {
     public DamageSource MyDamageSource => myDamageSource;
 
 
-    public event Func<DamageSource, EnumDamageType, ActionResult> OnDeath;
-    public event Func<DamageSource, EnumDamageType, ActionResult> OnGenerateCorpse;
+    public event Func<DamageEvent, ActionResult> OnDeath;
+    public event Func<DamageEvent, ActionResult> OnGenerateCorpse;
 
     /// <summary>
     /// 返回null时意味着使用默认音效。
     /// </summary>
     public event Func<EnumDamageType, AudioClip> OnGetDeathSound;
     
-    public void Damage(DamageSource damager, EnumDamageType damageType) {
-        if ((acceptedDamageTypes & damageType) > 0) {
-            SetDead(damager, damageType);
+    public void Damage(DamageEvent damage) {
+        if ((acceptedDamageTypes & damage.Type) > 0) {
+            SetDead(damage);
         }
     }
 
-    public void SetDead(DamageSource damager, EnumDamageType damageType) {
+    public void SetDead(DamageEvent damage) {
         // 防止死亡代码重复执行
         if (isDead) return;
         isDead = true;
 
-        if (OnDeath?.Invoke(damager, damageType).IsCanceled() == true) {
+        if (OnDeath?.Invoke(damage).IsCanceled() == true) {
             // 死亡被取消后支持再次死亡，以方便乌龟切换。
             ResetDeathFlagAtNextFrame().Forget();
             return;
         }
 
-        PlayDeathSound(damageType);
-        if (!damageType.Contains(EnumDamageType.STOMP)) {
-            score.Summon(host.transform);
-        }
-
-        GenerateCorpse(damager, damageType);
+        PlayDeathSound(damage.Type);
+        SummonScore(damage);
+        GenerateCorpse(damage);
 
         if (TryGetComponent(out DamageSource damageSource)) {
             damageSource.enabled = false;
@@ -87,6 +84,15 @@ public class DamageReceiver : Stompable, IDamageReceiver {
     }
 
     public void PlayDeathSound(EnumDamageType damageType) => Global.PlaySound(GetDeathSound(damageType));
+
+    public void SummonScore(DamageEvent damage) {
+        Action scorer = damage.CreateScoreOverride;
+        if (scorer == null) {
+            score.Summon(host.transform);
+        } else {
+            scorer();
+        }
+    }
 
     protected override void Awake() {
         base.Awake();
@@ -114,8 +120,8 @@ public class DamageReceiver : Stompable, IDamageReceiver {
         isDead = false;
     }
 
-    private void GenerateCorpse(DamageSource damager, EnumDamageType damageType) {
-        bool overriden = OnGenerateCorpse?.Invoke(damager, damageType).IsCanceled() ?? false;
+    private void GenerateCorpse(DamageEvent damage) {
+        bool overriden = OnGenerateCorpse?.Invoke(damage).IsCanceled() ?? false;
         if (overriden) {
             Destroy(corpse);
             return;
@@ -123,7 +129,7 @@ public class DamageReceiver : Stompable, IDamageReceiver {
 
         corpse.SetActive(true);
         corpse.transform.parent = host.transform.parent;
-        corpseBehavior.InitCorpse(damager, Renderer);
+        corpseBehavior.InitCorpse(damage.Source, Renderer);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -139,8 +145,12 @@ public class DamageReceiver : Stompable, IDamageReceiver {
 
     public void TryGetStomped(Transform other) {
         if (other.TryGetComponent(out Mario mario) && IsStomp(other, mario)) {
-            mario.OnStomp(GetStompPower(mario), true);
-            mario.StompDamageSource.DoDamageTo(this);
+            mario.Jumper.Jump(GetStompPower(mario));
+
+            DamageEvent damage = mario.StompDamageSource.CreateDamageEvent();
+            // 使用马里奥的连踩 Combo 替代默认生成的分数
+            damage.CreateScoreOverride += () => mario.ComboInfo.Hit(mario.transform);
+            mario.StompDamageSource.DoDamageTo(this, damage);
         }
     }
 

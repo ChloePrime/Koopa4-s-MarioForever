@@ -1,3 +1,4 @@
+using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
 using UnityEngine;
 
@@ -15,14 +16,14 @@ public class GoombaDeathHandler : MonoBehaviour {
         goombaPhoto.SetActive(false);
     }
 
-    private ActionResult OnDeath(DamageSource damager, EnumDamageType damageType) {
-        if (!damageType.Contains(EnumDamageType.STOMP)) return ActionResult.PASS;
+    private ActionResult OnDeath(DamageEvent damage) {
+        if (!damage.Type.Contains(EnumDamageType.STOMP)) return ActionResult.PASS;
 
         goombaPhoto.SetActive(true);
         goombaPhoto.transform.parent = dr.Host.parent;
         goombaPhoto.transform.position = dr.Host.position;
         if (goombaPhoto.TryGetComponent(out Corpse corpse)) {
-            corpse.InitCorpse(damager, dr.Renderer);
+            corpse.InitCorpse(damage.Source, dr.Renderer);
         }
 
         return ActionResult.CANCEL;

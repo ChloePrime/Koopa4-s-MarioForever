@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
 using SweetMoleHouse.MarioForever.Scripts.Effect;
 using SweetMoleHouse.MarioForever.Scripts.Enemy;
@@ -110,8 +111,8 @@ public class Mario : MonoBehaviour {
         return Powerup == MarioPowerup.SMALL ? MarioSize.SMALL : MarioSize.BIG;
     }
 
-    public void Damage(DamageSource damager, float flashTime = 2) {
-        if (Invulnerable || invulnerableFrom.Contains(damager.Host)) {
+    public void Damage(DamageEvent damage, float flashTime = 2) {
+        if (Invulnerable || invulnerableFrom.Contains(damage.Source.Host)) {
             return;
         }
 
