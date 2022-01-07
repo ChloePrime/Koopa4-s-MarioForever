@@ -19,7 +19,10 @@ public class Walk : BasePhysics {
         get => walkSpeed;
         set {
             walkSpeed = value;
-            RealWalkSpeed = value * MathF.Sign(RealWalkSpeed);
+            int dir = MathF.Sign(RealWalkSpeed);
+            // 防止设置 WalkSpeed 时由于 RealWalkSpeed 为 0 而导致怪物不动 
+            dir = dir == 0 ? 1 : dir;
+            RealWalkSpeed = value * dir;
         }
     }
 
