@@ -1,5 +1,4 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using SweetMoleHouse.MarioForever.Scripts.Base.Physics;
 using SweetMoleHouse.MarioForever.Scripts.Util;
@@ -7,10 +6,8 @@ using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Bonus {
 /// <summary>
-/// 一个可以顶的东西
 /// </summary>
 public class QuestionBlock : HittableBase {
-
     [CanBeNull, SerializeField, RenameInInspector("顶后的残余")]
     protected GameObject afterHit;
 
@@ -20,22 +17,18 @@ public class QuestionBlock : HittableBase {
     [SerializeField, RenameInInspector("音效")]
     protected AudioClip sfx;
     
-    protected Animator Animation;
-    protected SpriteRenderer Renderer;
+    public delegate void ContentModifier(ref GameObject content);
 
-    protected int OutputIndex;
-    protected static readonly TimeSpan AnimLen = TimeSpan.FromSeconds(0.3f);
-    private bool _ready = true;
-    private Vector2 _size;
-    private static readonly int BlockHitAnim = Animator.StringToHash("顶起");
+    /// <summary>
+    /// 修改顶出物内容。
+    /// </summary>
+    public event ContentModifier ModifyContent;
 
     protected override void Awake() {
         base.Awake();
         
-        Animation = GetComponentInChildren<Animator>();
-        Renderer = GetComponentInChildren<SpriteRenderer>();
-        var bounds = GetComponent<Collider2D>().bounds;
-        _size = bounds.size;
+        _renderer = GetComponentInChildren<SpriteRenderer>();
+        _size = GetComponent<Collider2D>().bounds.size;
         // 创建子对象
         // 隐藏块顶后的方块，隐藏块里的内容物
         if (afterHit != null) {
@@ -63,35 +56,27 @@ public class QuestionBlock : HittableBase {
             ? sr
             : obj.GetComponentInChildren<SpriteRenderer>();
         if (thatSr == null) return;
-        thatSr.sortingLayerID = Renderer.sortingLayerID;
-        thatSr.sortingOrder = Renderer.sortingOrder - delta;
+        thatSr.sortingLayerID = _renderer.sortingLayerID;
+        thatSr.sortingOrder = _renderer.sortingOrder - delta;
     }
 
     public override bool OnHit(Transform hitter) {
-        if (!_ready) {
+        if (!Ready) {
             return true;
         }
 
-        if (OutputIndex < outputs.Length) {
-            SpawnContent(outputs[OutputIndex]);
-            Animation.SetTrigger(BlockHitAnim);
-            DamageEnemiesAbove();
-            StartCooldown();
-            ++OutputIndex;
+        if (_outputIndex < outputs.Length) {
+            base.OnHit(hitter);
+            SpawnContent(outputs[_outputIndex]);
+            ++_outputIndex;
         }
 
-        if (OutputIndex >= outputs.Length && afterHit != null) {
+        if (_outputIndex >= outputs.Length && afterHit != null) {
             afterHit.SetActive(true);
-            Renderer.enabled = false;
+            _renderer.enabled = false;
         }
 
         return false;
-    }
-
-    private async void StartCooldown() {
-        _ready = false;
-        await UniTask.Delay(AnimLen);
-        _ready = true;
     }
 
     private async void SpawnContent(GameObject bonus) {
@@ -101,6 +86,7 @@ public class QuestionBlock : HittableBase {
             Global.PlaySound(sfx);
         }
 
+        ModifyContent?.Invoke(ref bonus);
         bonus.SetActive(true);
         var yOffset = bonus.TryGetComponent(out Rigidbody2D r2d) ? MFUtil.Height(r2d) : _size.y;
         bonus.transform.Translate(0, -yOffset, 0);
@@ -109,5 +95,9 @@ public class QuestionBlock : HittableBase {
             appearable.Appear(Vector2.up, new Vector2(0, yOffset));
         }
     }
+
+    private SpriteRenderer _renderer;
+    private int _outputIndex;
+    private Vector2 _size;
 }
 }
