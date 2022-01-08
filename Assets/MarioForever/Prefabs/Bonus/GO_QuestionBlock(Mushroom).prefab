@@ -49,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2232048350775857963, guid: e6319245610794e408cf0ed5e2096d6a, type: 3}
       propertyPath: m_Name
-      value: Question Block (Mushroom)
+      value: GO_QuestionBlock(Mushroom)
       objectReference: {fileID: 0}
     - target: {fileID: 2232048350775857966, guid: e6319245610794e408cf0ed5e2096d6a, type: 3}
       propertyPath: outputs.Array.size
