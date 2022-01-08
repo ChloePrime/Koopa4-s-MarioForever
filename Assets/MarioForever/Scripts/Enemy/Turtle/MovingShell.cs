@@ -12,43 +12,43 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy.Turtle {
 /// </summary>
 public class MovingShell : MonoBehaviour {
     private void Awake() {
-        damageSource = this.BfsComponentInChildren<DamageSource>();
+        _damageSource = this.BfsComponentInChildren<DamageSource>();
         // 在刚刚生成的短时间内不对马里奥造成伤害
-        damageSource.OnPreDamage +=
+        _damageSource.OnPreDamage +=
             (source, receiver) => ShouldCancel(receiver) ? ActionResult.CANCEL : ActionResult.PASS;
         DisableProtectionAsync().Forget();
         // 防止动态龟壳击杀静止龟壳导致报错
-        this.BfsComponentInChildren<TurtleSwapper>().OnTurtleSwap += _ => damageHalted = true;
+        this.BfsComponentInChildren<TurtleSwapper>().OnTurtleSwap += _ => _damageHalted = true;
     }
 
     private async UniTaskVoid DisableProtectionAsync() {
         await UniTask.Delay(TimeSpan.FromSeconds(invulnerableTime));
-        protectionEnabled = false;
+        _protectionEnabled = false;
     }
 
     private bool ShouldCancel(IDamageReceiver receiver) =>
-        damageHalted || (protectionEnabled && receiver.Host.TryGetComponent(out Mario _));
+        _damageHalted || (_protectionEnabled && receiver.Host.TryGetComponent(out Mario _));
 
     /// <summary>
     /// 强制造成伤害
     /// </summary>
     private void OnCollisionEnter2D(Collision2D other) {
-        if (damageHalted) return;
+        if (_damageHalted) return;
         // 防止误伤踩龟壳的马里奥
-        if (other.transform.TryGetComponent(out Mario mario) && damageSource.IsStomp(other.transform, mario)) {
+        if (other.transform.TryGetComponent(out Mario mario) && _damageSource.IsStomp(other.transform, mario)) {
             return;
         }
 
         // 造成伤害
         if (other.transform.TryGetComponent(out IDamageReceiver receiver)) {
-            damageSource.DoDamageTo(receiver);
+            _damageSource.DoDamageTo(receiver);
         }
     }
 
     [SerializeField] private float invulnerableTime = 0.6f;
 
-    private bool protectionEnabled = true;
-    private DamageSource damageSource;
-    private bool damageHalted;
+    private bool _protectionEnabled = true;
+    private DamageSource _damageSource;
+    private bool _damageHalted;
 }
 }
