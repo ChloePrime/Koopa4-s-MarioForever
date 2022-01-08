@@ -129,4 +129,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2345b6b9d6ecf14daaaabe11b9fd543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasScore: 0
   swapTarget: {fileID: 7406616368544154782, guid: 61539e1b0b4818243b4e42ae2d5deb70, type: 3}
