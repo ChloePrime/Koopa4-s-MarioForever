@@ -23,7 +23,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Bonus
                 mario.SetPowerup(target, RainbowTime);
             }
 
-            var parent = transform.parent;
+            Transform parent = transform.parent;
             score.Summon(parent, 0, 0.5F);
             Global.PlaySound(sound);
             
