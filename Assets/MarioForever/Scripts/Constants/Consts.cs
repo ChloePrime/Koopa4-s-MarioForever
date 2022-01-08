@@ -25,7 +25,13 @@ namespace SweetMoleHouse.MarioForever.Scripts.Constants
     {
         public static string AllMovable => "Physics";
         public static string DmgDetector => "Murderers";
-        public static string IgnorePhysics => "IgnoreRaycast";
+        public static string IgnoreRaycast => "IgnoreRaycast";
+        public static string PhysicsFX => "PhysicsFX";
+        /// <summary>
+        /// 互相之间不发生碰撞的物理特效
+        /// </summary>
+        public static string NoninterferencePhysicsFX => "NoninterferencePhysicsFX";
+        public static string NoPhysics => "NoPhysics";
     }
 
     public static class Tags

@@ -155,6 +155,7 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: a71e2f3cc9493704aa0e5d2b9db275b3, type: 3}
   breakSound: {fileID: 8300000, guid: 3eadae42f4fb0b44cbba8fc6510314e6, type: 3}
   score: 50
+  fragment: {fileID: 5967853470905658327, guid: e6ea26761c9a5164e872291b69ffc476, type: 3}
 --- !u!114 &2434566002504256089
 MonoBehaviour:
   m_ObjectHideFlags: 0

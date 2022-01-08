@@ -143,7 +143,13 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
 
     private static void InitClass() {
         if (Inited) return;
-        Filter.SetLayerMask(~LayerMask.GetMask(LayerNames.AllMovable, LayerNames.DmgDetector));
+        Filter.SetLayerMask(~LayerMask.GetMask(
+            LayerNames.AllMovable,
+            LayerNames.DmgDetector,
+            LayerNames.PhysicsFX,
+            LayerNames.NoninterferencePhysicsFX,
+            LayerNames.NoPhysics
+        ));
         Filter.useTriggers = false;
         Inited = true;
     }

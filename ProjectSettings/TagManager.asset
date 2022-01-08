@@ -9,7 +9,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NoPhysics
   - Water
   - UI
   - 
@@ -18,8 +18,8 @@ TagManager:
   - Murderers
   - 
   - 
-  - 
-  - 
+  - PhysicsFX
+  - NoninterferencePhysicsFX
   - 
   - 
   - 
