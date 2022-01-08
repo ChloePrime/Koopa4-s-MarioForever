@@ -9645,6 +9645,7 @@ GameObject:
   - component: {fileID: 4873418834335122883}
   - component: {fileID: 3765637103454888423}
   - component: {fileID: 836534807922061052}
+  - component: {fileID: 448789481393932860}
   m_Layer: 8
   m_Name: DamageSrc
   m_TagString: Untagged
@@ -9710,6 +9711,18 @@ MonoBehaviour:
   fixCorpseDirection: 1
   host: {fileID: 4085723854135149140}
   disableActiveDamage: 0
+--- !u!114 &448789481393932860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134542107189198811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1645aadb6b6e83a4db99de0befea6620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2024473264026870204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9824,16 +9837,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2642266663093281783, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
   m_PrefabInstance: {fileID: 2024473264026870204}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4085723854135149140 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2642266663093281768, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
-  m_PrefabInstance: {fileID: 2024473264026870204}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4938328534019118561 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6381644747911099485, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
-  m_PrefabInstance: {fileID: 2024473264026870204}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6446278977679745502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9860,6 +9863,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounceStrength: 7
+--- !u!4 &4085723854135149140 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2642266663093281768, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
+  m_PrefabInstance: {fileID: 2024473264026870204}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4938328534019118561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6381644747911099485, guid: 2ec27c30605e19147b3586974c5f86da, type: 3}
+  m_PrefabInstance: {fileID: 2024473264026870204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7660873100851996881
 MonoBehaviour:
   m_ObjectHideFlags: 0

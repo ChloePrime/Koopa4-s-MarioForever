@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
 using SweetMoleHouse.MarioForever.Scripts.Base;
 using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
@@ -9,8 +8,7 @@ using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Enemy {
 /// <summary>
-/// 伤害来源，
-/// 需要自身带有 Trigger 类碰撞箱
+/// 伤害来源。
 /// </summary>
 public class DamageSource : Stompable, ISubObject {
     [SerializeField] private EnumDamageType damageType;
@@ -20,7 +18,6 @@ public class DamageSource : Stompable, ISubObject {
     private bool fixCorpseDirection;
 
     [Header("高级设置")] [SerializeField] private Transform host;
-    [SerializeField] private bool disableActiveDamage;
 
     public Transform Host => host;
     public Faction Faction => faction;
@@ -87,23 +84,6 @@ public class DamageSource : Stompable, ISubObject {
 
         DamageEvent damage = new(this, damageTypeIn);
         hitbox.SetDead(damage);
-    }
-
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void OnTriggerEnter2D(Collider2D other) {
-        OnTriggerStay2D(other);
-    }
-
-    private void OnTriggerStay2D(Collider2D other) {
-        if (disableActiveDamage) {
-            return;
-        }
-
-        if (!other.TryGetComponent(out IDamageReceiver hitbox)) {
-            return;
-        }
-
-        DoDamageTo(hitbox);
     }
 }
 }
