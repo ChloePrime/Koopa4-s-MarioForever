@@ -5,7 +5,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics
     /// <summary>
     /// 可以顶的东西
     /// </summary>
-    public interface IHitable
+    public interface IHittable
     {
         /// <summary>
         /// 被马里奥顶起时执行的动作

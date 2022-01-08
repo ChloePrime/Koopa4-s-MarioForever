@@ -441,8 +441,8 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
         if (YSpeed > 0) {
             bool defaultSound = true;
             foreach (var col in colliders) {
-                IHitable hittable;
-                if ((hittable = col.GetHost().GetComponent<IHitable>()) != null) {
+                IHittable hittable;
+                if ((hittable = col.GetHost().GetComponent<IHittable>()) != null) {
                     defaultSound = !hittable.OnHit(transform) && defaultSound;
                 }
             }

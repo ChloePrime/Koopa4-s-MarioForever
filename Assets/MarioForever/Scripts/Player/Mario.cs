@@ -87,6 +87,9 @@ public class Mario : MonoBehaviour {
 
     private MarioSize size;
 
+    /// <summary>
+    /// 马里奥碰撞箱大小，大个子蹲下时为 SMALL
+    /// </summary>
     public MarioSize Size {
         get => size;
         set {

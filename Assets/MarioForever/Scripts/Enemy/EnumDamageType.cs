@@ -15,6 +15,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy
         BEETROOT = 1 << 2,
         ENVIRONMENT = 1 << 3,
         KICK_SHELL = 1 << 4,
+        BUMP = 1 << 5,
         ENEMY = 1 << 30
     }
 
