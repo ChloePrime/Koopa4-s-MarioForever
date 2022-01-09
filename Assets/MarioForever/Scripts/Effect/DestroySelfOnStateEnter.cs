@@ -2,7 +2,7 @@ using SweetMoleHouse.MarioForever.Scripts.Base;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Effect {
-public class DestroySelf : StateMachineBehaviour
+public class DestroySelfOnStateEnter : StateMachineBehaviour
 {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         GameObject host = animator.TryGetComponent(out ISubObject subObject)

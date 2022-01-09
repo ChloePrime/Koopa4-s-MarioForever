@@ -32,27 +32,31 @@ public class QuestionBlock : HittableBase {
         // 创建子对象
         // 隐藏块顶后的方块，隐藏块里的内容物
         if (afterHit != null) {
-            CreateChild(ref afterHit, 1);
+            CreateChild(ref afterHit, 1, true);
         }
 
         for (int i = 0; i < outputs.Length; i++) {
-            CreateChild(ref outputs[i], i + 2);
+            CreateChild(ref outputs[i], i + 2, false);
         }
     }
 
-    private void CreateChild(ref GameObject input, int depth) {
+    private void CreateChild(ref GameObject input, int depth, bool forceMoveBack) {
         GameObject cloned = Instantiate(input, transform.parent);
 
-        // 设置y坐标为问号块顶部
+        // 设置 y 坐标为问号块顶部
         cloned.transform.position = transform.position;
         cloned.SetActive(false);
-        MoveToBack(cloned, depth);
+        MoveToBack(cloned, depth, forceMoveBack);
 
         input = cloned;
     }
 
-    private void MoveToBack(in GameObject obj, in int delta) {
-        var thatSr = obj.TryGetComponent(out SpriteRenderer sr)
+    private void MoveToBack(GameObject obj, int delta, bool forceMoveBack) {
+        if (!forceMoveBack && !obj.TryGetComponent(out IAppearable _)) {
+            return;
+        }
+        
+        SpriteRenderer thatSr = obj.TryGetComponent(out SpriteRenderer sr)
             ? sr
             : obj.GetComponentInChildren<SpriteRenderer>();
         if (thatSr == null) return;
@@ -88,12 +92,13 @@ public class QuestionBlock : HittableBase {
 
         ModifyContent?.Invoke(ref bonus);
         bonus.SetActive(true);
+        if (!bonus.TryGetComponent(out IAppearable appearable)) {
+            return;
+        }
+
         var yOffset = bonus.TryGetComponent(out Rigidbody2D r2d) ? MFUtil.Height(r2d) : _size.y;
         bonus.transform.Translate(0, -yOffset, 0);
-
-        if (bonus.TryGetComponent(out IAppearable appearable)) {
-            appearable.Appear(Vector2.up, new Vector2(0, yOffset));
-        }
+        appearable.Appear(Vector2.up, new Vector2(0, yOffset));
     }
 
     private SpriteRenderer _renderer;
