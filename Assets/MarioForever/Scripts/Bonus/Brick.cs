@@ -1,4 +1,3 @@
-using SweetMoleHouse.MarioForever.Scripts.Base.Physics;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
 using SweetMoleHouse.MarioForever.Scripts.Persistent;
 using SweetMoleHouse.MarioForever.Scripts.Player;

@@ -1,5 +1,4 @@
 using System;
-using Cysharp.Threading.Tasks;
 using SweetMoleHouse.MarioForever.Scripts.Base.Physics;
 using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using SweetMoleHouse.MarioForever.Scripts.Constants;

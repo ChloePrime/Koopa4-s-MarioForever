@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using SweetMoleHouse.MarioForever.Scripts.Enemy;
-using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
 namespace SweetMoleHouse {

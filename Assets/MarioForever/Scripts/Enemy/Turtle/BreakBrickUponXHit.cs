@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using SweetMoleHouse.MarioForever.Scripts.Base.Physics;
 using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;

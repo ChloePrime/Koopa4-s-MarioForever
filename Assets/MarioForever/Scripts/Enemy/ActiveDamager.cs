@@ -1,4 +1,3 @@
-using System;
 using System.Runtime.CompilerServices;
 using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using UnityEngine;
