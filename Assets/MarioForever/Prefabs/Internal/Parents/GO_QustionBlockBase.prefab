@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2232048350775857960}
   - component: {fileID: 2232048350775857966}
+  - component: {fileID: 6063486449050597842}
   - component: {fileID: 2232048350775857967}
   - component: {fileID: 5272599412125873690}
   m_Layer: 0
@@ -50,6 +51,20 @@ MonoBehaviour:
   afterHit: {fileID: 1948239407494939225, guid: 87120df37c9750041869e17e3a91c88d, type: 3}
   outputs: []
   sfx: {fileID: 8300000, guid: 430561b14bc417a46a58d61d1f95bfc0, type: 3}
+--- !u!114 &6063486449050597842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2232048350775857963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f034ce4b3c455fc46aec92b45a2d3236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enabled: 0
+  fallbackWhenMarioIsSmall: {fileID: 0}
 --- !u!61 &2232048350775857967
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -92,7 +107,6 @@ MonoBehaviour:
   faction: {fileID: 11400000, guid: 9a94c04f2911dec498fb2a8a1ef1c0d0, type: 2}
   fixCorpseDirection: 0
   host: {fileID: 0}
-  disableActiveDamage: 1
 --- !u!1 &8594397736156216368
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5216773973839692398
+--- !u!1001 &6129137784782977589
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -13,19 +13,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2232048350775857960, guid: e6319245610794e408cf0ed5e2096d6a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2232048350775857960, guid: e6319245610794e408cf0ed5e2096d6a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8
+      value: -8.5
       objectReference: {fileID: 0}
     - target: {fileID: 2232048350775857960, guid: e6319245610794e408cf0ed5e2096d6a, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232048350775857960, guid: e6319245610794e408cf0ed5e2096d6a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2232048350775857960, guid: e6319245610794e408cf0ed5e2096d6a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -53,7 +49,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2232048350775857963, guid: e6319245610794e408cf0ed5e2096d6a, type: 3}
       propertyPath: m_Name
-      value: GO_QuestionBlock(VN)
+      value: GO_QuestionBlock_Mushroom
       objectReference: {fileID: 0}
     - target: {fileID: 2232048350775857966, guid: e6319245610794e408cf0ed5e2096d6a, type: 3}
       propertyPath: outputs.Array.size
@@ -62,7 +58,7 @@ PrefabInstance:
     - target: {fileID: 2232048350775857966, guid: e6319245610794e408cf0ed5e2096d6a, type: 3}
       propertyPath: outputs.Array.data[0]
       value: 
-      objectReference: {fileID: 8817753438945280279, guid: 79dffa158b37ba643bde80d55ad14176, type: 3}
+      objectReference: {fileID: 4670028623585650627, guid: 14190734ab95a024a870839330057bf4, type: 3}
     - target: {fileID: 2232048350775857966, guid: e6319245610794e408cf0ed5e2096d6a, type: 3}
       propertyPath: outputs.Array.data[1]
       value: 
@@ -158,7 +154,7 @@ PrefabInstance:
     - target: {fileID: 5513216569353926975, guid: e6319245610794e408cf0ed5e2096d6a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1574509915, guid: 9690ecbe90496094681e991af71095e3, type: 3}
+      objectReference: {fileID: -1609128560, guid: 9690ecbe90496094681e991af71095e3, type: 3}
     - target: {fileID: 5513216569353926975, guid: e6319245610794e408cf0ed5e2096d6a, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

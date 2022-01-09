@@ -796,6 +796,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: T_QuestionBlock_Editor_33
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 64
+        width: 32
+        height: 32
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bca7e299e7f0a8446abe85b0f08bc5e8
+      internalID: -1609128560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_QuestionBlock_Editor_34
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 32
+        width: 32
+        height: 32
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e878d794af8f6f749926aed043573a98
+      internalID: 1959600053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: T_QuestionBlock_Editor_35
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 32
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62da33f79ea29524b941b4c019514137
+      internalID: -1099143215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -807,12 +870,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      T_QuestionBlock_Editor_32: 1596577898
-      T_QuestionBlock_Editor_25: 8809655
       T_QuestionBlock_Editor_23: 947718025
       T_QuestionBlock_Editor_30: -1593049060
       T_QuestionBlock_Editor_19: -507116884
       T_QuestionBlock_Editor_29: -1150149418
+      T_QuestionBlock_Editor_35: -1099143215
       T_QuestionBlock_Editor_2: 1900960930
       T_QuestionBlock_Editor_31: 557989536
       T_QuestionBlock_Editor_11: 1828911875
@@ -826,18 +888,22 @@ TextureImporter:
       T_QuestionBlock_Editor_5: -1860307540
       T_QuestionBlock_Editor_7: 1632109426
       T_QuestionBlock_Editor_22: 1810750539
+      T_QuestionBlock_Editor_34: 1959600053
       T_QuestionBlock_Editor_16: -1778318236
       T_QuestionBlock_Editor_10: 1245299520
+      T_QuestionBlock_Editor_33: -1609128560
       T_QuestionBlock_Editor_0: -171567192
-      T_QuestionBlock_Editor_6: -1616154417
+      T_QuestionBlock_Editor_27: 2025193453
       T_QuestionBlock_Editor_26: -1664053518
+      T_QuestionBlock_Editor_6: -1616154417
       T_QuestionBlock_Editor_15: 1914999664
       T_QuestionBlock_Editor_20: 974735022
+      T_QuestionBlock_Editor_25: 8809655
       T_QuestionBlock_Editor_3: -1574509915
+      T_QuestionBlock_Editor_32: 1596577898
       T_QuestionBlock_Editor_21: 720037723
-      T_QuestionBlock_Editor_1: -1478010542
       T_QuestionBlock_Editor_14: 1852556769
-      T_QuestionBlock_Editor_27: 2025193453
+      T_QuestionBlock_Editor_1: -1478010542
       T_QuestionBlock_Editor_17: 366777314
       T_QuestionBlock_Editor_18: -511455290
   spritePackingTag: 
