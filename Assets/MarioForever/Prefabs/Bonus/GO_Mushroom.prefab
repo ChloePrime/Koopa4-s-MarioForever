@@ -1,17 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &1695800650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4670028623585650627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 076b11e4841871246aeb8ca2ca2114b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5129677014201661055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65,11 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 576179667032297916, guid: 17aee1c84a035894c89ca446ede247e9, type: 3}
       propertyPath: m_Name
-      value: Mushroom
+      value: GO_Mushroom
       objectReference: {fileID: 0}
     - target: {fileID: 576179667032297917, guid: 17aee1c84a035894c89ca446ede247e9, type: 3}
       propertyPath: walkSpeed
-      value: 1.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1761034090597137341, guid: 17aee1c84a035894c89ca446ede247e9, type: 3}
       propertyPath: m_Sprite
@@ -90,3 +78,15 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 576179667032297916, guid: 17aee1c84a035894c89ca446ede247e9, type: 3}
   m_PrefabInstance: {fileID: 5129677014201661055}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1695800650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4670028623585650627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076b11e4841871246aeb8ca2ca2114b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
