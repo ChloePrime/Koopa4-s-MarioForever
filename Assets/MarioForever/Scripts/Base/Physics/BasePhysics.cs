@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
 using SweetMoleHouse.MarioForever.Scripts.Facility;
 using SweetMoleHouse.MarioForever.Scripts.Util;
@@ -62,10 +63,10 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     // 运行时字段
 
     public SlopeState CurSlopeState { get; private set; } = SlopeState.FLAT;
-    private BaseSlope curSlopeObj;
+    private BaseSlope _curSlopeObj;
 
     protected XFacingWallStatus IsFacingWallX;
-    private int lastXDir;
+    private int _lastXDir;
 
     /// <summary>
     /// 斜坡坡度对速度的衰减
@@ -73,64 +74,64 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     /// (真实y速度 = x速度 * <see cref="BaseSlope.Degree"/>)
     /// 只对上坡有效
     /// </summary>
-    private float slopeFactor;
+    private float _slopeFactor;
 
-    private float lastFUpdateTime;
-    private Vector2 tickStartPos;
-    private Vector2 tickEndPos;
-    private Vector2 displayLocalPos;
+    private float _lastFUpdateTime;
+    private Vector2 _tickStartPos;
+    private Vector2 _tickEndPos;
+    private Vector2 _displayLocalPos;
 
     // 属性
 
     public Rigidbody2D R2d { get; private set; }
     
     public BaseSlope CurSlopeObj {
-        set => curSlopeObj = value;
-        get => curSlopeObj;
+        set => _curSlopeObj = value;
+        get => _curSlopeObj;
     }
 
     #region 从水管出现
 
-    private bool appeared = true;
-    private Vector2 appearDir;
-    private float appearProgress;
-    private bool appearingInSolidBefore;
+    private bool _appeared = true;
+    private Vector2 _appearDir;
+    private float _appearProgress;
+    private bool _appearingInSolidBefore;
 
     public virtual void Appear(in Vector2 direction, in Vector2 size) {
-        appeared = false;
-        appearDir = MathHelper.GetAxis(direction);
-        if (appearDir == Vector2.left || appearDir == Vector2.right) {
-            appearProgress = size.x;
+        _appeared = false;
+        _appearDir = MathHelper.GetAxis(direction);
+        if (_appearDir == Vector2.left || _appearDir == Vector2.right) {
+            _appearProgress = size.x;
         } else {
-            appearProgress = size.y;
+            _appearProgress = size.y;
         }
 
-        appearProgress += AntiTrapEpsilon;
+        _appearProgress += AntiTrapEpsilon;
     }
 
     private void AppearUpdate() {
         float distance = appearSpeed * Time.fixedDeltaTime;
-        if (distance > appearProgress) {
-            distance = appearProgress;
+        if (distance > _appearProgress) {
+            distance = _appearProgress;
         }
 
-        appearProgress -= distance;
-        transform.Translate(appearDir * distance);
+        _appearProgress -= distance;
+        transform.Translate(_appearDir * distance);
 
         TryEndAppearInAdvance();
-        if (appearProgress <= 0) {
-            appeared = true;
+        if (_appearProgress <= 0) {
+            _appeared = true;
         }
     }
 
     private void TryEndAppearInAdvance() {
         bool inSolid = R2d.GetContacts(Filter, OverlapTempArray) != 0;
-        if (inSolid && !appearingInSolidBefore) {
-            appearingInSolidBefore = true;
+        if (inSolid && !_appearingInSolidBefore) {
+            _appearingInSolidBefore = true;
         }
 
-        if (appearingInSolidBefore && !inSolid) {
-            appearProgress = 0;
+        if (_appearingInSolidBefore && !inSolid) {
+            _appearProgress = 0;
             print("Appearing Stopped!");
         }
     }
@@ -162,7 +163,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
         }
         
         if (display != null) {
-            displayLocalPos = display.position - transform.position;
+            _displayLocalPos = display.position - transform.position;
         }
         
         R2d = GetComponent<Rigidbody2D>();
@@ -172,14 +173,14 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
         InitClass();
         
         // 防止卡在墙里
-        if (appeared && R2d.Cast(Vector2.zero, RCastTempArray) > 0) {
+        if (_appeared && R2d.Cast(Vector2.zero, RCastTempArray) > 0) {
             transform.Translate(0, 0.01F, 0);
             IsOnGround = true;
         }
     }
 
     protected virtual void FixedUpdate() {
-        if (!appeared) {
+        if (!_appeared) {
             AppearUpdate();
             return;
         }
@@ -190,8 +191,8 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
             return;
         }
 
-        if (lastFUpdateTime >= 0.0001) {
-            transform.position = tickEndPos;
+        if (_lastFUpdateTime >= 0.0001) {
+            transform.position = _tickEndPos;
         }
 
         ClampSpeed();
@@ -222,11 +223,11 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     /// 这两个坐标会在Update时用于坐标插值
     /// </summary>
     private void MoveAndRecordPos() {
-        lastFUpdateTime = Time.time;
-        tickStartPos = transform.position;
+        _lastFUpdateTime = Time.time;
+        _tickStartPos = transform.position;
         int dirX = Math.Sign(XSpeed);
         if (dirX != 0) {
-            lastXDir = dirX;
+            _lastXDir = dirX;
         }
 
         MoveX(XSpeed * Time.fixedDeltaTime, true);
@@ -235,17 +236,17 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     }
 
     private void RecordPos() {
-        tickEndPos = transform.position;
+        _tickEndPos = transform.position;
     }
 
     /// <summary>
     /// 对马里奥的位置进行平滑插值
     /// </summary>
     protected virtual void Update() {
-        if (lastFUpdateTime < 0.0001) return;
+        if (_lastFUpdateTime < 0.0001) return;
 
-        float prog = (Time.time - lastFUpdateTime) / Time.fixedDeltaTime;
-        display.position = displayLocalPos + Vector2.Lerp(tickStartPos, tickEndPos, prog);
+        float prog = (Time.time - _lastFUpdateTime) / Time.fixedDeltaTime;
+        display.position = _displayLocalPos + Vector2.Lerp(_tickStartPos, _tickEndPos, prog);
     }
 
     /// <summary>
@@ -293,7 +294,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
                 continue;
             }
 
-            int xDir = dir.x == 0 ? lastXDir : Math.Sign(dir.x);
+            int xDir = dir.x == 0 ? _lastXDir : Math.Sign(dir.x);
             if (isUp && xDir == slope.Dir) {
                 CurSlopeState = SlopeState.UP;
                 SetSlope(slope);
@@ -314,12 +315,12 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     /// 同时计算坡度
     /// </summary>
     private void SetSlope(in BaseSlope slope) {
-        if (slope == curSlopeObj) {
+        if (slope == _curSlopeObj) {
             return;
         }
 
-        curSlopeObj = slope;
-        slopeFactor = 1 / Mathf.Sqrt(1 + slope.Degree * slope.Degree);
+        _curSlopeObj = slope;
+        _slopeFactor = 1 / Mathf.Sqrt(1 + slope.Degree * slope.Degree);
     }
 
     public bool OverlappingAnything() => R2d.OverlapCollider(Filter, OverlapTempArray) > 0;
@@ -350,9 +351,9 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
                 }
             }
         } else if (CurSlopeState == SlopeState.UP) {
-            distance *= slopeFactor;
+            distance *= _slopeFactor;
             actualDist = Math.Abs(distance);
-            int hitAmount = Move(new Vector2(distance, actualDist * curSlopeObj.Degree));
+            int hitAmount = Move(new Vector2(distance, actualDist * _curSlopeObj.Degree));
             if (hitAmount > 0) {
                 HitWallX(TakeColliders(hitAmount));
                 UpdateWallStatusX();
@@ -367,7 +368,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
         }
 
         if (CurSlopeState == SlopeState.DOWN) {
-            Move(new Vector2(0, -actualDist * curSlopeObj.Degree));
+            Move(new Vector2(0, -actualDist * _curSlopeObj.Degree));
         }
 
         RecordPos();
@@ -381,7 +382,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     public void PushX(float distance) {
         CheckSlope(new Vector2(distance, 0), distance, true);
         if (CurSlopeState == SlopeState.UP) {
-            distance *= curSlopeObj.Degree;
+            distance *= _curSlopeObj.Degree;
         }
 
         MoveX(distance, false);
@@ -392,7 +393,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     /// 此时速度尚未归0
     /// </summary>
     /// <param name="colliders">碰撞结果</param>
-    protected virtual void HitWallX(in Collider2D[] colliders) {
+    public virtual void HitWallX(in Collider2D[] colliders) {
         OnHitWallX?.Invoke(colliders);
     }
 
@@ -441,14 +442,13 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     /// 此时速度尚未归0
     /// </summary>
     /// <param name="colliders">碰撞结果</param>
-    protected virtual void HitWallY(in Collider2D[] colliders) {
+    public virtual void HitWallY(in Collider2D[] colliders) {
         OnHitWallY?.Invoke(colliders);
 
         if (YSpeed > 0) {
             bool defaultSound = true;
             foreach (var col in colliders) {
-                IHittable hittable;
-                if ((hittable = col.GetHost().GetComponent<IHittable>()) != null) {
+                if (col.GetHost().TryGetComponent(out IHittable hittable)) {
                     defaultSound = !hittable.OnHit(transform) && defaultSound;
                 }
             }
@@ -516,13 +516,13 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     /// </summary>
     /// <returns>X方向的方向矢量</returns>
     protected Vector2 GetDirXWithSlope(float xSpeed) {
-        float x = xSpeed == 0 ? lastXDir : Math.Sign(XSpeed);
+        float x = xSpeed == 0 ? _lastXDir : Math.Sign(XSpeed);
         if (CurSlopeState != SlopeState.UP) {
             return new Vector2(x, 0);
         }
 
-        x *= slopeFactor;
-        float y = Mathf.Abs(x) * (int)CurSlopeState * curSlopeObj.Degree;
+        x *= _slopeFactor;
+        float y = Mathf.Abs(x) * (int)CurSlopeState * _curSlopeObj.Degree;
         return new Vector2(x, y);
     }
 
@@ -537,15 +537,15 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
 
         return Math.Sign(YSpeed) > 0 ? Vector2.up : Vector2.down;
     }
-
+    
     /// <summary>
     /// RayCast，但是会正确处理穿透平台。
     /// </summary>
     public int Cast(Vector2 direction,
         ContactFilter2D contactFilter,
         RaycastHit2D[] results,
-        float distance = Mathf.Infinity) {
-        
+        float distance = Mathf.Infinity
+    ) {
         int count = R2d.Cast(direction, contactFilter, results, distance);
         bool considerPlatform = direction.y < 0 && -direction.y > Mathf.Abs(direction.x);
 
@@ -561,15 +561,16 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
             if (!rig.CompareTag(Tags.Platform)) continue;
             // normal.y >= 0 && normal.y > abs(normal.x)
             // 不考虑平台，或者法线不超上的情况，此时把平台视作空心的
-            if (!considerPlatform
-                || !this.IsStandingOnPlatform(result.point)
-                || result.normal.y < Mathf.Abs(result.normal.x)) {
+            if (ShouldCullFromResults()) {
                 // 说明这个实心是平台且需要剔除，那么把它从 Cast 结果中剔除
-                CullPlatform();
+                bias++;
             }
 
-            void CullPlatform() {
-                bias++;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            bool ShouldCullFromResults() {
+                return !considerPlatform
+                       || !this.IsStandingOnPlatform(result.point)
+                       || result.normal.y < Mathf.Abs(result.normal.x);
             }
         }
 

@@ -68,7 +68,7 @@ public class Walk : BasePhysics {
         base.FixedUpdate();
     }
 
-    protected override void HitWallX(in Collider2D[] colliders) {
+    public override void HitWallX(in Collider2D[] colliders) {
         base.HitWallX(colliders);
         TurnRound();
     }

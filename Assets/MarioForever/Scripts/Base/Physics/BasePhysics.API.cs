@@ -30,7 +30,7 @@ public partial class BasePhysics {
     public void TeleportTo(float x, float y) => TeleportTo(new Vector2(x, y));
 
     public void TeleportTo(Vector2 pos) {
-        transform.position = tickStartPos = tickEndPos = pos;
+        transform.position = _tickStartPos = _tickEndPos = pos;
     }
 
     public void TeleportBy(float x, float y) => TeleportBy(new Vector2(x, y));
