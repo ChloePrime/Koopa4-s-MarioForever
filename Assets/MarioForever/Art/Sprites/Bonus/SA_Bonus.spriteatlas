@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SA_Bonus
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: c6e11425757e93a4cbe6557dded3de1c, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 536c3ac306a36b44180b44098ad794d7, type: 3}
+  - {fileID: 244859453392456284, guid: 7d22a184bf717a847bd68af9585af8f8, type: 3}
+  - {fileID: 4270334665837027911, guid: 7d22a184bf717a847bd68af9585af8f8, type: 3}
+  - {fileID: 3251090245660100195, guid: 7d22a184bf717a847bd68af9585af8f8, type: 3}
+  - {fileID: 8921070482401573997, guid: 7d22a184bf717a847bd68af9585af8f8, type: 3}
+  - {fileID: 1132254803940588324, guid: 7d22a184bf717a847bd68af9585af8f8, type: 3}
+  - {fileID: 2036946684676408755, guid: 7d22a184bf717a847bd68af9585af8f8, type: 3}
+  - {fileID: -6670349171185240255, guid: 7d22a184bf717a847bd68af9585af8f8, type: 3}
+  - {fileID: -50082254027327952, guid: 7d22a184bf717a847bd68af9585af8f8, type: 3}
+  - {fileID: 1722619624434454618, guid: 7d22a184bf717a847bd68af9585af8f8, type: 3}
+  - {fileID: -7328722519038730189, guid: 7d22a184bf717a847bd68af9585af8f8, type: 3}
+  - {fileID: 2950633266089089319, guid: 7d22a184bf717a847bd68af9585af8f8, type: 3}
+  - {fileID: -5232562019571923199, guid: 7d22a184bf717a847bd68af9585af8f8, type: 3}
+  - {fileID: 21300000, guid: 8fad9c881edf1b440afe0a185af678ca, type: 3}
+  - {fileID: -7968858541247049543, guid: 7971ab39d97d8a648ba01b80ac5c5d69, type: 3}
+  - {fileID: 805417461074702246, guid: 7971ab39d97d8a648ba01b80ac5c5d69, type: 3}
+  - {fileID: 473132466411576782, guid: 7971ab39d97d8a648ba01b80ac5c5d69, type: 3}
+  - {fileID: 21300000, guid: edeed179c2ce97448adf61cc459b094e, type: 3}
+  - {fileID: 1833894531186940855, guid: d679b66c433ccc04f97310c923f13abd, type: 3}
+  - {fileID: -5935741247142685401, guid: d679b66c433ccc04f97310c923f13abd, type: 3}
+  - {fileID: 5158206280523286906, guid: d679b66c433ccc04f97310c923f13abd, type: 3}
+  - {fileID: 5720382254438631289, guid: d679b66c433ccc04f97310c923f13abd, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - T_HittedQuestionBlock
+  - Bouns(Static)_8
+  - Bouns(Static)_9
+  - Bouns(Static)_0
+  - Bouns(Static)_1
+  - Bouns(Static)_2
+  - Bouns(Static)_3
+  - Bouns(Static)_4
+  - Bouns(Static)_5
+  - Bouns(Static)_6
+  - Bouns(Static)_7
+  - Bouns(Static)_11
+  - Bouns(Static)_10
+  - T_BrickFragment
+  - Question Block_1
+  - Question Block_0
+  - Question Block_2
+  - T_Brick
+  - "\u706B\u529B\u82B1_0"
+  - "\u706B\u529B\u82B1_1"
+  - "\u706B\u529B\u82B1_2"
+  - "\u706B\u529B\u82B1_3"
+  m_RenderDataMap: {}
+  m_Tag: SA_Bonus
+  m_IsVariant: 0
