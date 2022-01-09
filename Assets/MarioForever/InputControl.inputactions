@@ -1,5 +1,5 @@
 {
-    "name": "按键控制",
+    "name": "InputControl",
     "maps": [
         {
             "name": "Debug",
@@ -11,7 +11,8 @@
                     "id": "7ecfe918-0a27-40d5-bed2-b2e0458312f7",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -82,7 +83,8 @@
                     "id": "5eca29af-819b-43ca-9afc-b54ec1887a46",
                     "expectedControlType": "Axis",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Up",
@@ -90,7 +92,8 @@
                     "id": "05d1fbfd-bbe7-4662-b002-c843ff0a9e91",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Down",
@@ -98,7 +101,8 @@
                     "id": "4ee99cc9-457b-4d3a-a7fd-0895ba1d97fd",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Jump",
@@ -106,7 +110,8 @@
                     "id": "b08075ce-2c85-4a53-b107-603392af039f",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "FireOrRun",
@@ -114,12 +119,13 @@
                     "id": "510d1c06-0277-42f4-89d7-c617cd955538",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
-                    "name": "1D Axis",
+                    "name": "Keyboard",
                     "id": "9e75faab-460c-4029-a8db-f771cfc85ce9",
                     "path": "1DAxis",
                     "interactions": "",
@@ -152,9 +158,53 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "Joystick",
+                    "id": "ec9b27d8-ae40-4640-9bb2-f96e228dfabc",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMove",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "fada01aa-b5ff-4cd7-97ae-b9395507797a",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "cc85c624-3c21-4648-a950-efee7e4bfac6",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "c89c8451-b56e-4601-a55a-100ebe588814",
                     "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f6a1007-e3d9-4e00-835e-2365ac63d4f7",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -175,6 +225,17 @@
                 },
                 {
                     "name": "",
+                    "id": "1dc09367-03e1-4eeb-a3b5-a80d5bec7445",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FireOrRun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "a12507d6-3cc7-4e11-a306-930a9e86faa2",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
@@ -186,8 +247,30 @@
                 },
                 {
                     "name": "",
+                    "id": "03decfbf-d500-45d6-9261-d3c07fa0a856",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Up",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "ab167f95-173e-4ee6-a32d-0ca1ca803224",
                     "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Down",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0835599c-3118-40d4-b6b3-102ed7f42056",
+                    "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
