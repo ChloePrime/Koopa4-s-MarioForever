@@ -19,6 +19,12 @@ public class Hop : MonoBehaviour {
         };
     }
 
+    private void FixedUpdate() {
+        if (_physics.IsOnGround && _physics.YSpeed <= 0) {
+            _physics.YSpeed = jumpHeight;
+        }
+    }
+
     private async void JumpAtNextFrame() {
         await UniTask.NextFrame(PlayerLoopTiming.FixedUpdate);
         if (_physics != null) {
