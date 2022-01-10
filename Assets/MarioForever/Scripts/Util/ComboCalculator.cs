@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Util {
 /// <summary>
+/// 连杀计分器。
 /// 和 <see cref="DamageSource"/> 放在一个 GameObject 上可以让伤害来源获得连杀效果。
 /// </summary>
 public class ComboCalculator : MonoBehaviour {
@@ -28,12 +29,21 @@ public class ComboCalculator : MonoBehaviour {
     public void ResetCombo() {
         _current = InitialScore;
     }
+
+    /// <summary>
+    /// 让 this 接管指定的 <see cref="damager"/>，
+    /// 让 damager 造成伤害时获得 Combo 计分效果。
+    /// </summary>
+    public void TakeOver(DamageSource damager) {
+        Transform host = damager.Host;
+        damager.OnModifyDamageProperties +=
+            (ref DamageEvent damage) => damage.CreateScoreOverride +=
+                () => Hit(host);
+    }
     
     private void Awake() {
         if (TryGetComponent(out DamageSource damager)) {
-            Transform host = damager.Host;
-            damager.OnModifyDamageProperties +=
-                (ref DamageEvent damage) => damage.CreateScoreOverride += () => Hit(host);
+            TakeOver(damager);
         }
     }
     

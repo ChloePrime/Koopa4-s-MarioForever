@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Linq;
+using Cysharp.Threading.Tasks;
+using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
+using SweetMoleHouse.MarioForever.Scripts.Enemy;
 using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
@@ -6,6 +10,7 @@ namespace SweetMoleHouse.MarioForever.Scripts.Player {
 /// <summary>
 /// 玩家无敌特效。
 /// </summary>
+[RequireComponent(typeof(ComboCalculator))]
 public class MarioInvincibleController : MonoBehaviour {
     private const float RainbowPower = 0.5F;
     [SerializeField] private float flashCycle = 0.2f;
@@ -32,8 +37,10 @@ public class MarioInvincibleController : MonoBehaviour {
     }
 
     private void Awake() {
-        _mario = GetComponentInParent<Mario>();
-        _invincibleCombo = invincibleDamageSource.GetComponent<ComboCalculator>();
+        _invincibleCombo = GetComponent<ComboCalculator>();
+        foreach (DamageSource ds in invincibleDamageSource) {
+            _invincibleCombo.TakeOver(ds);
+        }
     }
 
     private void Update() {
@@ -97,7 +104,10 @@ public class MarioInvincibleController : MonoBehaviour {
 
     private void SetHasActiveDamageImpl(bool value) {
         _hasActiveDamage = value;
-        invincibleDamageSource.SetActive((value));
+
+        foreach (DamageSource ds in invincibleDamageSource) {
+            ds.gameObject.SetActive(value);
+        }
 
         if (!value && _invincibleCombo != null) {
             _invincibleCombo.ResetCombo();
@@ -106,9 +116,8 @@ public class MarioInvincibleController : MonoBehaviour {
 
     [Header("高级设置")]
     [SerializeField] private new SpriteRenderer renderer;
-    [SerializeField] private GameObject invincibleDamageSource;
-    
-    private Mario _mario;
+    [SerializeField] private DamageSource[] invincibleDamageSource;
+
     private ComboCalculator _invincibleCombo;
     private float _flashTime;
     private float _rainbowFlashTime;
