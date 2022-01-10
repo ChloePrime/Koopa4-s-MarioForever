@@ -163,9 +163,5 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6063486449050597842, guid: e6319245610794e408cf0ed5e2096d6a, type: 3}
-      propertyPath: fallbackWhenMarioIsSmall
-      value: 
-      objectReference: {fileID: 4670028623585650627, guid: 14190734ab95a024a870839330057bf4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6319245610794e408cf0ed5e2096d6a, type: 3}
