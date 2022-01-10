@@ -108,6 +108,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
         TryEndAppearInAdvance();
         if (_appearProgress <= 0) {
             _appeared = true;
+            MoveY(-0.01F, true);
         }
     }
 

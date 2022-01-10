@@ -15,7 +15,7 @@ public class Hop : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (_physics.IsOnGround && _physics.YSpeed <= 0) {
+        if (_physics.IsOnGround) {
             _physics.YSpeed = jumpHeight;
         }
     }
