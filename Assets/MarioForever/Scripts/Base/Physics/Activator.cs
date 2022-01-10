@@ -19,6 +19,10 @@ public class Activator : MonoBehaviour {
 
     private async void Start() {
         await UniTask.NextFrame(PlayerLoopTiming.FixedUpdate);
+        if (this == null) {
+            return;
+        }
+        
         Vector2 myPos = transform.position;
         // 如果此 object 一开始就放在视野中
         if (ShouldActivate(myPos)) {
