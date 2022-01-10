@@ -91,3 +91,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 12
+--- !u!1 &8054386487341696715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7181279714863085105, guid: 17aee1c84a035894c89ca446ede247e9, type: 3}
+  m_PrefabInstance: {fileID: 896192189482447098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3119851274489205238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8054386487341696715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e97d2e10533924cb9baa8a2e6a8395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincibleTime: 10

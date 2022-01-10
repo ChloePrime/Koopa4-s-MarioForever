@@ -13,8 +13,22 @@ public class ComboCalculator : MonoBehaviour {
 
     [SerializeField] private bool loop;
 
-    private ScoreType current;
+    public void Hit(Transform trr) {
+        _current.Summon(trr);
+        bool end = !Enum.IsDefined(typeof(ScoreType), _current + 1);
+        if (end) {
+            if (loop) {
+                _current = InitialScore;
+            }
+        } else {
+            _current += 1;
+        }
+    }
 
+    public void ResetCombo() {
+        _current = InitialScore;
+    }
+    
     private void Awake() {
         if (TryGetComponent(out DamageSource damager)) {
             Transform host = damager.Host;
@@ -22,21 +36,7 @@ public class ComboCalculator : MonoBehaviour {
                 (ref DamageEvent damage) => damage.CreateScoreOverride += () => Hit(host);
         }
     }
-
-    public void Hit(Transform trr) {
-        current.Summon(trr);
-        bool end = !Enum.IsDefined(typeof(ScoreType), current + 1);
-        if (end) {
-            if (loop) {
-                current = InitialScore;
-            }
-        } else {
-            current += 1;
-        }
-    }
-
-    public void ResetCombo() {
-        current = InitialScore;
-    }
+    
+    private ScoreType _current;
 }
 }

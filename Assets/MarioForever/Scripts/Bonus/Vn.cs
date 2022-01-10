@@ -2,9 +2,10 @@ using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using SweetMoleHouse.MarioForever.Scripts.Enemy;
 using UnityEngine;
 
-namespace SweetMoleHouse {
+namespace SweetMoleHouse.MarioForever.Scripts.Bonus {
 /// <summary>
-/// 毒蘑菇
+/// 毒蘑菇。
+/// 此实现在 <see cref="DamageSource.Faction"/> 正确配置的情况下允许 VN 杀死怪物。
 /// </summary>
 public class Vn : MonoBehaviour {
     [SerializeField] private GameObject explodeEffect;

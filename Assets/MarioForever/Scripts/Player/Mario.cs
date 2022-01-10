@@ -42,7 +42,7 @@ public class Mario : MonoBehaviour {
 
     public MarioAnim Anims { get; private set; }
     public SpriteRenderer Renderer { get; private set; }
-    public Flashing FlashCtrl { get; private set; }
+    public MarioInvincibleController InvincibleController { get; private set; }
 
     public AbilityManager PowerupManager { get; private set; }
 
@@ -78,8 +78,6 @@ public class Mario : MonoBehaviour {
 
     public bool ControlDisabled { get; set; }
     public bool IsWallJumping { get; set; }
-    public bool Invulnerable => FlashCtrl.FlashTime > 0 && FlashIsInvul;
-    private bool FlashIsInvul { get; set; }
     private readonly HashSet<Transform> invulnerableFrom = new HashSet<Transform>();
 
     #endregion
@@ -115,7 +113,7 @@ public class Mario : MonoBehaviour {
     }
 
     public void Damage(DamageEvent damage, float flashTime = 2) {
-        if (Invulnerable || invulnerableFrom.Contains(damage.Source.Host)) {
+        if (InvincibleController.Invincible || invulnerableFrom.Contains(damage.Source.Host)) {
             return;
         }
 
@@ -125,8 +123,8 @@ public class Mario : MonoBehaviour {
             Global.PlaySound(hurtSound);
             SetPowerup(Powerup == MarioPowerup.BIG ? MarioPowerup.SMALL : MarioPowerup.BIG);
 
-            FlashCtrl.FlashTime = flashTime;
-            FlashIsInvul = true;
+            InvincibleController.FlashTime = flashTime;
+            InvincibleController.Invincible = true;
         }
     }
 
@@ -141,7 +139,7 @@ public class Mario : MonoBehaviour {
         Powerup = target;
 
         if (rainbowTime > 0) {
-            FlashCtrl.RainbowFlashTime = rainbowTime;
+            InvincibleController.RainbowFlashTime = rainbowTime;
         }
 
         PowerupManager.SetPowerup(target);
@@ -191,7 +189,7 @@ public class Mario : MonoBehaviour {
         //附属组件
         Anims = transform.GetChild(1).GetComponent<MarioAnim>();
         Renderer = Anims.GetComponent<SpriteRenderer>();
-        FlashCtrl = Anims.GetComponent<Flashing>();
+        InvincibleController = GetComponentInChildren<MarioInvincibleController>();
         PowerupManager = GetComponentInChildren<AbilityManager>();
         foreach (MarioSize item in Enum.GetValues(typeof(MarioSize))) {
             Sizes.Add(item, Hitboxes.GetChild((int)item).GetChild(0).GetComponent<Collider2D>());
