@@ -109,3 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincibleTime: 10
+  timeUpHintTime: 1
+  starMusic: {fileID: 8300000, guid: 28734f118efe0c144935b7d526643030, type: 3}
+  timeUpHintSound: {fileID: 8300000, guid: 9420c8646ee501446853247e686659ab, type: 3}
