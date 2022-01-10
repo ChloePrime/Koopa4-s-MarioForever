@@ -12,11 +12,6 @@ public class Hop : MonoBehaviour {
 
     private void Awake() {
         _physics = GetComponent<BasePhysics>();
-        _physics.OnHitWallY += _ => {
-            if (enabled && _physics.YSpeed < 0) {
-                JumpAtNextFrame();
-            }
-        };
     }
 
     private void FixedUpdate() {

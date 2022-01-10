@@ -48,8 +48,12 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     [SerializeField, RenameInInspector("初速度")]
     protected Vector2 vel = Vector2.zero;
 
-    [Space, Space, Space] [SerializeField, RenameInInspector("无碰撞")]
+    [Space, Space, Space]
+    [SerializeField, RenameInInspector("无碰撞")]
     private bool ignoreCollision;
+    
+    [SerializeField, RenameInInspector("关闭世界交互")]
+    protected bool disableWorldInteraction;
 
     [Header("显示设置")] [SerializeField, RenameInInspector("渲染用物体")]
     protected Transform display;
@@ -60,28 +64,11 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     [Header("出水管设置")] [SerializeField, RenameInInspector("出现速度")]
     private float appearSpeed = 1.5f;
 
-    // 运行时字段
+    // 属性
+
+    public bool DisableWorldInteraction => disableWorldInteraction;
 
     public SlopeState CurSlopeState { get; private set; } = SlopeState.FLAT;
-    private BaseSlope _curSlopeObj;
-
-    protected XFacingWallStatus IsFacingWallX;
-    private int _lastXDir;
-
-    /// <summary>
-    /// 斜坡坡度对速度的衰减
-    /// 真实x速度 = x速度 * 这个值
-    /// (真实y速度 = x速度 * <see cref="BaseSlope.Degree"/>)
-    /// 只对上坡有效
-    /// </summary>
-    private float _slopeFactor;
-
-    private float _lastFUpdateTime;
-    private Vector2 _tickStartPos;
-    private Vector2 _tickEndPos;
-    private Vector2 _displayLocalPos;
-
-    // 属性
 
     public Rigidbody2D R2d { get; private set; }
     
@@ -443,19 +430,25 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     /// </summary>
     /// <param name="colliders">碰撞结果</param>
     public virtual void HitWallY(in Collider2D[] colliders) {
+        
         OnHitWallY?.Invoke(colliders);
 
-        if (YSpeed > 0) {
-            bool defaultSound = true;
+        if (YSpeed <= 0) {
+            return;
+        }
+
+        bool defaultSound = true;
+            
+        if (!disableWorldInteraction) {
             foreach (var col in colliders) {
                 if (col.GetHost().TryGetComponent(out IHittable hittable)) {
                     defaultSound = !hittable.OnHit(transform) && defaultSound;
                 }
             }
+        }
 
-            if (defaultSound && hitHeadSfx != null) {
-                Global.PlaySound(hitHeadSfx);
-            }
+        if (defaultSound && hitHeadSfx != null) {
+            Global.PlaySound(hitHeadSfx);
         }
     }
 
@@ -537,7 +530,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
 
         return Math.Sign(YSpeed) > 0 ? Vector2.up : Vector2.down;
     }
-    
+
     /// <summary>
     /// RayCast，但是会正确处理穿透平台。
     /// </summary>
@@ -575,7 +568,24 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
         }
 
         return count - bias;
-
     }
+
+    private BaseSlope _curSlopeObj;
+
+    protected XFacingWallStatus IsFacingWallX;
+    private int _lastXDir;
+
+    /// <summary>
+    /// 斜坡坡度对速度的衰减
+    /// 真实x速度 = x速度 * 这个值
+    /// (真实y速度 = x速度 * <see cref="BaseSlope.Degree"/>)
+    /// 只对上坡有效
+    /// </summary>
+    private float _slopeFactor;
+
+    private float _lastFUpdateTime;
+    private Vector2 _tickStartPos;
+    private Vector2 _tickEndPos;
+    private Vector2 _displayLocalPos;
 }
 }
