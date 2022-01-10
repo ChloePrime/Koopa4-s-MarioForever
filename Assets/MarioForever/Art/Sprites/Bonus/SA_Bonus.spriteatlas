@@ -38,6 +38,10 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 1165520026, guid: 03139b61649080f4faab7cb4c81de720, type: 3}
+  - {fileID: 1458891151, guid: 03139b61649080f4faab7cb4c81de720, type: 3}
+  - {fileID: -1945525749, guid: 03139b61649080f4faab7cb4c81de720, type: 3}
+  - {fileID: 1985597204, guid: 03139b61649080f4faab7cb4c81de720, type: 3}
   - {fileID: 21300000, guid: 536c3ac306a36b44180b44098ad794d7, type: 3}
   - {fileID: 244859453392456284, guid: 7d22a184bf717a847bd68af9585af8f8, type: 3}
   - {fileID: 4270334665837027911, guid: 7d22a184bf717a847bd68af9585af8f8, type: 3}
@@ -61,6 +65,10 @@ SpriteAtlas:
   - {fileID: 5158206280523286906, guid: d679b66c433ccc04f97310c923f13abd, type: 3}
   - {fileID: 5720382254438631289, guid: d679b66c433ccc04f97310c923f13abd, type: 3}
   m_PackedSpriteNamesToIndex:
+  - T_Star_1
+  - T_Star_0
+  - T_Star_3
+  - T_Star_2
   - T_HittedQuestionBlock
   - Bouns(Static)_8
   - Bouns(Static)_9
