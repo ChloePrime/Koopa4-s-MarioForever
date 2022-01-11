@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
+using JetBrains.Annotations;
 using SweetMoleHouse.MarioForever.Scripts.Base;
 using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
@@ -30,25 +32,41 @@ public static class ScoreObjOperations {
         actualPos.z += dz;
         obj.transform.position = actualPos;
     }
+
+    public static void PlayHitSound(this ScoreType type) {
+        AudioClip sound = ByType.GetHitSound((int)type);
+        if (sound != null) {
+            Global.PlaySound(sound);
+        }
+    }
 }
 
 public class ScoreTypeData : GlobalSingleton<ScoreTypeData> {
     private const int TypeNum = 8;
+    
     public GameObject this[int index] => GetScoreImpl(index);
+    
+    [return:MaybeNull] 
+    public AudioClip GetHitSound(int index) => GetSoundImpl(index);
+    
     public static AudioClip CoinSound => Instance.coinSound;
+    
     public static AudioClip OneUpSound => Instance.oneUpSound;
     
 
     [FormerlySerializedAs("objectByType")]
     [SerializeField]
     private GameObject[] scoreObjectByType = new GameObject[TypeNum];
+    
+    [SerializeField]
+    private AudioClip[] scoreSoundByType = new AudioClip[TypeNum];
 
     [SerializeField] private AudioClip coinSound;
     [SerializeField] private AudioClip oneUpSound;
 
     private GameObject GetScoreImpl(int index) {
         if (index >= TypeNum) {
-            throw new ArgumentOutOfRangeException();
+            throw new ArgumentOutOfRangeException(nameof(index));
         }
 
         var result = scoreObjectByType[index];
@@ -57,6 +75,14 @@ public class ScoreTypeData : GlobalSingleton<ScoreTypeData> {
         }
 
         return result;
+    }
+
+    private AudioClip GetSoundImpl(int index) {
+        if (index >= TypeNum) {
+            throw new ArgumentOutOfRangeException(nameof(index));
+        }
+
+        return scoreSoundByType[index];
     }
 }
 }

@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loop: 0
+  overrideDeathSound: 1
 --- !u!1 &7365446485991310254 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6419509510554172602, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}

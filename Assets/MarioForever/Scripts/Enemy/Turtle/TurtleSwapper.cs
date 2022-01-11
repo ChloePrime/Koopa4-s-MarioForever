@@ -28,7 +28,7 @@ public class TurtleSwapper : MonoBehaviour {
 
         OnTurtleSwap?.Invoke(damage.Source.Host);
         // 继承的死亡效果：播放音效，产生分数
-        damageReceiver.PlayDeathSound(damage.Type);
+        damageReceiver.PlayDeathSound(damage);
         if (hasScore) {
             damageReceiver.SummonScore(damage);
         }

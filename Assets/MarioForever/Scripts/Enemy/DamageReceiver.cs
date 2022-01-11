@@ -37,9 +37,6 @@ public class DamageReceiver : Stompable, IDamageReceiver {
     private Transform host;
 
     [SerializeField] private DamageSource myDamageSource;
-
-    private bool isDead;
-    private Corpse corpseBehavior;
     public Transform Host => host;
     public SpriteRenderer Renderer { get; private set; }
 
@@ -53,7 +50,7 @@ public class DamageReceiver : Stompable, IDamageReceiver {
     /// <summary>
     /// 返回null时意味着使用默认音效。
     /// </summary>
-    public event Func<EnumDamageType, AudioClip> OnGetDeathSound;
+    public event Func<DamageEvent, AudioClip> OnGetDeathSound;
     
     public void Damage(DamageEvent damage) {
         if ((acceptedDamageTypes & damage.Type) > 0) {
@@ -63,8 +60,8 @@ public class DamageReceiver : Stompable, IDamageReceiver {
 
     public void SetDead(DamageEvent damage) {
         // 防止死亡代码重复执行
-        if (isDead) return;
-        isDead = true;
+        if (_isDead) return;
+        _isDead = true;
 
         if (OnDeath?.Invoke(damage).IsCanceled() == true) {
             // 死亡被取消后支持再次死亡，以方便乌龟切换。
@@ -72,7 +69,7 @@ public class DamageReceiver : Stompable, IDamageReceiver {
             return;
         }
 
-        PlayDeathSound(damage.Type);
+        PlayDeathSound(damage);
         SummonScore(damage);
         GenerateCorpse(damage);
 
@@ -83,7 +80,12 @@ public class DamageReceiver : Stompable, IDamageReceiver {
         Destroy(host.gameObject);
     }
 
-    public void PlayDeathSound(EnumDamageType damageType) => Global.PlaySound(GetDeathSound(damageType));
+    public void PlayDeathSound(DamageEvent damage) {
+        AudioClip sound = GetDeathSound(damage);
+        if (!ReferenceEquals(sound, null)) {
+            Global.PlaySound(sound);
+        }
+    }
 
     public void SummonScore(DamageEvent damage) {
         Action scorer = damage.CreateScoreOverride;
@@ -102,22 +104,28 @@ public class DamageReceiver : Stompable, IDamageReceiver {
         }
 
         corpse = Instantiate(corpse, host);
-        corpseBehavior = corpse.GetComponent<Corpse>();
+        _corpseBehavior = corpse.GetComponent<Corpse>();
         corpse.SetActive(false);
     }
 
-    private AudioClip GetDeathSound(EnumDamageType damageType) {
+    private AudioClip GetDeathSound(DamageEvent damage) {
         AudioClip result;
-        if (OnGetDeathSound != null && (result = OnGetDeathSound(damageType)) != null) {
+
+        if (damage.PlayDeathSoundOverride != null) {
+            damage.PlayDeathSoundOverride();
+            return null;
+        }
+        
+        if (OnGetDeathSound != null && (result = OnGetDeathSound(damage)) != null) {
             return result;
         }
 
-        return damageType.Contains(EnumDamageType.STOMP) ? stompSound : defeatSound;
+        return damage.Type.Contains(EnumDamageType.STOMP) ? stompSound : defeatSound;
     }
 
     private async UniTaskVoid ResetDeathFlagAtNextFrame() {
         await UniTask.NextFrame(PlayerLoopTiming.FixedUpdate);
-        isDead = false;
+        _isDead = false;
     }
 
     private void GenerateCorpse(DamageEvent damage) {
@@ -129,7 +137,7 @@ public class DamageReceiver : Stompable, IDamageReceiver {
 
         corpse.SetActive(true);
         corpse.transform.parent = host.transform.parent;
-        corpseBehavior.InitCorpse(damage.Source, Renderer);
+        _corpseBehavior.InitCorpse(damage.Source, Renderer);
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -157,5 +165,8 @@ public class DamageReceiver : Stompable, IDamageReceiver {
     private static float GetStompPower(in Mario mario) {
         return mario.Jumper.IsHoldingJumpKey ? 20 : 13;
     }
+    
+    private bool _isDead;
+    private Corpse _corpseBehavior;
 }
 }

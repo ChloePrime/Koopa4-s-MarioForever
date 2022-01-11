@@ -13,7 +13,8 @@ public class ComboCalculator : MonoBehaviour {
     private const ScoreType InitialScore = ScoreType.S100;
 
     [SerializeField] private bool loop;
-
+    [SerializeField] private bool overrideDeathSound;
+    
     public void Hit(Transform trr) {
         _current.Summon(trr);
         bool end = !Enum.IsDefined(typeof(ScoreType), _current + 1);
@@ -35,10 +36,16 @@ public class ComboCalculator : MonoBehaviour {
     /// 让 damager 造成伤害时获得 Combo 计分效果。
     /// </summary>
     public void TakeOver(DamageSource damager) {
-        Transform host = damager.Host;
-        damager.OnModifyDamageProperties +=
-            (ref DamageEvent damage) => damage.CreateScoreOverride +=
-                () => Hit(host);
+        damager.OnModifyDamageProperties += ModifyDamageProperties;
+    }
+
+    private void ModifyDamageProperties(ref DamageEvent damage) {
+        Transform host = damage.Source.Host;
+        
+        damage.CreateScoreOverride += () => Hit(host);
+        if (overrideDeathSound) {
+            damage.PlayDeathSoundOverride += () => _current.PlayHitSound();
+        }
     }
     
     private void Awake() {

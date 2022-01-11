@@ -668,6 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loop: 1
+  overrideDeathSound: 1
 --- !u!1 &4022877300453224064
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loop: 0
+  overrideDeathSound: 0
 --- !u!1 &7666115329891192011
 GameObject:
   m_ObjectHideFlags: 0

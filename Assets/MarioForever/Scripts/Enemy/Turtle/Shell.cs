@@ -19,7 +19,7 @@ public class Shell : MonoBehaviour {
             kicker.MyDamageSource.DoDamageTo(kickHandler, EnumDamageType.KICK_SHELL);
             return ActionResult.CANCEL;
         };
-        kickHandler.OnGetDeathSound += dmgType => dmgType == EnumDamageType.KICK_SHELL ? kickSound : null;
+        kickHandler.OnGetDeathSound += dmg => dmg.Type == EnumDamageType.KICK_SHELL ? kickSound : null;
     }
 
     [SerializeField, RenameInInspector("踢龟壳音效")]
