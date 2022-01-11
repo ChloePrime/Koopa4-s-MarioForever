@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Bonus {
 public class Coin : MonoBehaviour {
-    [SerializeField] private int faceValue = 1;
+    [SerializeField] private int nominalValue = 1;
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.GetHost().TryGetComponent(out Mario mario)) {
-            MarioProperty.AddCoin(faceValue);
+            MarioProperty.AddCoin(nominalValue);
             Destroy(gameObject);
         }
     }
