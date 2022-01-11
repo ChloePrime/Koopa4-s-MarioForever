@@ -178,7 +178,6 @@ MonoBehaviour:
   faction: {fileID: 11400000, guid: 0bea7198886311241aa4f22488d3e2ac, type: 2}
   fixCorpseDirection: 0
   host: {fileID: 6204453993478765736}
-  disableActiveDamage: 0
 --- !u!114 &7981684391220345468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,7 +264,7 @@ MonoBehaviour:
   acceptedDamageTypes: 2147483647
   corpse: {fileID: 6802158544873612791, guid: 18d3698332d434c4684d9be13c7724ef, type: 3}
   stompSound: {fileID: 8300000, guid: f3e73bb22ebefc54d8f09930bc579bc6, type: 3}
-  defeatSound: {fileID: 8300000, guid: 2d454e0f3831de5479ac1528891f038d, type: 3}
+  defeatSound: {fileID: 8300000, guid: b14d6333a1ce28b4abef86e26c3d769d, type: 3}
   score: 1
   faction: {fileID: 11400000, guid: 0bea7198886311241aa4f22488d3e2ac, type: 2}
   host: {fileID: 6204453993478765736}
