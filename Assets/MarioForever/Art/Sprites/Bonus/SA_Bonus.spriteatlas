@@ -38,6 +38,9 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: -1756540508, guid: a71c32614b71cfe49afe02cec182da0b, type: 3}
+  - {fileID: 1852903577, guid: a71c32614b71cfe49afe02cec182da0b, type: 3}
+  - {fileID: 1613723706, guid: a71c32614b71cfe49afe02cec182da0b, type: 3}
   - {fileID: 1165520026, guid: 03139b61649080f4faab7cb4c81de720, type: 3}
   - {fileID: 1458891151, guid: 03139b61649080f4faab7cb4c81de720, type: 3}
   - {fileID: -1945525749, guid: 03139b61649080f4faab7cb4c81de720, type: 3}
@@ -65,6 +68,9 @@ SpriteAtlas:
   - {fileID: 5158206280523286906, guid: d679b66c433ccc04f97310c923f13abd, type: 3}
   - {fileID: 5720382254438631289, guid: d679b66c433ccc04f97310c923f13abd, type: 3}
   m_PackedSpriteNamesToIndex:
+  - T_Coin_2
+  - T_Coin_0
+  - T_Coin_1
   - T_Star_1
   - T_Star_0
   - T_Star_3
