@@ -161,7 +161,11 @@ public class Mario : MonoBehaviour {
     public void Kill() {
         corpse = Instantiate(corpse);
         corpse.transform.position = transform.position;
+        
+        AreaManager.StopOverrideMusic();
+        AreaManager.SetMusic(null);
         Global.PlaySound(deathSound);
+        
         FindObjectOfType<MarioCamera>().Stop();
         Destroy(gameObject);
 
