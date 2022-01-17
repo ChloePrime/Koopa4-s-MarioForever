@@ -97,6 +97,7 @@ public class QuestionBlock : HittableBase {
 
         ModifyContent?.Invoke(ref bonus);
         bonus.SetActive(true);
+        bonus.transform.position = muzzle.transform.position;
         if (!bonus.TryGetComponent(out IAppearable appearable)) {
             return;
         }
