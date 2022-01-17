@@ -16,6 +16,11 @@ public class QuestionBlock : HittableBase {
 
     [SerializeField, RenameInInspector("音效")]
     protected AudioClip sfx;
+
+    /// <summary>
+    /// 顶出物的初始位置。
+    /// </summary>
+    [SerializeField] private Transform muzzle;
     
     public delegate void ContentModifier(ref GameObject content);
 
@@ -44,7 +49,7 @@ public class QuestionBlock : HittableBase {
         GameObject cloned = Instantiate(input, transform.parent);
 
         // 设置 y 坐标为问号块顶部
-        cloned.transform.position = transform.position;
+        cloned.transform.position = muzzle.transform.position;
         cloned.SetActive(false);
         MoveToBack(cloned, depth, forceMoveBack);
 
