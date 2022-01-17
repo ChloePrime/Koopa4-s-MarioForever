@@ -36,7 +36,10 @@ public class Powerup : MonoBehaviour {
 
         Transform parent = transform.parent;
         score.Summon(parent, 0, 0.5F);
-        Global.PlaySound(sound);
+
+        if (sound != null) {
+            Global.PlaySound(sound);
+        }
 
         Destroy(parent.gameObject);
     }
