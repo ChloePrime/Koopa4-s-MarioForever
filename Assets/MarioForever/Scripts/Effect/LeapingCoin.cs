@@ -9,10 +9,11 @@ namespace SweetMoleHouse.MarioForever.Scripts.Effect {
 public class LeapingCoin : MonoBehaviour {
     private const float LeapTime = 0.428F;
     private const float LeapDistance = 3;
+    public int nominalValue = 1;
     
     private void Start() {
         _bornTime = Time.time;
-        MarioProperty.AddCoin();
+        MarioProperty.AddCoin(nominalValue);
     }
 
     private void Update() {

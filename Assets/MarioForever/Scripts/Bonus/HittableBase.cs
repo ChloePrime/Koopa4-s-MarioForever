@@ -1,6 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 using SweetMoleHouse.MarioForever.Scripts.Base.Physics;
+using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using SweetMoleHouse.MarioForever.Scripts.Enemy;
 using UnityEngine;
 
@@ -40,7 +41,7 @@ public abstract class HittableBase : MonoBehaviour, IHittable {
             int c = _collider.OverlapCollider(ColliderFilter, ColliderPool);
             for (var i = 0; i < c; i++) {
                 Collider2D enemy = ColliderPool[i];
-                if (enemy.TryGetComponent(out DamageReceiver dr)) {
+                if (enemy.TryGetComponent(out IDamageReceiver dr)) {
                     _bumpDamageSource.DoDamageTo(dr);
                 }
             }

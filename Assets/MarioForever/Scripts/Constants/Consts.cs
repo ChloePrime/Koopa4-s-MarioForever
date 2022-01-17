@@ -38,5 +38,6 @@ namespace SweetMoleHouse.MarioForever.Scripts.Constants
     {
         public const string Player = "Player";
         public const string Platform = "Platform";
+        public const string CoinEater = "CoinEater";
     }
 }
