@@ -23,8 +23,8 @@ public class DamageSource : Stompable, ISubObject {
     public Faction Faction => faction;
     public bool FixCorpseDirection => fixCorpseDirection;
 
-    public event Func<DamageSource, IDamageReceiver, ActionResult> OnPreDamage;
-    public event Action<DamageSource, IDamageReceiver> OnDamaging;
+    public event Func<DamageEvent, ActionResult> OnPreDamage;
+    public event Action<DamageEvent> OnPostDamage;
 
     public delegate void DamageModifier(ref DamageEvent damage);
 
@@ -46,7 +46,7 @@ public class DamageSource : Stompable, ISubObject {
     public void DoDamageTo<T>(T hitbox) where T : IDamageReceiver => DoDamageTo(hitbox, damageType);
 
     public void DoDamageTo<T>(T hitbox, EnumDamageType damageTypeIn) where T : IDamageReceiver {
-        DamageEvent damage = new(this, damageTypeIn);
+        DamageEvent damage = new(this, hitbox, damageTypeIn);
         DoDamageTo(hitbox, damage);
     }
 
@@ -59,20 +59,20 @@ public class DamageSource : Stompable, ISubObject {
             return;
         }
 
-        if (OnPreDamage?.Invoke(this, hitbox).IsCanceled() != true) {
+        if (OnPreDamage?.Invoke(damage).IsCanceled() != true) {
             OnModifyDamageProperties?.Invoke(ref damage);
             hitbox.Damage(damage);
         }
 
-        OnDamaging?.Invoke(this, hitbox);
+        OnPostDamage?.Invoke(damage);
     }
 
-    public DamageEvent CreateDamageEvent() {
-        return CreateDamageEvent(this.damageType);
+    public DamageEvent CreateDamageEvent(IDamageReceiver target) {
+        return CreateDamageEvent(target, this.damageType);
     }
 
-    public DamageEvent CreateDamageEvent(EnumDamageType damageTypeIn) {
-        return new DamageEvent(this, damageTypeIn);
+    public DamageEvent CreateDamageEvent(IDamageReceiver target, EnumDamageType damageTypeIn) {
+        return new DamageEvent(this, target, damageTypeIn);
     }
 
     public void Kill<T>(T hitbox) where T : IDamageReceiver => Kill(hitbox, damageType);
@@ -82,7 +82,7 @@ public class DamageSource : Stompable, ISubObject {
             return;
         }
 
-        DamageEvent damage = new(this, damageTypeIn);
+        DamageEvent damage = new(this, hitbox, damageTypeIn);
         hitbox.SetDead(damage);
     }
 }

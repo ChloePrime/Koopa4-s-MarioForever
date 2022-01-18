@@ -5,9 +5,11 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Rpg {
 public struct DamageEvent {
     public DamageEvent(
         DamageSource source,
+        IDamageReceiver target,
         EnumDamageType type
     ) : this() {
         Source = source;
+        Target = target;
         Type = type;
     }
 
@@ -15,6 +17,8 @@ public struct DamageEvent {
     /// 伤害来源（攻击者，凶手）
     /// </summary>
     public DamageSource Source { get; }
+    
+    public IDamageReceiver Target { get; set; }
 
     /// <summary>
     /// 伤害类型

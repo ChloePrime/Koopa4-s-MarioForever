@@ -155,7 +155,7 @@ public class DamageReceiver : Stompable, IDamageReceiver {
         if (other.TryGetComponent(out Mario mario) && IsStomp(other, mario)) {
             mario.Jumper.Jump(GetStompPower(mario));
 
-            DamageEvent damage = mario.StompDamageSource.CreateDamageEvent();
+            DamageEvent damage = mario.StompDamageSource.CreateDamageEvent(this);
             // 使用马里奥的连踩 Combo 替代默认生成的分数
             damage.CreateScoreOverride += () => mario.ComboInfo.Hit(mario.transform);
             mario.StompDamageSource.DoDamageTo(this, damage);

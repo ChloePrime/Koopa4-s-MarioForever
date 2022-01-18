@@ -19,7 +19,7 @@ public class MovingShell : MonoBehaviour {
         _damageSource = this.BfsComponentInChildren<DamageSource>();
         // 在刚刚生成的短时间内不对马里奥造成伤害
         _damageSource.OnPreDamage +=
-            (source, receiver) => ShouldCancel(receiver) ? ActionResult.CANCEL : ActionResult.PASS;
+            damage => ShouldCancel(damage.Target) ? ActionResult.CANCEL : ActionResult.PASS;
         DisableProtectionAsync().Forget();
         // 防止动态龟壳击杀静止龟壳导致报错
         GetComponent<TurtleSwapper>().OnTurtleSwap += _ => _damageHalted = true;
