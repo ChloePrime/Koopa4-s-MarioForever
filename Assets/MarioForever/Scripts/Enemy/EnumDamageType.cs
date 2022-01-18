@@ -20,7 +20,7 @@ public enum EnumDamageType : uint {
 
 public static class EnumDamageTypeExtension {
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static bool Contains(this EnumDamageType self, EnumDamageType target) => (self & target) > 0;
+    public static bool Contains(this EnumDamageType self, EnumDamageType target) => (self & target) != 0;
 
     public static bool ContainsAny(this EnumDamageType self, params EnumDamageType[] target) {
         return target.Any(dmgType => (self & dmgType) > 0);
