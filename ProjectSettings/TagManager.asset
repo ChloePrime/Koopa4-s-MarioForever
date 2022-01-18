@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - CoinEater
+  - HiddenBlockHitter
   layers:
   - Default
   - TransparentFX

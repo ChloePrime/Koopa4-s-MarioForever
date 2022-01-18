@@ -55,10 +55,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GO_MovingShell
       objectReference: {fileID: 0}
-    - target: {fileID: 6419509510554172602, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
-      propertyPath: m_TagString
-      value: CoinEater
-      objectReference: {fileID: 0}
     - target: {fileID: 6419509510554172603, guid: b182061e7d6a3c741b65d815d6136e29, type: 3}
       propertyPath: walkSpeed
       value: 7.5
@@ -148,3 +144,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b688837dccb4eb4b8846f82ff46c15e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6191135283369119363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7365446485991310254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3db159e06a10994298d465befa82814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flags: 3

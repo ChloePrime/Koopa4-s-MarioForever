@@ -26,8 +26,10 @@ public class HiddenBlock : MonoBehaviour {
         
         if (hisHost.TryGetComponent(out Mario mario)) {
             TryBumpedByMario(mario, out bBumped);
+        } else if (hisHost.HasFlag(EnumBonusGetterFlags.CanBumpHiddenBlock)) {
+            BumpedByObject(hisHost.transform, out bBumped);
         }
-
+        
         if (bBumped) {
             DoBump(hisHost.transform);
         }
@@ -52,6 +54,27 @@ public class HiddenBlock : MonoBehaviour {
         mario.Mover.TeleportBy(0, -heightDifference - Consts.OnePixel);
         mario.Mover.HitWallY(new[] { _collider });
         bBumped = true;
+    }
+
+    /// <summary>
+    /// 把顶起砖块的实体弹出去
+    /// </summary>
+    /// <param name="obj">顶到这块砖的实体</param>
+    /// <param name="bBumped">将被赋值为 true</param>
+    private void BumpedByObject(Transform obj, out bool bBumped) {
+        bBumped = true;
+
+        ColliderDistance2D distance;
+        if (obj.TryGetComponent(out Rigidbody2D rigid)) {
+            distance = rigid.Distance(_collider);
+        } else if (obj.TryGetComponent(out Collider2D c2d)) {
+            distance = c2d.Distance(_collider);
+        } else {
+            return;
+        }
+
+        Vector3 offset = distance.normal * (distance.distance + Consts.OnePixel);
+        obj.position += offset;
     }
 
     private void DoBump(Transform cause) {

@@ -35,14 +35,14 @@ public class Coin : MonoBehaviour, IDamageReceiver {
             return;
         }
         
-        if (other.GetHost().TryGetComponent(out Mario mario)) {
+        if (other.GetHost().TryGetComponent(out Mario _)) {
             MarioProperty.AddCoin(nominalValue);
             _eaten = true;
             Destroy(gameObject);
             return;
         }
 
-        if (other.CompareTag(Tags.CoinEater)) {
+        if (other.HasFlag(EnumBonusGetterFlags.CanEatCoin)) {
             OnBumped();
         }
     }
