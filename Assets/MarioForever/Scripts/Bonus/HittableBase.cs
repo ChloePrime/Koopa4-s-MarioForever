@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using SweetMoleHouse.MarioForever.Scripts.Base.Physics;
 using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
 using SweetMoleHouse.MarioForever.Scripts.Enemy;
+using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Bonus {
@@ -10,8 +11,8 @@ namespace SweetMoleHouse.MarioForever.Scripts.Bonus {
 /// 可以顶，有顶起动画，且可以顶死自身上方敌人的东西
 /// </summary>
 public abstract class HittableBase : MonoBehaviour, IHittable {
-    private static readonly Vector2 HitRange = new(0, 0.2f);
-    private static readonly Collider2D[] ColliderPool = new Collider2D[64];
+    private const float HitRange = 0.2f;
+    private static readonly RaycastHit2D[] RaycastPool = new RaycastHit2D[64];
     private static readonly ContactFilter2D ColliderFilter = new ContactFilter2D().NoFilter();
 
     private static readonly int BlockHitAnim = Animator.StringToHash("顶起");
@@ -35,18 +36,12 @@ public abstract class HittableBase : MonoBehaviour, IHittable {
     }
 
     protected void DamageEnemiesAbove() {
-        Vector2 physicsPos = _collider.offset;
-        _collider.offset = physicsPos + HitRange;
-        try {
-            int c = _collider.OverlapCollider(ColliderFilter, ColliderPool);
-            for (var i = 0; i < c; i++) {
-                Collider2D enemy = ColliderPool[i];
-                if (enemy.TryGetComponent(out IDamageReceiver dr)) {
-                    _bumpDamageSource.DoDamageTo(dr);
-                }
+        int c = _collider.Cast(Vector2.up, ColliderFilter, RaycastPool, HitRange);
+        for (var i = 0; i < c; i++) {
+            RaycastHit2D enemy = RaycastPool[i];
+            if (enemy.collider.TryGetComponent(out IDamageReceiver dr)) {
+                _bumpDamageSource.DoDamageTo(dr);
             }
-        } finally {
-            _collider.offset = physicsPos;
         }
     }
 

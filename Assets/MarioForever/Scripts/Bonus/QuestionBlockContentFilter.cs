@@ -4,12 +4,12 @@ using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Bonus {
-[RequireComponent(typeof(QuestionBlock))]
+[RequireComponent(typeof(ArrayQuestionBlock))]
 public class QuestionBlockContentFilter : MonoBehaviour {
     [SerializeField] private GameObject fallbackWhenMarioIsSmall;
 
     private void Awake() {
-        GetComponent<QuestionBlock>().ModifyContent += ModifyQBlockContent;
+        GetComponent<ArrayQuestionBlock>().ModifyContent += ModifyQBlockContent;
     }
 
     private void ModifyQBlockContent(ref GameObject content) {

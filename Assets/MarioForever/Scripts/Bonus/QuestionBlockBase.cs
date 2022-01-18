@@ -5,14 +5,9 @@ using SweetMoleHouse.MarioForever.Scripts.Util;
 using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Bonus {
-/// <summary>
-/// </summary>
-public class QuestionBlock : HittableBase {
+public abstract class QuestionBlockBase : HittableBase { 
     [CanBeNull, SerializeField, RenameInInspector("顶后的残余")]
     protected GameObject afterHit;
-
-    [SerializeField, RenameInInspector("顶出的物品")]
-    protected GameObject[] outputs;
 
     [SerializeField, RenameInInspector("音效")]
     protected AudioClip sfx;
@@ -39,13 +34,36 @@ public class QuestionBlock : HittableBase {
         if (afterHit != null) {
             CreateChild(ref afterHit, 1, true);
         }
-
-        for (int i = 0; i < outputs.Length; i++) {
-            CreateChild(ref outputs[i], i + 2, false);
-        }
     }
 
-    private void CreateChild(ref GameObject input, int depth, bool forceMoveBack) {
+    public override bool OnHit(Transform hitter) {
+        if (!Ready) {
+            return true;
+        }
+
+        if (TryGetContent(out GameObject bonus)) {
+            base.OnHit(hitter);
+            bonus.SetActive(false);
+            SpawnContent(bonus);
+        }
+
+        if (HasNext() || afterHit == null) {
+            return false;
+        }
+
+        afterHit.SetActive(true);
+        _renderer.enabled = false;
+        enabled = false;
+        return false;
+    }
+
+    /// <summary>
+    /// Will corrupt state.
+    /// </summary>
+    protected abstract bool TryGetContent(out GameObject content);
+    protected abstract bool HasNext();
+
+    protected void CreateChild(ref GameObject input, int depth, bool forceMoveBack) {
         GameObject cloned = Instantiate(input, transform.parent);
 
         // 设置 y 坐标为问号块顶部
@@ -56,7 +74,7 @@ public class QuestionBlock : HittableBase {
         input = cloned;
     }
 
-    private void MoveToBack(GameObject obj, int delta, bool forceMoveBack) {
+    protected void MoveToBack(GameObject obj, int delta, bool forceMoveBack) {
         if (!forceMoveBack && !obj.TryGetComponent(out IAppearable _)) {
             return;
         }
@@ -67,25 +85,6 @@ public class QuestionBlock : HittableBase {
         if (thatSr == null) return;
         thatSr.sortingLayerID = _renderer.sortingLayerID;
         thatSr.sortingOrder = _renderer.sortingOrder - delta;
-    }
-
-    public override bool OnHit(Transform hitter) {
-        if (!Ready) {
-            return true;
-        }
-
-        if (_outputIndex < outputs.Length) {
-            base.OnHit(hitter);
-            SpawnContent(outputs[_outputIndex]);
-            ++_outputIndex;
-        }
-
-        if (_outputIndex >= outputs.Length && afterHit != null) {
-            afterHit.SetActive(true);
-            _renderer.enabled = false;
-        }
-
-        return false;
     }
 
     private async void SpawnContent(GameObject bonus) {
@@ -108,7 +107,6 @@ public class QuestionBlock : HittableBase {
     }
 
     private SpriteRenderer _renderer;
-    private int _outputIndex;
     private Vector2 _size;
 }
 }
