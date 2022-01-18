@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2232048350775857967}
   - component: {fileID: 5272599412125873690}
   m_Layer: 0
-  m_Name: GO_QustionBlockBase
+  m_Name: GO_QuestionBlockBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,9 +50,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   afterHit: {fileID: 1948239407494939225, guid: 87120df37c9750041869e17e3a91c88d, type: 3}
-  outputs: []
   sfx: {fileID: 8300000, guid: 430561b14bc417a46a58d61d1f95bfc0, type: 3}
   muzzle: {fileID: 207202084228125892}
+  outputs: []
 --- !u!114 &6063486449050597842
 MonoBehaviour:
   m_ObjectHideFlags: 0
