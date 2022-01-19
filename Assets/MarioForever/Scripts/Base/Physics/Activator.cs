@@ -8,13 +8,10 @@ namespace SweetMoleHouse.MarioForever.Scripts.Base.Physics {
 /// </summary>
 public class Activator : MonoBehaviour {
     [SerializeField] private float size = 1;
-    
-    private BasePhysics physics;
-    private GameObject myGameObject;
 
     private void Awake() {
-        physics = GetComponent<BasePhysics>();
-        myGameObject = gameObject;
+        _physics = GetComponent<BasePhysics>();
+        _myGameObject = gameObject;
     }
 
     private async void Start() {
@@ -26,20 +23,21 @@ public class Activator : MonoBehaviour {
         Vector2 myPos = transform.position;
         // 如果此 object 一开始就放在视野中
         if (ShouldActivate(myPos)) {
+            _Awake();
             return;
         }
 
-        myGameObject.SetActive(false);
+        _myGameObject.SetActive(false);
         WaitForActivate(myPos);
     }
     
     private void _Awake() {
-        if (myGameObject != null) {
-            myGameObject.SetActive(true);
+        if (_myGameObject != null) {
+            _myGameObject.SetActive(true);
         }
 
-        if (physics != null) {
-            physics.SetDirection(ScrollInfo.Center.x - transform.position.x);
+        if (_physics != null) {
+            _physics.SetDirection(ScrollInfo.Center.x - transform.position.x);
         }
     }
 
@@ -57,5 +55,8 @@ public class Activator : MonoBehaviour {
     private bool ShouldActivate(in Vector2 myPos) {
         return ScrollHelper.DistanceOutOfScreen(myPos) <= size;
     }
+    
+    private BasePhysics _physics;
+    private GameObject _myGameObject;
 }
 }
