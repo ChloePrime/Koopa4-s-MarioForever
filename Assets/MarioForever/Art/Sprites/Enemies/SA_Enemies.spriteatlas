@@ -38,8 +38,47 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 2008755103, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: -1044047058, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: 519770127, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: -1307037486, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: -121428083, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: -1015630879, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: 1613559130, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: 685675092, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: -165817417, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: 1315251405, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: 182565684, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: 994469196, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: -451431826, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: 450624104, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: -1394612927, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: -623893367, guid: 4d2426e368e13494aa75624595a94302, type: 3}
+  - {fileID: 151605816, guid: 8044e1e48f6b6924195e29b0dadc520c, type: 3}
+  - {fileID: -1203684734, guid: 8044e1e48f6b6924195e29b0dadc520c, type: 3}
+  - {fileID: 635079098, guid: 8044e1e48f6b6924195e29b0dadc520c, type: 3}
+  - {fileID: 1747184858, guid: 8044e1e48f6b6924195e29b0dadc520c, type: 3}
+  - {fileID: 2123905174, guid: 8044e1e48f6b6924195e29b0dadc520c, type: 3}
+  - {fileID: 607573887, guid: 8044e1e48f6b6924195e29b0dadc520c, type: 3}
+  - {fileID: 955717748, guid: 8044e1e48f6b6924195e29b0dadc520c, type: 3}
+  - {fileID: 1779473729, guid: 8044e1e48f6b6924195e29b0dadc520c, type: 3}
+  - {fileID: 1633999460, guid: 8044e1e48f6b6924195e29b0dadc520c, type: 3}
+  - {fileID: 940837387, guid: 8044e1e48f6b6924195e29b0dadc520c, type: 3}
+  - {fileID: -2064248475, guid: 8044e1e48f6b6924195e29b0dadc520c, type: 3}
+  - {fileID: 1987348601, guid: 8044e1e48f6b6924195e29b0dadc520c, type: 3}
   - {fileID: 21300000, guid: 81f18567ae217b74db42ddcf136197a0, type: 3}
   - {fileID: 21300000, guid: 342f3808d087132429f984226dbfc4e4, type: 3}
+  - {fileID: -1160429261, guid: 12d13afa94372f84e84ca295d7940b82, type: 3}
+  - {fileID: 1661022473, guid: 12d13afa94372f84e84ca295d7940b82, type: 3}
+  - {fileID: -1281376028, guid: 12d13afa94372f84e84ca295d7940b82, type: 3}
+  - {fileID: 41639703, guid: 12d13afa94372f84e84ca295d7940b82, type: 3}
+  - {fileID: 1695321625, guid: 12d13afa94372f84e84ca295d7940b82, type: 3}
+  - {fileID: 663758368, guid: 12d13afa94372f84e84ca295d7940b82, type: 3}
+  - {fileID: -566412509, guid: 12d13afa94372f84e84ca295d7940b82, type: 3}
+  - {fileID: -1538178387, guid: 12d13afa94372f84e84ca295d7940b82, type: 3}
+  - {fileID: 1859535854, guid: 12d13afa94372f84e84ca295d7940b82, type: 3}
+  - {fileID: 714831691, guid: 12d13afa94372f84e84ca295d7940b82, type: 3}
+  - {fileID: -445222447, guid: 12d13afa94372f84e84ca295d7940b82, type: 3}
   - {fileID: -6361326845029808479, guid: 222b817c3127054428d76866d73ba96d, type: 3}
   - {fileID: 3249852802477758786, guid: 222b817c3127054428d76866d73ba96d, type: 3}
   - {fileID: -1914203410603584688, guid: 222b817c3127054428d76866d73ba96d, type: 3}
@@ -841,8 +880,47 @@ SpriteAtlas:
   - {fileID: -1732655032436873636, guid: 222b817c3127054428d76866d73ba96d, type: 3}
   - {fileID: -4385760222255780406, guid: 222b817c3127054428d76866d73ba96d, type: 3}
   m_PackedSpriteNamesToIndex:
+  - T_Lakitu_Blink_Up_0
+  - T_Lakitu_Blink_Up_1
+  - T_Lakitu_Blink_Up_2
+  - T_Lakitu_Blink_Up_3
+  - T_Lakitu_Blink_Up_4
+  - T_Lakitu_Blink_Up_5
+  - T_Lakitu_Blink_Up_6
+  - T_Lakitu_Blink_Up_7
+  - T_Lakitu_Blink_Up_8
+  - T_Lakitu_Blink_Up_9
+  - T_Lakitu_Blink_Up_13
+  - T_Lakitu_Blink_Up_12
+  - T_Lakitu_Blink_Up_11
+  - T_Lakitu_Blink_Up_10
+  - T_Lakitu_Blink_Up_15
+  - T_Lakitu_Blink_Up_14
+  - T_Lakitu_Blink_Down_10
+  - T_Lakitu_Blink_Down_11
+  - T_Lakitu_Blink_Down_9
+  - T_Lakitu_Blink_Down_8
+  - T_Lakitu_Blink_Down_7
+  - T_Lakitu_Blink_Down_6
+  - T_Lakitu_Blink_Down_5
+  - T_Lakitu_Blink_Down_4
+  - T_Lakitu_Blink_Down_3
+  - T_Lakitu_Blink_Down_2
+  - T_Lakitu_Blink_Down_1
+  - T_Lakitu_Blink_Down_0
   - T_Mole2
   - T_Spike_Up
+  - T_Lakitu_Charge_8
+  - T_Lakitu_Charge_9
+  - T_Lakitu_Charge_2
+  - T_Lakitu_Charge_3
+  - T_Lakitu_Charge_0
+  - T_Lakitu_Charge_1
+  - T_Lakitu_Charge_6
+  - T_Lakitu_Charge_7
+  - T_Lakitu_Charge_4
+  - T_Lakitu_Charge_5
+  - T_Lakitu_Charge_10
   - T_Enemies_665
   - T_Enemies_615
   - T_Enemies_664
