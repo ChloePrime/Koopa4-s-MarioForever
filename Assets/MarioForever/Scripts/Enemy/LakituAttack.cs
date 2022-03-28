@@ -1,6 +1,7 @@
 using System;
 using Cysharp.Threading.Tasks;
 using SweetMoleHouse.MarioForever.Scripts.Base.Physics;
+using SweetMoleHouse.MarioForever.Scripts.Level;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -39,10 +40,14 @@ public class LakituAttack : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (Time.time > _etaNextAttack) {
-            _etaNextAttack = float.PositiveInfinity;
-            ThrowHedgehogAsync();
+        if (Time.time < _etaNextAttack) {
+            return;
         }
+        if (transform.DistanceOutOfScreen() > 0) {
+            _etaNextAttack = Time.time + ScanDelay;
+        }
+        _etaNextAttack = float.PositiveInfinity;
+        ThrowHedgehogAsync();
     }
 
     private async void ThrowHedgehogAsync() {
@@ -78,14 +83,15 @@ public class LakituAttack : MonoBehaviour {
     }
 
     private async UniTask WaitUntilNotCollided() {
-        const float scanDelay = 0.25f;
-        
         while (IsOverlappingAnything()) {
-            await UniTask.Delay(TimeSpan.FromSeconds(scanDelay));
+            await UniTask.Delay(TimeSpan.FromSeconds(ScanDelay));
         }
     }
 
     private bool IsOverlappingAnything() {
+        if (this == null) {
+            return false;
+        }
         return _rigidbody.OverlapCollider(BasePhysics.GlobalFilter, OverlapBuffer) > 0;
     }
 
@@ -104,7 +110,8 @@ public class LakituAttack : MonoBehaviour {
     private float _etaNextAttack;
     private Animator _animator;
     private Rigidbody2D _rigidbody;
-    
+
+    private const float ScanDelay = 0.25f;
     private static readonly int StartChargingTrigger = Animator.StringToHash("StartCharging");
     private static readonly int EndChargingTrigger = Animator.StringToHash("EndCharging");
     private static readonly Collider2D[] OverlapBuffer = new Collider2D[1];

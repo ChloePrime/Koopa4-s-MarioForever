@@ -17,6 +17,10 @@ public class LakituMovement : MonoBehaviour {
 
     private void FixedUpdate() {
         Mario mario = FindMario();
+        if (mario == null) {
+            _speed = 0;
+            return;
+        }
         float dx = transform.position.x - mario.transform.position.x;
         const float dist1 = 1.5f;
         const float dist2 = 3;
