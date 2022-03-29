@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1867433994084406867}
   - component: {fileID: 4802042007592045811}
   - component: {fileID: 3675069118650057705}
+  - component: {fileID: 7734604516761305933}
   m_Layer: 8
   m_Name: GO_Lakitu
   m_TagString: Untagged
@@ -120,6 +121,18 @@ MonoBehaviour:
   projectileSpeed: 4.5
   attackSound: {fileID: 11400000, guid: 7842cf75666a8c34e9c8632faba95a78, type: 2}
   muzzle: {fileID: 2308045968159051047}
+--- !u!114 &7734604516761305933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867433994084406862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c32bfd934c47543b528384945532b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7336762654596366820
 GameObject:
   m_ObjectHideFlags: 0
