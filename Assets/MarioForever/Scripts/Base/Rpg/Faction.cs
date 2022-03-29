@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SweetMoleHouse.MarioForever.Scripts.Base.Rpg
 {
-    [CreateAssetMenu(fileName = null, menuName = nameof(Faction), order = 0)]
+    [CreateAssetMenu(fileName = null, menuName = "MarioForever/" + nameof(Faction), order = 0)]
     public class Faction : ScriptableObject
     {
         [SerializeField] private Faction[] hostiles;

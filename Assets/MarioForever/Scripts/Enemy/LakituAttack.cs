@@ -1,5 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
+using SweetMoleHouse.MarioForever.Scripts.Audio;
 using SweetMoleHouse.MarioForever.Scripts.Base.Physics;
 using SweetMoleHouse.MarioForever.Scripts.Level;
 using UnityEngine;
@@ -19,14 +20,15 @@ public class LakituAttack : MonoBehaviour {
 
     [SerializeField] private GameObject projectileObject;
     [SerializeField] private float projectileSpeed = 4.5f;
+    [SerializeField] private AudioGroup attackSound;
 
     [Header("高级设置")] [SerializeField] private Transform muzzle;
     
     private void Awake() {
-        _animator = GetComponentInChildren<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponentInChildren<Animator>();
         
-        if (ReferenceEquals(muzzle, null)) {
+        if (muzzle == null) {
             Debug.LogError("Lakitu's muzzle object is not assigned!");
         }
     }
@@ -78,6 +80,9 @@ public class LakituAttack : MonoBehaviour {
         }
         // 创建刺猬
         CreateHedgehogObject();
+        if (attackSound) {
+            attackSound.Play();
+        }
         // 刷新下次攻击计时
         RefreshAttackDelay();
     }
