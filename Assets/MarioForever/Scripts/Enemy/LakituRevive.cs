@@ -1,15 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using Cysharp.Threading.Tasks;
 using SweetMoleHouse.MarioForever.Scripts.Constants;
-using SweetMoleHouse.MarioForever.Scripts.Enemy;
 using SweetMoleHouse.MarioForever.Scripts.Level;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace SweetMoleHouse {
+namespace SweetMoleHouse.MarioForever.Scripts.Enemy {
 public class LakituRevive : MonoBehaviour {
     /// <summary>
     /// 复活等待时间
