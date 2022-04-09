@@ -17,8 +17,8 @@ public class LakituRevive : MonoBehaviour {
     /// </summary>
     [SerializeField]
     private float reviveDelay = 5;
-    
-    [SerializeField] private DamageReceiver myDamageHandler;
+
+    [Header("高级设置")] [SerializeField] private DamageReceiver myDamageHandler;
 
     private void Awake() {
         myDamageHandler.OnDeath += _ => {
@@ -47,7 +47,9 @@ public class LakituRevive : MonoBehaviour {
         Vector3 deathAt, Quaternion rotation,
         Scene sceneWhereLakituDied
     ) {
-        await UniTask.Delay(TimeSpan.FromSeconds(delay));
+        if (delay > 0) {
+            await UniTask.Delay(TimeSpan.FromSeconds(delay));
+        }
 
         if (newLakitu == null) {
             return;
@@ -71,7 +73,7 @@ public class LakituRevive : MonoBehaviour {
         newLakitu.transform.parent = parent;
         newLakitu.SetActive(true);
     }
-    
+
     private GameObject _newLakitu;
 }
 }

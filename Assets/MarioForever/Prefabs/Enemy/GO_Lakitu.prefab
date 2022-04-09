@@ -99,9 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31223ad8bda5e3c40b52cb564bcb122e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enabled: 0
   reviveDelay: 5
-  templateOfNewLakitu: {fileID: 1867433994084406862}
   myDamageHandler: {fileID: 6189418813483039721}
 --- !u!61 &1867433994084406866
 BoxCollider2D:
