@@ -10,13 +10,11 @@ namespace SweetMoleHouse.MarioForever.Scripts.Enemy {
 /// </summary>
 public class Corpse : MonoBehaviour {
     [SerializeField] private Vector2 flySpeed = new (5, 12);
-    
-    private new SpriteRenderer renderer;
-    private BasePhysics physics;
+    [SerializeField] private bool autoDestroy = true;
 
     private void Awake() {
-        physics = GetComponent<BasePhysics>();
-        renderer = GetComponentInChildren<SpriteRenderer>();
+        _physics = GetComponent<BasePhysics>();
+        _renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Fly(DamageSource damageSrc) {
@@ -27,27 +25,30 @@ public class Corpse : MonoBehaviour {
             dir = Random.Range(0, 2) * 2 - 1;
         }
 
-        if (physics is Walk walk) {
+        if (_physics is Walk walk) {
             walk.WalkSpeed = dir * flySpeed.x;
         } else {
-            physics.XSpeed = dir * flySpeed.x;
+            _physics.XSpeed = dir * flySpeed.x;
         }
 
-        physics.YSpeed = flySpeed.y;
+        _physics.YSpeed = flySpeed.y;
     }
 
-    private void Update() {
-        if (transform.position.y <= ScrollInfo.Bottom - 8) {
+    private void FixedUpdate() {
+        if (autoDestroy && (transform.position.y <= ScrollInfo.Bottom - 8)) {
             Destroy(gameObject);
         }
     }
 
     public void InitCorpse(DamageSource damageSrc, SpriteRenderer sr) {
         Vector2 initialPos = (Vector2)sr.transform.position + new Vector2(0, sr.size.y);
-        physics.TeleportTo(initialPos);
+        _physics.TeleportTo(initialPos);
         transform.localScale = sr.transform.lossyScale;
-        renderer.sprite = sr.sprite;
+        _renderer.sprite = sr.sprite;
         Fly(damageSrc);
     }
+    
+    private SpriteRenderer _renderer;
+    private BasePhysics _physics;
 }
 }
