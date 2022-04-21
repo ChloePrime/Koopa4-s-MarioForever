@@ -163,8 +163,11 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
         // 防止卡在墙里
         if (_appeared && R2d.Cast(Vector2.zero, RCastTempArray) > 0) {
             transform.Translate(0, 0.01F, 0);
+            RigidbodyTranslate(0, 0.01F);
             IsOnGround = true;
         }
+        
+        R2d.position = transform.position;
     }
 
     protected virtual void FixedUpdate() {
@@ -180,7 +183,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
         }
 
         if (_lastFUpdateTime >= 0.0001) {
-            transform.position = _tickEndPos;
+            transform.position = R2d.position = _tickEndPos;
         }
 
         ClampSpeed();
@@ -212,7 +215,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     /// </summary>
     private void MoveAndRecordPos() {
         _lastFUpdateTime = Time.time;
-        _tickStartPos = transform.position;
+        _tickStartPos = R2d.position;
         int dirX = Math.Sign(XSpeed);
         if (dirX != 0) {
             _lastXDir = dirX;
@@ -224,7 +227,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     }
 
     private void RecordPos() {
-        _tickEndPos = transform.position;
+        _tickEndPos = R2d.position;
     }
 
     /// <summary>
@@ -321,7 +324,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     /// </summary>
     public virtual void MoveX(float distance, bool updateStatus) {
         if (IgnoreCollision) {
-            transform.Translate(distance, 0, 0);
+            RigidbodyTranslate(distance, 0);
             RecordPos();
             return;
         }
@@ -331,7 +334,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
         int amount = Cast(dir, Filter, RCastTempArray, Math.Abs(distance) + AntiTrapEpsilon);
         if (amount == 0) {
             actualDist = Math.Abs(distance);
-            transform.Translate(distance, 0, 0);
+            RigidbodyTranslate(distance, 0);
             if (updateStatus) {
                 Vector2 dir2 = GetDirXWithSlope(distance);
                 if (Cast(dir2, Filter, RCastTempArray, 3 * AntiTrapEpsilon) == 0) {
@@ -350,7 +353,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
             }
         } else {
             actualDist = MinHitDistance(amount) - AntiTrapEpsilon;
-            transform.Translate(Math.Sign(distance) * actualDist, 0, 0);
+            RigidbodyTranslate(Math.Sign(distance) * actualDist, 0);
             HitWallX(TakeColliders(amount));
             UpdateWallStatusX();
         }
@@ -394,7 +397,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     /// </summary>
     public virtual void MoveY(float distance, bool updateStatus) {
         if (IgnoreCollision) {
-            transform.Translate(0, distance, 0);
+            RigidbodyTranslate(0, distance);
             RecordPos();
             return;
         }
@@ -402,7 +405,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
         var dir = new Vector2(0, Mathf.Sign(distance));
         int amount = Cast(dir, Filter, RCastTempArray, Math.Abs(distance) + AntiTrapEpsilon);
         if (amount == 0) {
-            transform.Translate(0, distance, 0);
+            RigidbodyTranslate(0, distance);
             if (updateStatus) {
                 if (Cast(Vector2.down, Filter, RCastTempArray, 2 * AntiTrapEpsilon) == 0) {
                     IsOnGround = false;
@@ -410,7 +413,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
             }
         } else {
             float actualDist = MinHitDistance(amount) - AntiTrapEpsilon;
-            transform.Translate(0, Math.Sign(distance) * actualDist, 0);
+            RigidbodyTranslate(0, Math.Sign(distance) * actualDist);
 
             Collider2D[] colliders = RCastTempArray.Take(amount).Select(rr => rr.collider).ToArray();
             HitWallY(colliders);
@@ -478,7 +481,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
         float length = offset.magnitude;
         int amount = Cast(offset.normalized, Filter, RCastTempArray, length + AntiTrapEpsilon);
         if (amount == 0) {
-            transform.Translate(offset);
+            RigidbodyTranslate(offset);
         } else {
             if (length <= AntiTrapEpsilon) {
                 return amount;
@@ -486,7 +489,7 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
 
             float actualDist = MinHitDistance(amount) - AntiTrapEpsilon;
             float actualScale = actualDist / length;
-            transform.Translate(offset * actualScale);
+            RigidbodyTranslate(offset * actualScale);
         }
 
         return amount;
@@ -588,5 +591,14 @@ public partial class BasePhysics : MonoBehaviour, IAppearable {
     private Vector2 _tickStartPos;
     private Vector2 _tickEndPos;
     private Vector2 _displayLocalPos;
+
+    protected void RigidbodyTranslate(float x, float y) {
+        // R2d.position += (Vector2) transform.TransformVector(new Vector3(x, y, 0));
+        R2d.position += new Vector2(x, y);
+    }
+
+    protected void RigidbodyTranslate(in Vector2 offset) {
+        RigidbodyTranslate(offset.x, offset.y);
+    }
 }
 }

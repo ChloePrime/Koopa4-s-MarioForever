@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using Cysharp.Threading.Tasks;
 using SweetMoleHouse.MarioForever.Scripts.Base.Rpg;
@@ -142,13 +143,23 @@ public class DamageReceiver : Stompable, IDamageReceiver {
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
     private void OnCollisionEnter2D(Collision2D collision) {
-        OnCollisionStay2D(collision);
+        (_inCollision ??= new HashSet<Transform>()).Add(collision.transform);
+    }
+
+    private void FixedUpdate() {
+        if (ReferenceEquals(_inCollision, null)) {
+            return;
+        }
+        _inCollision.RemoveWhere(t => t == null);
+        foreach (Transform collision in _inCollision) {
+            // 这个地方会优先使用 collision.rigidbody.transform
+            TryGetStomped(collision);
+        }
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private void OnCollisionStay2D(Collision2D collision) {
-        // 这个地方会优先使用 collision.rigidbody.transform
-        TryGetStomped(collision.transform);
+    private void OnCollisionExit2D(Collision2D other) {
+        (_inCollision ??= new HashSet<Transform>()).Remove(other.transform);
     }
 
     public void TryGetStomped(Transform other) {
@@ -168,5 +179,6 @@ public class DamageReceiver : Stompable, IDamageReceiver {
     
     private bool _isDead;
     private Corpse _corpseBehavior;
+    private HashSet<Transform> _inCollision;
 }
 }
