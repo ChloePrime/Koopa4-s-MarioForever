@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using SweetMoleHouse.MarioForever.Scripts.Base.Physics;
 using SweetMoleHouse.MarioForever.Scripts.Player;
 using UnityEngine;
@@ -18,10 +19,17 @@ public class SpinyBall : MonoBehaviour {
         if (spinyInstance.TryGetComponent(out BasePhysics p)) {
             Mario mario = FindObjectOfType<Mario>();
             if (mario != null) {
-                p.SetDirection(mario.transform.position.x - myTransform.position.x);
+                SetDirectionLaterAsync(p, mario.transform.position.x - myTransform.position.x);
             }
         }
         Destroy(gameObject);
+    }
+
+    private static async void SetDirectionLaterAsync(BasePhysics p, float dir) {
+        await UniTask.Yield();
+        if (p != null) {
+            p.SetDirection(dir);
+        }
     }
 }
 }
