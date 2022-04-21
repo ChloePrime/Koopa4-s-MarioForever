@@ -68,6 +68,7 @@ SpriteAtlas:
   - {fileID: 1987348601, guid: 8044e1e48f6b6924195e29b0dadc520c, type: 3}
   - {fileID: 21300000, guid: 81f18567ae217b74db42ddcf136197a0, type: 3}
   - {fileID: 21300000, guid: 342f3808d087132429f984226dbfc4e4, type: 3}
+  - {fileID: 21300000, guid: b632e189f02d7e54a9e4046d95376faa, type: 3}
   - {fileID: -1160429261, guid: 12d13afa94372f84e84ca295d7940b82, type: 3}
   - {fileID: 1661022473, guid: 12d13afa94372f84e84ca295d7940b82, type: 3}
   - {fileID: -1281376028, guid: 12d13afa94372f84e84ca295d7940b82, type: 3}
@@ -910,6 +911,7 @@ SpriteAtlas:
   - T_Lakitu_Blink_Down_0
   - T_Mole2
   - T_Spike_Up
+  - T_SpinyBall
   - T_Lakitu_Charge_8
   - T_Lakitu_Charge_9
   - T_Lakitu_Charge_2

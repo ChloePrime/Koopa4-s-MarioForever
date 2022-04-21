@@ -15,6 +15,9 @@ namespace SweetMoleHouse.MarioForever.Scripts.Effect
         [SerializeField, RenameInInspector("自转速度(度/秒)")]
         private float rotSpeed;
 
+        [SerializeField, RenameInInspector("与行走方向无关")]
+        private bool directionIrrelevant;
+
         private bool hasPhysics;
         private BasePhysics physics;
 
@@ -30,9 +33,9 @@ namespace SweetMoleHouse.MarioForever.Scripts.Effect
         private void Update()
         {
             float deltaAngle = rotSpeed * Time.deltaTime;
-            if (hasPhysics)
+            if (hasPhysics && !directionIrrelevant)
             {
-                deltaAngle *= -Math.Sign(physics.XSpeed);
+                deltaAngle *= -Math.Sign(physics.Direction);
             }
             transform.Rotate(0, 0, deltaAngle);
         }
